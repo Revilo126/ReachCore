@@ -1,0 +1,7 @@
+package revilo.reach;
+
+import gregapi.api.Abstract_Proxy;
+
+public class CommonProxy extends Abstract_Proxy {
+
+}
