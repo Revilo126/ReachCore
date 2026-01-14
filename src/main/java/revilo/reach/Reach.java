@@ -3,8 +3,6 @@ package revilo.reach;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.myname.mymodid.Tags;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -44,7 +42,7 @@ public class Reach extends Abstract_Mod {
 
     @Override
     public String getModNameForLog() {
-        return "Example_Mod";
+        return MODNAME;
     }
 
     @Override
@@ -91,35 +89,35 @@ public class Reach extends Abstract_Mod {
     // Only use these
 
     @Override
-    public void onModPreInit2(cpw.mods.fml.common.event.FMLPreInitializationEvent aEvent) {}
+    public void onModPreInit2(FMLPreInitializationEvent aEvent) {}
 
     @Override
-    public void onModInit2(cpw.mods.fml.common.event.FMLInitializationEvent aEvent) {
+    public void onModInit2(FMLInitializationEvent aEvent) {
 
     }
 
     @Override
-    public void onModPostInit2(cpw.mods.fml.common.event.FMLPostInitializationEvent aEvent) {
+    public void onModPostInit2(FMLPostInitializationEvent aEvent) {
         // Insert your PostInit Code here and not above
     }
 
     @Override
-    public void onModServerStarting2(cpw.mods.fml.common.event.FMLServerStartingEvent aEvent) {
+    public void onModServerStarting2(FMLServerStartingEvent aEvent) {
         // Insert your ServerStarting Code here and not above
     }
 
     @Override
-    public void onModServerStarted2(cpw.mods.fml.common.event.FMLServerStartedEvent aEvent) {
+    public void onModServerStarted2(FMLServerStartedEvent aEvent) {
         // Insert your ServerStarted Code here and not above
     }
 
     @Override
-    public void onModServerStopping2(cpw.mods.fml.common.event.FMLServerStoppingEvent aEvent) {
+    public void onModServerStopping2(FMLServerStoppingEvent aEvent) {
         // Insert your ServerStopping Code here and not above
     }
 
     @Override
-    public void onModServerStopped2(cpw.mods.fml.common.event.FMLServerStoppedEvent aEvent) {
+    public void onModServerStopped2(FMLServerStoppedEvent aEvent) {
         // Insert your ServerStopped Code here and not above
     }
 
