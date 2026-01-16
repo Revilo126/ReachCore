@@ -21,7 +21,7 @@ import revilo.reach.recipes.RecipeLoader;
     version = Tags.VERSION,
     name = Reach.MODNAME,
     acceptedMinecraftVersions = "[1.7.10]",
-    dependencies = "required-after:gregapi_post")
+    dependencies = "required-after:gregapi_post;required-after:gregtech")
 public class Reach extends Abstract_Mod {
 
     public static final String MODID = "reach";
