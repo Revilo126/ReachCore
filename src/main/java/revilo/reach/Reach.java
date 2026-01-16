@@ -14,6 +14,7 @@ import cpw.mods.fml.common.event.FMLServerStoppedEvent;
 import cpw.mods.fml.common.event.FMLServerStoppingEvent;
 import gregapi.api.Abstract_Mod;
 import gregapi.api.Abstract_Proxy;
+import revilo.reach.recipes.RecipeLoader;
 
 @Mod(
     modid = Reach.MODID,
@@ -98,7 +99,9 @@ public class Reach extends Abstract_Mod {
 
     @Override
     public void onModPostInit2(FMLPostInitializationEvent aEvent) {
-        // Insert your PostInit Code here and not above
+        RecipeLoader recipeLoader = new RecipeLoader();
+
+        recipeLoader.postInit();
     }
 
     @Override
