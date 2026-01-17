@@ -16,6 +16,7 @@ import gregapi.api.Abstract_Mod;
 import gregapi.api.Abstract_Proxy;
 import revilo.reach.loaders.FluidLoader;
 import revilo.reach.loaders.MaterialLoader;
+import revilo.reach.recipes.RecipeLoader;
 
 @Mod(
     modid = Reach.MODID,
@@ -99,6 +100,7 @@ public class Reach extends Abstract_Mod {
     @Override
     public void onModInit2(FMLInitializationEvent aEvent) {
         MaterialLoader.instance.registerRecipes();
+        new RecipeLoader().run();
     }
 
     @Override

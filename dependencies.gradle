@@ -40,7 +40,7 @@ dependencies {
     implementation("com.gregoriust.gregtech:gregtech_1.7.10:6.17.06:dev")
     implementation("com.github.GTNewHorizons:CodeChickenCore:1.4.10:dev")
     
-    implementation files('libs/Avaritia-1.13.jav')
+    //implementation files('libs/Avaritia-1.13.jar')
     
     //runtimeOnlyNonPublishable("com.github.GTNewHorizons:Angelica:2.0.0-alpha6:dev")
 }

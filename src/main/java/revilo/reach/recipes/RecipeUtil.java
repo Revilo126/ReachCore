@@ -8,7 +8,7 @@ import gregapi.recipes.Recipe;
 
 public class RecipeUtil {
 
-    public static void removeAllRecipes(Recipe.RecipeMap map, ItemStack... output) {
+    public static void removeAllRecipes(Recipe.RecipeMap map, ItemStack... output) { // WIP doesn't work!
         final List<Recipe> recipes = map.getNEIRecipes(output);
         if (recipes != null && !recipes.isEmpty()) {
             map.mRecipeList.removeAll(recipes);

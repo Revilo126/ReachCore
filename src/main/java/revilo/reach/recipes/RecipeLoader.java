@@ -1,8 +1,9 @@
 package revilo.reach.recipes;
 
-public class RecipeLoader {
+public class RecipeLoader implements Runnable {
 
-    public void postInit() {
+    @Override
+    public void run() {
 
         RecipesMinecraft recipesMinecraft = new RecipesMinecraft();
         recipesMinecraft.postInit();
