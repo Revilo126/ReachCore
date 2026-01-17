@@ -14,6 +14,7 @@ import cpw.mods.fml.common.event.FMLServerStoppedEvent;
 import cpw.mods.fml.common.event.FMLServerStoppingEvent;
 import gregapi.api.Abstract_Mod;
 import gregapi.api.Abstract_Proxy;
+import revilo.reach.loaders.FluidLoader;
 import revilo.reach.loaders.MaterialLoader;
 
 @Mod(
@@ -21,7 +22,7 @@ import revilo.reach.loaders.MaterialLoader;
     version = Tags.VERSION,
     name = Reach.MODNAME,
     acceptedMinecraftVersions = "[1.7.10]",
-    dependencies = "required-after:gregapi_post;required-after:gregtech")
+    dependencies = "required-after:gregapi_post;after:gregtech")
 public class Reach extends Abstract_Mod {
 
     public static final String MODID = "reach";
@@ -92,6 +93,7 @@ public class Reach extends Abstract_Mod {
     @Override
     public void onModPreInit2(FMLPreInitializationEvent aEvent) {
         new MaterialLoader();
+        new FluidLoader().run();
     }
 
     @Override
