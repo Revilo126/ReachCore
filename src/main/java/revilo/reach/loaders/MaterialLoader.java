@@ -1,14 +1,13 @@
 package revilo.reach.loaders;
 
-public class MaterialLoader {
+import gregapi.data.MT;
+import gregapi.data.TD;
 
-    public static MaterialLoader instance;
+public class MaterialLoader implements Runnable {
 
-    public MaterialLoader() {
-        instance = this;
-    }
-
-    public void registerRecipes() {
+    @Override
+    public void run() {
+        MT.Nq_528.put(TD.ItemGenerator.WIRES);
 
     }
 

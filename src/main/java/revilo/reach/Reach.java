@@ -14,8 +14,11 @@ import cpw.mods.fml.common.event.FMLServerStoppedEvent;
 import cpw.mods.fml.common.event.FMLServerStoppingEvent;
 import gregapi.api.Abstract_Mod;
 import gregapi.api.Abstract_Proxy;
+import gregapi.data.MT;
+import gregapi.data.TD;
 import revilo.reach.loaders.FluidLoader;
 import revilo.reach.loaders.MaterialLoader;
+import revilo.reach.loaders.MultiTileEntityLoader;
 import revilo.reach.recipes.RecipeLoader;
 
 @Mod(
@@ -23,7 +26,7 @@ import revilo.reach.recipes.RecipeLoader;
     version = Tags.VERSION,
     name = Reach.MODNAME,
     acceptedMinecraftVersions = "[1.7.10]",
-    dependencies = "required-after:gregapi_post;after:gregtech")
+    dependencies = "required-after:gregapi_post")
 public class Reach extends Abstract_Mod {
 
     public static final String MODID = "reach";
@@ -93,14 +96,15 @@ public class Reach extends Abstract_Mod {
 
     @Override
     public void onModPreInit2(FMLPreInitializationEvent aEvent) {
-        new MaterialLoader();
         new FluidLoader().run();
+        MT.Nq_528.put(TD.ItemGenerator.WIRES);
     }
 
     @Override
     public void onModInit2(FMLInitializationEvent aEvent) {
-        MaterialLoader.instance.registerRecipes();
+        new MaterialLoader().run();
         new RecipeLoader().run();
+        new MultiTileEntityLoader().run();
     }
 
     @Override
