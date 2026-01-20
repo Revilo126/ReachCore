@@ -1,5 +1,7 @@
 package revilo.reach;
 
+import static gregapi.data.CS.*;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,8 +16,7 @@ import cpw.mods.fml.common.event.FMLServerStoppedEvent;
 import cpw.mods.fml.common.event.FMLServerStoppingEvent;
 import gregapi.api.Abstract_Mod;
 import gregapi.api.Abstract_Proxy;
-import gregapi.data.MT;
-import gregapi.data.TD;
+import gregapi.code.ArrayListNoNulls;
 import revilo.reach.loaders.FluidLoader;
 import revilo.reach.loaders.MaterialLoader;
 import revilo.reach.loaders.MultiTileEntityLoader;
@@ -97,14 +98,23 @@ public class Reach extends Abstract_Mod {
     @Override
     public void onModPreInit2(FMLPreInitializationEvent aEvent) {
         new FluidLoader().run();
-        MT.Nq_528.put(TD.ItemGenerator.WIRES);
     }
 
     @Override
     public void onModInit2(FMLInitializationEvent aEvent) {
-        new MaterialLoader().run();
-        new RecipeLoader().run();
-        new MultiTileEntityLoader().run();
+
+        ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(
+            F,
+            new MaterialLoader(),
+            new RecipeLoader(),
+            new MultiTileEntityLoader());
+
+        for (Runnable tRunnable : tList) try {
+            tRunnable.run();
+        } catch (Throwable e) {
+            e.printStackTrace(ERR);
+        }
+
     }
 
     @Override

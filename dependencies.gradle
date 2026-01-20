@@ -40,8 +40,8 @@ dependencies {
     implementation("com.gregoriust.gregtech:gregtech_1.7.10:6.17.06:dev")
     implementation("com.github.GTNewHorizons:CodeChickenCore:1.4.10:dev")
     
-    //implementation("ic2:IC2Classic:1.2.1.8:dev")
-    //implementation("appeng:appliedenergistics2:rv3-beta-6:dev")
+    implementation("ic2:IC2Classic:1.2.1.8:dev")
+    implementation("appeng:appliedenergistics2:rv3-beta-6:dev")
     
     //implementation files('libs/Avaritia-1.13.jar')
     
