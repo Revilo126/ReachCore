@@ -2,6 +2,8 @@ package revilo.reach;
 
 import static gregapi.data.CS.*;
 
+import net.minecraft.block.Block;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,6 +18,9 @@ import cpw.mods.fml.common.event.FMLServerStoppedEvent;
 import cpw.mods.fml.common.event.FMLServerStoppingEvent;
 import gregapi.api.Abstract_Mod;
 import gregapi.api.Abstract_Proxy;
+import gregapi.block.MaterialMachines;
+import gregapi.block.multitileentity.MultiTileEntityBlock;
+import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.code.ArrayListNoNulls;
 import revilo.reach.loaders.FluidLoader;
 import revilo.reach.loaders.MaterialLoader;
@@ -97,6 +102,20 @@ public class Reach extends Abstract_Mod {
 
     @Override
     public void onModPreInit2(FMLPreInitializationEvent aEvent) {
+        new MultiTileEntityRegistry("reach.multitileentity");
+
+        MultiTileEntityBlock.getOrCreate(
+            Reach.MODID,
+            "machine",
+            MaterialMachines.instance,
+            Block.soundTypeMetal,
+            TOOL_cutter,
+            0,
+            0,
+            15,
+            F,
+            F);
+
         new FluidLoader().run();
     }
 

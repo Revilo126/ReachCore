@@ -11,11 +11,34 @@ import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.data.MD;
 import gregapi.data.MT;
 import gregapi.tileentity.connectors.MultiTileEntityWireElectric;
+import revilo.reach.Reach;
+import revilo.reach.api.data.RCMT;
 
 public class MultiTileEntityLoader implements Runnable {
 
     @Override
     public void run() {
+
+        Class<? extends TileEntity> aClass = MultiTileEntityWireElectric.class;
+
+        MultiTileEntityRegistry aRegistry = MultiTileEntityRegistry.getRegistry("reach.multitileentity");
+
+        MultiTileEntityBlock aMetalWires = MultiTileEntityBlock.getOrCreate(
+            Reach.MODID,
+            "machine",
+            MaterialMachines.instance,
+            Block.soundTypeMetal,
+            TOOL_cutter,
+            0,
+            0,
+            15,
+            F,
+            F);
+
+        MultiTileEntityWireElectric
+            .addElectricWires(50, 28366, V[7], 4, 6, 2, T, F, T, aRegistry, aMetalWires, aClass, RCMT.Sr2RuO4);
+
+        // Use Below when creating wires from gt materials
         MultiTileEntityRegistry aGTRegistry = MultiTileEntityRegistry.getRegistry("gt.multitileentity"); // i know its
                                                                                                          // GT6's
                                                                                                          // registry but
@@ -34,10 +57,8 @@ public class MultiTileEntityLoader implements Runnable {
             F,
             F);
 
-        Class<? extends TileEntity> aClass = MultiTileEntityWireElectric.class;
-
         MultiTileEntityWireElectric
-            .addElectricWires(30000, 28366, V[7], 4, 4, 2, T, F, T, aGTRegistry, aMetalWiresGT, aClass, MT.Nq_528);
+            .addElectricWires(30000, 28366, VMAX[7], 4, 4, 2, T, F, T, aGTRegistry, aMetalWiresGT, aClass, MT.Nq_528);
 
     }
 
