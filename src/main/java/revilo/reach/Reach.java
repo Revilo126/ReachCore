@@ -22,9 +22,11 @@ import gregapi.block.MaterialMachines;
 import gregapi.block.multitileentity.MultiTileEntityBlock;
 import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.code.ArrayListNoNulls;
+import revilo.reach.commands.CommandRCHand;
 import revilo.reach.loaders.FluidLoader;
 import revilo.reach.loaders.MaterialLoader;
 import revilo.reach.loaders.MultiTileEntityLoader;
+import revilo.reach.loaders.WorldGenLoader;
 import revilo.reach.recipes.RecipeLoader;
 
 @Mod(
@@ -126,7 +128,8 @@ public class Reach extends Abstract_Mod {
             F,
             new MaterialLoader(),
             new RecipeLoader(),
-            new MultiTileEntityLoader());
+            new MultiTileEntityLoader(),
+            new WorldGenLoader());
 
         for (Runnable tRunnable : tList) try {
             tRunnable.run();
@@ -142,6 +145,7 @@ public class Reach extends Abstract_Mod {
     @Override
     public void onModServerStarting2(FMLServerStartingEvent aEvent) {
         // Insert your ServerStarting Code here and not above
+        aEvent.registerServerCommand(new CommandRCHand());
     }
 
     @Override

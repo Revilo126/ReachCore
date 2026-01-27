@@ -19,9 +19,16 @@ public class MultiTileEntityLoader implements Runnable {
     @Override
     public void run() {
 
-        Class<? extends TileEntity> aClass = MultiTileEntityWireElectric.class;
-
         MultiTileEntityRegistry aRegistry = MultiTileEntityRegistry.getRegistry("reach.multitileentity");
+
+        wire(aRegistry);
+        unsorted();
+
+    }
+
+    private static void wire(MultiTileEntityRegistry aRegistry) {
+
+        Class<? extends TileEntity> aClass = MultiTileEntityWireElectric.class;
 
         MultiTileEntityBlock aMetalWires = MultiTileEntityBlock.getOrCreate(
             Reach.MODID,
@@ -59,7 +66,9 @@ public class MultiTileEntityLoader implements Runnable {
 
         MultiTileEntityWireElectric
             .addElectricWires(30000, 28366, VMAX[7], 4, 4, 2, T, F, T, aGTRegistry, aMetalWiresGT, aClass, MT.Nq_528);
-
     }
 
+    private static void unsorted() {
+
+    }
 }
