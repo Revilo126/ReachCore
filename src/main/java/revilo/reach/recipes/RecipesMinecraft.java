@@ -4,6 +4,7 @@ import static gregapi.data.CS.*;
 import static gregapi.data.CS.OreDictToolNames.*;
 import static gregapi.data.MD.*;
 import static gregapi.data.OD.*;
+import static gregapi.data.OP.*;
 import static gregapi.util.CR.*;
 import static gregapi.util.ST.*;
 
@@ -12,10 +13,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import gregapi.code.ArrayListNoNulls;
+import gregapi.data.ANY;
+import gregapi.data.MT;
 
-public class RecipesMinecraft {
+public class RecipesMinecraft implements Runnable {
 
-    public void postInit() {
+    @Override
+    public void run() {
+        delate(make(MC, "crafting_table", 1));
         shaped(
             make(MC, "crafting_table", 1),
             DEF_NCC,
@@ -29,7 +34,47 @@ public class RecipesMinecraft {
             logWood,
             'a',
             axe);
+
+        delate(make(MC, "chest", 1));
         shaped(make(MC, "chest", 1), DEF_NCC, "LPL", "PsP", "LPL", 'L', logWood, 'P', plankWood, 's', saw);
+
+        delate(make(MC, "furnace", 1));
+        shaped(
+            make(MC, "furnace", 1),
+            DEF_NCC,
+            " S ",
+            "SfS",
+            " Sh",
+            'S',
+            cobblestone,
+            'f',
+            craftingFirestarter,
+            'h',
+            hammer);
+        shaped(
+            make(MC, "furnace", 1),
+            DEF_NCC,
+            " S ",
+            "SfS",
+            " Sh",
+            'S',
+            stone.dat(MT.STONES.Basalt),
+            'f',
+            craftingFirestarter,
+            'h',
+            hammer);
+        shaped(
+            make(MC, "furnace", 1),
+            DEF_NCC,
+            " S ",
+            "SfS",
+            " Sh",
+            'S',
+            rockGt.dat(ANY.Stone),
+            'f',
+            craftingFirestarter,
+            'h',
+            hammer);
 
         ArrayListNoNulls<Item> tTools = new ArrayListNoNulls<>(
             F,

@@ -20,7 +20,8 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
         return aMaterial;
     }
 
-    public static final OreDictMaterial Sr2RuO4 = create(23000, "Distrontium Ruthenate", "Sr2RuO4")
+    public static final OreDictMaterial Sr2RuO4 = create(23000, "Distrontium Ruthenate", "Sr2RuO4") // Distrontium
+                                                                                                    // Ruthenate line
         .setTextures(TextureSet.SET_METALLIC)
         .setRGBa(50, 50, 50, 255)
         .put(TD.ItemGenerator.G_INGOT, TD.Compounds.ALLOY)
@@ -34,7 +35,7 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             .setTextures(TextureSet.SET_CUBE) // not seen
             .put(TD.ItemGenerator.G_DUST)
             .setMcfg(CS.U, MT.Ru, CS.U, MT.O, CS.U2),
-        RuCl3 = create(23003, "Ruthenium Chloride", "RuCl3").setTextures(TextureSet.SET_CUBE)
+        RuCl3 = create(23003, "Ruthenium Chloride", "RuCl3").setTextures(TextureSet.SET_CUBE) // not seen
             .setRGBa(20, 20, 20, 255)
             .put(TD.ItemGenerator.G_DUST)
             .setMcfg(0, MT.Ru, CS.U, MT.Cl, CS.U);
