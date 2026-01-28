@@ -76,7 +76,8 @@ public class MultiTileEntityLoader implements Runnable {
     private static void unsorted(MultiTileEntityRegistry aRegistry) {
 
         aClass = MultiTileEntityMagnetElectric.class;
-        // aMat = MT.DATA.Electric_T[1]; aRegistry.add("Time Accelerator (" +aMat.getLocal()+")", "") gon be broken af ;)
+        // aMat = MT.DATA.Electric_T[1]; aRegistry.add("Time Accelerator (" +aMat.getLocal()+")", "") gon be broken af
+        // ;)
 
     }
 }
