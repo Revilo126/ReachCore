@@ -13,4 +13,9 @@ repositories {
 		name = "sonatype"
 		url = "https://oss.sonatype.org/content/repositories/snapshots/"
 	}
+	maven {
+		name = "curse"
+		url = "https://cursemaven.com"
+	}
+	
 }
