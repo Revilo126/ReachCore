@@ -43,7 +43,7 @@ dependencies {
     implementation("ic2:IC2Classic:1.2.1.8:dev")
     implementation("appeng:appliedenergistics2:rv3-beta-6:dev")
     
-    implementation("curse.maven:matter-overdrive-community-edition-557428:5223722")
+    compileOnly("curse.maven:matter-overdrive-community-edition-557428:5223722")
     
     //implementation files('libs/Avaritia-1.13.jar')
     
