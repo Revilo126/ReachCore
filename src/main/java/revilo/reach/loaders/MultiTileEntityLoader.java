@@ -12,7 +12,6 @@ import gregapi.data.MD;
 import gregapi.data.MT;
 import gregapi.oredict.OreDictMaterial;
 import gregapi.tileentity.connectors.MultiTileEntityWireElectric;
-import gregtech.tileentity.energy.converters.MultiTileEntityMagnetElectric;
 import revilo.reach.Reach;
 import revilo.reach.api.data.RCMT;
 
