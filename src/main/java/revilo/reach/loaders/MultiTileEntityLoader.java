@@ -73,11 +73,5 @@ public class MultiTileEntityLoader implements Runnable {
             .addElectricWires(30000, 28366, VMAX[7], 4, 4, 2, T, F, T, aGTRegistry, aMetalWiresGT, aClass, MT.Nq_528);
     }
 
-    private static void unsorted(MultiTileEntityRegistry aRegistry) {
-
-        aClass = MultiTileEntityMagnetElectric.class;
-        // aMat = MT.DATA.Electric_T[1]; aRegistry.add("Time Accelerator (" +aMat.getLocal()+")", "") gon be broken af
-        // ;)
-
-    }
+    private static void unsorted(MultiTileEntityRegistry aRegistry) {}
 }
