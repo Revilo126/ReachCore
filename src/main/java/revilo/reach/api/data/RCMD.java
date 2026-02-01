@@ -6,4 +6,5 @@ import revilo.reach.Reach;
 public class RCMD {
 
     public static final ModData RC = new ModData(Reach.MODID, "Reach");
+    public static final ModData BP = new ModData("Backpack", "Backpack Edited for ModdedNetwork");
 }

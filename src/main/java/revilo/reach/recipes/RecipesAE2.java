@@ -18,57 +18,74 @@ public class RecipesAE2 implements Runnable {
 
     @Override
     public void run() {
-        delate(ST.make(MD.AE, "tile.BlockController", 1, 0));
         shaped(
-            ST.make(MD.AE, "tile.BlockController", 1, 0),
-            DEF_NCC,
-            "wSs",
+            ST.make(AE, "tile.BlockController", 1, 0),
+            DEF_REM_REV,
+            "wSd",
             "ECE",
-            'w',
-            wrench,
-            's',
-            screwdriver,
-            'S',
-            screw.dat(MT.Cr),
-            'C',
-            casingMachine.dat(MT.Cr),
-            'E',
-            OD_CIRCUITS[4]);
-
-        delate(ST.make(MD.AE, "tile.BlockCraftingUnit", 1, 0));
-        shaped(
-            ST.make(MD.AE, "tile.BlockCraftingUnit", 1, 0),
-            DEF_NCC,
-            "w s",
-            "FCF",
-            "SES",
-            'w',
-            wrench,
-            's',
-            screwdriver,
+            "PSP",
             'S',
             screw.dat(MT.Ir),
             'C',
             casingMachine.dat(MT.Ir),
-            'F',
-            ST.make(MD.AE, "item.ItemMultiPart", 1, 16),
             'E',
-            OD_CIRCUITS[6]);
-
-        delate(ST.make(MD.AE, "tile.BlockCraftingUnit", 1, 1));
+            OD_CIRCUITS[6],
+            'P',
+            IL.Processor_Crystal_Emerald);
         shaped(
-            ST.make(MD.AE, "tile.BlockCraftingUnit", 1, 1),
-            DEF_NCC,
-            "UP",
-            "ws",
-            'U',
-            ST.make(MD.AE, "tile.BlockCraftingUnit", 1, 0),
+            ST.make(AE, "tile.BlockDrive", 1, 0),
+            DEF_REM_REV,
+            "wLd",
+            "PHE",
+            "SCS",
+            'S',
+            screw.dat(MT.Ir),
+            'C',
+            casingMachine.dat(MT.Ir),
+            'E',
+            OD_CIRCUITS[6],
             'P',
             IL.Processor_Crystal_Emerald,
-            'w',
-            wrench,
-            's',
-            screwdriver);
+            'L',
+            IL.EMITTERS[6],
+            'H',
+            ST.make(AE, "item.ItemMultiMaterial", 1, 39));
+        shaped(
+            ST.make(AE, "tile.BlockCraftingUnit", 1, 0),
+            DEF_REM_REV,
+            "w d",
+            "FCF",
+            "SES",
+            'C',
+            casingMachine.dat(MT.Ir),
+            'F',
+            ST.make(AE, "item.ItemMultiPart", 1, 16),
+            'E',
+            OD_CIRCUITS[6],
+            'S',
+            screw.dat(MT.Ir));
+
+        shaped(
+            ST.make(MD.AE, "tile.BlockCraftingUnit", 1, 1),
+            DEF_REM_REV,
+            "UP",
+            "wd",
+            'U',
+            ST.make(MD.AE, "tile.BlockCraftingUnit", 1, 0), // storage quad core
+            'P',
+            ST.make(MD.GT, "gt.multitileentity", 1, 18203)); // storage quad core
+        shaped(
+            ST.make(MD.AE, "tile.BlockCraftingUnit", 1, 2),
+            DEF_REM_REV,
+            "PCP",
+            "CUC",
+            "PCP",
+            'P',
+            ST.make(MD.GT, "gt.multitileentity", 1, 18203), // storage quad core
+            'C',
+            OD_CIRCUITS[6],
+            'U',
+            ST.make(MD.AE, "tile.BlockCraftingUnit", 1, 1));
 
     }
 

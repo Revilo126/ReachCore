@@ -8,7 +8,12 @@ public class RecipeLoader implements Runnable {
 
     @Override
     public void run() {
-        ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(F, new RecipesMinecraft(), new RecipesAE2());
+        ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(
+            F,
+            new RecipesMinecraft(),
+            new RecipesAE2(),
+            new RecipesBackpacks(),
+            new RecipesAdvRocketry());
         for (Runnable tRunnable : tList) try {
             tRunnable.run();
         } catch (Throwable e) {

@@ -26,11 +26,11 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
         .setRGBa(50, 50, 50, 255)
         .put(TD.ItemGenerator.G_INGOT, TD.Compounds.ALLOY)
         .heat(2270, 4420)
-        .setMcfg(0, MT.Sr, CS.U2, MT.Ru, CS.U, MT.O, CS.U2),
+        .setMcfg(CS.U2, MT.Sr, CS.U, MT.Ru, CS.U2, MT.O, CS.U),
         SrCO3 = create(23001, "Strontium Carbonate", "SrCO3").setTextures(TextureSet.SET_CUBE) // Textures aren't used
             .setRGBa(240, 240, 240, 255)
             .put(TD.ItemGenerator.G_DUST)
-            .setMcfg(0, MT.Sr, CS.U, MT.CO3, CS.U),
+            .setMcfg(CS.U, MT.Sr, CS.U, MT.CO3, CS.U),
         RuO2 = create(23002, "Ruthenium Dioxide", "RuO2").setRGBa(90, 90, 90, 255)
             .setTextures(TextureSet.SET_CUBE) // not seen
             .put(TD.ItemGenerator.G_DUST)
@@ -39,5 +39,9 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             .setRGBa(20, 20, 20, 255)
             .put(TD.ItemGenerator.G_DUST)
             .setMcfg(0, MT.Ru, CS.U, MT.Cl, CS.U);
+
+    public static final OreDictMaterial Thermite = create(23004, "Thermite", "AlFe3").setTextures(TextureSet.SET_CUBE)
+        .put(TD.ItemGenerator.G_DUST)
+        .setMcfg(CS.U, MT.Al, CS.U, MT.Fe, CS.U3);
 
 }
