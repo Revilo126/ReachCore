@@ -27,6 +27,7 @@ import revilo.reach.loaders.FluidLoader;
 import revilo.reach.loaders.MaterialLoader;
 import revilo.reach.loaders.MultiTileEntityLoader;
 import revilo.reach.loaders.WorldGenLoader;
+import revilo.reach.oredict.OreDictUnification;
 import revilo.reach.recipes.RecipeLoader;
 
 @Mod(
@@ -140,7 +141,12 @@ public class Reach extends Abstract_Mod {
     }
 
     @Override
-    public void onModPostInit2(FMLPostInitializationEvent aEvent) {}
+    public void onModPostInit2(FMLPostInitializationEvent aEvent) {
+        // OreDictionary.registerOre(OP.blockDust.dat(MT.STONES.MoonTurf).mOreDictName, ST.make(MD.GC_ADV_ROCKETRY,
+        // "moonTurf", 1));
+
+        new OreDictUnification().run();
+    }
 
     @Override
     public void onModServerStarting2(FMLServerStartingEvent aEvent) {
