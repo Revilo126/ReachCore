@@ -45,7 +45,7 @@ public class RecipesAdvRocketry implements Runnable {
             'R',
             rod.dat(MT.Al),
             'U',
-            itemAR("miscPart", 1, 0),
+            rod.dat(MT.Al), // put user interface
             'C',
             OD_CIRCUITS[2],
             'A',
@@ -53,7 +53,7 @@ public class RecipesAdvRocketry implements Runnable {
             'G',
             gearGtSmall.dat(MT.Al));
         shaped(
-            itemAR("tile.stationAssembler"),
+            itemAR("rocketBuilder"),
             DEF_REM_REV,
             "RUR",
             "CAC",
@@ -61,7 +61,7 @@ public class RecipesAdvRocketry implements Runnable {
             'R',
             rod.dat(MT.Cr),
             'U',
-            itemAR("miscPart", 1, 0),
+            rod.dat(MT.Al), // put user interface
             'C',
             OD_CIRCUITS[4],
             'A',

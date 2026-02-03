@@ -72,21 +72,71 @@ public class RecipesBackpacks implements Runnable {
                 DYE_FLUIDS_WATER[i],
                 NF,
                 ST.make(RCMD.BP, "backpack", 1, i + 1));
+            Bath.addRecipe1(
+                T,
+                0,
+                16,
+                ST.make(RCMD.BP, "backpack", 1, 0),
+                DYE_FLUIDS_FLOWER[i],
+                NF,
+                ST.make(RCMD.BP, "backpack", 1, i + 1));
+            Bath.addRecipe1(
+                T,
+                0,
+                16,
+                ST.make(RCMD.BP, "backpack", 1, 0),
+                DYE_FLUIDS_CHEMICAL[i],
+                NF,
+                ST.make(RCMD.BP, "backpack", 1, i + 1));
+
             delate(ST.make(RCMD.BP, "backpack", 1, i + 100));
             Bath.addRecipe1(
                 T,
                 0,
                 64,
-                ST.make(RCMD.BP, "backpack", 1, 0),
+                ST.make(RCMD.BP, "backpack", 1, 100),
+                DYE_FLUIDS_WATER[i],
+                NF,
+                ST.make(RCMD.BP, "backpack", 1, i + 100));
+            Bath.addRecipe1(
+                T,
+                0,
+                64,
+                ST.make(RCMD.BP, "backpack", 1, 100),
                 DYE_FLUIDS_FLOWER[i],
                 NF,
                 ST.make(RCMD.BP, "backpack", 1, i + 100));
+            Bath.addRecipe1(
+                T,
+                0,
+                64,
+                ST.make(RCMD.BP, "backpack", 1, 100),
+                DYE_FLUIDS_CHEMICAL[i],
+                NF,
+                ST.make(RCMD.BP, "backpack", 1, i + 100));
+
             delate(ST.make(RCMD.BP, "backpack", 1, i + 200));
             Bath.addRecipe1(
                 T,
                 0,
-                128,
-                ST.make(RCMD.BP, "backpack", 1, 0),
+                64,
+                ST.make(RCMD.BP, "backpack", 1, 200),
+                DYE_FLUIDS_WATER[i],
+                NF,
+                ST.make(RCMD.BP, "backpack", 1, i + 200));
+            Bath.addRecipe1(
+                T,
+                0,
+                64,
+                ST.make(RCMD.BP, "backpack", 1, 200),
+                DYE_FLUIDS_FLOWER[i],
+                NF,
+                ST.make(RCMD.BP, "backpack", 1, i + 200));
+            Bath.addRecipe1(
+                T,
+                0,
+                64,
+                ST.make(RCMD.BP, "backpack", 1, 200),
                 DYE_FLUIDS_CHEMICAL[i],
                 NF,
                 ST.make(RCMD.BP, "backpack", 1, i + 200));
