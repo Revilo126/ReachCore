@@ -5,7 +5,8 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentText;
 
-public class CommandRCHand extends CommandBase {
+@Deprecated
+public class CommandRCHand extends CommandBase { // TODO: Remove as it is unused
 
     @Override
     public String getCommandName() {

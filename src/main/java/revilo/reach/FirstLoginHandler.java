@@ -21,7 +21,12 @@ public class FirstLoginHandler {
             EntityPlayer player = Minecraft.getMinecraft().thePlayer;
             player.addChatComponentMessage(
                 new ChatComponentText(
-                    "[Welcome to " + EnumChatFormatting.BLUE + "Reach" + EnumChatFormatting.WHITE + "]"));
+                    "[Welcome to " + EnumChatFormatting.BLUE
+                        + "Reach"
+                        + EnumChatFormatting.DARK_PURPLE
+                        + player.getDisplayName()
+                        + EnumChatFormatting.WHITE
+                        + "]"));
             completedMessage = true;
         }
     }

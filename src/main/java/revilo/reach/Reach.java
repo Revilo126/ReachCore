@@ -22,6 +22,7 @@ import gregapi.block.MaterialMachines;
 import gregapi.block.multitileentity.MultiTileEntityBlock;
 import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.code.ArrayListNoNulls;
+import gregapi.data.CS.ModIDs;
 import revilo.reach.commands.CommandRCHand;
 import revilo.reach.loaders.FluidLoader;
 import revilo.reach.loaders.MaterialLoader;
@@ -35,7 +36,7 @@ import revilo.reach.recipes.RecipeLoader;
     version = Tags.VERSION,
     name = Reach.MODNAME,
     acceptedMinecraftVersions = "[1.7.10]",
-    dependencies = "required-after:gregapi_post")
+    dependencies = "required-after:" + ModIDs.GAPI_POST + ";after:" + ModIDs.GC_ADV_ROCKETRY)
 public class Reach extends Abstract_Mod {
 
     public static final String MODID = "reach";
@@ -142,12 +143,10 @@ public class Reach extends Abstract_Mod {
 
     @Override
     public void onModPostInit2(FMLPostInitializationEvent aEvent) {
-        // OreDictionary.registerOre(OP.blockDust.dat(MT.STONES.MoonTurf).mOreDictName, ST.make(MD.GC_ADV_ROCKETRY,
-        // "moonTurf", 1));
-
         new OreDictUnification().run();
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void onModServerStarting2(FMLServerStartingEvent aEvent) {
         // Insert your ServerStarting Code here and not above
