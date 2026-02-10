@@ -32,7 +32,7 @@ public class RecipesMO implements Runnable {
 
         shaped(
             ST.make(MD.MO, "phaser_rifle", 1),
-            DEF_REM_REV,
+            DEF_REM,
             "PPP",
             "RRL",
             "dwB",

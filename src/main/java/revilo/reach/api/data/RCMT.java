@@ -19,11 +19,22 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
 
     @SuppressWarnings("deprecation")
     public static OreDictMaterial create(int aID, String aNameOreDict, String aSymbol) {
+        OreDictMaterial aMaterial = create(aID, aNameOreDict).setTooltip(aSymbol);
+        return aMaterial;
+    }
+
+    public static OreDictMaterial create(int aID, String aNameOreDict) {
         OreDictMaterial aMaterial = OreDictMaterial.createMaterial(aID, aNameOreDict, aNameOreDict)
-            .setOriginalMod(RCMD.RC)
-            .setTooltip(aSymbol);
+            .setOriginalMod(RCMD.RC);
         ALL_MATERIALS_REGISTERED_HERE.add(aMaterial);
         return aMaterial;
+    }
+
+    static OreDictMaterial stone(int aID, String aNameOreDict, long aR, long aG, long aB, long aA,
+        Object... aRandomData) {
+        return create(aID, aNameOreDict).setRGBa(aR, aG, aB, aA)
+            .setTextures(TextureSet.SET_STONE)
+            .put(aRandomData);
     }
 
     public static final OreDictMaterial Sr2RuO4 = create(23000, "Distrontium Ruthenate", "Sr2RuO4") // Distrontium
@@ -52,5 +63,12 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
         .put(G_DUST, ALLOY, DECOMPOSABLE, CENTRIFUGE)
         .heat(933, MT.Al.mBoilingPoint)
         .setMcfg(0, MT.Al, CS.U, MT.Fe, 3 * U);
+
+    public static class STONES {
+
+        public static OreDictMaterial SeleneTurf = stone(23400, "Selene Turf", 190l, 190l, 190l, 255l),
+            DominiTurf = stone(23401, "Domini Turf", 180, 20, 20, 255),
+            Alfheim1Turf = stone(23401, "Alfheim-1 Turf", 180, 20, 20, 255);
+    }
 
 }

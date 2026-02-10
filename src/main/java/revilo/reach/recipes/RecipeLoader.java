@@ -15,6 +15,7 @@ public class RecipeLoader implements Runnable {
             new RecipesBackpacks(),
             new RecipesAdvRocketry(),
             new RecipesMO(),
+            new RecipesPersonalDim(),
             new RecipesGregTech());
         for (Runnable tRunnable : tList) try {
             tRunnable.run();

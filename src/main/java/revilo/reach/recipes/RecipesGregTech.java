@@ -33,10 +33,9 @@ public class RecipesGregTech implements Runnable {
 
     private void cables(MultiTileEntityRegistry aRegistry) {
         ItemStack fiberCable = aRegistry.getItem(24900);
-        delate(fiberCable);
         shaped(
             fiberCable,
-            DEF,
+            DEF_REM,
             "GCG",
             "RSD",
             "w x",

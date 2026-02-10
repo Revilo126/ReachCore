@@ -23,10 +23,11 @@ import gregapi.block.multitileentity.MultiTileEntityBlock;
 import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.code.ArrayListNoNulls;
 import gregapi.data.CS.ModIDs;
-import revilo.reach.loaders.FluidLoader;
-import revilo.reach.loaders.MaterialLoader;
-import revilo.reach.loaders.MultiTileEntityLoader;
-import revilo.reach.loaders.WorldGenLoader;
+import revilo.reach.loaders.a.FluidLoader;
+import revilo.reach.loaders.a.MultiTileEntityLoader;
+import revilo.reach.loaders.a.WorldGenLoader;
+import revilo.reach.loaders.b.MaterialLoader;
+import revilo.reach.loaders.b.OreRecipeLoader;
 import revilo.reach.oredict.OreDictUnification;
 import revilo.reach.recipes.RecipeLoader;
 
@@ -39,7 +40,9 @@ import revilo.reach.recipes.RecipeLoader;
         + ";required-after:"
         + ModIDs.GT
         + ";after:"
-        + ModIDs.GC_ADV_ROCKETRY)
+        + ModIDs.GC_ADV_ROCKETRY
+        + ";after:"
+        + ModIDs.MO)
 public class Reach extends Abstract_Mod {
 
     public static final String MODID = "reach";
@@ -132,6 +135,7 @@ public class Reach extends Abstract_Mod {
         ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(
             F,
             new MaterialLoader(),
+            new OreRecipeLoader(),
             new RecipeLoader(),
             new MultiTileEntityLoader(),
             new WorldGenLoader());
