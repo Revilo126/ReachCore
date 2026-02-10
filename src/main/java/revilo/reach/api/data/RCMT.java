@@ -34,6 +34,7 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
         .heat(2270, 4420)
         .setMcfg(0, MT.Sr, 2 * U, MT.Ru, 1 * U, MT.O, 4 * U),
         SrCO3 = create(23001, "Strontium Carbonate", "SrCO3").setTextures(TextureSet.SET_CUBE) // Textures aren't used
+                                                                                               // in dusts
             .setRGBa(240, 240, 240, 255)
             .put(G_DUST)
             .setMcfg(0, MT.Sr, 1 * U, MT.CO3, 1 * U),

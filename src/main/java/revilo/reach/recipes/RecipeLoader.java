@@ -13,7 +13,9 @@ public class RecipeLoader implements Runnable {
             new RecipesMinecraft(),
             new RecipesAE2(),
             new RecipesBackpacks(),
-            new RecipesAdvRocketry());
+            new RecipesAdvRocketry(),
+            new RecipesMO(),
+            new RecipesGregTech());
         for (Runnable tRunnable : tList) try {
             tRunnable.run();
         } catch (Throwable e) {

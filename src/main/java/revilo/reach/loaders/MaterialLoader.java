@@ -27,7 +27,7 @@ public class MaterialLoader implements Runnable {
         RM.BurnMixer
             .addRecipe2(T, 2048L, 1024L, 10000L, OM.dust(RCMT.SrCO3), OM.dust(RCMT.RuO2), OM.dust(RCMT.Sr2RuO4));
 
-        RM.Mixer.addRecipe2(T, 16L, 1024L, 10000L, OM.dust(MT.Al), OM.dust(MT.Fe, 3), OM.dust(RCMT.Thermite, 4)); // Thermite
+        RM.Mixer.addRecipe2(T, 16L, 1024L, 10000L, OM.dust(MT.Al, 1), OM.dust(MT.Fe, 3), OM.dust(RCMT.Thermite, 4)); // Thermite
 
         RM.Fusion
             .addRecipe1(
@@ -36,7 +36,7 @@ public class MaterialLoader implements Runnable {
                 4096,
                 ST.tag(1),
                 FL.array(MT.Bk.liquid(U, T), MT.Ti.liquid(U, T)),
-                FL.array(MT.Uue.liquid(U, T)),
+                FL.array(MT.Uue.liquid(U, F)),
                 ZL_IS)
             .setSpecialNumber(4096L * 8192L * 16L); // Theoretical Elements - Fusion only
         RM.Fusion
@@ -46,7 +46,7 @@ public class MaterialLoader implements Runnable {
                 4352,
                 ST.tag(2),
                 FL.array(MT.Cf.liquid(U, T), MT.Ti.liquid(U, T)),
-                FL.array(MT.Ubn.liquid(U, T)),
+                FL.array(MT.Ubn.liquid(U, F)),
                 ZL_IS)
             .setSpecialNumber(4352L * 8192L * 16L);
         // RM.Fusion

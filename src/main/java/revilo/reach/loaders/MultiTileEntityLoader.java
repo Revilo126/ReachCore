@@ -22,18 +22,6 @@ public class MultiTileEntityLoader implements Runnable {
 
     @Override
     public void run() {
-
-        MultiTileEntityRegistry aRegistry = MultiTileEntityRegistry.getRegistry("reach.multitileentity");
-
-        wire(aRegistry);
-        unsorted(aRegistry);
-
-    }
-
-    private static void wire(MultiTileEntityRegistry aRegistry) {
-
-        aClass = MultiTileEntityWireElectric.class;
-
         MultiTileEntityBlock aMetalWires = MultiTileEntityBlock.getOrCreate(
             Reach.MODID,
             "machine",
@@ -46,6 +34,18 @@ public class MultiTileEntityLoader implements Runnable {
             F,
             F);
 
+        MultiTileEntityRegistry aRegistry = MultiTileEntityRegistry.getRegistry("reach.multitileentity");
+
+        wire(aRegistry, aMetalWires);
+        unsorted(aRegistry);
+
+    }
+
+    private static void wire(MultiTileEntityRegistry aRegistry, MultiTileEntityBlock aMetalWires) {
+
+        aClass = MultiTileEntityWireElectric.class;
+
+        // ZPM //
         MultiTileEntityWireElectric
             .addElectricWires(50, 28366, V[7], 4, 6, 2, T, F, T, aRegistry, aMetalWires, aClass, RCMT.Sr2RuO4);
 
@@ -68,8 +68,9 @@ public class MultiTileEntityLoader implements Runnable {
             F,
             F);
 
+        // ZPM //
         MultiTileEntityWireElectric
-            .addElectricWires(30000, 28366, VMAX[7], 4, 4, 2, T, F, T, aGTRegistry, aMetalWiresGT, aClass, MT.Nq_528);
+            .addElectricWires(32800, 28366, VMAX[7], 4, 4, 2, T, F, T, aGTRegistry, aMetalWiresGT, aClass, MT.Nq_528);
     }
 
     private static void unsorted(MultiTileEntityRegistry aRegistry) {}
