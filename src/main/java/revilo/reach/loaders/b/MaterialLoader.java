@@ -1,11 +1,15 @@
 package revilo.reach.loaders.b;
 
 import static gregapi.data.CS.*;
+import static gregapi.data.OP.*;
+import static gregapi.util.OM.*;
 
 import gregapi.data.FL;
+import gregapi.data.MD;
 import gregapi.data.MT;
 import gregapi.data.RM;
 import gregapi.util.OM;
+import gregapi.util.ST;
 import revilo.reach.api.data.RCMT;
 
 // TODO: Change into recipes //
@@ -13,6 +17,10 @@ public class MaterialLoader implements Runnable {
 
     @Override
     public void run() {
+        // Ore Registration
+        reg(ST.make(MD.GC_ADV_ROCKETRY, "moonTurf", 1), blockDust.dat(RCMT.SeleneTurf).mOreDictName);
+        reg(ST.make(MD.GC_ADV_ROCKETRY, "moonTurf_Dark", 1), blockDust.dat(RCMT.SeleneTurf).mOreDictName);
+
         // Sr2Ru04 line //
         RM.Mixer.addRecipe1(
             T,
@@ -26,28 +34,28 @@ public class MaterialLoader implements Runnable {
         RM.Smelter.addRecipe1(T, 512, 2048, OM.dust(RCMT.RuCl3), FL.Water.make(250), NF, OM.dust(RCMT.RuO2));
         RM.BurnMixer.addRecipe2(T, 2048L, 1024L, OM.dust(RCMT.SrCO3), OM.dust(RCMT.RuO2), OM.dust(RCMT.Sr2RuO4));
 
-        RM.Mixer.addRecipe2(T, 16L, 1024L, OM.dust(MT.Al, 1), OM.dust(MT.Fe, 3), OM.dust(RCMT.Thermite, 4)); // Thermite
+        RM.Mixer.addRecipe2(T, 16L, 1024L, OM.dust(MT.Al, 1), OM.dust(MT.Fe, 3), NF, NF, OM.dust(RCMT.Thermite, 4)); // Thermite
 
-        // RM.Fusion
-        // .addRecipe1(
-        // F,
-        // -8192,
-        // 4096,
-        // ST.tag(1),
-        // FL.array(MT.Bk.liquid(U, T), MT.Ti.liquid(U, T)),
-        // FL.array(MT.Uue.liquid(U, F)),
-        // ZL_IS)
-        // .setSpecialNumber(4096L * 8192L * 16L); // Theoretical Elements - Fusion only
-        // RM.Fusion
-        // .addRecipe1(
-        // F,
-        // -8192,
-        // 4352,
-        // ST.tag(2),
-        // FL.array(MT.Cf.liquid(U, T), MT.Ti.liquid(U, T)),
-        // FL.array(MT.Ubn.liquid(U, F)),
-        // ZL_IS)
-        // .setSpecialNumber(4352L * 8192L * 16L);
+        RM.Fusion
+            .addRecipe1(
+                F,
+                -8192,
+                4096,
+                ST.tag(1),
+                FL.array(MT.Bk.liquid(U, T), MT.Ti.liquid(U, T)),
+                FL.array(RCMT.Uue.liquid(U, F)),
+                ZL_IS)
+            .setSpecialNumber(4096L * 8192L * 16L); // Theoretical Elements - Fusion only
+        RM.Fusion
+            .addRecipe1(
+                F,
+                -8192,
+                4352,
+                ST.tag(2),
+                FL.array(MT.Cf.liquid(U, T), MT.Ti.liquid(U, T)),
+                FL.array(RCMT.Ubn.liquid(U, F)),
+                ZL_IS)
+            .setSpecialNumber(4352L * 8192L * 16L);
         // RM.Fusion
         // .addRecipe1(
         // F,

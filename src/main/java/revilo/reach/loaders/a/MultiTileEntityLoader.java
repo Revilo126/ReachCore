@@ -49,6 +49,22 @@ public class MultiTileEntityLoader implements Runnable {
         MultiTileEntityWireElectric
             .addElectricWires(50, 28366, V[7], 4, 6, 2, T, F, T, aRegistry, aMetalWires, aClass, RCMT.Sr2RuO4);
 
+        // UV //
+
+        // PUV1 //
+
+        // PUV2 //
+        MultiTileEntityWireElectric
+            .addElectricWires(100, 28366, V[10], 8, 8, 2, T, F, T, aRegistry, aMetalWires, aClass, RCMT.Ubn);
+
+        // PUV3 //
+
+        // PUV4 //
+
+        // PUV5 //
+
+        // MAX //
+
         // Use Below when creating wires from gt materials
         MultiTileEntityRegistry aGTRegistry = MultiTileEntityRegistry.getRegistry("gt.multitileentity"); // i know its
                                                                                                          // GT6's
@@ -68,9 +84,9 @@ public class MultiTileEntityLoader implements Runnable {
             F,
             F);
 
-        // ZPM //
-        MultiTileEntityWireElectric
-            .addElectricWires(32800, 28366, VMAX[7], 4, 4, 2, T, F, T, aGTRegistry, aMetalWiresGT, aClass, MT.Nq_528);
+        // ZPM // TODO: Fix meta issue
+        // MultiTileEntityWireElectric
+        // .addElectricWires(32750, 28366, VMAX[7], 4, 4, 2, T, F, T, aGTRegistry, aMetalWiresGT, aClass, MT.Nq_528);
     }
 
     private static void unsorted(MultiTileEntityRegistry aRegistry) {}

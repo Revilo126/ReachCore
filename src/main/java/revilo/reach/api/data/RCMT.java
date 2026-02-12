@@ -37,6 +37,16 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             .put(aRandomData);
     }
 
+    static OreDictMaterial element(int aID, String aNameOreDict, String aSymbol, long aProtonsAndElectrons,
+        long aNeutrons, long aMeltingPoint, long aBoilingPoint, double aGramPerCubicCentimeter, TextureSet[] aSets,
+        long aR, long aG, long aB, Object... aTags) {
+        return create(aID, aNameOreDict, aSymbol)
+            .setStats(aProtonsAndElectrons, aNeutrons, aMeltingPoint, aBoilingPoint, aGramPerCubicCentimeter)
+            .setTextures(aSets)
+            .setRGBa(aR, aG, aB, 255)
+            .put(aTags);
+    }
+
     public static final OreDictMaterial Sr2RuO4 = create(23000, "Distrontium Ruthenate", "Sr2RuO4") // Distrontium
                                                                                                     // Ruthenate line
         .setTextures(TextureSet.SET_METALLIC)
@@ -45,7 +55,6 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
         .heat(2270, 4420)
         .setMcfg(0, MT.Sr, 2 * U, MT.Ru, 1 * U, MT.O, 4 * U),
         SrCO3 = create(23001, "Strontium Carbonate", "SrCO3").setTextures(TextureSet.SET_CUBE) // Textures aren't used
-                                                                                               // in dusts
             .setRGBa(240, 240, 240, 255)
             .put(G_DUST)
             .setMcfg(0, MT.Sr, 1 * U, MT.CO3, 1 * U),
@@ -64,11 +73,50 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
         .heat(933, MT.Al.mBoilingPoint)
         .setMcfg(0, MT.Al, CS.U, MT.Fe, 3 * U);
 
-    public static class STONES {
+    // Theoretical elements
+    public static OreDictMaterial Uue = element(
+        23005,
+        "Ununennium",
+        "Uue",
+        119,
+        183,
+        303,
+        903,
+        3,
+        TextureSet.SET_METALLIC,
+        218,
+        219,
+        221,
+        G_INGOT_ORES,
+        MOLTEN,
+        ALKALI_METAL,
+        FUSION,
+        NEVER_FURNACE,
+        EXTRUDER,
+        MELTING),
+        Ubn = element(
+            23006,
+            "Unbinilium",
+            "Ubn",
+            120,
+            179,
+            953,
+            1973,
+            7,
+            TextureSet.SET_METALLIC,
+            210,
+            211,
+            212,
+            G_INGOT_ORES,
+            MOLTEN,
+            ALKALINE_EARTH_METAL,
+            FUSION,
+            NEVER_FURNACE,
+            EXTRUDER,
+            MELTING);
 
-        public static OreDictMaterial SeleneTurf = stone(23400, "Selene Turf", 190l, 190l, 190l, 255l),
-            DominiTurf = stone(23401, "Domini Turf", 180, 20, 20, 255),
-            Alfheim1Turf = stone(23401, "Alfheim-1 Turf", 180, 20, 20, 255);
-    }
+    public static OreDictMaterial SeleneTurf = stone(23020, "Selene Turf", 190l, 190l, 190l, 255l),
+        DominiTurf = stone(23022, "Domini Turf", 180, 20, 20, 255),
+        Alfheim1Turf = stone(23023, "Alfheim-1 Turf", 180, 20, 20, 255);
 
 }

@@ -4,9 +4,6 @@ import static gregapi.data.CS.*;
 
 import net.minecraft.block.Block;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -47,7 +44,6 @@ public class Reach extends Abstract_Mod {
 
     public static final String MODID = "reach";
     public static final String MODNAME = "Reach";
-    public static final Logger LOG = LogManager.getLogger(MODID);
 
     @SidedProxy(clientSide = "revilo.reach.ClientProxy", serverSide = "revilo.reach.CommonProxy")
     public static Abstract_Proxy PROXY;
