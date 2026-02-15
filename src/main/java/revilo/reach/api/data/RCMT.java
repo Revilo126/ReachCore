@@ -113,10 +113,30 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             FUSION,
             NEVER_FURNACE,
             EXTRUDER,
+            MELTING),
+        Ubu = element(
+            23007,
+            "Unbiunium",
+            "Ubu",
+            121,
+            182,
+            950,
+            1985,
+            7,
+            TextureSet.SET_METALLIC,
+            210,
+            200,
+            212,
+            G_INGOT_ORES,
+            MOLTEN,
+            ALKALINE_EARTH_METAL,
+            FUSION,
+            NEVER_FURNACE,
+            EXTRUDER,
             MELTING);
 
-    public static OreDictMaterial SeleneTurf = stone(23020, "Selene Turf", 190l, 190l, 190l, 255l),
-        DominiTurf = stone(23022, "Domini Turf", 180, 20, 20, 255),
-        Alfheim1Turf = stone(23023, "Alfheim-1 Turf", 180, 20, 20, 255);
+    public static OreDictMaterial SeleneTurf = stone(23020, "Selene Turf", 190l, 190l, 190l, 255l, MELTING),
+        DominiTurf = stone(23022, "Domini Turf", 180, 20, 20, 255, MELTING),
+        Alfheim1Turf = stone(23023, "Alfheim-1 Turf", 180, 20, 20, 255, MELTING);
 
 }

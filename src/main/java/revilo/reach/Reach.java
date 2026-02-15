@@ -23,8 +23,7 @@ import gregapi.data.CS.ModIDs;
 import revilo.reach.loaders.a.FluidLoader;
 import revilo.reach.loaders.a.MultiTileEntityLoader;
 import revilo.reach.loaders.a.WorldGenLoader;
-import revilo.reach.loaders.b.MaterialLoader;
-import revilo.reach.loaders.b.OreRecipeLoader;
+import revilo.reach.loaders.b.gt.GregTechLoader;
 import revilo.reach.oredict.OreDictUnification;
 import revilo.reach.recipes.RecipeLoader;
 
@@ -130,8 +129,7 @@ public class Reach extends Abstract_Mod {
 
         ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(
             F,
-            new MaterialLoader(),
-            new OreRecipeLoader(),
+            new GregTechLoader(),
             new RecipeLoader(),
             new MultiTileEntityLoader(),
             new WorldGenLoader());

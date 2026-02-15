@@ -1,19 +1,19 @@
-package revilo.reach.loaders.b;
+package revilo.reach.loaders.b.gt;
 
-import static gregapi.data.CS.*;
-import static gregapi.data.OP.*;
-import static gregapi.data.RM.*;
-import static revilo.reach.api.data.LogUtil.*;
+import static gregapi.data.CS.T;
+import static gregapi.data.OP.blockDust;
+import static gregapi.data.OP.dust;
+import static gregapi.data.OP.dustTiny;
+import static gregapi.data.RM.Centrifuge;
 
 import gregapi.data.MT;
 import gregapi.data.MT.OREMATS;
 import revilo.reach.api.data.RCMT;
 
-public class OreRecipeLoader implements Runnable {
+public class OreProcLoader implements Runnable {
 
     @Override
     public void run() {
-        out("Loading Ore Processing");
         Centrifuge.addRecipe1(
             T,
             64,
