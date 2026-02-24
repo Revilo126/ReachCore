@@ -22,7 +22,7 @@ public class FirstLoginHandler {
             player.addChatComponentMessage(
                 new ChatComponentText(
                     "[Welcome to " + EnumChatFormatting.BLUE
-                        + "Reach"
+                        + "Reach "
                         + EnumChatFormatting.DARK_PURPLE
                         + player.getDisplayName()
                         + EnumChatFormatting.WHITE

@@ -8,4 +8,6 @@ public class RCRM {
     // Splicer = new RecipeMap(),
     // FusionT2 = new RecipeMap(); // Yes I'm adding a tier 2 :) (Theoretical elements; e.g Ununellium)
     // FusionT3 = new RecipeMap(); // Might not add :( (no ideas for uses)
+
+    // public static final RecipeMap Lithography = new RecipeMap(null, "rc.recipe.sequencer", "Sequencer", null, )
 }

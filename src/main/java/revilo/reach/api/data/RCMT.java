@@ -5,6 +5,7 @@ import static gregapi.data.TD.Atomic.*;
 import static gregapi.data.TD.Compounds.*;
 import static gregapi.data.TD.ItemGenerator.*;
 import static gregapi.data.TD.Processing.*;
+import static gregapi.data.TD.Properties.*;
 
 import gregapi.code.HashSetNoNulls;
 import gregapi.data.CS;
@@ -12,7 +13,6 @@ import gregapi.data.MT;
 import gregapi.oredict.OreDictMaterial;
 import gregapi.render.TextureSet;
 
-@SuppressWarnings("unused")
 public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
 
     public static final HashSetNoNulls<OreDictMaterial> ALL_MATERIALS_REGISTERED_HERE = new HashSetNoNulls<>();
@@ -28,6 +28,11 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             .setOriginalMod(RCMD.RC);
         ALL_MATERIALS_REGISTERED_HERE.add(aMaterial);
         return aMaterial;
+    }
+
+    static OreDictMaterial tier(String aNameOreDict) {
+        return create(-1, aNameOreDict).put(UNUSED_MATERIAL, DONT_SHOW_THIS_COMPONENT, IGNORE_IN_COLOR_LOG)
+            .setAllToTheOutputOf(null, 0, 1);
     }
 
     static OreDictMaterial stone(int aID, String aNameOreDict, long aR, long aG, long aB, long aA,
@@ -69,7 +74,7 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
 
     public static final OreDictMaterial Thermite = create(23004, "Thermite", "AlFe3").setTextures(TextureSet.SET_CUBE) // AdvRocketry
         .setRGBa(125, 42, 14, 255)
-        .put(G_DUST, ALLOY, DECOMPOSABLE, CENTRIFUGE)
+        .put(G_DUST, MOLTEN, ALLOY, DECOMPOSABLE, CENTRIFUGE)
         .heat(933, MT.Al.mBoilingPoint)
         .setMcfg(0, MT.Al, CS.U, MT.Fe, 3 * U);
 
@@ -87,7 +92,7 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
         218,
         219,
         221,
-        G_INGOT_ORES,
+        G_INGOT_MACHINE,
         MOLTEN,
         ALKALI_METAL,
         FUSION,
@@ -135,8 +140,27 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             EXTRUDER,
             MELTING);
 
-    public static OreDictMaterial SeleneTurf = stone(23020, "Selene Turf", 190l, 190l, 190l, 255l, MELTING),
-        DominiTurf = stone(23022, "Domini Turf", 180, 20, 20, 255, MELTING),
-        Alfheim1Turf = stone(23023, "Alfheim-1 Turf", 180, 20, 20, 255, MELTING);
+    // Alloys //
+    public static OreDictMaterial AdUue = create(23008, "Adamennium").setRGBa(255, 133, 233, 255)
+        .setTextures(TextureSet.SET_SHINY)
+        .put(
+            G_INGOT_MACHINE,
+            SMITHABLE,
+            MELTING,
+            MOLTEN,
+            EXTRUDER,
+            MAGICAL,
+            MAGNETIC_PASSIVE,
+            UNBURNABLE,
+            WITHER_PROOF,
+            ENDER_DRAGON_PROOF,
+            ALLOY)
+        .qual(3, 12.0, 6128, 6)
+        .uumAloy(0, MT.Ad, 1 * U, Uue, 1 * U)
+        .heat(6225, 16768);
+
+    // public static OreDictMaterial SeleneTurf = stone(23020, "Selene Turf", 190l, 190l, 190l, 255l, MELTING),
+    // DominiTurf = stone(23022, "Domini Turf", 180, 20, 20, 255, MELTING),
+    // Alfheim1Turf = stone(23023, "Alfheim-1 Turf", 180, 20, 20, 255, MELTING);
 
 }

@@ -4,6 +4,12 @@ import static gregapi.data.CS.*;
 
 import gregapi.code.ArrayListNoNulls;
 
+/*
+ * @author Revilo
+ * Although most mods are not compiled in this core mod, you should directly try to access Items, this is due to the
+ * fact you should only test by adding to modpack!
+ */
+
 public class RecipeLoader implements Runnable {
 
     @Override
@@ -16,6 +22,7 @@ public class RecipeLoader implements Runnable {
             new RecipesAdvRocketry(),
             new RecipesMO(),
             new RecipesPersonalDim(),
+            new RecipesAvaritia(),
             new RecipesGregTech());
         for (Runnable tRunnable : tList) try {
             tRunnable.run();

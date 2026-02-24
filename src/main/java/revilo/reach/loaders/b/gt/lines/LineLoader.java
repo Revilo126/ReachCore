@@ -9,7 +9,7 @@ public class LineLoader implements Runnable {
 
     @Override
     public void run() {
-        ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(F, new Sr2RuO4Line(), new MiscLines());
+        ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(F, new Sr2RuO4Line());
         for (Runnable tRunnable : tList) try {
             tRunnable.run();
         } catch (Throwable e) {

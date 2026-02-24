@@ -14,7 +14,8 @@ import gregapi.data.MT;
 import gregapi.util.ST;
 
 @SuppressWarnings("unused")
-public class RecipesAdvRocketry implements Runnable {
+@Deprecated
+public class RecipesAdvRocketry implements Runnable { // TODO: Remove - swapping to warpdrive
 
     private static ItemStack itemAR(String aItem) {
         return itemAR(aItem, 1, 0);

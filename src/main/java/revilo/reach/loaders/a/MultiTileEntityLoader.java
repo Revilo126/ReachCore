@@ -85,8 +85,8 @@ public class MultiTileEntityLoader implements Runnable {
             F);
 
         // ZPM // TODO: Fix meta issue
-        // MultiTileEntityWireElectric
-        // .addElectricWires(32750, 28366, VMAX[7], 4, 4, 2, T, F, T, aGTRegistry, aMetalWiresGT, aClass, MT.Nq_528);
+        MultiTileEntityWireElectric
+            .addElectricWires(32800, 28366, VMAX[7], 4, 4, 2, T, F, T, aGTRegistry, aMetalWiresGT, aClass, MT.Nq_528);
     }
 
     private static void unsorted(MultiTileEntityRegistry aRegistry) {}

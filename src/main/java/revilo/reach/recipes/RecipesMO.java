@@ -2,6 +2,7 @@ package revilo.reach.recipes;
 
 import static gregapi.data.CS.*;
 import static gregapi.data.CS.OreDictToolNames.*;
+import static gregapi.data.IL.*;
 import static gregapi.data.MD.*;
 import static gregapi.data.OD.*;
 import static gregapi.data.OP.*;
@@ -100,6 +101,57 @@ public class RecipesMO implements Runnable {
             'B',
             "gt:re-battery3");
 
+        // Android parts
+
+        shaped(
+            make(MD.MO, "tritanium_spine", 1, 0),
+            DEF_REM_REV,
+            "hTw",
+            "CEC",
+            " T ",
+            'T',
+            plateCurved.dat(MT.TritaniumAlloy),
+            'C',
+            OD_CIRCUITS[6],
+            'E',
+            FIELD_GENERATORS[5]);
+        shaped(
+            make(MD.MO, "rouge_android_part", 1, 0),
+            DEF_REM_REV,
+            "LEC",
+            "ITM",
+            "RUS",
+            'L',
+            Processor_Crystal_Diamond,
+            'E',
+            FIELD_GENERATORS[5],
+            'C',
+            Processor_Crystal_Sapphire,
+            'I',
+            IL.SENSORS[5],
+            'T',
+            plateCurved.dat(MT.TritaniumAlloy),
+            'M',
+            IL.EMITTERS[5],
+            'R',
+            IL.Processor_Crystal_Ruby,
+            'U',
+            OD_CIRCUITS[6],
+            'S',
+            IL.Processor_Crystal_Emerald);
+        shaped(
+            make(MD.MO, "rouge_android_part", 1, 1),
+            DEF_REM_REV,
+            "CAC",
+            "TUT",
+            'C',
+            IL.Circuit_Crystal_Ruby,
+            'A',
+            IL.ROBOT_ARMS[5],
+            'T',
+            plateCurved.dat(MT.TritaniumAlloy),
+            'U',
+            OD_CIRCUITS[6]);
     }
 
 }

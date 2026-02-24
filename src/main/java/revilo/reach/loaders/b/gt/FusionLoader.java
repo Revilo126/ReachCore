@@ -21,7 +21,7 @@ public class FusionLoader implements Runnable {
                 F,
                 -8192,
                 4096,
-                ST.tag(1),
+                ST.tag(3),
                 FL.array(MT.Bk.liquid(U, T), MT.Ti.liquid(U, T)),
                 FL.array(RCMT.Uue.liquid(U, F)),
                 ZL_IS)
@@ -31,7 +31,7 @@ public class FusionLoader implements Runnable {
                 F,
                 -8192,
                 4352,
-                ST.tag(2),
+                ST.tag(3),
                 FL.array(MT.Cf.liquid(U, T), MT.Ti.liquid(U, T)),
                 FL.array(RCMT.Ubn.liquid(U, F)),
                 ZL_IS)
@@ -41,7 +41,7 @@ public class FusionLoader implements Runnable {
                 F,
                 -8192,
                 4608,
-                ST.tag(1),
+                ST.tag(3),
                 FL.array(MT.U_238.liquid(U, T), MT.Cu.liquid(U, T)),
                 FL.array(RCMT.Ubu.liquid(U, F)),
                 ZL_IS)
