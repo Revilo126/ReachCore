@@ -1,6 +1,7 @@
 package revilo.reach;
 
 import static gregapi.data.CS.*;
+import static revilo.reach.api.data.CS.*;
 
 import net.minecraft.block.Block;
 
@@ -20,6 +21,8 @@ import gregapi.block.multitileentity.MultiTileEntityBlock;
 import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.code.ArrayListNoNulls;
 import gregapi.data.CS.ModIDs;
+import revilo.reach.api.data.RCMD;
+import revilo.reach.loaders.a.CreativeTabLoader;
 import revilo.reach.loaders.a.FluidLoader;
 import revilo.reach.loaders.a.MultiTileEntityLoader;
 import revilo.reach.loaders.a.WorldGenLoader;
@@ -28,20 +31,13 @@ import revilo.reach.oredict.OreDictUnification;
 import revilo.reach.recipes.RecipeLoader;
 
 @Mod(
-    modid = Reach.MODID,
+    modid = ModIds.REACH,
     version = Tags.VERSION,
     name = Reach.MODNAME,
     acceptedMinecraftVersions = "[1.7.10]",
-    dependencies = "required-after:" + ModIDs.GAPI_POST
-        + ";required-after:"
-        + ModIDs.GT
-        + ";after:"
-        + ModIDs.GC_ADV_ROCKETRY
-        + ";after:"
-        + ModIDs.MO)
+    dependencies = "required-after:" + ModIDs.GAPI_POST + ";required-after:" + ModIDs.GT + ";after:" + ModIDs.MO)
 public class Reach extends Abstract_Mod {
 
-    public static final String MODID = "reach";
     public static final String MODNAME = "Reach";
 
     @SidedProxy(clientSide = "revilo.reach.ClientProxy", serverSide = "revilo.reach.CommonProxy")
@@ -49,7 +45,7 @@ public class Reach extends Abstract_Mod {
 
     @Override
     public String getModID() {
-        return MODID;
+        return ModIds.REACH;
     }
 
     @Override
@@ -107,10 +103,18 @@ public class Reach extends Abstract_Mod {
 
     @Override
     public void onModPreInit2(FMLPreInitializationEvent aEvent) {
+
+        ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(F, new FluidLoader(), new CreativeTabLoader());
+
+        for (Runnable tRunnable : tList) try {
+            tRunnable.run();
+        } catch (Throwable e) {
+            e.printStackTrace(ERR);
+        }
         new MultiTileEntityRegistry("reach.multitileentity");
 
         MultiTileEntityBlock.getOrCreate(
-            Reach.MODID,
+            ModIds.REACH,
             "machine",
             MaterialMachines.instance,
             Block.soundTypeMetal,
@@ -119,7 +123,18 @@ public class Reach extends Abstract_Mod {
             0,
             15,
             F,
-            F);
+            F); // Wires
+        MultiTileEntityBlock.getOrCreate(
+            RCMD.RC.mID,
+            "machine",
+            MaterialMachines.instance,
+            Block.soundTypeMetal,
+            TOOL_wrench,
+            0,
+            0,
+            15,
+            F,
+            F); // Machines
 
         new FluidLoader().run(); // This also registers Materials!
     }

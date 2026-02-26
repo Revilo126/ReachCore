@@ -1,5 +1,9 @@
 package revilo.reach.api.data;
 
+import static gregapi.data.CS.*;
+
+import gregapi.recipes.Recipe.RecipeMap;
+
 /**
  * All Planned Machines!
  */
@@ -9,5 +13,31 @@ public class RCRM {
     // FusionT2 = new RecipeMap(); // Yes I'm adding a tier 2 :) (Theoretical elements; e.g Ununellium)
     // FusionT3 = new RecipeMap(); // Might not add :( (no ideas for uses)
 
-    // public static final RecipeMap Lithography = new RecipeMap(null, "rc.recipe.sequencer", "Sequencer", null, )
+    @SuppressWarnings("deprecation")
+    public static final RecipeMap NeutronCollector = new RecipeMap(
+        null,
+        "rc.recipe.neutron",
+        "Neutron Collector",
+        null,
+        0,
+        1,
+        RES_PATH_GUI + "machines/Autoclave",
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        "",
+        1,
+        "",
+        T,
+        T,
+        T,
+        T,
+        F,
+        T,
+        T);
 }

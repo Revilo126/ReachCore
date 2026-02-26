@@ -14,16 +14,18 @@ public class RecipeLoader implements Runnable {
 
     @Override
     public void run() {
+        // Make sure Recipe util is always last!
         ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(
             F,
             new RecipesMinecraft(),
             new RecipesAE2(),
             new RecipesBackpacks(),
-            new RecipesAdvRocketry(),
             new RecipesMO(),
             new RecipesPersonalDim(),
             new RecipesAvaritia(),
-            new RecipesGregTech());
+            new RecipesWarpDrive(),
+            new RecipesGregTech(),
+            new RecipeUtil());
         for (Runnable tRunnable : tList) try {
             tRunnable.run();
         } catch (Throwable e) {

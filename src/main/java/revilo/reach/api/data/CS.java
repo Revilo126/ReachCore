@@ -13,6 +13,12 @@ public class CS {
     public static final Set<String> BIOMES_HOTDRYROCK = new BiomeNameSet("Hot Dry Rock"),
         BIOMES_MOONDARK = new BiomeNameSet("MoonDark"), BIOMES_MOONFULL = new BiomeNameSet("Moon", "MoonDark");
 
+    public static class ModIds {
+
+        public static final String REACH = "reach";
+        public static final String RCPLANETS = "rcplanets";
+    }
+
     public static class ItemsReach {
 
         public static MultiItemRandom TECH;

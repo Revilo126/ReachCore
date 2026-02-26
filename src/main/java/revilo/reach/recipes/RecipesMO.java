@@ -22,8 +22,7 @@ public class RecipesMO implements Runnable {
     public void run() {
         // Crates
         for (byte i = 0; i < 16; i++) {
-            delate(ST.make(MD.MO, "tritanium_crate." + DYE_NAMES[i], 1, 0));
-            hide(ST.make(MD.MO, "tritanium_crate." + DYE_NAMES[i], 1, 0)); // NEI
+            RecipeUtil.nuke(ST.make(MD.MO, "tritanium_crate." + DYE_NAMES[i], 1, 0));
         }
 
         // Weapons
@@ -33,7 +32,7 @@ public class RecipesMO implements Runnable {
 
         shaped(
             ST.make(MD.MO, "phaser_rifle", 1),
-            DEF_REM,
+            DEF_REM_REV_NCC,
             "PPP",
             "RRL",
             "dwB",
@@ -47,7 +46,7 @@ public class RecipesMO implements Runnable {
             "gt:re-battery2");
         shaped(
             ST.make(MD.MO, "plasma_shotgun", 1),
-            DEF_REM_REV,
+            DEF_REM_REV_NCC,
             "Pdw",
             "RRL",
             "PBL",
@@ -61,7 +60,7 @@ public class RecipesMO implements Runnable {
             "gt:re-battery2");
         shaped(
             ST.make(MD.MO, "ion_sniper", 1),
-            DEF_REM_REV,
+            DEF_REM_REV_NCC,
             "PPP",
             "RLL",
             "dwB",
@@ -78,7 +77,7 @@ public class RecipesMO implements Runnable {
 
         shaped(
             ST.make(MD.MO, "battery", 1),
-            DEF_REM_REV,
+            DEF_REM_REV_NCC,
             " C ",
             "PBP",
             "dCw",
@@ -90,7 +89,7 @@ public class RecipesMO implements Runnable {
             "gt:re-battery2");
         shaped(
             ST.make(MD.MO, "hc_battery", 1),
-            DEF_REM_REV,
+            DEF_REM_REV_NCC,
             " C ",
             "PBP",
             "dCw",
@@ -105,7 +104,7 @@ public class RecipesMO implements Runnable {
 
         shaped(
             make(MD.MO, "tritanium_spine", 1, 0),
-            DEF_REM_REV,
+            DEF_REM_REV_NCC,
             "hTw",
             "CEC",
             " T ",
@@ -117,7 +116,7 @@ public class RecipesMO implements Runnable {
             FIELD_GENERATORS[5]);
         shaped(
             make(MD.MO, "rouge_android_part", 1, 0),
-            DEF_REM_REV,
+            DEF_REM_REV_NCC,
             "LEC",
             "ITM",
             "RUS",
@@ -141,7 +140,7 @@ public class RecipesMO implements Runnable {
             IL.Processor_Crystal_Emerald);
         shaped(
             make(MD.MO, "rouge_android_part", 1, 1),
-            DEF_REM_REV,
+            DEF_REM_REV_NCC,
             "CAC",
             "TUT",
             'C',

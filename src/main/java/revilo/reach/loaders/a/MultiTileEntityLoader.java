@@ -10,10 +10,14 @@ import gregapi.block.multitileentity.MultiTileEntityBlock;
 import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.data.MD;
 import gregapi.data.MT;
+import gregapi.data.TD;
 import gregapi.oredict.OreDictMaterial;
 import gregapi.tileentity.connectors.MultiTileEntityWireElectric;
-import revilo.reach.Reach;
+import gregapi.tileentity.machines.MultiTileEntityBasicMachine;
+import gregapi.util.UT;
+import revilo.reach.api.data.CS;
 import revilo.reach.api.data.RCMT;
+import revilo.reach.api.data.RCRM;
 
 public class MultiTileEntityLoader implements Runnable {
 
@@ -23,7 +27,7 @@ public class MultiTileEntityLoader implements Runnable {
     @Override
     public void run() {
         MultiTileEntityBlock aMetalWires = MultiTileEntityBlock.getOrCreate(
-            Reach.MODID,
+            CS.ModIds.REACH,
             "machine",
             MaterialMachines.instance,
             Block.soundTypeMetal,
@@ -33,10 +37,22 @@ public class MultiTileEntityLoader implements Runnable {
             15,
             F,
             F);
+        MultiTileEntityBlock aMachine = MultiTileEntityBlock.getOrCreate(
+            CS.ModIds.REACH,
+            "machine",
+            MaterialMachines.instance,
+            Block.soundTypeMetal,
+            TOOL_wrench,
+            0,
+            0,
+            15,
+            F,
+            F);
 
         MultiTileEntityRegistry aRegistry = MultiTileEntityRegistry.getRegistry("reach.multitileentity");
 
         wire(aRegistry, aMetalWires);
+        machines(aRegistry, aMachine, CreativeTabLoader.basicMachinesID);
         unsorted(aRegistry);
 
     }
@@ -87,6 +103,56 @@ public class MultiTileEntityLoader implements Runnable {
         // ZPM // TODO: Fix meta issue
         MultiTileEntityWireElectric
             .addElectricWires(32800, 28366, VMAX[7], 4, 4, 2, T, F, T, aGTRegistry, aMetalWiresGT, aClass, MT.Nq_528);
+    }
+
+    private static void machines(MultiTileEntityRegistry aRegistry, MultiTileEntityBlock aMachine, short aCreativeTab) {
+        aClass = MultiTileEntityBasicMachine.class;
+        // PUV1 //
+        aMat = MT.Trinaquadalloy;
+        aRegistry.add(
+            "Neutron Collector",
+            "Basic Machines",
+            10000,
+            aCreativeTab,
+            aClass,
+            aMat.mToolQuality,
+            16,
+            aMachine,
+            UT.NBT.make(
+                NBT_MATERIAL,
+                aMat,
+                NBT_HARDNESS,
+                6.0F,
+                NBT_RESISTANCE,
+                6.0F,
+                NBT_INPUT,
+                1,
+                NBT_TEXTURE,
+                "neutroncollector",
+                NBT_ENERGY_ACCEPTED,
+                TD.Energy.EU,
+                NBT_RECIPEMAP,
+                RCRM.NeutronCollector,
+                NBT_INV_SIDE_OUT,
+                SBIT_B | SBIT_R,
+                NBT_INV_SIDE_AUTO_OUT,
+                SIDE_RIGHT,
+                NBT_TANK_SIDE_IN,
+                SBIT_U | SBIT_L,
+                NBT_TANK_SIDE_AUTO_IN,
+                SIDE_LEFT,
+                NBT_TANK_SIDE_OUT,
+                SBIT_B | SBIT_R,
+                NBT_TANK_SIDE_AUTO_OUT,
+                SIDE_BACK,
+                NBT_ENERGY_ACCEPTED_SIDES,
+                63,
+                NBT_INPUT,
+                1,
+                NBT_INPUT_MIN,
+                1,
+                NBT_INPUT_MAX,
+                16));
     }
 
     private static void unsorted(MultiTileEntityRegistry aRegistry) {}
