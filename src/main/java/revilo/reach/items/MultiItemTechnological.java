@@ -20,7 +20,7 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
 
     public MultiItemTechnological(String aModID, String aUnlocalized) {
         super(aModID, aUnlocalized);
-        setCreativeTab(new CreativeTab(getUnlocalizedName(), "Reach: Technology", this, (short) 23006));
+        setCreativeTab(new CreativeTab(getUnlocalizedName(), "Reach: Technology", this, (short) 1000));
     }
 
     @Override
@@ -72,6 +72,12 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
                 "Circuit Part (Nano)",
                 "Needs to be placed on a Naquadah Circuit Plate",
                 TC.stack(TC.COGNITIO, 1)));
+        RCIL.Circuit_Part_Atomic.set(
+            addItem(
+                901,
+                "Circuit Part (Atomic)",
+                "Needs to be placed on a Naquadah Circuit Plate",
+                TC.stack(TC.COGNITIO, 1)));
 
         RM.Press.addRecipeX(
             T,
@@ -87,8 +93,24 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
                 OP.plateGemTiny.mat(MT.RedstoneAlloy, 1)),
             RCIL.Circuit_Part_Nano.get(1));
 
+        RM.Press.addRecipeX(
+            T,
+            F,
+            F,
+            F,
+            T,
+            16,
+            16,
+            ST.array(
+                OP.wireFine.mat(MT.Nq_528, 1),
+                OP.wireFine.mat(MT.Signalum, 1),
+                OP.plateGemTiny.mat(MT.RedstoneAlloy, 1)),
+            RCIL.Circuit_Part_Atomic.get(1));
+
         RCIL.Circuit_Board_Nano
             .set(addItem(950, "Circuit Board (Nano)", "Needs to be soldered properly", TC.stack(TC.FABRICO, 1)));
+        RCIL.Circuit_Board_Atomic
+            .set(addItem(951, "Circuit Board (Atomic)", "Needs to be soldered properly", TC.stack(TC.FABRICO, 1)));
 
         RM.Press.addRecipe2(
             T,
@@ -167,6 +189,17 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
             RCIL.Circuit_Plate_Nano.get(1),
             RCIL.Circuit_Part_Nano.get(4),
             RCIL.Circuit_Board_Nano.get(1));
+        RM.Press.addRecipe2(
+            T,
+            F,
+            F,
+            F,
+            T,
+            16,
+            64,
+            RCIL.Circuit_Plate_Nano.get(1),
+            RCIL.Circuit_Part_Atomic.get(4),
+            RCIL.Circuit_Board_Atomic.get(1));
 
         RCIL.Circuit_Nano.set(
             addItem(
@@ -176,6 +209,14 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
                 MT.DATA.CIRCUITS[7],
                 OD_CIRCUITS[7],
                 TC.stack(TC.COGNITIO, 8)));
+        RCIL.Circuit_Atomic.set(
+            addItem(
+                1001,
+                "Circuit T8 (Atomic)",
+                "Computes simple Data as fast as you type",
+                MT.DATA.CIRCUITS[8],
+                OD_CIRCUITS[8],
+                TC.stack(TC.COGNITIO, 9)));
 
         RM.Bath.addRecipe1(
             T,
@@ -185,7 +226,7 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
             T,
             0,
             64,
-            RCIL.Circuit_Plate_Nano.get(1),
+            RCIL.Circuit_Board_Nano.get(1),
             MT.Pb.liquid(U2, T),
             NF,
             IL.Circuit_Master.get(1));
@@ -197,7 +238,7 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
             T,
             0,
             64,
-            RCIL.Circuit_Plate_Nano.get(1),
+            RCIL.Circuit_Board_Nano.get(1),
             MT.Sn.liquid(U2, T),
             NF,
             IL.Circuit_Ultimate.get(1));
@@ -209,33 +250,47 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
             T,
             0,
             64,
-            RCIL.Circuit_Plate_Nano.get(1),
+            RCIL.Circuit_Board_Nano.get(1),
             MT.SolderingAlloy.liquid(U2, T),
             NF,
             RCIL.Circuit_Nano.get(1));
 
-        // Need UV circuit
-        // RCIL.Circuit_Quantum.set(addItem(1001, "Circuit T8 (Quantum)", "Computes simple data before you even ask",
-        // MT.DATA.CIRCUITS[8], OD_CIRCUITS[8], TC.stack(TC.COGNITIO, 9)));
-        // RCIL.Circuit_Cosmic.set(addItem(1002, "Circuit T9 (Cosmic)", "The processing power of a multiverse to find
-        // 1+1", MT.DATA.CIRCUITS[9], OD_CIRCUITS[9], TC.stack(TC.COGNITIO, 10)));
-
-        /*
-         * for (OreDictMaterial tMat : ANY.Cu.mToThis) { // Recipes after fully implemented
-         * RM.Press.addRecipeX(T, F, F, F, T, 16, 16, ST.array(wireFine.mat(tMat , 9), dust .mat(MT.Redstone, 1),
-         * plateGemTiny.mat(MT.Si , 9)), RCIL.Transistor_Basic .get(9));
-         * RM.Press.addRecipeX(T, F, F, F, T, 16, 16, ST.array(wireFine.mat(tMat , 9), dust .mat(MT.Redstone, 1),
-         * plateGemTiny.mat(MT.Ge , 9)), RCIL.Transistor_Basic .get(9));
-         * RM.Press.addRecipeX(T, F, F, F, T, 16, 16, ST.array(wireFine.mat(tMat , 9), dust .mat(MT.Redstone, 1),
-         * plateGemTiny.mat(MT.RedstoneAlloy, 9)), RCIL.Transistor_Basic .get(9));
-         * RM.Press.addRecipeX(T, F, F, F, T, 16, 16, ST.array(wireFine.mat(tMat , 1), dustTiny.mat(MT.Redstone, 1),
-         * plateGemTiny.mat(MT.Si , 1)), RCIL.Transistor_Basic .get(1));
-         * RM.Press.addRecipeX(T, F, F, F, T, 16, 16, ST.array(wireFine.mat(tMat , 1), dustTiny.mat(MT.Redstone, 1),
-         * plateGemTiny.mat(MT.Ge , 1)), RCIL.Transistor_Basic .get(1));
-         * RM.Press.addRecipeX(T, F, F, F, T, 16, 16, ST.array(wireFine.mat(tMat , 1), dustTiny.mat(MT.Redstone, 1),
-         * plateGemTiny.mat(MT.RedstoneAlloy, 1)), RCIL.Transistor_Basic .get(1));
-         * }
-         */
+        RM.Bath.addRecipe1(
+            T,
+            F,
+            F,
+            F,
+            T,
+            0,
+            64,
+            RCIL.Circuit_Board_Atomic.get(1),
+            MT.Pb.liquid(U2, T),
+            NF,
+            IL.Circuit_Ultimate.get(1));
+        RM.Bath.addRecipe1(
+            T,
+            F,
+            F,
+            F,
+            T,
+            0,
+            64,
+            RCIL.Circuit_Board_Atomic.get(1),
+            MT.Sn.liquid(U2, T),
+            NF,
+            RCIL.Circuit_Nano.get(1));
+        RM.Bath.addRecipe1(
+            T,
+            F,
+            F,
+            F,
+            T,
+            0,
+            64,
+            RCIL.Circuit_Board_Atomic.get(1),
+            MT.SolderingAlloy.liquid(U2, T),
+            NF,
+            RCIL.Circuit_Atomic.get(1));
     }
 
 }

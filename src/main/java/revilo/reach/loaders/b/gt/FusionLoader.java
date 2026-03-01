@@ -20,7 +20,7 @@ public class FusionLoader implements Runnable {
             .addRecipe1(
                 F,
                 -8192,
-                4096,
+                4766,
                 ST.tag(3),
                 FL.array(MT.Am.liquid(U, T), MT.Cr.liquid(U, T)),
                 FL.array(RCMT.Uue.liquid(U, F)),
@@ -40,7 +40,7 @@ public class FusionLoader implements Runnable {
             .addRecipe1(
                 F,
                 -8192,
-                4608,
+                4202,
                 ST.tag(3),
                 FL.array(MT.U_238.liquid(U, T), MT.Cu.liquid(U, T)),
                 FL.array(RCMT.Ubu.liquid(U, F)),

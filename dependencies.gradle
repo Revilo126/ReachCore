@@ -36,6 +36,8 @@
 dependencies {
 	api("com.github.GTNewHorizons:ModularUI2:2.3.39-1.7.10:dev")
 	api("com.github.GTNewHorizons:GTNHLib:0.9.13:dev")
+	
+	implementation("curse.maven:carbonconfig-898104:5504468")
 
     implementation("com.github.GTNewHorizons:NotEnoughItems:2.8.67-GTNH:dev")
 

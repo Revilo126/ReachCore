@@ -5,6 +5,9 @@ import static revilo.reach.api.data.CS.*;
 
 import net.minecraft.block.Block;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -22,6 +25,7 @@ import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.code.ArrayListNoNulls;
 import gregapi.data.CS.ModIDs;
 import revilo.reach.api.data.RCMD;
+import revilo.reach.config.ReachConfig;
 import revilo.reach.loaders.a.CreativeTabLoader;
 import revilo.reach.loaders.a.FluidLoader;
 import revilo.reach.loaders.a.ItemLoader;
@@ -39,6 +43,8 @@ import revilo.reach.recipes.RecipeLoader;
     acceptedMinecraftVersions = "[1.7.10]",
     dependencies = "required-after:" + ModIDs.GAPI_POST + ";required-after:" + ModIDs.GT + ";after:" + ModIDs.MO)
 public class Reach extends Abstract_Mod {
+
+    public static final Logger LOG = LogManager.getLogger("Reach");
 
     public static final String MODNAME = "Reach";
 
@@ -108,6 +114,7 @@ public class Reach extends Abstract_Mod {
 
         ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(
             F,
+            new ReachConfig(),
             new FluidLoader(),
             new CreativeTabLoader(),
             new ItemLoader(),

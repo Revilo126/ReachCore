@@ -14,7 +14,7 @@ public class CreativeTabLoader implements Runnable {
     public void run() {
         basicMachines = new CreativeTab(
             "basicmachines",
-            "Reach: Basic Machines",
+            "Basic Machines",
             ST.item(
                 OP.casingMachine.dat(RCMT.AdUue)
                     .getStack(1)),

@@ -1,6 +1,6 @@
 package revilo.reach.mixins;
 
-// @Mixin(value = GT6_Main.class)
+// @Mixin(value = GT6_Main.class) TODO: DELETE!
 public class MixinGregtechTierData {
 
     /**

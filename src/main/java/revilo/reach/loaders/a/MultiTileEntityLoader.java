@@ -65,16 +65,24 @@ public class MultiTileEntityLoader implements Runnable {
         aClass = MultiTileEntityWireElectric.class;
 
         // ZPM //
-        MultiTileEntityWireElectric
+
+        MultiTileEntityWireElectric // Distrontium Ruthenate
             .addElectricWires(50, 28366, V[7], 4, 6, 2, T, F, T, aRegistry, aMetalWires, aClass, RCMT.Sr2RuO4);
+
+        MultiTileEntityWireElectric // Enriched Naquadah
+            .addElectricWires(150, 28366, VMAX[7], 4, 4, 2, T, F, T, aRegistry, aMetalWires, aClass, MT.Nq_528);
 
         // UV //
 
+        MultiTileEntityWireElectric // Unbinillium
+            .addElectricWires(100, 28366, V[8], 8, 8, 2, T, F, T, aRegistry, aMetalWires, aClass, RCMT.Ubn);
+
         // PUV1 //
 
+        MultiTileEntityWireElectric // Naquadria
+            .addElectricWires(200, 28366, V[9], 16, 16, 8, T, F, T, aRegistry, aMetalWires, aClass, MT.Nq_522);
+
         // PUV2 //
-        MultiTileEntityWireElectric
-            .addElectricWires(100, 28366, V[10], 8, 8, 2, T, F, T, aRegistry, aMetalWires, aClass, RCMT.Ubn);
 
         // PUV3 //
 
@@ -84,31 +92,8 @@ public class MultiTileEntityLoader implements Runnable {
 
         // MAX //
 
-        // Use Below when creating wires from gt materials (Testing other methods)
-        /**
-         * MultiTileEntityRegistry aGTRegistry = MultiTileEntityRegistry.getRegistry("gt.multitileentity"); // i know
-         * its
-         * // GT6's
-         * // registry but
-         * // hopefully
-         * // this works!
-         * 
-         * MultiTileEntityBlock aMetalWiresGT = MultiTileEntityBlock.getOrCreate(
-         * MD.GT.mID,
-         * "machine",
-         * MaterialMachines.instance,
-         * Block.soundTypeMetal,
-         * TOOL_cutter,
-         * 0,
-         * 0,
-         * 15,
-         * F,
-         * F);
-         */
+        // MAX+ //
 
-        // ZPM // TODO: Fix meta issue
-        MultiTileEntityWireElectric
-            .addElectricWires(9900, 28366, VMAX[7], 4, 4, 2, T, F, T, aRegistry, aMetalWires, aClass, MT.Nq_528);
     }
 
     // Use 10 000 - 19 999
@@ -118,7 +103,7 @@ public class MultiTileEntityLoader implements Runnable {
         aMat = MT.Trinaquadalloy;
         aRegistry.add(
             "Neutron Collector",
-            "Multiblock Machine",
+            "Basic Machine",
             10000,
             aCreativeTab,
             aClass,
@@ -133,7 +118,7 @@ public class MultiTileEntityLoader implements Runnable {
                 NBT_RESISTANCE,
                 6.0F,
                 NBT_INPUT,
-                1,
+                2097152,
                 NBT_TEXTURE,
                 "neutroncollector",
                 NBT_ENERGY_ACCEPTED,
