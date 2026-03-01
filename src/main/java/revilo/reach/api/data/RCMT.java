@@ -160,7 +160,7 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
         .heat(6225, 16768);
 
     // public static OreDictMaterial SeleneTurf = stone(23020, "Selene Turf", 190l, 190l, 190l, 255l, MELTING),
-    // DominiTurf = stone(23022, "Domini Turf", 180, 20, 20, 255, MELTING),
+    public static OreDictMaterial DominiTurf = stone(23022, "Domini Turf", 180, 20, 20, 255, MELTING);
     // Alfheim1Turf = stone(23023, "Alfheim-1 Turf", 180, 20, 20, 255, MELTING);
 
 }

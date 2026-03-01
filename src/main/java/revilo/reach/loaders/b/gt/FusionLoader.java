@@ -22,20 +22,20 @@ public class FusionLoader implements Runnable {
                 -8192,
                 4096,
                 ST.tag(3),
-                FL.array(MT.Bk.liquid(U, T), MT.Ti.liquid(U, T)),
+                FL.array(MT.Am.liquid(U, T), MT.Cr.liquid(U, T)),
                 FL.array(RCMT.Uue.liquid(U, F)),
                 ZL_IS)
-            .setSpecialNumber(4096L * 8192L * 16L); // Theoretical Elements - Fusion only
+            .setSpecialNumber(4096L * 8192L * 32L); // Theoretical Elements - Fusion only
         RM.Fusion
             .addRecipe1(
                 F,
                 -8192,
                 4352,
                 ST.tag(3),
-                FL.array(MT.Cf.liquid(U, T), MT.Ti.liquid(U, T)),
+                FL.array(MT.U_238.liquid(U, T), MT.Ni.liquid(U, T)),
                 FL.array(RCMT.Ubn.liquid(U, F)),
                 ZL_IS)
-            .setSpecialNumber(4352L * 8192L * 16L);
+            .setSpecialNumber(4352L * 8192L * 32L);
         RM.Fusion
             .addRecipe1(
                 F,
@@ -45,7 +45,7 @@ public class FusionLoader implements Runnable {
                 FL.array(MT.U_238.liquid(U, T), MT.Cu.liquid(U, T)),
                 FL.array(RCMT.Ubu.liquid(U, F)),
                 ZL_IS)
-            .setSpecialNumber(4608L * 8192L * 16L);
+            .setSpecialNumber(4608L * 8192L * 32L);
     }
 
 }

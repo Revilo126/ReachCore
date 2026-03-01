@@ -43,7 +43,7 @@ dependencies {
     implementation("com.github.GTNewHorizons:CodeChickenCore:1.4.10:dev")
     
     implementation("curse.maven:avaritia-233785:2519595")
-    implementation("curse.maven:warpdrive-233565:2578306")
+    compileOnly("curse.maven:warpdrive-233565:2578306")
     //compileOnly("curse.maven:advancedRocketry-236542:2495943")
     
     implementation("ic2:IC2Classic:1.2.1.8:dev")

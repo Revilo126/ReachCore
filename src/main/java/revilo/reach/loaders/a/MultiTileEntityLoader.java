@@ -8,12 +8,13 @@ import net.minecraft.tileentity.TileEntity;
 import gregapi.block.MaterialMachines;
 import gregapi.block.multitileentity.MultiTileEntityBlock;
 import gregapi.block.multitileentity.MultiTileEntityRegistry;
-import gregapi.data.MD;
 import gregapi.data.MT;
+import gregapi.data.OP;
 import gregapi.data.TD;
 import gregapi.oredict.OreDictMaterial;
 import gregapi.tileentity.connectors.MultiTileEntityWireElectric;
 import gregapi.tileentity.machines.MultiTileEntityBasicMachine;
+import gregapi.tileentity.multiblocks.MultiTileEntityMultiBlockPart;
 import gregapi.util.UT;
 import revilo.reach.api.data.CS;
 import revilo.reach.api.data.RCMT;
@@ -53,10 +54,12 @@ public class MultiTileEntityLoader implements Runnable {
 
         wire(aRegistry, aMetalWires);
         machines(aRegistry, aMachine, CreativeTabLoader.basicMachinesID);
+        multiblocks(aRegistry, aMachine, CreativeTabLoader.basicMachinesID);
         unsorted(aRegistry);
 
     }
 
+    // Use 0 - 9 999
     private static void wire(MultiTileEntityRegistry aRegistry, MultiTileEntityBlock aMetalWires) {
 
         aClass = MultiTileEntityWireElectric.class;
@@ -81,37 +84,41 @@ public class MultiTileEntityLoader implements Runnable {
 
         // MAX //
 
-        // Use Below when creating wires from gt materials
-        MultiTileEntityRegistry aGTRegistry = MultiTileEntityRegistry.getRegistry("gt.multitileentity"); // i know its
-                                                                                                         // GT6's
-                                                                                                         // registry but
-                                                                                                         // hopefully
-                                                                                                         // this works!
-
-        MultiTileEntityBlock aMetalWiresGT = MultiTileEntityBlock.getOrCreate(
-            MD.GT.mID,
-            "machine",
-            MaterialMachines.instance,
-            Block.soundTypeMetal,
-            TOOL_cutter,
-            0,
-            0,
-            15,
-            F,
-            F);
+        // Use Below when creating wires from gt materials (Testing other methods)
+        /**
+         * MultiTileEntityRegistry aGTRegistry = MultiTileEntityRegistry.getRegistry("gt.multitileentity"); // i know
+         * its
+         * // GT6's
+         * // registry but
+         * // hopefully
+         * // this works!
+         * 
+         * MultiTileEntityBlock aMetalWiresGT = MultiTileEntityBlock.getOrCreate(
+         * MD.GT.mID,
+         * "machine",
+         * MaterialMachines.instance,
+         * Block.soundTypeMetal,
+         * TOOL_cutter,
+         * 0,
+         * 0,
+         * 15,
+         * F,
+         * F);
+         */
 
         // ZPM // TODO: Fix meta issue
         MultiTileEntityWireElectric
-            .addElectricWires(32800, 28366, VMAX[7], 4, 4, 2, T, F, T, aGTRegistry, aMetalWiresGT, aClass, MT.Nq_528);
+            .addElectricWires(9900, 28366, VMAX[7], 4, 4, 2, T, F, T, aRegistry, aMetalWires, aClass, MT.Nq_528);
     }
 
+    // Use 10 000 - 19 999
     private static void machines(MultiTileEntityRegistry aRegistry, MultiTileEntityBlock aMachine, short aCreativeTab) {
         aClass = MultiTileEntityBasicMachine.class;
         // PUV1 //
         aMat = MT.Trinaquadalloy;
         aRegistry.add(
             "Neutron Collector",
-            "Basic Machines",
+            "Multiblock Machine",
             10000,
             aCreativeTab,
             aClass,
@@ -153,6 +160,39 @@ public class MultiTileEntityLoader implements Runnable {
                 1,
                 NBT_INPUT_MAX,
                 16));
+    }
+
+    // Use 20 000 - 29 999
+    private static void multiblocks(MultiTileEntityRegistry aRegistry, MultiTileEntityBlock aMachine,
+        short aCreativeTab) {
+        aClass = MultiTileEntityMultiBlockPart.class;
+
+        aMat = RCMT.Ubn;
+        aRegistry.add(
+            "Large Unbinilium Coil",
+            "Multiblock Machines",
+            20000,
+            aCreativeTab,
+            aClass,
+            aMat.mToolQuality,
+            64,
+            aMachine,
+            UT.NBT.make(
+                NBT_MATERIAL,
+                aMat,
+                NBT_HARDNESS,
+                6.0F,
+                NBT_RESISTANCE,
+                6.0F,
+                NBT_TEXTURE,
+                "coil",
+                NBT_DESIGNS,
+                1),
+            "WWW",
+            "WxW",
+            "WWW",
+            'W',
+            OP.wireGt04.dat(aMat));
     }
 
     private static void unsorted(MultiTileEntityRegistry aRegistry) {}

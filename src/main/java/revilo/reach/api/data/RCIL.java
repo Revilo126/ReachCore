@@ -19,7 +19,14 @@ import gregapi.util.UT;
 public enum RCIL implements IItemContainer {
 
     Circuit_Nano,
+    Circuit_Part_Nano,
+    Circuit_Board_Nano,
+    Circuit_Wiring_Nano,
+    Circuit_Plate_Nano,
     Circuit_Quantum,
+    Circuit_Part_Quantum,
+    Circuit_Cosmic,
+    Circuit_Part_Cosmic,
     Circuit_EEPROM,
     Circuit_CPU_Basic,
     Circuit_Memory_Basic,
@@ -141,7 +148,6 @@ public enum RCIL implements IItemContainer {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public ItemStack getWildcard(long aAmount, Object... aReplacements) {
         if (mHasNotBeenSet && Abstract_Mod.sFinalized < Abstract_Mod.sModCountUsingGTAPI)
             ERR.println("The Enum '" + name() + "' has not been set to an Item at this time!");

@@ -24,9 +24,11 @@ import gregapi.data.CS.ModIDs;
 import revilo.reach.api.data.RCMD;
 import revilo.reach.loaders.a.CreativeTabLoader;
 import revilo.reach.loaders.a.FluidLoader;
+import revilo.reach.loaders.a.ItemLoader;
 import revilo.reach.loaders.a.MultiTileEntityLoader;
 import revilo.reach.loaders.a.WorldGenLoader;
 import revilo.reach.loaders.b.gt.GregTechLoader;
+import revilo.reach.loaders.c.LoaderRecipeOthers;
 import revilo.reach.oredict.OreDictUnification;
 import revilo.reach.recipes.RecipeLoader;
 
@@ -104,7 +106,12 @@ public class Reach extends Abstract_Mod {
     @Override
     public void onModPreInit2(FMLPreInitializationEvent aEvent) {
 
-        ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(F, new FluidLoader(), new CreativeTabLoader());
+        ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(
+            F,
+            new FluidLoader(),
+            new CreativeTabLoader(),
+            new ItemLoader(),
+            new LoaderRecipeOthers());
 
         for (Runnable tRunnable : tList) try {
             tRunnable.run();

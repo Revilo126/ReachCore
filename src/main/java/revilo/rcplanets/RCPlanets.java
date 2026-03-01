@@ -17,5 +17,7 @@ import revilo.reach.api.data.CS;
     dependencies = "after:" + ModIDs.WARPDRIVE)
 public class RCPlanets {
 
+    public static final String dominiName = "Domini";
+
     public static final String MODNAME = "RC Planets";
 }

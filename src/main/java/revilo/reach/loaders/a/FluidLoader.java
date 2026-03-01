@@ -18,7 +18,6 @@ public class FluidLoader implements Runnable {
             if (tMaterial.contains(TD.ItemGenerator.PLASMA)) FL.createPlasma(tMaterial);
         }
         // Needed for fusion
-        FL.createMolten(MT.Bk); // Ununnenium
-        FL.createMolten(MT.Cf); // Unbinilliun
+        FL.createMolten(MT.Am);
     }
 }
