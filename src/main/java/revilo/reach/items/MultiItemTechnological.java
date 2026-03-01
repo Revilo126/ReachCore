@@ -214,6 +214,7 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
             NF,
             RCIL.Circuit_Nano.get(1));
 
+        // Need UV circuit
         // RCIL.Circuit_Quantum.set(addItem(1001, "Circuit T8 (Quantum)", "Computes simple data before you even ask",
         // MT.DATA.CIRCUITS[8], OD_CIRCUITS[8], TC.stack(TC.COGNITIO, 9)));
         // RCIL.Circuit_Cosmic.set(addItem(1002, "Circuit T9 (Cosmic)", "The processing power of a multiverse to find
