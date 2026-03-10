@@ -8,6 +8,7 @@ import net.minecraft.tileentity.TileEntity;
 import gregapi.block.MaterialMachines;
 import gregapi.block.multitileentity.MultiTileEntityBlock;
 import gregapi.block.multitileentity.MultiTileEntityRegistry;
+import gregapi.data.IL;
 import gregapi.data.MT;
 import gregapi.data.OP;
 import gregapi.data.TD;
@@ -19,6 +20,7 @@ import gregapi.util.UT;
 import revilo.reach.api.data.CS;
 import revilo.reach.api.data.RCMT;
 import revilo.reach.api.data.RCRM;
+import revilo.reach.tile.multiblock.MultiTileEntityFusionReactor2;
 
 public class MultiTileEntityLoader implements Runnable {
 
@@ -51,10 +53,11 @@ public class MultiTileEntityLoader implements Runnable {
             F);
 
         MultiTileEntityRegistry aRegistry = MultiTileEntityRegistry.getRegistry("reach.multitileentity");
+        MultiTileEntityRegistry aRegistryGT = MultiTileEntityRegistry.getRegistry("gt.multitileentity");
 
         wire(aRegistry, aMetalWires);
         machines(aRegistry, aMachine, CreativeTabLoader.basicMachinesID);
-        multiblocks(aRegistry, aMachine, CreativeTabLoader.basicMachinesID);
+        multiblocks(aRegistry, aRegistryGT, aMachine, CreativeTabLoader.basicMachinesID);
         unsorted(aRegistry);
 
     }
@@ -148,8 +151,8 @@ public class MultiTileEntityLoader implements Runnable {
     }
 
     // Use 20 000 - 29 999
-    private static void multiblocks(MultiTileEntityRegistry aRegistry, MultiTileEntityBlock aMachine,
-        short aCreativeTab) {
+    private static void multiblocks(MultiTileEntityRegistry aRegistry, MultiTileEntityRegistry aRegistryGT,
+        MultiTileEntityBlock aMachine, short aCreativeTab) {
         aClass = MultiTileEntityMultiBlockPart.class;
 
         aMat = RCMT.Ubn;
@@ -178,6 +181,51 @@ public class MultiTileEntityLoader implements Runnable {
             "WWW",
             'W',
             OP.wireGt04.dat(aMat));
+
+        aMat = MT.Ad;
+        aRegistry.add(
+            "Fusion Reactor Tier 2",
+            "Multiblock Machines",
+            22000,
+            aCreativeTab,
+            MultiTileEntityFusionReactor2.class,
+            aMat.mToolQuality,
+            16,
+            aMachine,
+            UT.NBT.make(
+                NBT_MATERIAL,
+                aMat,
+                NBT_HARDNESS,
+                16.5F,
+                NBT_RESISTANCE,
+                16.5F,
+                NBT_TEXTURE,
+                "fusionreactor",
+                NBT_INPUT,
+                32768,
+                NBT_INPUT_MIN,
+                1,
+                NBT_INPUT_MAX,
+                65536,
+                NBT_ENERGY_ACCEPTED,
+                TD.Energy.TU,
+                NBT_RECIPEMAP,
+                RCRM.FusionT2,
+                NBT_ENERGY_ACCEPTED_2,
+                TD.Energy.LU,
+                NBT_ENERGY_EMITTED,
+                TD.Energy.EU,
+                NBT_SPECIAL_IS_START_ENERGY,
+                T,
+                NBT_NO_CONSTANT_POWER,
+                T),
+            "FFF",
+            "FMF",
+            "FFF",
+            'M',
+            aRegistryGT.getItem(18005),
+            'F',
+            IL.FIELD_GENERATORS[6]);
     }
 
     private static void unsorted(MultiTileEntityRegistry aRegistry) {}

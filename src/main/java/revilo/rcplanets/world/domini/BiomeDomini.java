@@ -12,13 +12,21 @@ public class BiomeDomini extends BiomeGenBase {
         super(p_i1971_1_);
 
         this.spawnableCreatureList.clear();
+        this.heightVariation = 0.2f;
+        this.rainfall = 0f;
+        this.temperature = 0.9f;
+        this.enableRain = false;
+        this.enableSnow = false;
+        this.theBiomeDecorator.generateLakes = false;
+        this.theBiomeDecorator.flowersPerChunk = 0;
+        this.theBiomeDecorator.grassPerChunk = 0;
+        this.theBiomeDecorator.treesPerChunk = 0;
 
-        this.topBlock = ST.block(
+        this.topBlock = this.fillerBlock = ST.block(
             OP.blockDust.dat(RCMT.DominiTurf)
                 .getStack(1));
-        this.fillerBlock = ST.block(
-            OP.blockDust.dat(RCMT.DominiTurf)
-                .getStack(1));
+
+        this.biomeName = "Domini";
 
     }
 
