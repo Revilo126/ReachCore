@@ -9,7 +9,6 @@ import static gregapi.util.ST.*;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 
 import gregapi.code.ArrayListNoNulls;
 import gregapi.data.ANY;
@@ -74,8 +73,7 @@ public class RecipesMinecraft implements Runnable {
             Items.diamond_hoe);
 
         for (Item i : tTools) {
-            remout(new ItemStack(i));
-            hide(i);
+            RecipeUtil.nuke(i);
         } // TODO: (un)boxinator
     };
 

@@ -7,6 +7,11 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import gregapi.code.ModData;
 
+/**
+ * Might remove later!
+ */
+
+@Deprecated
 public class OreDictUnification implements Runnable {
 
     @Override

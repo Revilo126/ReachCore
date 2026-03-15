@@ -9,11 +9,6 @@ import static gregapi.data.RM.*;
 import static gregapi.util.CR.*;
 import static gregapi.util.ST.*;
 
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-
-import fox.spiteful.avaritia.crafting.ExtremeCraftingManager;
-
 @SuppressWarnings("unused")
 public class RecipesAvaritia implements Runnable {
 
@@ -63,19 +58,4 @@ public class RecipesAvaritia implements Runnable {
          * NeutroniumIngot);
          */
     }
-
-    // Yes i stole this from gtnh
-    @SuppressWarnings("unchecked")
-    public static void removeExtremeCraftingRecipe(ItemStack output) {
-        ExtremeCraftingManager.getInstance()
-            .getRecipeList()
-            .removeIf(r -> r instanceof IRecipe && equal(((IRecipe) r).getRecipeOutput(), output, T));
-    }
-
-    public static void addExtremeRecipe(ItemStack aItem, Object... args) {
-        removeExtremeCraftingRecipe(aItem);
-        ExtremeCraftingManager.getInstance()
-            .addRecipe(aItem, args);
-    }
-
 }

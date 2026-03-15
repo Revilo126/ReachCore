@@ -23,7 +23,6 @@ public class RecipeLoader implements Runnable {
             new RecipesMO(),
             new RecipesPersonalDim(),
             new RecipesAvaritia(),
-            new RecipesWarpDrive(),
             new RecipesGregTech(),
             new RecipeUtil());
         for (Runnable tRunnable : tList) try {
