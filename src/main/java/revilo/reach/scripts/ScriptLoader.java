@@ -9,7 +9,6 @@ import revilo.reach.recipes.RecipeUtil;
  * @author Revilo
  * Although most mods are not compiled in this core mod, you should directly try to access Items, this is due to the
  * fact you should normally test by adding to modpack!
- * 
  * If needed it is possible to run from Dev Env.
  */
 
