@@ -45,8 +45,8 @@ dependencies {
     implementation("com.github.GTNewHorizons:CodeChickenCore:1.4.12:dev")
     
     compileOnly("curse.maven:avaritia-233785:2519595") // TODO: Fork
-    implementation("curse.maven:advancedRocketry-236542:2495943") // TODO: Fork
-    implementation("curse.maven:libVulpes-236541:2812784") // TODO: Fork
+    compileOnly("curse.maven:advancedRocketry-236542:2495943") // TODO: Fork
+    compileOnly("curse.maven:libVulpes-236541:2812784") // TODO: Fork
     
     compileOnly("ic2:IC2Classic:1.2.1.8:dev") // TODO: Fork
     implementation('com.github.GTNewHorizons:Applied-Energistics-2-Unofficial:rv3-beta-845-GTNH:dev') // TODO: Fork
