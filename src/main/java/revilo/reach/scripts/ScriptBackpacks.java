@@ -1,4 +1,4 @@
-package revilo.reach.recipes;
+package revilo.reach.scripts;
 
 import static gregapi.data.CS.*;
 import static gregapi.data.CS.OreDictToolNames.*;
@@ -9,6 +9,9 @@ import static gregapi.data.RM.*;
 import static gregapi.util.CR.*;
 import static gregapi.util.ST.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 
@@ -17,10 +20,10 @@ import gregapi.util.ST;
 import revilo.reach.api.data.RCMD;
 
 @SuppressWarnings("unused")
-public class RecipesBackpacks implements Runnable {
+public class ScriptBackpacks implements IScriptLoader {
 
     @Override
-    public void run() {
+    public void loadRecipes() {
         delate(ST.make(RCMD.BP, "backpack", 1, 0));
         Loom.addRecipe2(T, 16, 128, ST.tag(0), ST.make(Items.leather, 4, 0), ST.make(RCMD.BP, "backpack", 1, 0));
         delate(ST.make(RCMD.BP, "backpack", 1, 100));
@@ -141,7 +144,16 @@ public class RecipesBackpacks implements Runnable {
                 NF,
                 ST.make(RCMD.BP, "backpack", 1, i + 200));
         }
+    }
 
+    @Override
+    public String getScriptName() {
+        return "Adventure Backpacks Recipes";
+    }
+
+    @Override
+    public List<String> getDependencies() {
+        return Arrays.asList(RCMD.BP.mID);
     }
 
 }

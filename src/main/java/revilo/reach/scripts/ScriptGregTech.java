@@ -1,4 +1,4 @@
-package revilo.reach.recipes;
+package revilo.reach.scripts;
 
 import static gregapi.data.CS.*;
 import static gregapi.data.CS.OreDictToolNames.*;
@@ -8,6 +8,9 @@ import static gregapi.data.OP.*;
 import static gregapi.util.CR.*;
 import static gregapi.util.ST.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 import net.minecraft.item.ItemStack;
 
 import gregapi.block.multitileentity.MultiTileEntityRegistry;
@@ -15,10 +18,10 @@ import gregapi.data.ANY;
 import gregapi.data.MT;
 
 @SuppressWarnings("unused")
-public class RecipesGregTech implements Runnable {
+public class ScriptGregTech implements IScriptLoader {
 
     @Override
-    public void run() {
+    public void loadRecipes() {
         MultiTileEntityRegistry aRegistry = MultiTileEntityRegistry.getRegistry("gt.multitileentity"); // Needed for
                                                                                                        // accessing gt
                                                                                                        // tiles
@@ -52,4 +55,13 @@ public class RecipesGregTech implements Runnable {
 
     }
 
+    @Override
+    public String getScriptName() {
+        return "Gregtech Recipes";
+    }
+
+    @Override
+    public List<String> getDependencies() {
+        return Arrays.asList(ModIDs.GT);
+    }
 }

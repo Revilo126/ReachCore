@@ -1,18 +1,21 @@
-package revilo.reach.recipes;
+package revilo.reach.scripts;
 
 import static gregapi.data.CS.*;
 import static gregapi.data.OP.*;
 import static gregapi.util.CR.*;
 import static gregapi.util.ST.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 import gregapi.data.IL;
 import gregapi.data.MT;
 import revilo.reach.api.data.RCMD;
 
-public class RecipesPersonalDim implements Runnable {
+public class ScriptPersonalDim implements IScriptLoader {
 
     @Override
-    public void run() {
+    public void loadRecipes() {
         shaped(
             make(RCMD.PerDim, "personalPortal", 1),
             DEF_REV,
@@ -29,6 +32,16 @@ public class RecipesPersonalDim implements Runnable {
             casingMachine.dat(MT.Ir),
             'R',
             IL.Processor_Crystal_Ruby);
+    }
+
+    @Override
+    public String getScriptName() {
+        return "Personal Dimensions Recipes";
+    }
+
+    @Override
+    public List<String> getDependencies() {
+        return Arrays.asList(RCMD.PerDim.mID);
     }
 
 }

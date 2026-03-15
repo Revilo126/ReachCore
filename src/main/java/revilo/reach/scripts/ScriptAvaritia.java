@@ -1,4 +1,4 @@
-package revilo.reach.recipes;
+package revilo.reach.scripts;
 
 import static gregapi.data.CS.*;
 import static gregapi.data.CS.OreDictToolNames.*;
@@ -9,11 +9,16 @@ import static gregapi.data.RM.*;
 import static gregapi.util.CR.*;
 import static gregapi.util.ST.*;
 
+import java.util.Arrays;
+import java.util.List;
+
+import gregapi.data.CS.ModIDs;
+
 @SuppressWarnings("unused")
-public class RecipesAvaritia implements Runnable {
+public class ScriptAvaritia implements IScriptLoader {
 
     @Override
-    public void run() {
+    public void loadRecipes() {
         /**
          * Still WIP
          * ExtremeCraftingManager instance = ExtremeCraftingManager.getInstance();
@@ -57,5 +62,15 @@ public class RecipesAvaritia implements Runnable {
          * 'N',
          * NeutroniumIngot);
          */
+    }
+
+    @Override
+    public String getScriptName() {
+        return "Avaritia Recipes";
+    }
+
+    @Override
+    public List<String> getDependencies() {
+        return Arrays.asList(ModIDs.AV);
     }
 }

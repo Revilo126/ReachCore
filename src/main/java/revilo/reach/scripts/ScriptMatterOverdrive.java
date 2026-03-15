@@ -1,4 +1,4 @@
-package revilo.reach.recipes;
+package revilo.reach.scripts;
 
 import static gregapi.data.CS.*;
 import static gregapi.data.CS.OreDictToolNames.*;
@@ -9,17 +9,22 @@ import static gregapi.data.OP.*;
 import static gregapi.util.CR.*;
 import static gregapi.util.ST.*;
 
+import java.util.Arrays;
+import java.util.List;
+
+import gregapi.data.CS.ModIDs;
 import gregapi.data.IL;
 import gregapi.data.MD;
 import gregapi.data.MT;
 import gregapi.util.ST;
+import revilo.reach.recipes.RecipeUtil;
 
 // Basically just leave Android stuff //
 @SuppressWarnings("unused")
-public class RecipesMO implements Runnable {
+public class ScriptMatterOverdrive implements IScriptLoader {
 
     @Override
-    public void run() {
+    public void loadRecipes() {
         // Crates
         for (byte i = 0; i < 16; i++) {
             RecipeUtil.nuke(ST.make(MD.MO, "tritanium_crate." + DYE_NAMES[i], 1, 0));
@@ -151,6 +156,16 @@ public class RecipesMO implements Runnable {
             plateCurved.dat(MT.TritaniumAlloy),
             'U',
             OD_CIRCUITS[6]);
+    }
+
+    @Override
+    public String getScriptName() {
+        return "Matter Overdrive Recipes";
+    }
+
+    @Override
+    public List<String> getDependencies() {
+        return Arrays.asList(ModIDs.MO);
     }
 
 }

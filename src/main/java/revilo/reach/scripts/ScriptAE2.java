@@ -1,4 +1,4 @@
-package revilo.reach.recipes;
+package revilo.reach.scripts;
 
 import static gregapi.data.CS.*;
 import static gregapi.data.CS.OreDictToolNames.*;
@@ -8,16 +8,19 @@ import static gregapi.data.OP.*;
 import static gregapi.util.CR.*;
 import static gregapi.util.ST.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 import gregapi.data.IL;
 import gregapi.data.MD;
 import gregapi.data.MT;
 import gregapi.util.ST;
 
 @SuppressWarnings("unused")
-public class RecipesAE2 implements Runnable {
+public class ScriptAE2 implements IScriptLoader {
 
     @Override
-    public void run() {
+    public void loadRecipes() {
         shaped(
             ST.make(AE, "tile.BlockController", 1, 0),
             DEF_REM_REV,
@@ -87,6 +90,16 @@ public class RecipesAE2 implements Runnable {
             'U',
             ST.make(MD.AE, "tile.BlockCraftingUnit", 1, 1));
 
+    }
+
+    @Override
+    public String getScriptName() {
+        return "Applied Energistics 2 Recipes";
+    }
+
+    @Override
+    public List<String> getDependencies() {
+        return Arrays.asList(ModIDs.AE);
     }
 
 }

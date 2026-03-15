@@ -34,7 +34,7 @@ import revilo.reach.loaders.a.WorldGenLoader;
 import revilo.reach.loaders.b.gt.GregTechLoader;
 import revilo.reach.loaders.c.LoaderRecipeOthers;
 import revilo.reach.oredict.OreDictUnification;
-import revilo.reach.recipes.RecipeLoader;
+import revilo.reach.scripts.ScriptLoader;
 
 @Mod(
     modid = ModIds.REACH,
@@ -159,7 +159,7 @@ public class Reach extends Abstract_Mod {
         ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(
             F,
             new GregTechLoader(),
-            new RecipeLoader(),
+            new ScriptLoader(),
             new MultiTileEntityLoader(),
             new WorldGenLoader());
 

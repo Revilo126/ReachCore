@@ -1,4 +1,4 @@
-package revilo.reach.recipes;
+package revilo.reach.scripts;
 
 import static gregapi.data.CS.*;
 import static gregapi.data.MD.*;
@@ -7,17 +7,22 @@ import static gregapi.data.OP.*;
 import static gregapi.util.CR.*;
 import static gregapi.util.ST.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
 import gregapi.code.ArrayListNoNulls;
 import gregapi.data.ANY;
+import gregapi.data.CS.ModIDs;
 import gregapi.data.MT;
+import revilo.reach.recipes.RecipeUtil;
 
-public class RecipesMinecraft implements Runnable {
+public class ScriptMinecraft implements IScriptLoader {
 
     @Override
-    public void run() {
+    public void loadRecipes() {
         shaped(make(MC, "crafting_table", 1), DEF_REM_REV, "Xk", "La", 'X', make(MC, "flint", 1), 'L', logWood);
 
         shaped(make(MC, "chest", 1), DEF_REM_REV, "LPL", "PaP", "LPL", 'L', logWood, 'P', plankWood);
@@ -75,6 +80,16 @@ public class RecipesMinecraft implements Runnable {
         for (Item i : tTools) {
             RecipeUtil.nuke(i);
         } // TODO: (un)boxinator
-    };
+    }
+
+    @Override
+    public String getScriptName() {
+        return "Minecraft Recipes";
+    }
+
+    @Override
+    public List<String> getDependencies() {
+        return Arrays.asList(ModIDs.MC);
+    }
 
 }
