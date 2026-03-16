@@ -1,6 +1,5 @@
 package revilo.reach;
 
-import net.minecraft.client.Minecraft;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -11,8 +10,6 @@ import revilo.reach.config.ReachConfig;
 import revilo.reach.recipes.RecipeUtil;
 
 public class CommonProxy extends Abstract_Proxy {
-
-    public static final Minecraft mc = Minecraft.getMinecraft();
 
     @Override
     public void onProxyBeforeInit(Abstract_Mod aMod, FMLInitializationEvent aEvent) {

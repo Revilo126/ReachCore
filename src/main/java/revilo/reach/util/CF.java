@@ -1,8 +1,7 @@
 package revilo.reach.util;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.util.IChatComponent;
-
-import revilo.reach.CommonProxy;
 
 /**
  * Chat Functions
@@ -10,8 +9,8 @@ import revilo.reach.CommonProxy;
 public class CF {
 
     public static void addMessageToChat(IChatComponent mComponent) {
-        if (CommonProxy.mc.theWorld != null && CommonProxy.mc.thePlayer != null) {
-            CommonProxy.mc.thePlayer.addChatMessage(mComponent);
+        if (Minecraft.getMinecraft().theWorld != null && Minecraft.getMinecraft().thePlayer != null) {
+            Minecraft.getMinecraft().thePlayer.addChatMessage(mComponent);
         }
     }
 }
