@@ -38,5 +38,4 @@ public interface IScriptLoader {
         }
         return true;
     }
-
 }

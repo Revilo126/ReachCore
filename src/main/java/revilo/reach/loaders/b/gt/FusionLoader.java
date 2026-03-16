@@ -17,16 +17,6 @@ public class FusionLoader implements Runnable {
 
     @Override
     public void run() {
-        RCRM.FusionT2
-            .addRecipe1(
-                F,
-                -32768,
-                4766,
-                ST.tag(3),
-                FL.array(MT.Am.liquid(U, T), MT.Cr.liquid(U, T)),
-                FL.array(RCMT.Uue.liquid(U, F)),
-                ZL_IS)
-            .setSpecialNumber(4096L * 8192L * 64L); // Theoretical Elements - Fusion only
         RM.Fusion
             .addRecipe1(
                 F,
@@ -37,6 +27,16 @@ public class FusionLoader implements Runnable {
                 FL.array(RCMT.Ubn.liquid(U, F)),
                 ZL_IS)
             .setSpecialNumber(4352L * 8192L * 32L);
+        RCRM.FusionT2
+            .addRecipe1(
+                F,
+                -32768,
+                4766,
+                ST.tag(3),
+                FL.array(MT.Am.liquid(U, T), MT.Cr.liquid(U, T)),
+                FL.array(RCMT.Uue.liquid(U, F)),
+                ZL_IS)
+            .setSpecialNumber(4096L * 8192L * 64L); // Theoretical Elements - Fusion only
         RCRM.FusionT2
             .addRecipe1(
                 F,

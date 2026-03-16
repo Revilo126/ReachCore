@@ -4,6 +4,7 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import gregapi.api.Abstract_Mod;
 import gregapi.api.Abstract_Proxy;
+import revilo.reach.client.FirstLoginHandler;
 import revilo.reach.config.ReachConfig;
 
 public class ClientProxy extends Abstract_Proxy {

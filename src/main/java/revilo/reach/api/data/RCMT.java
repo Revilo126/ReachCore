@@ -13,6 +13,9 @@ import gregapi.data.MT;
 import gregapi.oredict.OreDictMaterial;
 import gregapi.render.TextureSet;
 
+/**
+ * Reach Materials
+ */
 public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
 
     public static final HashSetNoNulls<OreDictMaterial> ALL_MATERIALS_REGISTERED_HERE = new HashSetNoNulls<>();

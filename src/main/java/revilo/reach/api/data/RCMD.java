@@ -2,6 +2,9 @@ package revilo.reach.api.data;
 
 import gregapi.code.ModData;
 
+/**
+ * Reach Mod Data
+ */
 public class RCMD {
 
     public static final ModData RC = new ModData(CS.ModIds.REACH, "Reach");

@@ -5,7 +5,7 @@ import static gregapi.data.CS.*;
 import gregapi.recipes.Recipe.RecipeMap;
 
 /**
- * All Planned Machines!
+ * Reach Recipe Maps
  */
 public class RCRM {
     // public static final RecipeMap Sequencer = new RecipeMap(null, "rc.recipe.sequencer", "Sequencer", null, ),

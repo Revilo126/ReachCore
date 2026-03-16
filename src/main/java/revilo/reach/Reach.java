@@ -33,7 +33,6 @@ import revilo.reach.loaders.a.MultiTileEntityLoader;
 import revilo.reach.loaders.a.WorldGenLoader;
 import revilo.reach.loaders.b.gt.GregTechLoader;
 import revilo.reach.loaders.c.LoaderRecipeOthers;
-import revilo.reach.oredict.OreDictUnification;
 import revilo.reach.scripts.ScriptLoader;
 
 @Mod(
@@ -41,7 +40,13 @@ import revilo.reach.scripts.ScriptLoader;
     version = Tags.VERSION,
     name = Reach.MODNAME,
     acceptedMinecraftVersions = "[1.7.10]",
-    dependencies = "required-after:" + ModIDs.GAPI_POST + ";required-after:" + ModIDs.GT + ";after:" + ModIDs.MO)
+    dependencies = "required-after:" + ModIDs.GAPI_POST
+        + ";required-after:"
+        + ModIDs.GT
+        + ";after:"
+        + ModIDs.MO
+        + ";after:"
+        + ModIDs.GC_ADV_ROCKETRY)
 public class Reach extends Abstract_Mod {
 
     public static final Logger LOG = LogManager.getLogger("Reach");
@@ -172,9 +177,7 @@ public class Reach extends Abstract_Mod {
     }
 
     @Override
-    public void onModPostInit2(FMLPostInitializationEvent aEvent) {
-        new OreDictUnification().run();
-    }
+    public void onModPostInit2(FMLPostInitializationEvent aEvent) {}
 
     @Override
     public void onModServerStarting2(FMLServerStartingEvent aEvent) {
