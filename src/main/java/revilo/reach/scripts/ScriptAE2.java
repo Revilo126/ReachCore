@@ -11,6 +11,8 @@ import static gregapi.util.ST.*;
 import java.util.Arrays;
 import java.util.List;
 
+import net.minecraft.item.ItemStack;
+
 import gregapi.data.IL;
 import gregapi.data.MD;
 import gregapi.data.MT;
@@ -21,8 +23,17 @@ public class ScriptAE2 implements IScriptLoader {
 
     @Override
     public void loadRecipes() {
+        ItemStack Controller = make(AE, "tile.BlockController", 1, 0), // Blocks
+            Drive = make(AE, "tile.BlockDrive", 1, 0), CraftingUnit1 = make(AE, "tile.BlockCraftingUnit", 1, 0),
+            CraftingUnit4 = make(MD.AE, "tile.BlockCraftingUnit", 1, 1),
+            CraftingUnit16 = make(MD.AE, "tile.BlockCraftingUnit", 1, 2),
+            CraftingUnit64 = make(MD.AE, "tile.BlockAdvancedCraftingUnit", 1, 0),
+            CraftingUnit256 = make(MD.AE, "tile.BlockAdvancedCraftingUnit", 1, 1),
+            CraftingUnit1024 = make(MD.AE, "tile.BlockAdvancedCraftingUnit", 1, 2),
+            CraftingUnit4096 = make(MD.AE, "tile.BlockAdvancedCraftingUnit", 1, 3);
+
         shaped(
-            ST.make(AE, "tile.BlockController", 1, 0),
+            Controller,
             DEF_REM_REV,
             "wSd",
             "ECE",
@@ -36,7 +47,7 @@ public class ScriptAE2 implements IScriptLoader {
             'P',
             IL.Processor_Crystal_Emerald);
         shaped(
-            ST.make(AE, "tile.BlockDrive", 1, 0),
+            Drive,
             DEF_REM_REV,
             "wLd",
             "PHE",
@@ -53,8 +64,9 @@ public class ScriptAE2 implements IScriptLoader {
             IL.EMITTERS[6],
             'H',
             ST.make(AE, "item.ItemMultiMaterial", 1, 39));
+
         shaped(
-            ST.make(AE, "tile.BlockCraftingUnit", 1, 0),
+            CraftingUnit1,
             DEF_REM_REV,
             "w d",
             "FCF",
@@ -67,9 +79,8 @@ public class ScriptAE2 implements IScriptLoader {
             OD_CIRCUITS[6],
             'S',
             screw.dat(MT.Ir));
-
         shaped(
-            ST.make(MD.AE, "tile.BlockCraftingUnit", 1, 1),
+            CraftingUnit4,
             DEF_REM_REV,
             "UP",
             "wd",
@@ -78,17 +89,65 @@ public class ScriptAE2 implements IScriptLoader {
             'P',
             ST.make(MD.GT, "gt.multitileentity", 1, 18203)); // storage quad core
         shaped(
-            ST.make(MD.AE, "tile.BlockCraftingUnit", 1, 2),
+            CraftingUnit16,
             DEF_REM_REV,
-            "PCP",
-            "CUC",
-            "PCP",
-            'P',
-            ST.make(MD.GT, "gt.multitileentity", 1, 18203), // storage quad core
-            'C',
-            OD_CIRCUITS[6],
-            'U',
-            ST.make(MD.AE, "tile.BlockCraftingUnit", 1, 1));
+            "QNQ",
+            "NON",
+            "QNQ",
+            'Q',
+            CraftingUnit4,
+            'N',
+            OD_CIRCUITS[7],
+            'O',
+            casingMachine.dat(MT.Os));
+        shaped(
+            CraftingUnit64,
+            DEF_REM_REV,
+            "QNQ",
+            "NON",
+            "QNQ",
+            'Q',
+            CraftingUnit16,
+            'N',
+            OD_CIRCUITS[7],
+            'O',
+            casingMachine.dat(MT.Os));
+        shaped(
+            CraftingUnit256,
+            DEF_REM_REV,
+            "QNQ",
+            "NTN",
+            "QNQ",
+            'Q',
+            CraftingUnit64,
+            'N',
+            OD_CIRCUITS[8],
+            'O',
+            casingMachine.dat(MT.Trinitanium));
+        shaped(
+            CraftingUnit1024,
+            DEF_REM_REV,
+            "QNQ",
+            "NTN",
+            "QNQ",
+            'Q',
+            CraftingUnit256,
+            'N',
+            OD_CIRCUITS[8],
+            'O',
+            casingMachine.dat(MT.Trinitanium));
+        shaped(
+            CraftingUnit4096,
+            DEF_REM_REV,
+            "QNQ",
+            "NTN",
+            "QNQ",
+            'Q',
+            CraftingUnit1024,
+            'N',
+            OD_CIRCUITS[8], // TODO: Make Tier 9 Circuits
+            'O',
+            casingMachine.dat(MT.Trinaquadalloy));
 
     }
 

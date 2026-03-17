@@ -17,7 +17,7 @@ public class FirstLoginHandler {
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public void onTick(TickEvent.ClientTickEvent event) {
-        if (event.phase == TickEvent.Phase.END && !completedMessage) {
+        if (event.phase == TickEvent.Phase.END && Minecraft.getMinecraft().thePlayer != null && !completedMessage) {
             CF.addMessageToChat(
                 new ChatComponentText(
                     LH.Chat.PURPLE + "Welcome to Reach "

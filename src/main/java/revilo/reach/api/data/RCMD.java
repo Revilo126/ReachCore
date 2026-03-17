@@ -7,11 +7,8 @@ import gregapi.code.ModData;
  */
 public class RCMD {
 
-    public static final ModData RC = new ModData(CS.ModIds.REACH, "Reach");
-    public static final ModData BP = new ModData("Backpack", "Backpack Edited for ModdedNetwork");
-    public static final ModData PerDim = new ModData("personalspace", "Personal Space");
-
-    public static final ModData WD = new ModData("WarpDrive", "Warp Drive"); // GT6's implementation's modid is
-                                                                             // warpdrivecore not warpdrive. TODO: Tell
-                                                                             // greg
+    public static final ModData RC = new ModData(CS.ModIds.REACH, "Reach"),
+        BP = new ModData(CS.ModIds.BP, "Backpack Edited for ModdedNetwork"),
+        PerDim = new ModData(CS.ModIds.PerDim, "Personal Space"),
+        AE2FC = new ModData(CS.ModIds.AE2FC, "AE2 Fluid Crafting");
 }

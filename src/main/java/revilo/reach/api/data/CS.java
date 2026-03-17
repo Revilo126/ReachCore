@@ -20,8 +20,7 @@ public class CS {
 
     public static class ModIds {
 
-        public static final String REACH = "reach";
-        public static final String RCPLANETS = "rcplanets";
+        public static final String REACH = "reach", BP = "Backpack", PerDim = "personalspace", AE2FC = "ae2fc";
     }
 
     public static class ItemsReach {
