@@ -102,52 +102,7 @@ public class MultiTileEntityLoader implements Runnable {
     // Use 10 000 - 19 999
     private static void machines(MultiTileEntityRegistry aRegistry, MultiTileEntityBlock aMachine, short aCreativeTab) {
         aClass = MultiTileEntityBasicMachine.class;
-        // PUV1 //
-        aMat = MT.Trinaquadalloy;
-        aRegistry.add(
-            "Neutron Collector",
-            "Basic Machine",
-            10000,
-            aCreativeTab,
-            aClass,
-            aMat.mToolQuality,
-            16,
-            aMachine,
-            UT.NBT.make(
-                NBT_MATERIAL,
-                aMat,
-                NBT_HARDNESS,
-                6.0F,
-                NBT_RESISTANCE,
-                6.0F,
-                NBT_INPUT,
-                2097152,
-                NBT_TEXTURE,
-                "neutroncollector",
-                NBT_ENERGY_ACCEPTED,
-                TD.Energy.EU,
-                NBT_RECIPEMAP,
-                RCRM.NeutronCollector,
-                NBT_INV_SIDE_OUT,
-                SBIT_B | SBIT_R,
-                NBT_INV_SIDE_AUTO_OUT,
-                SIDE_RIGHT,
-                NBT_TANK_SIDE_IN,
-                SBIT_U | SBIT_L,
-                NBT_TANK_SIDE_AUTO_IN,
-                SIDE_LEFT,
-                NBT_TANK_SIDE_OUT,
-                SBIT_B | SBIT_R,
-                NBT_TANK_SIDE_AUTO_OUT,
-                SIDE_BACK,
-                NBT_ENERGY_ACCEPTED_SIDES,
-                63,
-                NBT_INPUT,
-                1,
-                NBT_INPUT_MIN,
-                1,
-                NBT_INPUT_MAX,
-                16));
+
     }
 
     // Use 20 000 - 29 999

@@ -15,8 +15,8 @@ import net.minecraft.item.Item;
 
 import gregapi.code.ArrayListNoNulls;
 import gregapi.data.ANY;
-import gregapi.data.CS.ModIDs;
 import gregapi.data.MT;
+import revilo.reach.api.data.CS.ModIds;
 import revilo.reach.recipes.RecipeUtil;
 
 public class ScriptMinecraft implements IScriptLoader {
@@ -89,7 +89,7 @@ public class ScriptMinecraft implements IScriptLoader {
 
     @Override
     public List<String> getDependencies() {
-        return Arrays.asList(ModIDs.MC);
+        return Arrays.asList(ModIds.REACH); // This doesn't need dependencies as it is the game.
     }
 
 }

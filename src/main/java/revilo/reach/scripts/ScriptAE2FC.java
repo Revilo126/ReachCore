@@ -7,6 +7,7 @@ import static gregapi.data.OD.*;
 import static gregapi.data.OP.*;
 import static gregapi.util.CR.*;
 import static gregapi.util.ST.*;
+import static revilo.reach.recipes.RecipeUtil.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,6 +16,7 @@ import net.minecraft.item.ItemStack;
 
 import gregapi.data.FL;
 import gregapi.data.MD;
+import gregapi.data.MT;
 import gregapi.data.RM;
 import gregapi.util.ST;
 import revilo.reach.api.data.CS.ModIds;
@@ -63,7 +65,7 @@ public class ScriptAE2FC implements IScriptLoader {
                 T,
                 0,
                 64,
-                bufItem,
+                make(RCMD.AE2FC, "fluid_storage" + baseSizes[i], 1, 0),
                 FL.make("bluevitriol", 1),
                 NF,
                 make(RCMD.AE2FC, "multi_fluid_storage" + baseSizes[i], 1, 0));
@@ -82,5 +84,26 @@ public class ScriptAE2FC implements IScriptLoader {
             dualInterface = make(RCMD.AE2FC, "fluid_interface", 1, 0),
             ingrediantBuffer = make(RCMD.AE2FC, "ingrediant_buffer", 1, 0);
 
+        delate(quartzTank);
+        RM.RollBender.addRecipe1(T, 16, 128, make(MD.AE, "tile.BlockQuartzGlass", 1, 0), quartzTank);
+
+        RecipeUtil.nuke(fluidAutoFiller);
+
+        shaped(
+            levelMaintainer,
+            DEF_REM_REV,
+            "CP",
+            "TI",
+            "CD",
+            'C',
+            OD_CIRCUITS[6],
+            'P',
+            make(MD.AE, "item.ItemMultiMaterial", 1, 52),
+            'T',
+            make(MD.AE, "item.ItemMultiPart", 1, 340),
+            'I',
+            casingMachine.dat(MT.Ir),
+            'D',
+            gtRegistry.getItem(32718));
     }
 }

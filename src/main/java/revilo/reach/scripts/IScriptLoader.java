@@ -4,6 +4,9 @@ import java.util.List;
 
 import cpw.mods.fml.common.Loader;
 
+/**
+ * Base Interface for Recipe Scripts.
+ */
 public interface IScriptLoader {
 
     /**

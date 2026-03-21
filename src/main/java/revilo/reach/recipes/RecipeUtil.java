@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 
 import fox.spiteful.avaritia.crafting.ExtremeCraftingManager;
+import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.code.ArrayListNoNulls;
 import gregapi.recipes.Recipe;
 import gregapi.util.ST;
@@ -21,6 +22,9 @@ import gregapi.util.ST;
 public class RecipeUtil implements Runnable {
 
     public static ArrayListNoNulls<ItemStack> toNuke = new ArrayListNoNulls<>(F);
+
+    public static MultiTileEntityRegistry rRegistry = MultiTileEntityRegistry.getRegistry("reach.multitileentity");
+    public static MultiTileEntityRegistry gtRegistry = MultiTileEntityRegistry.getRegistry("gt.multitileentity");
 
     public static void nuke(ItemStack aItem) {
         toNuke.add(aItem);
