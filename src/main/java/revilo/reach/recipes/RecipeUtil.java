@@ -48,11 +48,13 @@ public class RecipeUtil implements Runnable {
         }
     }
 
-    public static boolean removeGTRecipe(Recipe mRecipe, Recipe.RecipeMap mRecipeMap) { // Inspired by Bioastroneers
-                                                                                        // implementation.
-        if (mRecipeMap.mRecipeList.contains(mRecipe)) OUT.println("Removed Recipe from " + mRecipeMap.mNameInternal);
+    // Inspired by Astroineers Implementation
+    public static boolean removeGTRecipe(Recipe mRecipe, Recipe.RecipeMap mRecipeMap) {
+        if (mRecipeMap.mRecipeList.contains(mRecipe))
+            OUT.println("Reach: Removed Recipe from " + mRecipeMap.mNameInternal);
         boolean ret = mRecipeMap.mRecipeList.remove(mRecipe);
-        if (!ret) ERR.println(String.format("Recipe was not remove from %s RecipeMap!", mRecipeMap.mNameInternal));
+        if (!ret)
+            ERR.println(String.format("Reach: Recipe was not remove from %s RecipeMap!", mRecipeMap.mNameInternal));
         else {
             mRecipeMap.mRecipeItemMap.entrySet()
                 .stream()
@@ -78,10 +80,8 @@ public class RecipeUtil implements Runnable {
         return ret;
     }
 
-    public static void removeGTRecipeFromOutputs(ItemStack[] mOutputs, Recipe.RecipeMap mRecipeMap) { // Use mostly for
-                                                                                                      // multiple
-                                                                                                      // recipes to make
-                                                                                                      // 1 item!
+    // Don't overruse!
+    public static void removeGTRecipeFromOutputs(ItemStack[] mOutputs, Recipe.RecipeMap mRecipeMap) {
         Iterator<Recipe> it = mRecipeMap.mRecipeList.iterator();
 
         while (it.hasNext()) {
@@ -89,16 +89,32 @@ public class RecipeUtil implements Runnable {
                 removeGTRecipe(it.next(), mRecipeMap);
             }
         }
-        OUT.println(String.format("Removed all recipes from %s resulting in:", mRecipeMap.mNameInternal));
+        OUT.println(String.format("Reach: Removed all recipes from %s resulting in:", mRecipeMap.mNameInternal));
         for (ItemStack res : mOutputs) {
             OUT.println(res.getDisplayName());
         }
     }
 
+    // Don't overruse!
+    public static void removeGTRecipeFromInputs(ItemStack[] mInputs, Recipe.RecipeMap mRecipeMap) {
+        Iterator<Recipe> it = mRecipeMap.mRecipeList.iterator();
+
+        while (it.hasNext()) {
+            if (it.next().mInputs.equals(mInputs)) {
+                removeGTRecipe(it.next(), mRecipeMap);
+            }
+        }
+        OUT.println(String.format("Reach: Removed all recipes from %s with inputs:", mRecipeMap.mNameInternal));
+        for (ItemStack in : mInputs) {
+            OUT.println(in.getDisplayName());
+        }
+    }
+
     public static class AvaritiaHelp {
 
+        // Copied from GTNH.
         @SuppressWarnings("unchecked")
-        public static void removeExtremeCraftingRecipe(ItemStack output) { // Copied from GTNH.
+        public static void removeExtremeCraftingRecipe(ItemStack output) {
             ExtremeCraftingManager.getInstance()
                 .getRecipeList()
                 .removeIf(r -> r instanceof IRecipe && equal(((IRecipe) r).getRecipeOutput(), output, T));

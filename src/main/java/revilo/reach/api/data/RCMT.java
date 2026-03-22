@@ -9,6 +9,7 @@ import static gregapi.data.TD.Properties.*;
 
 import gregapi.code.HashSetNoNulls;
 import gregapi.data.CS;
+import gregapi.data.MD;
 import gregapi.data.MT;
 import gregapi.oredict.OreDictMaterial;
 import gregapi.render.TextureSet;
@@ -55,35 +56,11 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             .put(aTags);
     }
 
-    public static final OreDictMaterial Sr2RuO4 = create(23000, "Distrontium Ruthenate", "Sr2RuO4") // Distrontium
-                                                                                                    // Ruthenate line
-        .setTextures(TextureSet.SET_METALLIC)
-        .setRGBa(50, 50, 50, 255)
-        .put(G_INGOT, ALLOY, MELTING, EXTRUDER)
-        .heat(2270, 4420)
-        .setMcfg(0, MT.Sr, 2 * U, MT.Ru, 1 * U, MT.O, 4 * U),
-        SrCO3 = create(23001, "Strontium Carbonate", "SrCO3").setTextures(TextureSet.SET_CUBE) // Textures aren't used
-            .setRGBa(240, 240, 240, 255)
-            .put(G_DUST)
-            .setMcfg(0, MT.Sr, 1 * U, MT.CO3, 1 * U),
-        RuO2 = create(23002, "Ruthenium Dioxide", "RuO2").setRGBa(90, 90, 90, 255)
-            .setTextures(TextureSet.SET_CUBE) // not seen
-            .put(G_DUST)
-            .setMcfg(0, MT.Ru, 1 * U, MT.O, 2 * U),
-        RuCl3 = create(23003, "Ruthenium Chloride", "RuCl3").setTextures(TextureSet.SET_CUBE) // not seen
-            .setRGBa(20, 20, 20, 255)
-            .put(G_DUST)
-            .setMcfg(0, MT.Ru, 1 * U, MT.Cl, 3 * U);
+    // Periodic Table 23010 - 23099
 
-    public static final OreDictMaterial Thermite = create(23004, "Thermite", "AlFe3").setTextures(TextureSet.SET_CUBE) // AdvRocketry
-        .setRGBa(125, 42, 14, 255)
-        .put(G_DUST, MOLTEN, ALLOY, DECOMPOSABLE, CENTRIFUGE)
-        .heat(933, MT.Al.mBoilingPoint)
-        .setMcfg(0, MT.Al, CS.U, MT.Fe, 3 * U);
-
-    // Theoretical elements
+    // Theoretical elements 23100 - 23199
     public static OreDictMaterial Uue = element(
-        23005,
+        23100,
         "Ununennium",
         "Uue",
         119,
@@ -103,7 +80,7 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
         EXTRUDER,
         MELTING),
         Ubn = element(
-            23006,
+            23101,
             "Unbinilium",
             "Ubn",
             120,
@@ -123,7 +100,7 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             EXTRUDER,
             MELTING),
         Ubu = element(
-            23007,
+            23102,
             "Unbiunium",
             "Ubu",
             121,
@@ -143,8 +120,8 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             EXTRUDER,
             MELTING);
 
-    // Alloys //
-    public static OreDictMaterial AdUue = create(23008, "Adamennium").setRGBa(255, 133, 233, 255)
+    // Alloys 23200 - 23299
+    public static OreDictMaterial AdUue = create(23200, "Adamennium").setRGBa(255, 133, 233, 255)
         .setTextures(TextureSet.SET_SHINY)
         .put(
             G_INGOT_MACHINE,
@@ -157,13 +134,36 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             UNBURNABLE,
             WITHER_PROOF,
             ENDER_DRAGON_PROOF,
-            ALLOY)
+            ALLOY,
+            CRUCIBLE_ALLOY)
         .qual(3, 12.0, 6128, 6)
         .uumAloy(0, MT.Ad, 1 * U, Uue, 1 * U)
         .heat(6225, 16768);
 
-    // public static OreDictMaterial SeleneTurf = stone(23020, "Selene Turf", 190l, 190l, 190l, 255l, MELTING),
-    public static OreDictMaterial DominiTurf = stone(23022, "Domini Turf", 180, 20, 20, 255, MELTING);
-    // Alfheim1Turf = stone(23023, "Alfheim-1 Turf", 180, 20, 20, 255, MELTING);
+    public static final OreDictMaterial Thermite = create(23201, "Thermite", "AlFe3").setTextures(TextureSet.SET_CUBE) // AdvRocketry
+        .setRGBa(125, 42, 14, 255)
+        .put(G_DUST, MOLTEN, ALLOY, DECOMPOSABLE, CENTRIFUGE, MD.GC_ADV_ROCKETRY)
+        .heat(933, MT.Al.mBoilingPoint)
+        .setMcfg(0, MT.Al, CS.U, MT.Fe, 3 * U);
+
+    public static final OreDictMaterial Sr2RuO4 = create(23202, "Distrontium Ruthenate", "Sr2RuO4") // Distrontium
+        // Ruthenate line
+        .setTextures(TextureSet.SET_METALLIC)
+        .setRGBa(50, 50, 50, 255)
+        .put(G_INGOT, ALLOY, MELTING, EXTRUDER)
+        .heat(2270, 4420)
+        .setMcfg(0, MT.Sr, 2 * U, MT.Ru, 1 * U, MT.O, 4 * U),
+        SrCO3 = create(23203, "Strontium Carbonate", "SrCO3").setTextures(TextureSet.SET_CUBE) // Textures aren't used
+            .setRGBa(240, 240, 240, 255)
+            .put(G_DUST)
+            .setMcfg(0, MT.Sr, 1 * U, MT.CO3, 1 * U),
+        RuO2 = create(23204, "Ruthenium Dioxide", "RuO2").setRGBa(90, 90, 90, 255)
+            .setTextures(TextureSet.SET_CUBE) // not seen
+            .put(G_DUST)
+            .setMcfg(0, MT.Ru, 1 * U, MT.O, 2 * U),
+        RuCl3 = create(23205, "Ruthenium Chloride", "RuCl3").setTextures(TextureSet.SET_CUBE) // not seen
+            .setRGBa(20, 20, 20, 255)
+            .put(G_DUST)
+            .setMcfg(0, MT.Ru, 1 * U, MT.Cl, 3 * U);
 
 }

@@ -7,6 +7,7 @@ import static gregapi.data.OD.*;
 import static gregapi.data.OP.*;
 import static gregapi.util.CR.*;
 import static gregapi.util.ST.*;
+import static revilo.reach.recipes.RecipeUtil.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -28,6 +29,7 @@ public class ScriptGregTech implements IScriptLoader {
 
         machines(aRegistry);
         cables(aRegistry);
+        zpm(aRegistry);
     }
 
     private void machines(MultiTileEntityRegistry aRegistry) {
@@ -36,9 +38,10 @@ public class ScriptGregTech implements IScriptLoader {
 
     private void cables(MultiTileEntityRegistry aRegistry) {
         ItemStack fiberCable = aRegistry.getItem(24900);
+        delate(fiberCable);
         shaped(
             fiberCable,
-            DEF_REM,
+            DEF_REM_NCC,
             "GCG",
             "RSD",
             "w x",
@@ -49,10 +52,41 @@ public class ScriptGregTech implements IScriptLoader {
             'R',
             gemFlawless.dat(MT.Redstone),
             'S',
-            dust.dat(MT.Ag),
+            plateDouble.dat(MT.Ag),
             'D',
             gemFlawless.dat(ANY.Diamond));
+    }
 
+    private void zpm(MultiTileEntityRegistry aRegistry) {
+        AvaritiaHelp.addExtremeRecipe(
+            aRegistry.getItem(14999),
+            "CCMAOAMCC",
+            "CMAOPOAMC",
+            "MAOUWUOAM",
+            "AOUWNWUOA",
+            "OPWNDNWPO",
+            "AOUWNWUOA",
+            "MAOUWUOAM",
+            "CMAOPOAMC",
+            "CCMAOAMCC",
+            'C',
+            plateCurved.mat(MT.Os, 1),
+            'M',
+            casingMachine.mat(MT.Os, 1),
+            'A',
+            OD_CIRCUITS[8],
+            'O',
+            aRegistry.getItem(18044),
+            'P',
+            plateDense.mat(MT.Pu_243, 1),
+            'U',
+            plateDense.mat(MT.U_235, 1),
+            'W',
+            aRegistry.getItem(29515),
+            'N',
+            plateDense.mat(MT.Nq_528, 1),
+            'D',
+            plateDense.mat(MT.Nq_522, 1));
     }
 
     @Override

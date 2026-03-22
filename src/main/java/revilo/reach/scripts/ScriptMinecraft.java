@@ -10,13 +10,9 @@ import static gregapi.util.ST.*;
 import java.util.Arrays;
 import java.util.List;
 
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-
-import gregapi.code.ArrayListNoNulls;
 import gregapi.data.ANY;
+import gregapi.data.MD;
 import gregapi.data.MT;
-import revilo.reach.api.data.CS.ModIds;
 import revilo.reach.recipes.RecipeUtil;
 
 public class ScriptMinecraft implements IScriptLoader {
@@ -49,37 +45,15 @@ public class ScriptMinecraft implements IScriptLoader {
             'f',
             craftingFirestarter);
 
-        ArrayListNoNulls<Item> tTools = new ArrayListNoNulls<>(
-            F,
-            Items.iron_sword,
-            Items.iron_pickaxe,
-            Items.iron_axe,
-            Items.iron_shovel,
-            Items.iron_hoe,
-            Items.wooden_sword,
-            Items.wooden_pickaxe,
-            Items.wooden_axe,
-            Items.wooden_shovel,
-            Items.wooden_hoe,
-            Items.stone_sword,
-            Items.stone_pickaxe,
-            Items.stone_axe,
-            Items.stone_shovel,
-            Items.stone_hoe,
-            Items.golden_sword,
-            Items.golden_pickaxe,
-            Items.golden_axe,
-            Items.golden_shovel,
-            Items.golden_hoe,
-            Items.diamond_sword,
-            Items.diamond_pickaxe,
-            Items.diamond_axe,
-            Items.diamond_shovel,
-            Items.diamond_hoe);
+        String[] tiers = { "iron", "wooden", "stone", "golden", "diamond" };
 
-        for (Item i : tTools) {
-            RecipeUtil.nuke(i);
-        } // TODO: (un)boxinator
+        for (byte i = 0; i < 5; i++) {
+            RecipeUtil.nuke(make(MD.MC, tiers[i] + "_sword", 1, 0));
+            RecipeUtil.nuke(make(MD.MC, tiers[i] + "_pickaxe", 1, 0));
+            RecipeUtil.nuke(make(MD.MC, tiers[i] + "_axe", 1, 0));
+            RecipeUtil.nuke(make(MD.MC, tiers[i] + "_shovel", 1, 0));
+            RecipeUtil.nuke(make(MD.MC, tiers[i] + "_hoe", 1, 0));
+        }
     }
 
     @Override
@@ -89,7 +63,7 @@ public class ScriptMinecraft implements IScriptLoader {
 
     @Override
     public List<String> getDependencies() {
-        return Arrays.asList(ModIds.REACH); // This doesn't need dependencies as it is the game.
+        return Arrays.asList(ModIDs.GT); // This doesn't need dependencies as it is the game.
     }
 
 }
