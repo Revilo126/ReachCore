@@ -10,10 +10,11 @@ import gregapi.oredict.event.OreDictListenerEvent_Names;
 import gregapi.util.ST;
 import revilo.reach.api.data.RCIL;
 
-public class LoaderRecipeOthers implements Runnable {
+public class LoaderRecipesOthers implements Runnable {
 
     @Override
     public void run() {
+        OUT.println("Reach: Loading Other Recipes.");
         new OreDictListenerEvent_Names() {
 
             @Override

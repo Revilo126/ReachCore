@@ -19,6 +19,7 @@ import gregapi.data.MD;
 @SuppressWarnings("unused")
 public class ScriptAdvRocketry implements IScriptLoader {
 
+    // Why is it so long?
     private static String product = "advancedRocketryproduct";
 
     @Override
@@ -33,10 +34,26 @@ public class ScriptAdvRocketry implements IScriptLoader {
 
     @Override
     public void loadRecipes() {
+        spaceShipParts();
+        machines();
+        misc();
         deleteOreDicts();
     }
 
+    private void spaceShipParts() {
+        // TODO //
+    }
+
+    private void machines() {
+        // TODO //
+    }
+
+    private void misc() {
+        // TODO //
+    }
+
     private void deleteOreDicts() {
+        // TODO: FIX
         String[] types = { "dust", "ingot", "nugget", "plate", "rod", "sheet", "gear" };
         for (byte i = 0; i < 7; i++) {
             OreDictionary.getOres(types[i] + "TitaniumAluminide")

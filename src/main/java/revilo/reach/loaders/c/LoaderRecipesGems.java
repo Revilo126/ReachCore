@@ -15,6 +15,7 @@ public class LoaderRecipesGems implements Runnable {
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void run() {
+        OUT.println("Reach: Loading Gem Recipes.");
         // Autoclave can take long so now you can use engraver, mainly here so it's easier to make fiber cable.
         RM.LaserEngraver.add(
             new RecipeMapHandlerPrefix(

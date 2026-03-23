@@ -96,6 +96,6 @@ public class ScriptGregTech implements IScriptLoader {
 
     @Override
     public List<String> getDependencies() {
-        return Arrays.asList(ModIDs.GT);
+        return Arrays.asList(ModIDs.GT, ModIDs.AV);
     }
 }

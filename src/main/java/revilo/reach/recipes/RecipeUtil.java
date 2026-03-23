@@ -16,6 +16,7 @@ import net.minecraft.item.crafting.IRecipe;
 import fox.spiteful.avaritia.crafting.ExtremeCraftingManager;
 import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.code.ArrayListNoNulls;
+import gregapi.code.ModData;
 import gregapi.recipes.Recipe;
 import gregapi.util.ST;
 
@@ -23,6 +24,7 @@ public class RecipeUtil implements Runnable {
 
     public static ArrayListNoNulls<ItemStack> toNuke = new ArrayListNoNulls<>(F);
 
+    // If Scripts need it refer from here!
     public static MultiTileEntityRegistry rRegistry = MultiTileEntityRegistry.getRegistry("reach.multitileentity");
     public static MultiTileEntityRegistry gtRegistry = MultiTileEntityRegistry.getRegistry("gt.multitileentity");
 
@@ -108,6 +110,20 @@ public class RecipeUtil implements Runnable {
         for (ItemStack in : mInputs) {
             OUT.println(in.getDisplayName());
         }
+    }
+
+    /*
+     * To replace the need to get the registry
+     */
+    public static ItemStack getTile(ModData aModData, int aID) {
+        return make(aModData, aModData.mID + ".multitileentity", 1, aID);
+    }
+
+    /*
+     * If you have the registry
+     */
+    public static ItemStack getTile(MultiTileEntityRegistry aRegistry, int aID) {
+        return aRegistry.getItem(aID);
     }
 
     public static class AvaritiaHelp {

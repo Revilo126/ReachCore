@@ -37,6 +37,7 @@ public class ScriptLoader implements Runnable {
                         tScript.getScriptName()));
             }
         } catch (Throwable e) {
+            ERR.println(String.format("Reach: Script \"%s\" failed to load due to errors!", tScript.getScriptName()));
             e.printStackTrace(ERR);
         }
 

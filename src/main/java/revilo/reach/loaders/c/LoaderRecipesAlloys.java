@@ -2,23 +2,16 @@ package revilo.reach.loaders.c;
 
 import static gregapi.data.CS.*;
 
-import gregapi.data.ANY;
 import gregapi.data.FL;
 import gregapi.data.RM;
-import gregapi.oredict.OreDictMaterial;
 import gregapi.util.ST;
 
 public class LoaderRecipesAlloys implements Runnable {
 
     @Override
     public void run() {
-        for (OreDictMaterial tMat : ANY.Iron.mToThis) {
-            mix("molten." + tMat.mNameInternal.toLowerCase(), 3, "molten.aluminium", 1, "molten.thermite", 4); // yes
-                                                                                                               // molten
-                                                                                                               // thermite.
-                                                                                                               // TODO:
-                                                                                                               // Remove
-        }
+        OUT.println("Reach: Loading Alloy Recipes.");
+        mix("molten.iron", 3, "molten.aluminium", 1, "molten.thermite", 4);
 
         mix("molten.ununennium", 1, "molten.adamantium", 1, "molten.adamennium", 1);
     }

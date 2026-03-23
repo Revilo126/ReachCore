@@ -25,14 +25,15 @@ import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.code.ArrayListNoNulls;
 import gregapi.data.CS.ModIDs;
 import revilo.reach.api.data.RCMD;
-import revilo.reach.config.ReachConfig;
 import revilo.reach.loaders.a.CreativeTabLoader;
 import revilo.reach.loaders.a.FluidLoader;
 import revilo.reach.loaders.a.ItemLoader;
 import revilo.reach.loaders.a.MultiTileEntityLoader;
 import revilo.reach.loaders.a.WorldGenLoader;
 import revilo.reach.loaders.b.gt.GregTechLoader;
-import revilo.reach.loaders.c.LoaderRecipeOthers;
+import revilo.reach.loaders.c.LoaderRecipesAlloys;
+import revilo.reach.loaders.c.LoaderRecipesGems;
+import revilo.reach.loaders.c.LoaderRecipesOthers;
 import revilo.reach.scripts.ScriptLoader;
 
 @Mod(
@@ -119,11 +120,12 @@ public class Reach extends Abstract_Mod {
 
         ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(
             F,
-            new ReachConfig(),
             new FluidLoader(),
             new CreativeTabLoader(),
             new ItemLoader(),
-            new LoaderRecipeOthers());
+            new LoaderRecipesAlloys(),
+            new LoaderRecipesGems(),
+            new LoaderRecipesOthers());
 
         for (Runnable tRunnable : tList) try {
             tRunnable.run();

@@ -24,9 +24,10 @@ public class ScriptAE2 implements IScriptLoader {
     @Override
     public void loadRecipes() {
         ItemStack Controller = make(AE, "tile.BlockController", 1, 0), // Blocks
-            Drive = make(AE, "tile.BlockDrive", 1, 0), CraftingUnit1 = make(AE, "tile.BlockCraftingUnit", 1, 0),
-            CraftingUnit4 = make(MD.AE, "tile.BlockCraftingUnit", 1, 1),
-            CraftingUnit16 = make(MD.AE, "tile.BlockCraftingUnit", 1, 2),
+            Drive = make(AE, "tile.BlockDrive", 1, 0), CraftingUnit = make(AE, "tile.blockCraftingUnit", 1, 0),
+            CraftingUnit1 = make(AE, "tile.BlockCraftingUnit", 1, 1),
+            CraftingUnit4 = make(MD.AE, "tile.BlockCraftingUnit", 1, 2),
+            CraftingUnit16 = make(MD.AE, "tile.BlockCraftingUnit", 1, 3),
             CraftingUnit64 = make(MD.AE, "tile.BlockAdvancedCraftingUnit", 1, 0),
             CraftingUnit256 = make(MD.AE, "tile.BlockAdvancedCraftingUnit", 1, 1),
             CraftingUnit1024 = make(MD.AE, "tile.BlockAdvancedCraftingUnit", 1, 2),
@@ -66,7 +67,7 @@ public class ScriptAE2 implements IScriptLoader {
             ST.make(AE, "item.ItemMultiMaterial", 1, 39));
 
         shaped(
-            CraftingUnit1,
+            CraftingUnit,
             DEF_REM_REV,
             "w d",
             "FCF",
@@ -80,14 +81,26 @@ public class ScriptAE2 implements IScriptLoader {
             'S',
             screw.dat(MT.Ir));
         shaped(
-            CraftingUnit4,
+            CraftingUnit1,
             DEF_REM_REV,
             "UP",
             "wd",
             'U',
-            ST.make(MD.AE, "tile.BlockCraftingUnit", 1, 0), // storage quad core
+            CraftingUnit,
             'P',
-            ST.make(MD.GT, "gt.multitileentity", 1, 18203)); // storage quad core
+            ST.make(MD.GT, "gt.multitileentity", 1, 18203));
+        shaped(
+            CraftingUnit4,
+            DEF_REM_REV,
+            "QNQ",
+            "NON",
+            "QNQ",
+            'Q',
+            CraftingUnit1,
+            'N',
+            OD_CIRCUITS[6],
+            'O',
+            casingMachine.dat(MT.Ir));
         shaped(
             CraftingUnit16,
             DEF_REM_REV,
@@ -97,9 +110,9 @@ public class ScriptAE2 implements IScriptLoader {
             'Q',
             CraftingUnit4,
             'N',
-            OD_CIRCUITS[7],
+            OD_CIRCUITS[6],
             'O',
-            casingMachine.dat(MT.Os));
+            casingMachine.dat(MT.Ir));
         shaped(
             CraftingUnit64,
             DEF_REM_REV,
@@ -122,7 +135,7 @@ public class ScriptAE2 implements IScriptLoader {
             CraftingUnit64,
             'N',
             OD_CIRCUITS[8],
-            'O',
+            'T',
             casingMachine.dat(MT.Trinitanium));
         shaped(
             CraftingUnit1024,
@@ -134,7 +147,7 @@ public class ScriptAE2 implements IScriptLoader {
             CraftingUnit256,
             'N',
             OD_CIRCUITS[8],
-            'O',
+            'T',
             casingMachine.dat(MT.Trinitanium));
         shaped(
             CraftingUnit4096,
@@ -146,7 +159,7 @@ public class ScriptAE2 implements IScriptLoader {
             CraftingUnit1024,
             'N',
             OD_CIRCUITS[8], // TODO: Make Tier 9 Circuits
-            'O',
+            'T',
             casingMachine.dat(MT.Trinaquadalloy));
 
     }
