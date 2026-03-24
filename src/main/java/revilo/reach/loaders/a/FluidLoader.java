@@ -19,5 +19,9 @@ public class FluidLoader implements Runnable {
         }
         // Needed for fusion
         FL.createMolten(MT.Am);
+
+        // Rocket Fuel
+        FL.create("rocketpropellant", "Rocket Propellant-1", null, 1);
+        FL.create("rocketfuelmix", "Rocket Fuel Mixture", null, 1);
     }
 }

@@ -24,7 +24,7 @@ public class ScriptAE2 implements IScriptLoader {
     @Override
     public void loadRecipes() {
         ItemStack Controller = make(AE, "tile.BlockController", 1, 0), // Blocks
-            Drive = make(AE, "tile.BlockDrive", 1, 0), CraftingUnit = make(AE, "tile.blockCraftingUnit", 1, 0),
+            Drive = make(AE, "tile.BlockDrive", 1, 0), CraftingUnit = make(AE, "tile.BlockCraftingUnit", 1, 0),
             CraftingUnit1 = make(AE, "tile.BlockCraftingUnit", 1, 1),
             CraftingUnit4 = make(MD.AE, "tile.BlockCraftingUnit", 1, 2),
             CraftingUnit16 = make(MD.AE, "tile.BlockCraftingUnit", 1, 3),

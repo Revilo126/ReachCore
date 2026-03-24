@@ -4,6 +4,7 @@ import static gregapi.data.CS.*;
 
 import gregapi.code.ArrayListNoNulls;
 import revilo.reach.recipes.RecipeUtil;
+import revilo.reach.util.CF;
 
 /*
  * Although most mods are not compiled in this core mod, you should directly try to access Items, this is due to the
@@ -35,8 +36,14 @@ public class ScriptLoader implements Runnable {
                     String.format(
                         "Reach: Script \"%s\" could not be loaded as it's dependencies are missing!",
                         tScript.getScriptName()));
+                CF.addErrorToChatServerStart(
+                    String.format(
+                        "Reach: Script \"%s\" could not be loaded as it's dependencies are missing!",
+                        tScript.getScriptName()));
             }
         } catch (Throwable e) {
+            CF.addErrorToChatServerStart(
+                String.format("Reach: Script \"%s\" failed to load due to errors!", tScript.getScriptName()));
             ERR.println(String.format("Reach: Script \"%s\" failed to load due to errors!", tScript.getScriptName()));
             e.printStackTrace(ERR);
         }
