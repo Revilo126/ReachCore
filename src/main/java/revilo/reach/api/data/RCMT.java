@@ -58,6 +58,10 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
 
     // Periodic Table 23010 - 23099
 
+    // Tiers (not including base GT's)
+
+    public static OreDictMaterial Nano = tier("Nano"), Atomic = tier("Atomic");
+
     // Theoretical elements 23100 - 23199
     public static OreDictMaterial Uue = element(
         23100,

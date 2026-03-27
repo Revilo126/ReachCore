@@ -42,16 +42,15 @@ dependencies {
     implementation("com.gregoriust.gregtech:gregtech_1.7.10:6.17.06:dev") // TODO: Maybe fork
     implementation("com.github.GTNewHorizons:CodeChickenCore:1.4.12:dev")
     
+    implementation("micdoodle8.mods:GalacticraftCore:1.7-3.0.12.504:Dev") // TODO: Fork
+    
     compileOnly("curse.maven:avaritia-233785:2519595") // TODO: Fork
-    compileOnly("curse.maven:advancedRocketry-236542:2495943") // TODO: Fork
-    compileOnly("curse.maven:libVulpes-236541:2812784") // TODO: Fork
     
     compileOnly("ic2:IC2Classic:1.2.1.8:dev") // TODO: Fork
     implementation('com.github.GTNewHorizons:Applied-Energistics-2-Unofficial:rv3-beta-869-GTNH:dev') // TODO: Fork
     
     compileOnly("curse.maven:matter-overdrive-community-edition-557428:5223722") // TODO: Fork
     compileOnly("applecore:AppleCore:1.7.10-3.1.1:deobf")// GT needs
-    compileOnly("micdoodle8.mods:GalacticraftCore:1.7-3.0.12.504:Dev")
     compileOnly("com.mod-buildcraft:buildcraft:7.1.23:dev")
     
     //runtimeOnlyNonPublishable("com.github.GTNewHorizons:Angelica:2.1.4:dev")
