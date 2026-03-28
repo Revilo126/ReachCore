@@ -3,7 +3,7 @@ package revilo.reach.loaders.a;
 import gregapi.data.OP;
 import gregapi.item.CreativeTab;
 import gregapi.util.ST;
-import revilo.reach.api.data.RCMT;
+import revilo.reach.data.RCMT;
 
 public class CreativeTabLoader implements Runnable {
 

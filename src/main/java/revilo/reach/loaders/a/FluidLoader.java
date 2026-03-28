@@ -4,7 +4,7 @@ import gregapi.data.FL;
 import gregapi.data.MT;
 import gregapi.data.TD;
 import gregapi.oredict.OreDictMaterial;
-import revilo.reach.api.data.RCMT;
+import revilo.reach.data.RCMT;
 
 public class FluidLoader implements Runnable {
 
@@ -19,9 +19,12 @@ public class FluidLoader implements Runnable {
         }
         // Needed for fusion
         FL.createMolten(MT.Am);
+        
+        // Antimatter
+        //FL.createGas(AM.H);
 
         // Rocket Fuel
-        FL.create("rocketpropellant", "Rocket Propellant-1", null, 1);
-        FL.create("rocketfuelmix", "Rocket Fuel Mixture", null, 1);
+        //FL.create("rocketpropellant", "Rocket Propellant-1", null, 1);
+        //FL.create("rocketfuelmix", "Rocket Fuel Mixture", null, 1);
     }
 }

@@ -9,8 +9,8 @@ import gregapi.data.FL;
 import gregapi.data.MT;
 import gregapi.data.RM;
 import gregapi.util.ST;
-import revilo.reach.api.data.RCMT;
-import revilo.reach.api.data.RCRM;
+import revilo.reach.data.RCMT;
+import revilo.reach.data.RCRM;
 
 // TODO: Add more fusion uses (power focused)
 public class FusionLoader implements Runnable {

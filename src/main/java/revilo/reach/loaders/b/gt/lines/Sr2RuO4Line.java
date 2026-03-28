@@ -7,7 +7,7 @@ import gregapi.data.FL;
 import gregapi.data.MT;
 import gregapi.data.RM;
 import gregapi.util.OM;
-import revilo.reach.api.data.RCMT;
+import revilo.reach.data.RCMT;
 
 public class Sr2RuO4Line implements Runnable {
 

@@ -1,7 +1,7 @@
 package revilo.reach;
 
 import static gregapi.data.CS.*;
-import static revilo.reach.api.data.CS.*;
+import static revilo.reach.data.CS.*;
 
 import net.minecraft.block.Block;
 
@@ -24,7 +24,7 @@ import gregapi.block.multitileentity.MultiTileEntityBlock;
 import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.code.ArrayListNoNulls;
 import gregapi.data.CS.ModIDs;
-import revilo.reach.api.data.RCMD;
+import revilo.reach.data.RCMD;
 import revilo.reach.loaders.a.CreativeTabLoader;
 import revilo.reach.loaders.a.FluidLoader;
 import revilo.reach.loaders.a.ItemLoader;

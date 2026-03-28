@@ -1,7 +1,7 @@
 package revilo.reach.loaders.a;
 
-import revilo.reach.api.data.CS;
-import revilo.reach.api.data.RCMD;
+import revilo.reach.data.CS;
+import revilo.reach.data.RCMD;
 import revilo.reach.items.MultiItemTechnological;
 
 public class ItemLoader implements Runnable {

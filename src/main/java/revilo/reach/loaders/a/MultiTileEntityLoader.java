@@ -17,9 +17,9 @@ import gregapi.tileentity.connectors.MultiTileEntityWireElectric;
 import gregapi.tileentity.machines.MultiTileEntityBasicMachine;
 import gregapi.tileentity.multiblocks.MultiTileEntityMultiBlockPart;
 import gregapi.util.UT;
-import revilo.reach.api.data.CS;
-import revilo.reach.api.data.RCMT;
-import revilo.reach.api.data.RCRM;
+import revilo.reach.data.CS;
+import revilo.reach.data.RCMT;
+import revilo.reach.data.RCRM;
 import revilo.reach.tile.multiblock.MultiTileEntityFusionReactor2;
 
 public class MultiTileEntityLoader implements Runnable {

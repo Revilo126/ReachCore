@@ -8,7 +8,7 @@ import gregapi.data.RM;
 import gregapi.oredict.event.IOreDictListenerEvent;
 import gregapi.oredict.event.OreDictListenerEvent_Names;
 import gregapi.util.ST;
-import revilo.reach.api.data.RCIL;
+import revilo.reach.data.RCIL;
 
 public class LoaderRecipesOthers implements Runnable {
 

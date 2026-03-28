@@ -1,6 +1,7 @@
 package revilo.reach.mixins;
 
 import static gregapi.data.MT.*;
+import static gregapi.data.CS.*;
 
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,7 +15,7 @@ import gregapi.data.ANY;
 import gregapi.data.MT;
 import gregapi.data.OP;
 import gregapi.oredict.OreDictItemData;
-import revilo.reach.api.data.RCMT;
+import revilo.reach.data.RCMT;
 
 @Mixin(MT.DATA.class)
 public class MixinMaterialTierData {
@@ -53,6 +54,7 @@ public class MixinMaterialTierData {
 
     @Inject(method = "<clinit>", at = @At("TAIL"))
     private static void onDataInit(CallbackInfo ci) {
+    	OUT.println("Reach: Refactoring GT6's Material Data");
         WIRES_01 = new OreDictItemData[] { OP.wireGt01.dat(Pb), // ULV
             OP.wireGt01.dat(Sn), // LV
             OP.wireGt01.dat(ANY.Cu), // MV

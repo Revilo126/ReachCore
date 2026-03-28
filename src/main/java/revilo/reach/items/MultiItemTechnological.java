@@ -13,7 +13,7 @@ import gregapi.item.CreativeTab;
 import gregapi.item.multiitem.MultiItemRandomWithCompat;
 import gregapi.oredict.OreDictItemData;
 import gregapi.util.ST;
-import revilo.reach.api.data.RCIL;
+import revilo.reach.data.RCIL;
 
 @SuppressWarnings("unused")
 public class MultiItemTechnological extends MultiItemRandomWithCompat {

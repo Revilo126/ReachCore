@@ -10,7 +10,7 @@ import java.util.List;
 
 import gregapi.data.IL;
 import gregapi.data.MT;
-import revilo.reach.api.data.RCMD;
+import revilo.reach.data.RCMD;
 
 public class ScriptPersonalDim implements IScriptLoader {
 

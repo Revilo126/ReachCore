@@ -1,4 +1,4 @@
-package revilo.reach.api.data;
+package revilo.reach.data;
 
 import java.util.Set;
 
