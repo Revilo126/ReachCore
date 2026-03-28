@@ -19,8 +19,8 @@ import gregapi.data.MD;
 import gregapi.data.MT;
 import gregapi.data.RM;
 import gregapi.util.ST;
-import revilo.reach.data.RCMD;
 import revilo.reach.data.CS.ModIds;
+import revilo.reach.data.RCMD;
 import revilo.reach.recipes.RecipeUtil;
 
 @SuppressWarnings("unused")
