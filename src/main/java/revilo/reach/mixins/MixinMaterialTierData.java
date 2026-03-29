@@ -63,8 +63,8 @@ public class MixinMaterialTierData {
             OP.wireGt01.dat(Pt), // IV
             OP.wireGt01.dat(Nq), // LuV
             OP.wireGt01.dat(Nq_528), // ZPM
-            OP.wireGt01.dat(Nq_522), // UV
-            OP.wireGt01.dat(Graphene), // PUV1
+            OP.wireGt01.dat(RCMT.Ubn), // UV
+            OP.wireGt01.dat(Nq_522), // PUV1
             OP.wireGt01.dat(Graphene), // PUV2
             OP.wireGt01.dat(Superconductor), // PUV3
             OP.wireGt01.dat(Superconductor), // PUV4
@@ -80,8 +80,8 @@ public class MixinMaterialTierData {
             OP.wireGt04.dat(Pt), // IV
             OP.wireGt04.dat(Nq), // LuV
             OP.wireGt04.dat(Nq_528), // ZPM
-            OP.wireGt04.dat(Nq_522), // UV
-            OP.wireGt04.dat(Graphene), // PUV1
+            OP.wireGt04.dat(RCMT.Ubn), // UV
+            OP.wireGt04.dat(Nq_522), // PUV1
             OP.wireGt04.dat(Graphene), // PUV2
             OP.wireGt04.dat(Superconductor), // PUV3
             OP.wireGt04.dat(Superconductor), // PUV4
@@ -97,8 +97,8 @@ public class MixinMaterialTierData {
             OP.cableGt01.dat(Pt), // IV
             OP.cableGt01.dat(Nq), // LuV
             OP.cableGt01.dat(Nq_528), // ZPM
-            OP.cableGt01.dat(Nq_522), // UV
-            OP.wireGt01.dat(Graphene), // PUV1
+            OP.cableGt01.dat(RCMT.Ubn), // UV
+            OP.cableGt01.dat(Nq_522), // PUV1
             OP.wireGt01.dat(Graphene), // PUV2
             OP.wireGt01.dat(Superconductor), // PUV3
             OP.wireGt01.dat(Superconductor), // PUV4
@@ -114,8 +114,8 @@ public class MixinMaterialTierData {
             OP.cableGt04.dat(Pt), // IV
             OP.cableGt04.dat(Nq), // LuV
             OP.cableGt04.dat(Nq_528), // ZPM
-            OP.cableGt04.dat(Nq_522), // UV
-            OP.wireGt04.dat(Graphene), // PUV1
+            OP.cableGt04.dat(RCMT.Ubn), // UV
+            OP.cableGt04.dat(Nq_522), // PUV1
             OP.wireGt04.dat(Graphene), // PUV2
             OP.wireGt04.dat(Superconductor), // PUV3
             OP.wireGt04.dat(Superconductor), // PUV4

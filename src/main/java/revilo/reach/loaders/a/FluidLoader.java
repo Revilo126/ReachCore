@@ -24,7 +24,10 @@ public class FluidLoader implements Runnable {
         // FL.createGas(AM.H);
 
         // Rocket Fuel
-        // FL.create("rocketpropellant", "Rocket Propellant-1", null, 1);
-        // FL.create("rocketfuelmix", "Rocket Fuel Mixture", null, 1);
+        FL.create("rocketpropellant", "Rocket Propellant-1", null, 1);
+        FL.create("rocketfuelmix", "Rocket Fuel Mixture", null, 1);
+
+        // Superfluids
+        FL.create("superfluidhelium", "Superfluid Helium", null, 1, 144, 2);
     }
 }

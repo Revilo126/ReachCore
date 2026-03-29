@@ -4,6 +4,7 @@ import static gregapi.data.CS.*;
 import static gregapi.data.OP.*;
 
 import gregapi.data.ANY;
+import gregapi.data.FL;
 import gregapi.data.IL;
 import gregapi.data.MT;
 import gregapi.data.OP;
@@ -14,6 +15,7 @@ import gregapi.item.multiitem.MultiItemRandomWithCompat;
 import gregapi.oredict.OreDictItemData;
 import gregapi.util.ST;
 import revilo.reach.data.RCIL;
+import revilo.reach.data.RCMT;
 
 @SuppressWarnings("unused")
 public class MultiItemTechnological extends MultiItemRandomWithCompat {
@@ -53,6 +55,18 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
                 "Circuit Plate (Naquadah)",
                 "Needs Circuit Parts",
                 new OreDictItemData(MT.Nq, U, ANY.SiO2, U, ANY.Plastic, U)));
+        RCIL.Circuit_Wiring_Quantum_T1.set(
+            addItem(
+                852,
+                "Circuit Wiring (Unbinillium)",
+                "Needs to be placed on an empty Circuit Plate",
+                new OreDictItemData(RCMT.Ubn, U)));
+        RCIL.Circuit_Board_Quantum_T1.set(
+            addItem(
+                853,
+                "Circuit Plate (Unbinillium)",
+                "Needs Circuit Parts",
+                new OreDictItemData(RCMT.Ubn, U, ANY.SiO2, U, ANY.Plastic, U)));
 
         RM.Press.addRecipe2(
             T,
@@ -66,6 +80,18 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
             RCIL.Circuit_Wiring_Nano.get(1),
             RCIL.Circuit_Plate_Nano.get(1));
 
+        RM.Press.addRecipe2(
+            T,
+            F,
+            F,
+            F,
+            T,
+            16,
+            64,
+            IL.Circuit_Plate_Empty.get(1),
+            RCIL.Circuit_Wiring_Quantum_T1.get(1),
+            RCIL.Circuit_Board_Quantum_T1.get(1));
+
         RCIL.Circuit_Part_Nano.set(
             addItem(
                 900,
@@ -77,6 +103,12 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
                 901,
                 "Circuit Part (Atomic)",
                 "Needs to be placed on a Naquadah Circuit Plate",
+                TC.stack(TC.COGNITIO, 1)));
+        RCIL.Circuit_Part_Quantum_T1.set(
+            addItem(
+                902,
+                "Circuit Part (Quantum T1)",
+                "Needs to be placed on a Unbinillium Circuit Plate",
                 TC.stack(TC.COGNITIO, 1)));
 
         RM.Press.addRecipeX(
@@ -107,10 +139,26 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
                 OP.plateGemTiny.mat(MT.RedstoneAlloy, 1)),
             RCIL.Circuit_Part_Atomic.get(1));
 
+        RM.Nanofab.addRecipeX(
+            T,
+            F,
+            F,
+            F,
+            T,
+            16,
+            16,
+            ST.array(
+                OP.wireFine.mat(RCMT.Ubn, 1),
+                OP.wireFine.mat(MT.Signalum, 1),
+                OP.plateGemTiny.mat(MT.RedstoneAlloy, 1)),
+            RCIL.Circuit_Part_Quantum_T1.get(1));
+
         RCIL.Circuit_Board_Nano
             .set(addItem(950, "Circuit Board (Nano)", "Needs to be soldered properly", TC.stack(TC.FABRICO, 1)));
         RCIL.Circuit_Board_Atomic
             .set(addItem(951, "Circuit Board (Atomic)", "Needs to be soldered properly", TC.stack(TC.FABRICO, 1)));
+        RCIL.Circuit_Board_Quantum_T1
+            .set(addItem(952, "Circuit Board (Quantum T1)", "Needs to be soldered properly", TC.stack(TC.FABRICO, 1)));
 
         RM.Press.addRecipe2(
             T,
@@ -200,6 +248,18 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
             RCIL.Circuit_Plate_Nano.get(1),
             RCIL.Circuit_Part_Atomic.get(4),
             RCIL.Circuit_Board_Atomic.get(1));
+        // Quantum
+        RM.Nanofab.addRecipe2(
+            T,
+            F,
+            F,
+            F,
+            T,
+            16,
+            64,
+            RCIL.Circuit_Plate_Quantum_T1.get(1),
+            RCIL.Circuit_Part_Quantum_T1.get(4),
+            RCIL.Circuit_Board_Quantum_T1.get(1));
 
         RCIL.Circuit_Nano.set(
             addItem(
@@ -217,6 +277,14 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
                 MT.DATA.CIRCUITS[8],
                 OD_CIRCUITS[8],
                 TC.stack(TC.COGNITIO, 9)));
+        RCIL.Circuit_Quantum_T1.set(
+            addItem(
+                1002,
+                "Circuit T9 (Quantum T1)",
+                "Computes simple Data with the power of a galaxy",
+                MT.DATA.CIRCUITS[9],
+                OD_CIRCUITS[9],
+                TC.stack(TC.COGNITIO, 10)));
 
         RM.Bath.addRecipe1(
             T,
@@ -291,6 +359,19 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
             MT.SolderingAlloy.liquid(U2, T),
             NF,
             RCIL.Circuit_Atomic.get(1));
+
+        RM.Bath.addRecipe1(
+            T,
+            F,
+            F,
+            F,
+            T,
+            0,
+            64,
+            RCIL.Circuit_Board_Quantum_T1.get(1),
+            FL.make("superfluidhelium", 144),
+            NF,
+            RCIL.Circuit_Quantum_T1.get(1));
     }
 
 }

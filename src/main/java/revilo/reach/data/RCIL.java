@@ -30,20 +30,11 @@ public enum RCIL implements IItemContainer {
     Circuit_Atomic,
     Circuit_Part_Atomic,
     Circuit_Board_Atomic,
-    Circuit_EEPROM,
-    Circuit_CPU_Basic,
-    Circuit_Memory_Basic,
-    Transistor_Basic,
-    Circuit_CPU_Good,
-    Circuit_Memory_Good,
-    Circuit_CPU_Advanced,
-    Circuit_Memory_Advanced,
-    Circuit_CPU_Elite,
-    Circuit_Memory_Elite,
-    Circuit_CPU_Master,
-    Circuit_Memory_Master,
-    Circuit_CPU_Ultimate,
-    Circuit_Memory_Ultimate;
+    Circuit_Quantum_T1,
+    Circuit_Part_Quantum_T1,
+    Circuit_Board_Quantum_T1,
+    Circuit_Wiring_Quantum_T1,
+    Circuit_Plate_Quantum_T1;
 
     private ItemStack mStack;
     private boolean mHasNotBeenSet = T;
