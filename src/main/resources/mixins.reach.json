@@ -5,7 +5,9 @@
   "refmap": "mixins.reach.refmap.json",
   "target": "@env(DEFAULT)",
   "compatibilityLevel": "JAVA_8",
-  "mixins": ["MixinMaterialTierData"],
+  "mixins": [
+	"MixinMaterialTierData",
+  	"MixinGTConstants"],
   "client": [],
   "server": []
 }

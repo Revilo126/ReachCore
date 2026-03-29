@@ -60,7 +60,9 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
 
     // Tiers (not including base GT's)
 
-    public static OreDictMaterial Nano = tier("Nano"), Atomic = tier("Atomic");
+    public static OreDictMaterial Nano = tier("Nano"), Atomic = tier("Atomic"), QuantumT1 = tier("QuantumT1"),
+        QuantumT2 = tier("QuantumT2"), QuantumT3 = tier("QuantumT3"), QuantumT4 = tier("QuantumT4"),
+        QuantumT5 = tier("QuantumT5"), QuantumT6 = tier("QuantumT6"), QuantumT7 = tier("QuantumT7");
 
     // Theoretical elements 23100 - 23199
     public static OreDictMaterial Uue = element(

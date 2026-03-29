@@ -125,8 +125,8 @@ public class MixinMaterialTierData {
         };
         CIRCUITS = new OreDictItemData[] { OP.circuit.dat(Primitive), OP.circuit.dat(Basic), OP.circuit.dat(Good),
             OP.circuit.dat(Advanced), OP.circuit.dat(Elite), OP.circuit.dat(Master), OP.circuit.dat(Ultimate),
-            OP.circuit.dat(RCMT.Nano), OP.circuit.dat(RCMT.Atomic), OP.circuit.dat(Quantum), OP.circuit.dat(Quantum),
-            OP.circuit.dat(Quantum), OP.circuit.dat(Quantum), OP.circuit.dat(Quantum), OP.circuit.dat(Quantum),
-            OP.circuit.dat(Quantum) };
+            OP.circuit.dat(RCMT.Nano), OP.circuit.dat(RCMT.Atomic), OP.circuit.dat(RCMT.QuantumT1),
+            OP.circuit.dat(RCMT.QuantumT2), OP.circuit.dat(RCMT.QuantumT3), OP.circuit.dat(RCMT.QuantumT4),
+            OP.circuit.dat(RCMT.QuantumT5), OP.circuit.dat(RCMT.QuantumT6), OP.circuit.dat(RCMT.QuantumT7) };
     }
 }
