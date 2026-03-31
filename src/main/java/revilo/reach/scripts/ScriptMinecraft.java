@@ -23,30 +23,29 @@ public class ScriptMinecraft implements IScriptLoader {
 
         shaped(make(MC, "chest", 1), DEF_REM_REV, "LPL", "PaP", "LPL", 'L', logWood, 'P', plankWood);
 
-        shaped(make(MC, "furnace", 1), DEF_REM_REV, " S ", "SfS", " Sh", 'S', cobblestone, 'f', craftingFirestarter);
+        shaped(make(MC, "furnace", 1), DEF_REM_REV, " S ", "SFS", " Sh", 'S', cobblestone, 'F', craftingFirestarter);
         shaped(
             make(MC, "furnace", 1),
-            DEF_NCC,
+            DEF_REM_REV,
             " S ",
-            "SfS",
+            "SFS",
             " Sh",
             'S',
             stone.dat(MT.STONES.Basalt),
-            'f',
+            'F',
             craftingFirestarter);
         shaped(
             make(MC, "furnace", 1),
-            DEF_NCC,
+            DEF_REM_REV,
             " S ",
-            "SfS",
+            "SFS",
             " Sh",
             'S',
             rockGt.dat(ANY.Stone),
-            'f',
+            'F',
             craftingFirestarter);
 
         String[] tiers = { "iron", "wooden", "stone", "golden", "diamond" };
-
         for (byte i = 0; i < 5; i++) {
             RecipeUtil.nuke(make(MD.MC, tiers[i] + "_sword", 1, 0));
             RecipeUtil.nuke(make(MD.MC, tiers[i] + "_pickaxe", 1, 0));

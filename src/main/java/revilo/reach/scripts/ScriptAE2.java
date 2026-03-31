@@ -158,7 +158,7 @@ public class ScriptAE2 implements IScriptLoader {
             'Q',
             CraftingUnit1024,
             'N',
-            OD_CIRCUITS[8], // TODO: Make Tier 9 Circuits
+            OD_CIRCUITS[9],
             'T',
             casingMachine.dat(MT.Trinaquadalloy));
 

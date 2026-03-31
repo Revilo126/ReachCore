@@ -2,6 +2,7 @@ package revilo.reach.mixins;
 
 import static gregapi.data.CS.*;
 import static gregapi.data.MT.*;
+import static revilo.reach.data.RCMT.*;
 
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,6 +16,7 @@ import gregapi.data.ANY;
 import gregapi.data.MT;
 import gregapi.data.OP;
 import gregapi.oredict.OreDictItemData;
+import gregapi.oredict.OreDictMaterial;
 import revilo.reach.data.RCMT;
 
 @Mixin(MT.DATA.class)
@@ -51,6 +53,26 @@ public class MixinMaterialTierData {
     @Mutable
     @Shadow
     public static OreDictItemData[] CIRCUITS;
+
+    @Final
+    @Mutable
+    @Shadow
+    public static OreDictMaterial[] Heat_T;
+
+    @Final
+    @Mutable
+    @Shadow
+    public static OreDictMaterial[] Kinetic_T;
+
+    @Final
+    @Mutable
+    @Shadow
+    public static OreDictMaterial[] Electric_T;
+
+    @Final
+    @Mutable
+    @Shadow
+    public static OreDictMaterial[] Flux_T;
 
     @Inject(method = "<clinit>", at = @At("TAIL"))
     private static void onDataInit(CallbackInfo ci) {
@@ -128,5 +150,16 @@ public class MixinMaterialTierData {
             OP.circuit.dat(RCMT.Nano), OP.circuit.dat(RCMT.Atomic), OP.circuit.dat(RCMT.QuantumT1),
             OP.circuit.dat(RCMT.QuantumT2), OP.circuit.dat(RCMT.QuantumT3), OP.circuit.dat(RCMT.QuantumT4),
             OP.circuit.dat(RCMT.QuantumT5), OP.circuit.dat(RCMT.QuantumT6), OP.circuit.dat(RCMT.QuantumT7) };
+
+        Heat_T = new OreDictMaterial[] { ANY.Stone, ANY.Steel, Invar, Ti, TungstenCarbide, ANY.W, ANY.W, ANY.W, ANY.W,
+            ANY.W, ANY.W, ANY.W, ANY.W, ANY.W, ANY.W, ANY.W };
+        Kinetic_T = new OreDictMaterial[] { ANY.Wood, Bronze, ANY.Steel, Ti, TungstenSteel, Ir, Os, Os, Os, Os, Os, Os,
+            Os, Os, Os, Os };
+        Electric_T = new OreDictMaterial[] { TinAlloy, SteelGalvanized, Al, StainlessSteel, Cr, Ti, Ir, Os, Trinitanium,
+            Trinaquadalloy, RCMT.Uue, AdUue, Neutronium, Infinity, Neutronium, Neutronium };
+        Flux_T = new OreDictMaterial[] { Sn, Pb, Invar, Electrum, EnderiumBase, Enderium, TungstenCarbide,
+            TungstenCarbide, TungstenCarbide, TungstenCarbide, TungstenCarbide, TungstenCarbide, TungstenCarbide,
+            TungstenCarbide, TungstenCarbide, TungstenCarbide };
     }
+
 }

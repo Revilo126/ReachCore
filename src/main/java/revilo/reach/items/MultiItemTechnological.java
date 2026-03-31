@@ -27,6 +27,9 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
 
     @Override
     public void addItems() {
+
+        // Circuit Parts //
+
         /**
          * RCIL.Circuit_CPU_Basic.set(addItem(1000, "Circuit CPU (Basic)", "The brains of a T1 Circuit"));
          * RCIL.Circuit_CPU_Good.set(addItem(1001, "Circuit CPU (Good)", "The brains of a T2 Circuit"));
@@ -61,7 +64,7 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
                 "Circuit Wiring (Unbinillium)",
                 "Needs to be placed on an empty Circuit Plate",
                 new OreDictItemData(RCMT.Ubn, U)));
-        RCIL.Circuit_Board_Quantum_T1.set(
+        RCIL.Circuit_Plate_Quantum_T1.set(
             addItem(
                 853,
                 "Circuit Plate (Unbinillium)",
@@ -90,7 +93,7 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
             64,
             IL.Circuit_Plate_Empty.get(1),
             RCIL.Circuit_Wiring_Quantum_T1.get(1),
-            RCIL.Circuit_Board_Quantum_T1.get(1));
+            RCIL.Circuit_Plate_Quantum_T1.get(1));
 
         RCIL.Circuit_Part_Nano.set(
             addItem(
@@ -139,7 +142,7 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
                 OP.plateGemTiny.mat(MT.RedstoneAlloy, 1)),
             RCIL.Circuit_Part_Atomic.get(1));
 
-        RM.Nanofab.addRecipeX(
+        RM.Welder.addRecipeX(
             T,
             F,
             F,
