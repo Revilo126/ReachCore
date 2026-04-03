@@ -16,6 +16,7 @@ import net.minecraft.item.ItemStack;
 
 import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.data.ANY;
+import gregapi.data.MD;
 import gregapi.data.MT;
 
 @SuppressWarnings("unused")
@@ -59,7 +60,7 @@ public class ScriptGregTech implements IScriptLoader {
 
     private void zpm(MultiTileEntityRegistry aRegistry) {
         AvaritiaHelp.addExtremeRecipe(
-            aRegistry.getItem(14999),
+            getTile(MD.GT, 18044),
             "CCMAOAMCC",
             "CMAOPOAMC",
             "MAOUWUOAM",
@@ -76,13 +77,13 @@ public class ScriptGregTech implements IScriptLoader {
             'A',
             OD_CIRCUITS[8],
             'O',
-            aRegistry.getItem(18044),
+            getTile(MD.GT, 18044),
             'P',
             plateDense.mat(MT.Pu_243, 1),
             'U',
             plateDense.mat(MT.U_235, 1),
             'W',
-            aRegistry.getItem(29515),
+            getTile(MD.GT, 29515),
             'N',
             plateDense.mat(MT.Nq_528, 1),
             'D',

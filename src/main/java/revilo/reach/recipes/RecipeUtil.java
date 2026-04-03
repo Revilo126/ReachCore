@@ -116,14 +116,22 @@ public class RecipeUtil implements Runnable {
      * To replace the need to get the registry
      */
     public static ItemStack getTile(ModData aModData, int aID) {
-        return make(aModData, aModData.mID + ".multitileentity", 1, aID);
+        ItemStack i = make(aModData, aModData.mID + ".multitileentity", 1, aID);
+        if (valid(i)) {
+            return i;
+        }
+        return NI;
     }
 
     /*
      * If you have the registry
      */
     public static ItemStack getTile(MultiTileEntityRegistry aRegistry, int aID) {
-        return aRegistry.getItem(aID);
+        ItemStack i = aRegistry.getItem(aID);
+        if (valid(i)) {
+            return i;
+        }
+        return NI;
     }
 
     public static class AvaritiaHelp {
@@ -137,10 +145,13 @@ public class RecipeUtil implements Runnable {
         }
 
         public static void addExtremeRecipe(ItemStack aItem, Object... args) {
-            removeExtremeCraftingRecipe(aItem);
-            ExtremeCraftingManager.getInstance()
-                .addRecipe(aItem, args);
+            if (!(aItem == null)) {
+                removeExtremeCraftingRecipe(aItem);
+                ExtremeCraftingManager.getInstance()
+                    .addRecipe(aItem, args);
+            } else {
+                ERR.println("Reach: Skipping Extreme Recipe: Output is null!");
+            }
         }
     }
-
 }
