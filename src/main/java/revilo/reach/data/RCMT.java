@@ -8,8 +8,7 @@ import static gregapi.data.TD.Processing.*;
 import static gregapi.data.TD.Properties.*;
 
 import gregapi.code.HashSetNoNulls;
-import gregapi.data.CS;
-import gregapi.data.MD;
+import gregapi.data.ANY;
 import gregapi.data.MT;
 import gregapi.oredict.OreDictMaterial;
 import gregapi.render.TextureSet;
@@ -19,14 +18,29 @@ import gregapi.render.TextureSet;
  */
 public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
 
+    /*
+     * To ease making materials, I have this so I don't need to make sure there is no id conflicts.
+     */
+    public static int id = 23000;
+
     public static final HashSetNoNulls<OreDictMaterial> ALL_MATERIALS_REGISTERED_HERE = new HashSetNoNulls<>();
 
-    @SuppressWarnings("deprecation")
-    public static OreDictMaterial create(int aID, String aNameOreDict, String aSymbol) {
-        OreDictMaterial aMaterial = create(aID, aNameOreDict).setTooltip(aSymbol);
+    public static OreDictMaterial create(String aNameOreDict, String aSymbol) {
+        OreDictMaterial aMaterial = create(aNameOreDict).tooltip(aSymbol);
         return aMaterial;
     }
 
+    public static OreDictMaterial create(String aNameOreDict) {
+        OreDictMaterial aMaterial = OreDictMaterial.createMaterial(id++, aNameOreDict, aNameOreDict)
+            .setOriginalMod(RCMD.RC);
+        ALL_MATERIALS_REGISTERED_HERE.add(aMaterial);
+        return aMaterial;
+    }
+
+    /*
+     * For materials that require special ids.
+     * E.g: Tiers
+     */
     public static OreDictMaterial create(int aID, String aNameOreDict) {
         OreDictMaterial aMaterial = OreDictMaterial.createMaterial(aID, aNameOreDict, aNameOreDict)
             .setOriginalMod(RCMD.RC);
@@ -39,17 +53,17 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             .setAllToTheOutputOf(null, 0, 1);
     }
 
-    static OreDictMaterial stone(int aID, String aNameOreDict, long aR, long aG, long aB, long aA,
-        Object... aRandomData) {
-        return create(aID, aNameOreDict).setRGBa(aR, aG, aB, aA)
+    // Unused
+    static OreDictMaterial stone(String aNameOreDict, long aR, long aG, long aB, long aA, Object... aRandomData) {
+        return create(aNameOreDict).setRGBa(aR, aG, aB, aA)
             .setTextures(TextureSet.SET_STONE)
             .put(aRandomData);
     }
 
-    static OreDictMaterial element(int aID, String aNameOreDict, String aSymbol, long aProtonsAndElectrons,
-        long aNeutrons, long aMeltingPoint, long aBoilingPoint, double aGramPerCubicCentimeter, TextureSet[] aSets,
-        long aR, long aG, long aB, Object... aTags) {
-        return create(aID, aNameOreDict, aSymbol)
+    static OreDictMaterial element(String aNameOreDict, String aSymbol, long aProtonsAndElectrons, long aNeutrons,
+        long aMeltingPoint, long aBoilingPoint, double aGramPerCubicCentimeter, TextureSet[] aSets, long aR, long aG,
+        long aB, Object... aTags) {
+        return create(aNameOreDict, aSymbol)
             .setStats(aProtonsAndElectrons, aNeutrons, aMeltingPoint, aBoilingPoint, aGramPerCubicCentimeter)
             .setTextures(aSets)
             .setRGBa(aR, aG, aB, 255)
@@ -66,7 +80,6 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
 
     // Theoretical elements 23100 - 23199
     public static OreDictMaterial Uue = element(
-        23100,
         "Ununennium",
         "Uue",
         119,
@@ -86,7 +99,6 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
         EXTRUDER,
         MELTING),
         Ubn = element(
-            23101,
             "Unbinilium",
             "Ubn",
             120,
@@ -106,7 +118,6 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             EXTRUDER,
             MELTING),
         Ubu = element(
-            23102,
             "Unbiunium",
             "Ubu",
             121,
@@ -127,7 +138,7 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             MELTING);
 
     // Alloys 23200 - 23299
-    public static OreDictMaterial AdUue = create(23200, "Adamennium").setRGBa(255, 133, 233, 255)
+    public static OreDictMaterial AdUue = create("Adamennium").setRGBa(255, 133, 233, 255)
         .setTextures(TextureSet.SET_SHINY)
         .put(
             G_INGOT_MACHINE,
@@ -146,28 +157,31 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
         .uumAloy(0, MT.Ad, 1 * U, Uue, 1 * U)
         .heat(6225, 16768);
 
-    public static final OreDictMaterial Thermite = create(23201, "Thermite", "AlFe3").setTextures(TextureSet.SET_CUBE) // AdvRocketry
-        .setRGBa(125, 42, 14, 255)
-        .put(G_DUST, MOLTEN, ALLOY, DECOMPOSABLE, CENTRIFUGE, MD.GC_ADV_ROCKETRY)
-        .heat(933, MT.Al.mBoilingPoint)
-        .setMcfg(0, MT.Al, CS.U, MT.Fe, 3 * U);
+    public static final OreDictMaterial RUTAlloy = create("RUT-Alloy", "Revilo's Useful Tool-Alloy")
+        .setTextures(TextureSet.SET_SHINY)
+        .setRGBa(150, 0, 30, 255)
+        .put(G_INGOT, SMITHABLE, MOLTEN, ALLOY, CRUCIBLE_ALLOY)
+        .qual(9, 10240, 4)
+        .handle(ANY.WoodPlastic)
+        .heat(MT.Redstone.mMeltingPoint, MT.Redstone.mBoilingPoint)
+        .uumAloy(0, MT.Redstone, 2 * U, MT.U_238, 1 * U, MT.Ti, 1 * U);
 
-    public static final OreDictMaterial Sr2RuO4 = create(23202, "Distrontium Ruthenate", "Sr2RuO4") // Distrontium
-        // Ruthenate line
+    // Distrontium Ruthenate line
+    public static final OreDictMaterial Sr2RuO4 = create("Distrontium Ruthenate", "Sr2RuO4")
         .setTextures(TextureSet.SET_METALLIC)
         .setRGBa(50, 50, 50, 255)
         .put(G_INGOT, ALLOY, MELTING, EXTRUDER)
         .heat(2270, 4420)
         .setMcfg(0, MT.Sr, 2 * U, MT.Ru, 1 * U, MT.O, 4 * U),
-        SrCO3 = create(23203, "Strontium Carbonate", "SrCO3").setTextures(TextureSet.SET_CUBE) // Textures aren't used
+        SrCO3 = create("Strontium Carbonate", "SrCO3").setTextures(TextureSet.SET_CUBE) // Textures aren't used
             .setRGBa(240, 240, 240, 255)
             .put(G_DUST)
             .setMcfg(0, MT.Sr, 1 * U, MT.CO3, 1 * U),
-        RuO2 = create(23204, "Ruthenium Dioxide", "RuO2").setRGBa(90, 90, 90, 255)
+        RuO2 = create("Ruthenium Dioxide", "RuO2").setRGBa(90, 90, 90, 255)
             .setTextures(TextureSet.SET_CUBE) // not seen
             .put(G_DUST)
             .setMcfg(0, MT.Ru, 1 * U, MT.O, 2 * U),
-        RuCl3 = create(23205, "Ruthenium Chloride", "RuCl3").setTextures(TextureSet.SET_CUBE) // not seen
+        RuCl3 = create("Ruthenium Chloride", "RuCl3").setTextures(TextureSet.SET_CUBE) // not seen
             .setRGBa(20, 20, 20, 255)
             .put(G_DUST)
             .setMcfg(0, MT.Ru, 1 * U, MT.Cl, 3 * U);

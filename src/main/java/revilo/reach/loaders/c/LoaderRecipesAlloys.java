@@ -11,7 +11,6 @@ public class LoaderRecipesAlloys implements Runnable {
     @Override
     public void run() {
         OUT.println("Reach: Loading Alloy Recipes.");
-        mix("molten.iron", 3, "molten.aluminium", 1, "molten.thermite", 4);
 
         mix("molten.ununennium", 1, "molten.adamantium", 1, "molten.adamennium", 1);
     }
