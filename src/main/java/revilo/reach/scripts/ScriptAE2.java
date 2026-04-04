@@ -165,6 +165,11 @@ public class ScriptAE2 implements IScriptLoader {
     }
 
     @Override
+    public void loadMachines() {
+
+    }
+
+    @Override
     public String getScriptName() {
         return "Applied Energistics 2 Recipes";
     }

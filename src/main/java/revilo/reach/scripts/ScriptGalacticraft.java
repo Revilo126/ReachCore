@@ -47,6 +47,11 @@ public class ScriptGalacticraft implements IScriptLoader {
 
     @Override
     public void loadRecipes() {
+
+    }
+
+    @Override
+    public void loadMachines() {
         // Parachutes
         for (byte i = 0; i < 15; i++) {
             delate(make(GC, "item.parachute", 1, i + 1));
@@ -63,7 +68,7 @@ public class ScriptGalacticraft implements IScriptLoader {
                 0,
                 64,
                 make(GC, "item.parachute", 1, i + 1),
-                DYE_FLUIDS_CHEMICAL[16],
+                DYE_FLUIDS_CHEMICAL[15],
                 NF,
                 make(GC, "item.parachute", 1, 0));
         }
@@ -73,6 +78,5 @@ public class ScriptGalacticraft implements IScriptLoader {
             64,
             array(tag(0), make(MC, "wool", 2, 0), make(MC, "String", 3, 0)),
             make(GC, "item.parachute", 1, 0));
-
     }
 }

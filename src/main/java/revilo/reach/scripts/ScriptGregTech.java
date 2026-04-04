@@ -39,7 +39,7 @@ public class ScriptGregTech implements IScriptLoader {
 
     private void cables(MultiTileEntityRegistry aRegistry) {
         ItemStack fiberCable = aRegistry.getItem(24900);
-        delate(fiberCable);
+        postDelate(fiberCable);
         shaped(
             fiberCable,
             DEF_REM_NCC,
@@ -88,6 +88,11 @@ public class ScriptGregTech implements IScriptLoader {
             plateDense.mat(MT.Nq_528, 1),
             'D',
             plateDense.mat(MT.Nq_522, 1));
+    }
+
+    @Override
+    public void loadMachines() {
+
     }
 
     @Override

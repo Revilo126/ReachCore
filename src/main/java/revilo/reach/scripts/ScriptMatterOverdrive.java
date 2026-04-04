@@ -159,6 +159,11 @@ public class ScriptMatterOverdrive implements IScriptLoader {
     }
 
     @Override
+    public void loadMachines() {
+
+    }
+
+    @Override
     public String getScriptName() {
         return "Matter Overdrive Recipes";
     }

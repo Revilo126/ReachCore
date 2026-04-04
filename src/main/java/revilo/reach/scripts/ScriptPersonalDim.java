@@ -10,6 +10,7 @@ import java.util.List;
 
 import gregapi.data.IL;
 import gregapi.data.MT;
+import revilo.reach.data.RCCS.ModIds;
 import revilo.reach.data.RCMD;
 
 public class ScriptPersonalDim implements IScriptLoader {
@@ -35,13 +36,18 @@ public class ScriptPersonalDim implements IScriptLoader {
     }
 
     @Override
+    public void loadMachines() {
+
+    }
+
+    @Override
     public String getScriptName() {
         return "Personal Dimensions Recipes";
     }
 
     @Override
     public List<String> getDependencies() {
-        return Arrays.asList(RCMD.PerDim.mID);
+        return Arrays.asList(ModIds.PerDim);
     }
 
 }

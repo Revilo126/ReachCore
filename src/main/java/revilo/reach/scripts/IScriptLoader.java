@@ -28,6 +28,11 @@ public interface IScriptLoader {
      */
     void loadRecipes();
 
+    /*
+     * Machine Recipes to run in PostInit
+     */
+    void loadMachines();
+
     /**
      * Method to know if a script is loadable.
      * 

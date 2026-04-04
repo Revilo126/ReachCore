@@ -65,6 +65,11 @@ public class ScriptAvaritia implements IScriptLoader {
     }
 
     @Override
+    public void loadMachines() {
+
+    }
+
+    @Override
     public String getScriptName() {
         return "Avaritia Recipes";
     }

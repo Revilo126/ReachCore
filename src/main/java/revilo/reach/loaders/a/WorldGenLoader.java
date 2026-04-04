@@ -1,6 +1,7 @@
 package revilo.reach.loaders.a;
 
 import static gregapi.data.CS.*;
+import static revilo.reach.data.RCCS.*;
 
 @SuppressWarnings("unused")
 public class WorldGenLoader implements Runnable {
@@ -9,13 +10,12 @@ public class WorldGenLoader implements Runnable {
     public void run() {
 
         // Bedrock Ores
-        // new WorldgenOresBedrock("ore.bedrock.netherstar", T, T, 10000, MT.NetherStar, GEN_NETHER);
+        // new WorldgenOresBedrock("ore.bedrock.naquadah.reach", T, T, 10000, MT.Nq, GEN_PROXIMA_B); TODO: Add more
+        // world gen options!
 
         // Large Ores
-        //
 
         // Small Ores
-        // new WorldgenOresSmall("ore.small.netherstar", T, 10, 80, 6, MT.NetherStar, GEN_END);
 
     }
 

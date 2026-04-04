@@ -18,11 +18,13 @@ import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.code.ArrayListNoNulls;
 import gregapi.code.ModData;
 import gregapi.recipes.Recipe;
+import gregapi.util.CR;
 import gregapi.util.ST;
 
 public class RecipeUtil implements Runnable {
 
     public static ArrayListNoNulls<ItemStack> toNuke = new ArrayListNoNulls<>(F);
+    public static ArrayListNoNulls<ItemStack> postDelete = new ArrayListNoNulls<>(F);
 
     // If Scripts need it refer from here!
     public static MultiTileEntityRegistry rRegistry = MultiTileEntityRegistry.getRegistry("reach.multitileentity");
@@ -40,11 +42,29 @@ public class RecipeUtil implements Runnable {
         toNuke.add(ST.make(aItem, 1, 0));
     }
 
+    /*
+     * Remove recipes in Post Init
+     * Helps to remove gt recipes as those are done in Post
+     * As CR.delate removes recipes at the time
+     */
+    public static void postDelate(ItemStack toDelete) {
+        if (valid(toDelete)) {
+            postDelete.add(toDelete);
+        } else {
+            ERR.println("Reach: Recipe could not be added to post delete as item is invalid!");
+        }
+    }
+
     @Override
     public void run() {
         for (ItemStack tItem : toNuke) try {
             hide(tItem);
             delate(tItem);
+        } catch (Throwable e) {
+            e.printStackTrace(ERR);
+        }
+        for (ItemStack tItem : postDelete) try {
+            CR.remout(tItem);
         } catch (Throwable e) {
             e.printStackTrace(ERR);
         }

@@ -19,7 +19,7 @@ import gregapi.data.MD;
 import gregapi.data.MT;
 import gregapi.data.RM;
 import gregapi.util.ST;
-import revilo.reach.data.CS.ModIds;
+import revilo.reach.data.RCCS.ModIds;
 import revilo.reach.data.RCMD;
 import revilo.reach.recipes.RecipeUtil;
 
@@ -29,6 +29,14 @@ public class ScriptAE2FC implements IScriptLoader {
     private int[] baseSizes = { 1, 4, 16, 64, 256, 1024, 4096, 16384 };
 
     private ItemStack bufItem;
+
+    ItemStack quartzTank = make(RCMD.AE2FC, "certus_quartz_tank", 1, 0),
+        fluidAutoFiller = make(RCMD.AE2FC, "fluid_auto_filler", 1, 0), // Delete? As the fluid canner aint exist.
+        levelMaintainer = make(RCMD.AE2FC, "level_maintainer", 1, 0),
+        patternEncoder = make(RCMD.AE2FC, "fluid_pattern_encoder", 1, 0),
+        packetDecoder = make(RCMD.AE2FC, "fluid_packet_decoder", 1, 0),
+        dualInterface = make(RCMD.AE2FC, "fluid_interface", 1, 0),
+        ingrediantBuffer = make(RCMD.AE2FC, "ingrediant_buffer", 1, 0);
 
     @Override
     public String getScriptName() {
@@ -76,17 +84,6 @@ public class ScriptAE2FC implements IScriptLoader {
             RecipeUtil.nuke(make(RCMD.AE2FC, "fluid_storage_housing", 1, i));
         }
 
-        ItemStack quartzTank = make(RCMD.AE2FC, "certus_quartz_tank", 1, 0),
-            fluidAutoFiller = make(RCMD.AE2FC, "fluid_auto_filler", 1, 0), // Delete? As the fluid canner aint exist.
-            levelMaintainer = make(RCMD.AE2FC, "level_maintainer", 1, 0),
-            patternEncoder = make(RCMD.AE2FC, "fluid_pattern_encoder", 1, 0),
-            packetDecoder = make(RCMD.AE2FC, "fluid_packet_decoder", 1, 0),
-            dualInterface = make(RCMD.AE2FC, "fluid_interface", 1, 0),
-            ingrediantBuffer = make(RCMD.AE2FC, "ingrediant_buffer", 1, 0);
-
-        delate(quartzTank);
-        RM.RollBender.addRecipe1(T, 16, 128, make(MD.AE, "tile.BlockQuartzGlass", 1, 0), quartzTank);
-
         RecipeUtil.nuke(fluidAutoFiller);
 
         shaped(
@@ -105,5 +102,11 @@ public class ScriptAE2FC implements IScriptLoader {
             casingMachine.dat(MT.Ir),
             'D',
             gtRegistry.getItem(32718));
+    }
+
+    @Override
+    public void loadMachines() {
+        delate(quartzTank);
+        RM.RollBender.addRecipe1(T, 16, 128, make(MD.AE, "tile.BlockQuartzGlass", 1, 0), quartzTank);
     }
 }

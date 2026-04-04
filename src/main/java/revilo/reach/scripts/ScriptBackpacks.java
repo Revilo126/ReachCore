@@ -17,6 +17,7 @@ import net.minecraft.init.Items;
 
 import gregapi.data.MT;
 import gregapi.util.ST;
+import revilo.reach.data.RCCS.ModIds;
 import revilo.reach.data.RCMD;
 
 @SuppressWarnings("unused")
@@ -24,6 +25,11 @@ public class ScriptBackpacks implements IScriptLoader {
 
     @Override
     public void loadRecipes() {
+
+    }
+
+    @Override
+    public void loadMachines() {
         delate(ST.make(RCMD.BP, "backpack", 1, 0));
         Loom.addRecipe2(T, 16, 128, ST.tag(0), ST.make(Items.leather, 4, 0), ST.make(RCMD.BP, "backpack", 1, 0));
         delate(ST.make(RCMD.BP, "backpack", 1, 100));
@@ -153,7 +159,7 @@ public class ScriptBackpacks implements IScriptLoader {
 
     @Override
     public List<String> getDependencies() {
-        return Arrays.asList(RCMD.BP.mID);
+        return Arrays.asList(ModIds.BP);
     }
 
 }

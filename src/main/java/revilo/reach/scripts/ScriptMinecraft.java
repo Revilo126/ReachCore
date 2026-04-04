@@ -6,6 +6,7 @@ import static gregapi.data.OD.*;
 import static gregapi.data.OP.*;
 import static gregapi.util.CR.*;
 import static gregapi.util.ST.*;
+import static revilo.reach.recipes.RecipeUtil.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,6 +20,7 @@ public class ScriptMinecraft implements IScriptLoader {
 
     @Override
     public void loadRecipes() {
+        delate(make(MC, "crafting_table", 1));
         shaped(make(MC, "crafting_table", 1), DEF_REM_REV, "Xk", "La", 'X', make(MC, "flint", 1), 'L', logWood);
 
         shaped(make(MC, "chest", 1), DEF_REM_REV, "LPL", "PaP", "LPL", 'L', logWood, 'P', plankWood);
@@ -53,6 +55,11 @@ public class ScriptMinecraft implements IScriptLoader {
             RecipeUtil.nuke(make(MD.MC, tiers[i] + "_shovel", 1, 0));
             RecipeUtil.nuke(make(MD.MC, tiers[i] + "_hoe", 1, 0));
         }
+    }
+
+    @Override
+    public void loadMachines() {
+
     }
 
     @Override

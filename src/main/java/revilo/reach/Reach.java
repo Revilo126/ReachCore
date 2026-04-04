@@ -1,7 +1,7 @@
 package revilo.reach;
 
 import static gregapi.data.CS.*;
-import static revilo.reach.data.CS.*;
+import static revilo.reach.data.RCCS.*;
 
 import net.minecraft.block.Block;
 
@@ -25,7 +25,6 @@ import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.code.ArrayListNoNulls;
 import gregapi.data.CS.ModIDs;
 import revilo.reach.data.RCMD;
-import revilo.reach.loaders.a.CreativeTabLoader;
 import revilo.reach.loaders.a.FluidLoader;
 import revilo.reach.loaders.a.ItemLoader;
 import revilo.reach.loaders.a.MultiTileEntityLoader;
@@ -121,7 +120,6 @@ public class Reach extends Abstract_Mod {
         ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(
             F,
             new FluidLoader(),
-            new CreativeTabLoader(),
             new ItemLoader(),
             new LoaderRecipesAlloys(),
             new LoaderRecipesGems(),
@@ -179,7 +177,9 @@ public class Reach extends Abstract_Mod {
     }
 
     @Override
-    public void onModPostInit2(FMLPostInitializationEvent aEvent) {}
+    public void onModPostInit2(FMLPostInitializationEvent aEvent) {
+        new ScriptLoader().postInit();
+    }
 
     @Override
     public void onModServerStarting2(FMLServerStartingEvent aEvent) {

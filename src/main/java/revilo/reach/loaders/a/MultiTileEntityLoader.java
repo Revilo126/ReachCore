@@ -21,7 +21,7 @@ import gregapi.util.UT;
 import gregtech.tileentity.energy.converters.MultiTileEntityEngineElectric;
 import gregtech.tileentity.energy.converters.MultiTileEntityHeaterElectric;
 import gregtech.tileentity.energy.converters.MultiTileEntityMotorElectric;
-import revilo.reach.data.CS;
+import revilo.reach.data.RCCS;
 import revilo.reach.data.RCMT;
 import revilo.reach.data.RCRM;
 import revilo.reach.tile.multiblock.MultiTileEntityFusionReactor2;
@@ -34,7 +34,7 @@ public class MultiTileEntityLoader implements Runnable {
     @Override
     public void run() {
         MultiTileEntityBlock aMetalWires = MultiTileEntityBlock.getOrCreate(
-            CS.ModIds.REACH,
+            RCCS.ModIds.REACH,
             "machine",
             MaterialMachines.instance,
             Block.soundTypeMetal,
@@ -45,7 +45,7 @@ public class MultiTileEntityLoader implements Runnable {
             F,
             F);
         MultiTileEntityBlock aMachine = MultiTileEntityBlock.getOrCreate(
-            CS.ModIds.REACH,
+            RCCS.ModIds.REACH,
             "machine",
             MaterialMachines.instance,
             Block.soundTypeMetal,
@@ -60,8 +60,8 @@ public class MultiTileEntityLoader implements Runnable {
         MultiTileEntityRegistry aRegistryGT = MultiTileEntityRegistry.getRegistry("gt.multitileentity");
 
         wire(aRegistry, aMetalWires);
-        machines(aRegistry, aMachine, CreativeTabLoader.basicMachinesID);
-        multiblocks(aRegistry, aRegistryGT, aMachine, CreativeTabLoader.basicMachinesID);
+        machines(aRegistry, aMachine);
+        multiblocks(aRegistry, aRegistryGT, aMachine);
         unsorted(aRegistry, aMachine);
 
     }
@@ -104,14 +104,14 @@ public class MultiTileEntityLoader implements Runnable {
     }
 
     // Use 5 000 - 5 999
-    private static void machines(MultiTileEntityRegistry aRegistry, MultiTileEntityBlock aMachine, short aCreativeTab) {
+    private static void machines(MultiTileEntityRegistry aRegistry, MultiTileEntityBlock aMachine) {
         aClass = MultiTileEntityBasicMachine.class;
 
     }
 
     // Use 10 000 - 14 999
     private static void multiblocks(MultiTileEntityRegistry aRegistry, MultiTileEntityRegistry aRegistryGT,
-        MultiTileEntityBlock aMachine, short aCreativeTab) {
+        MultiTileEntityBlock aMachine) {
         aClass = MultiTileEntityMultiBlockPart.class;
 
         aMat = RCMT.Ubn;
@@ -119,7 +119,7 @@ public class MultiTileEntityLoader implements Runnable {
             "Large Unbinilium Coil",
             "Multiblock Machines",
             20000,
-            aCreativeTab,
+            20000,
             aClass,
             aMat.mToolQuality,
             64,
@@ -146,7 +146,7 @@ public class MultiTileEntityLoader implements Runnable {
             "Fusion Reactor Tier 2",
             "Multiblock Machines",
             22000,
-            aCreativeTab,
+            20000,
             MultiTileEntityFusionReactor2.class,
             aMat.mToolQuality,
             16,
@@ -196,7 +196,7 @@ public class MultiTileEntityLoader implements Runnable {
             "Electric Heater (" + VN[6] + ")",
             "Heaters",
             15000,
-            10001,
+            15000,
             aClass,
             aMat.mToolQuality,
             16,
@@ -209,9 +209,9 @@ public class MultiTileEntityLoader implements Runnable {
                 NBT_RESISTANCE,
                 4.0F,
                 NBT_INPUT,
-                32,
+                V[6],
                 NBT_OUTPUT,
-                16,
+                V[6] / 2,
                 NBT_WASTE_ENERGY,
                 T,
                 NBT_ENERGY_ACCEPTED,
@@ -245,9 +245,9 @@ public class MultiTileEntityLoader implements Runnable {
                 NBT_RESISTANCE,
                 4.0F,
                 NBT_INPUT,
-                128,
+                V[7],
                 NBT_OUTPUT,
-                64,
+                V[7] / 2,
                 NBT_WASTE_ENERGY,
                 T,
                 NBT_ENERGY_ACCEPTED,
@@ -281,9 +281,9 @@ public class MultiTileEntityLoader implements Runnable {
                 NBT_RESISTANCE,
                 4.0F,
                 NBT_INPUT,
-                512,
+                V[8],
                 NBT_OUTPUT,
-                256,
+                V[8] / 2,
                 NBT_WASTE_ENERGY,
                 T,
                 NBT_ENERGY_ACCEPTED,
@@ -317,9 +317,9 @@ public class MultiTileEntityLoader implements Runnable {
                 NBT_RESISTANCE,
                 4.0F,
                 NBT_INPUT,
-                2048,
+                V[9],
                 NBT_OUTPUT,
-                1024,
+                V[9] / 2,
                 NBT_WASTE_ENERGY,
                 T,
                 NBT_ENERGY_ACCEPTED,
@@ -353,9 +353,9 @@ public class MultiTileEntityLoader implements Runnable {
                 NBT_RESISTANCE,
                 4.0F,
                 NBT_INPUT,
-                8192,
+                V[10],
                 NBT_OUTPUT,
-                4096,
+                V[10] / 2,
                 NBT_WASTE_ENERGY,
                 T,
                 NBT_ENERGY_ACCEPTED,
@@ -391,9 +391,9 @@ public class MultiTileEntityLoader implements Runnable {
                 NBT_RESISTANCE,
                 4.0F,
                 NBT_INPUT,
-                32,
+                V[6],
                 NBT_OUTPUT,
-                16,
+                V[6] / 2,
                 NBT_WASTE_ENERGY,
                 T,
                 NBT_ENERGY_ACCEPTED,
@@ -427,9 +427,9 @@ public class MultiTileEntityLoader implements Runnable {
                 NBT_RESISTANCE,
                 4.0F,
                 NBT_INPUT,
-                128,
+                V[7],
                 NBT_OUTPUT,
-                64,
+                V[7] / 2,
                 NBT_WASTE_ENERGY,
                 T,
                 NBT_ENERGY_ACCEPTED,
@@ -463,9 +463,9 @@ public class MultiTileEntityLoader implements Runnable {
                 NBT_RESISTANCE,
                 4.0F,
                 NBT_INPUT,
-                512,
+                V[8],
                 NBT_OUTPUT,
-                256,
+                V[8] / 2,
                 NBT_WASTE_ENERGY,
                 T,
                 NBT_ENERGY_ACCEPTED,
@@ -499,9 +499,9 @@ public class MultiTileEntityLoader implements Runnable {
                 NBT_RESISTANCE,
                 4.0F,
                 NBT_INPUT,
-                2048,
+                V[9],
                 NBT_OUTPUT,
-                1024,
+                V[9] / 2,
                 NBT_WASTE_ENERGY,
                 T,
                 NBT_ENERGY_ACCEPTED,
@@ -535,9 +535,9 @@ public class MultiTileEntityLoader implements Runnable {
                 NBT_RESISTANCE,
                 4.0F,
                 NBT_INPUT,
-                8192,
+                V[10],
                 NBT_OUTPUT,
-                4096,
+                V[10] / 2,
                 NBT_WASTE_ENERGY,
                 T,
                 NBT_ENERGY_ACCEPTED,
@@ -573,9 +573,9 @@ public class MultiTileEntityLoader implements Runnable {
                 NBT_RESISTANCE,
                 4.0F,
                 NBT_INPUT,
-                32,
+                V[6],
                 NBT_OUTPUT,
-                16,
+                V[6] / 2,
                 NBT_WASTE_ENERGY,
                 T,
                 NBT_ENERGY_ACCEPTED,
@@ -613,9 +613,9 @@ public class MultiTileEntityLoader implements Runnable {
                 NBT_RESISTANCE,
                 4.0F,
                 NBT_INPUT,
-                128,
+                V[7],
                 NBT_OUTPUT,
-                64,
+                V[8],
                 NBT_WASTE_ENERGY,
                 T,
                 NBT_ENERGY_ACCEPTED,
@@ -653,9 +653,9 @@ public class MultiTileEntityLoader implements Runnable {
                 NBT_RESISTANCE,
                 4.0F,
                 NBT_INPUT,
-                512,
+                V[8],
                 NBT_OUTPUT,
-                256,
+                V[8] / 2,
                 NBT_WASTE_ENERGY,
                 T,
                 NBT_ENERGY_ACCEPTED,
@@ -693,9 +693,9 @@ public class MultiTileEntityLoader implements Runnable {
                 NBT_RESISTANCE,
                 4.0F,
                 NBT_INPUT,
-                2048,
+                V[9],
                 NBT_OUTPUT,
-                1024,
+                V[9] / 2,
                 NBT_WASTE_ENERGY,
                 T,
                 NBT_ENERGY_ACCEPTED,
@@ -733,9 +733,9 @@ public class MultiTileEntityLoader implements Runnable {
                 NBT_RESISTANCE,
                 4.0F,
                 NBT_INPUT,
-                8192,
+                V[10],
                 NBT_OUTPUT,
-                4096,
+                V[10] / 2,
                 NBT_WASTE_ENERGY,
                 T,
                 NBT_ENERGY_ACCEPTED,
