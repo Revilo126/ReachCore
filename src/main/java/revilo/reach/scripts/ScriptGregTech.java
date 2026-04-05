@@ -12,12 +12,7 @@ import static revilo.reach.recipes.RecipeUtil.*;
 import java.util.Arrays;
 import java.util.List;
 
-import net.minecraft.item.ItemStack;
-
 import gregapi.block.multitileentity.MultiTileEntityRegistry;
-import gregapi.data.ANY;
-import gregapi.data.MD;
-import gregapi.data.MT;
 
 @SuppressWarnings("unused")
 public class ScriptGregTech implements IScriptLoader {
@@ -38,56 +33,60 @@ public class ScriptGregTech implements IScriptLoader {
     }
 
     private void cables(MultiTileEntityRegistry aRegistry) {
-        /*ItemStack fiberCable = aRegistry.getItem(24900);
-        postDelate(fiberCable);
-        shaped(
-            fiberCable,
-            DEF_REM_NCC,
-            "GCG",
-            "RSD",
-            "w x",
-            'G',
-            blockGlassColorless,
-            'C',
-            OD_CIRCUITS[3],
-            'R',
-            gemFlawless.dat(MT.Redstone),
-            'S',
-            plateDouble.dat(MT.Ag),
-            'D',
-            gemFlawless.dat(ANY.Diamond));*/
+        /*
+         * ItemStack fiberCable = aRegistry.getItem(24900);
+         * postDelate(fiberCable);
+         * shaped(
+         * fiberCable,
+         * DEF_REM_NCC,
+         * "GCG",
+         * "RSD",
+         * "w x",
+         * 'G',
+         * blockGlassColorless,
+         * 'C',
+         * OD_CIRCUITS[3],
+         * 'R',
+         * gemFlawless.dat(MT.Redstone),
+         * 'S',
+         * plateDouble.dat(MT.Ag),
+         * 'D',
+         * gemFlawless.dat(ANY.Diamond));
+         */
     }
 
     private void zpm(MultiTileEntityRegistry aRegistry) {
-        /*AvaritiaHelp.addExtremeRecipe(
-            getTile(MD.GT, 18044),
-            "CCMAOAMCC",
-            "CMAOPOAMC",
-            "MAOUWUOAM",
-            "AOUWNWUOA",
-            "OPWNDNWPO",
-            "AOUWNWUOA",
-            "MAOUWUOAM",
-            "CMAOPOAMC",
-            "CCMAOAMCC",
-            'C',
-            plateCurved.mat(MT.Os, 1),
-            'M',
-            casingMachine.mat(MT.Os, 1),
-            'A',
-            OD_CIRCUITS[8],
-            'O',
-            getTile(MD.GT, 18044),
-            'P',
-            plateDense.mat(MT.Pu_243, 1),
-            'U',
-            plateDense.mat(MT.U_235, 1),
-            'W',
-            getTile(MD.GT, 29515),
-            'N',
-            plateDense.mat(MT.Nq_528, 1),
-            'D',
-            plateDense.mat(MT.Nq_522, 1));*/
+        /*
+         * AvaritiaHelp.addExtremeRecipe(
+         * getTile(MD.GT, 18044),
+         * "CCMAOAMCC",
+         * "CMAOPOAMC",
+         * "MAOUWUOAM",
+         * "AOUWNWUOA",
+         * "OPWNDNWPO",
+         * "AOUWNWUOA",
+         * "MAOUWUOAM",
+         * "CMAOPOAMC",
+         * "CCMAOAMCC",
+         * 'C',
+         * plateCurved.mat(MT.Os, 1),
+         * 'M',
+         * casingMachine.mat(MT.Os, 1),
+         * 'A',
+         * OD_CIRCUITS[8],
+         * 'O',
+         * getTile(MD.GT, 18044),
+         * 'P',
+         * plateDense.mat(MT.Pu_243, 1),
+         * 'U',
+         * plateDense.mat(MT.U_235, 1),
+         * 'W',
+         * getTile(MD.GT, 29515),
+         * 'N',
+         * plateDense.mat(MT.Nq_528, 1),
+         * 'D',
+         * plateDense.mat(MT.Nq_522, 1));
+         */
     }
 
     @Override
