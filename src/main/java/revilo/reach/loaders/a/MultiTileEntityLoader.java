@@ -11,6 +11,7 @@ import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.data.ANY;
 import gregapi.data.MT;
 import gregapi.data.OP;
+import gregapi.data.RM;
 import gregapi.data.TD;
 import gregapi.oredict.OreDictMaterial;
 import gregapi.tileentity.connectors.MultiTileEntityWireElectric;
@@ -22,6 +23,7 @@ import gregtech.tileentity.energy.converters.MultiTileEntityHeaterElectric;
 import gregtech.tileentity.energy.converters.MultiTileEntityMotorElectric;
 import revilo.reach.data.RCCS;
 import revilo.reach.data.RCMT;
+import revilo.reach.tile.multiblock.MultiTileEntityPyrolyseOven;
 
 public class MultiTileEntityLoader implements Runnable {
 
@@ -137,6 +139,59 @@ public class MultiTileEntityLoader implements Runnable {
             "WWW",
             'W',
             OP.wireGt04.dat(aMat));
+
+        aMat = MT.StainlessSteel;
+        aRegistry.add(
+            "Pyrolyse Oven",
+            "Multiblock Machines",
+            17119,
+            17101,
+            MultiTileEntityPyrolyseOven.class,
+            aMat.mToolQuality,
+            16,
+            aMachine,
+            UT.NBT.make(
+                NBT_MATERIAL,
+                aMat,
+                NBT_HARDNESS,
+                5.0F,
+                NBT_RESISTANCE,
+                5.0F,
+                NBT_COLOR,
+                UT.Code.getRGBInt(aMat.fRGBaSolid),
+                NBT_TEXTURE,
+                "largeoven",
+                NBT_INPUT,
+                64,
+                NBT_INPUT_MIN,
+                64,
+                NBT_INPUT_MAX,
+                4096,
+                NBT_ENERGY_ACCEPTED,
+                TD.Energy.EU,
+                NBT_RECIPEMAP,
+                RM.CokeOven,
+                NBT_INV_SIDE_AUTO_OUT,
+                SIDE_BOTTOM,
+                NBT_TANK_SIDE_AUTO_OUT,
+                SIDE_BOTTOM,
+                NBT_CHEAP_OVERCLOCKING,
+                T,
+                NBT_PARALLEL,
+                64,
+                NBT_PARALLEL_DURATION,
+                T),
+            "SPS",
+            "PwP",
+            "CMC",
+            'M',
+            aRegistry.getItem(18002),
+            'C',
+            OD_CIRCUITS[3],
+            'P',
+            OP.plateDense.dat(aMat),
+            'S',
+            OP.screw.dat(aMat));
 
         /**
          * aMat = MT.Ad;

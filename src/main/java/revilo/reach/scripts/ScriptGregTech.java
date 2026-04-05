@@ -38,7 +38,7 @@ public class ScriptGregTech implements IScriptLoader {
     }
 
     private void cables(MultiTileEntityRegistry aRegistry) {
-        ItemStack fiberCable = aRegistry.getItem(24900);
+        /*ItemStack fiberCable = aRegistry.getItem(24900);
         postDelate(fiberCable);
         shaped(
             fiberCable,
@@ -55,11 +55,11 @@ public class ScriptGregTech implements IScriptLoader {
             'S',
             plateDouble.dat(MT.Ag),
             'D',
-            gemFlawless.dat(ANY.Diamond));
+            gemFlawless.dat(ANY.Diamond));*/
     }
 
     private void zpm(MultiTileEntityRegistry aRegistry) {
-        AvaritiaHelp.addExtremeRecipe(
+        /*AvaritiaHelp.addExtremeRecipe(
             getTile(MD.GT, 18044),
             "CCMAOAMCC",
             "CMAOPOAMC",
@@ -87,7 +87,7 @@ public class ScriptGregTech implements IScriptLoader {
             'N',
             plateDense.mat(MT.Nq_528, 1),
             'D',
-            plateDense.mat(MT.Nq_522, 1));
+            plateDense.mat(MT.Nq_522, 1));*/
     }
 
     @Override

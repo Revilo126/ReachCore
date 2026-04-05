@@ -3,8 +3,11 @@ Reach Changelog (Doesn't include modpack changes only Core Mod)!
 0.2.0: Future
 
 0.1.2: Unreleased
-[Added WIP] Custom Ore Gen (Majority of Ores will be locked by planet exploration). Most notable being Naquadah (Although still being acquirable by Nuclear Progression) will now be found on Proxima B, Titanium and tungsten locked to the Moon. These will be still acquirable as byproducts and other means however the most convienent sources (E.g Tungstate) will be planet locked.
+[Added WIP] Custom Ore Gen (Majority of Ores will be locked by planet exploration). Most notable being Naquadah (Although still being acquirable by Nuclear Progression) will now be found on Proxima B, Titanium and tungsten locked to the Moon. These will be still acquirable as byproducts and other means however the most convienent sources (E.g Tungstate) will be planet locked. Note: these changes can be found in Revilo126/GregTech6!
 [Added] Tier 6+ converters. E.g: Heaters, Motors, and Engines.
+[Added] Pyrolyse Oven (Large coke oven), made in a 5x5x3 basin of stainless steel walls (72), filled with 3x3x2 of NiChrome coils (18). Made to show off my new library MultiHelper, inspired by StructureLib, made due to the fact StructureLib was too complicated at the moment to implement into GregTech6. Works using Structure Definitions and only accepts multiblock parts.
+[Added] Polymerization Chamber (Plastic production), made with a base of 3x3 heat transmitters, and a hollow 3x3 cube of stainless steel walls, with the controller on the bottom-front side of the walls. Used for early-late game plastics, aswell as opening up a window for more complex polymers (Polyethylene and more).
+[Removed] Gregtech recipe changes are not needed as of my own personal fork of GT6, this doesn't include those in the "Loaders" subfolders, these are specifically for this mod.
 
 0.1.1: First proper version!
 [Added] Basic recipes added with abstraction for ease of addition for new mods.
