@@ -9,6 +9,7 @@ import gregapi.oredict.event.IOreDictListenerEvent;
 import gregapi.oredict.event.OreDictListenerEvent_Names;
 import gregapi.util.ST;
 import revilo.reach.data.RCIL;
+import revilo.reach.data.RCMT;
 
 public class LoaderRecipesOthers implements Runnable {
 
@@ -30,6 +31,13 @@ public class LoaderRecipesOthers implements Runnable {
                             foil.mat(MT.Nq, 4),
                             ST.amount(0, aEvent.mStack),
                             RCIL.Circuit_Wiring_Nano.get(1));
+                        RM.LaserEngraver.addRecipe2(
+                            T,
+                            16,
+                            64,
+                            foil.mat(RCMT.Ubn, 4),
+                            ST.amount(0, aEvent.mStack),
+                            RCIL.Circuit_Wiring_Quantum_T1.get(1));
                     }
                 });
             }
