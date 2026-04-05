@@ -22,7 +22,15 @@ public class StructureUtil {
 
         private String[][] structure;
         private Map<Character, StructureElementPart<T>> elements;
-        private int offsetX, offsetY, offsetZ;
+        public int offsetX, offsetY, offsetZ;
+        
+        public int[] getOffsets() {
+        	return new int[] {offsetX, offsetY, offsetZ};
+        }
+        
+        public static <T extends ITileEntityMultiBlockController> Builder<T> builder(String[][] structure) {
+            return new Builder<>(structure);
+        }
 
         public Definition(String[][] structure, Map<Character, StructureElementPart<T>> elements) {
             this.structure = structure;

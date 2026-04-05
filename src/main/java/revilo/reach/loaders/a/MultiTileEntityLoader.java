@@ -9,7 +9,6 @@ import gregapi.block.MaterialMachines;
 import gregapi.block.multitileentity.MultiTileEntityBlock;
 import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.data.ANY;
-import gregapi.data.IL;
 import gregapi.data.MT;
 import gregapi.data.OP;
 import gregapi.data.TD;
@@ -23,8 +22,6 @@ import gregtech.tileentity.energy.converters.MultiTileEntityHeaterElectric;
 import gregtech.tileentity.energy.converters.MultiTileEntityMotorElectric;
 import revilo.reach.data.RCCS;
 import revilo.reach.data.RCMT;
-import revilo.reach.data.RCRM;
-import revilo.reach.tile.multiblock.MultiTileEntityFusionReactor2;
 
 public class MultiTileEntityLoader implements Runnable {
 
@@ -141,50 +138,52 @@ public class MultiTileEntityLoader implements Runnable {
             'W',
             OP.wireGt04.dat(aMat));
 
-        aMat = MT.Ad;
-        aRegistry.add(
-            "Fusion Reactor Tier 2",
-            "Multiblock Machines",
-            22000,
-            20000,
-            MultiTileEntityFusionReactor2.class,
-            aMat.mToolQuality,
-            16,
-            aMachine,
-            UT.NBT.make(
-                NBT_MATERIAL,
-                aMat,
-                NBT_HARDNESS,
-                16.5F,
-                NBT_RESISTANCE,
-                16.5F,
-                NBT_TEXTURE,
-                "fusionreactor",
-                NBT_INPUT,
-                32768,
-                NBT_INPUT_MIN,
-                1,
-                NBT_INPUT_MAX,
-                65536,
-                NBT_ENERGY_ACCEPTED,
-                TD.Energy.TU,
-                NBT_RECIPEMAP,
-                RCRM.FusionT2,
-                NBT_ENERGY_ACCEPTED_2,
-                TD.Energy.LU,
-                NBT_ENERGY_EMITTED,
-                TD.Energy.EU,
-                NBT_SPECIAL_IS_START_ENERGY,
-                T,
-                NBT_NO_CONSTANT_POWER,
-                T),
-            "FFF",
-            "FMF",
-            "FFF",
-            'M',
-            aRegistryGT.getItem(18005),
-            'F',
-            IL.FIELD_GENERATORS[6]);
+        /**
+         * aMat = MT.Ad;
+         * aRegistry.add(
+         * "Fusion Reactor Tier 2",
+         * "Multiblock Machines",
+         * 22000,
+         * 20000,
+         * MultiTileEntityFusionReactor2.class,
+         * aMat.mToolQuality,
+         * 16,
+         * aMachine,
+         * UT.NBT.make(
+         * NBT_MATERIAL,
+         * aMat,
+         * NBT_HARDNESS,
+         * 16.5F,
+         * NBT_RESISTANCE,
+         * 16.5F,
+         * NBT_TEXTURE,
+         * "fusionreactor",
+         * NBT_INPUT,
+         * 32768,
+         * NBT_INPUT_MIN,
+         * 1,
+         * NBT_INPUT_MAX,
+         * 65536,
+         * NBT_ENERGY_ACCEPTED,
+         * TD.Energy.TU,
+         * NBT_RECIPEMAP,
+         * RCRM.FusionT2,
+         * NBT_ENERGY_ACCEPTED_2,
+         * TD.Energy.LU,
+         * NBT_ENERGY_EMITTED,
+         * TD.Energy.EU,
+         * NBT_SPECIAL_IS_START_ENERGY,
+         * T,
+         * NBT_NO_CONSTANT_POWER,
+         * T),
+         * "FFF",
+         * "FMF",
+         * "FFF",
+         * 'M',
+         * aRegistryGT.getItem(18005),
+         * 'F',
+         * IL.FIELD_GENERATORS[6]);
+         */
     }
 
     // Use 15 000 - 19 999
