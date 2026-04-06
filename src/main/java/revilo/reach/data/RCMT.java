@@ -70,6 +70,16 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             .put(aTags);
     }
 
+    static OreDictMaterial gas(String aNameOreDict, String aSymbol) {
+        return create(aNameOreDict, aSymbol).setTextures(TextureSet.SET_GAS)
+            .put(DECOMPOSABLE, GASES);
+    }
+
+    static OreDictMaterial liquid(String aNameOreDict, String aSymbol) {
+        return create(aNameOreDict, aSymbol).setTextures(TextureSet.SET_GAS)
+            .put(DECOMPOSABLE, LIQUID);
+    }
+
     // Periodic Table 23010 - 23099
 
     // Tiers (not including base GT's)
@@ -185,5 +195,32 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             .setRGBa(20, 20, 20, 255)
             .put(G_DUST)
             .setMcfg(0, MT.Ru, 1 * U, MT.Cl, 3 * U);
+
+    // Plastics TODO: Add more types
+
+    // PVC
+    public static final OreDictMaterial PVC = create("Polyvinal Chloride Plastic", "C2H3Cl")
+        .setTextures(TextureSet.SET_DULL)
+        .setRGBa(245, 245, 245, 255)
+        .put(
+            G_INGOT_MACHINE,
+            APPROXIMATE,
+            FLAMMABLE,
+            EXTRUDER,
+            EXTRUDER_SIMPLE,
+            WIRES,
+            MORTAR,
+            BOUNCY,
+            BRITTLE,
+            FURNACE)
+        .uumMcfg(0, MT.C, 2 * U, MT.H, 3 * U, MT.Cl, U)
+        .heat(443)
+        .setBurning(MT.Ash, U9),
+        VCM = gas("Vinal Chloride Monomer", "C2H3Cl").setRGBa(255, 255, 255, 45)
+            .uumMcfg(0, MT.C, 2 * U, MT.H, 3 * U, MT.Cl, U)
+            .heat(119, 259),
+        EDC = liquid("Ethylene Dichloride", "C2H3Cl2").setRGBa(255, 255, 255, 255)
+            .uumMcfg(0, MT.C, 2 * U, MT.H, 3 * U, MT.Cl, U * 2)
+            .heat(238, 356);
 
 }

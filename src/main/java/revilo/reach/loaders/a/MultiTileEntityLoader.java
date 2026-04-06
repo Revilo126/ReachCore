@@ -3,6 +3,7 @@ package revilo.reach.loaders.a;
 import static gregapi.data.CS.*;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 
 import gregapi.block.MaterialMachines;
@@ -14,6 +15,7 @@ import gregapi.data.OP;
 import gregapi.data.RM;
 import gregapi.data.TD;
 import gregapi.oredict.OreDictMaterial;
+import gregapi.tileentity.connectors.MultiTileEntityPipeFluid;
 import gregapi.tileentity.connectors.MultiTileEntityWireElectric;
 import gregapi.tileentity.machines.MultiTileEntityBasicMachine;
 import gregapi.tileentity.multiblocks.MultiTileEntityMultiBlockPart;
@@ -23,12 +25,17 @@ import gregtech.tileentity.energy.converters.MultiTileEntityHeaterElectric;
 import gregtech.tileentity.energy.converters.MultiTileEntityMotorElectric;
 import revilo.reach.data.RCCS;
 import revilo.reach.data.RCMT;
+import revilo.reach.data.RCRM;
+import revilo.reach.tile.multiblock.MultiTileEntityPolymerizationChamber;
 import revilo.reach.tile.multiblock.MultiTileEntityPyrolyseOven;
 
 public class MultiTileEntityLoader implements Runnable {
 
     static Class<? extends TileEntity> aClass;
     static OreDictMaterial aMat = MT.NULL;
+
+    // Same reason as RCMT, it is easier.
+    private static int id = 0;
 
     @Override
     public void run() {
@@ -42,23 +49,25 @@ public class MultiTileEntityLoader implements Runnable {
             0,
             15,
             F,
-            F);
-        MultiTileEntityBlock aMachine = MultiTileEntityBlock.getOrCreate(
-            RCCS.ModIds.REACH,
-            "machine",
-            MaterialMachines.instance,
-            Block.soundTypeMetal,
-            TOOL_wrench,
-            0,
-            0,
-            15,
-            F,
-            F);
+            F),
+            aMachine = MultiTileEntityBlock.getOrCreate(
+                RCCS.ModIds.REACH,
+                "machine",
+                MaterialMachines.instance,
+                Block.soundTypeMetal,
+                TOOL_wrench,
+                0,
+                0,
+                15,
+                F,
+                F),
+            aWooden = MultiTileEntityBlock
+                .getOrCreate(RCCS.ModIds.REACH, "wood", Material.wood, Block.soundTypeWood, TOOL_axe, 0, 0, 15, F, F);
 
         MultiTileEntityRegistry aRegistry = MultiTileEntityRegistry.getRegistry("reach.multitileentity");
         MultiTileEntityRegistry aRegistryGT = MultiTileEntityRegistry.getRegistry("gt.multitileentity");
 
-        wire(aRegistry, aMetalWires);
+        cables(aRegistry, aMetalWires, aWooden);
         machines(aRegistry, aMachine);
         multiblocks(aRegistry, aRegistryGT, aMachine);
         unsorted(aRegistry, aMachine);
@@ -66,27 +75,30 @@ public class MultiTileEntityLoader implements Runnable {
     }
 
     // Use 0 - 4 999
-    private static void wire(MultiTileEntityRegistry aRegistry, MultiTileEntityBlock aMetalWires) {
+    private static void cables(MultiTileEntityRegistry aRegistry, MultiTileEntityBlock aMetalWires,
+        MultiTileEntityBlock aWooden) {
+
+        int wireID = id;
 
         aClass = MultiTileEntityWireElectric.class;
 
         // ZPM //
 
         MultiTileEntityWireElectric // Distrontium Ruthenate
-            .addElectricWires(50, 28366, V[7], 4, 6, 2, T, F, T, aRegistry, aMetalWires, aClass, RCMT.Sr2RuO4);
+            .addElectricWires(id += 50, wireID, V[7], 4, 6, 2, T, F, T, aRegistry, aMetalWires, aClass, RCMT.Sr2RuO4);
 
         MultiTileEntityWireElectric // Enriched Naquadah
-            .addElectricWires(150, 28366, VMAX[7], 4, 4, 2, T, F, T, aRegistry, aMetalWires, aClass, MT.Nq_528);
+            .addElectricWires(id += 50, wireID, VMAX[7], 4, 4, 2, T, F, T, aRegistry, aMetalWires, aClass, MT.Nq_528);
 
         // UV //
 
         MultiTileEntityWireElectric // Unbinillium
-            .addElectricWires(100, 28366, V[8], 8, 8, 2, T, F, T, aRegistry, aMetalWires, aClass, RCMT.Ubn);
+            .addElectricWires(id += 50, wireID, V[8], 8, 8, 2, T, F, T, aRegistry, aMetalWires, aClass, RCMT.Ubn);
 
         // PUV1 //
 
         MultiTileEntityWireElectric // Naquadria
-            .addElectricWires(200, 28366, V[9], 16, 16, 8, T, F, T, aRegistry, aMetalWires, aClass, MT.Nq_522);
+            .addElectricWires(id += 50, wireID, V[9], 16, 16, 8, T, F, T, aRegistry, aMetalWires, aClass, MT.Nq_522);
 
         // PUV2 //
 
@@ -100,10 +112,21 @@ public class MultiTileEntityLoader implements Runnable {
 
         // MAX+ //
 
+        // Fluid //
+
+        // int pipeID = id;
+
+        aClass = MultiTileEntityPipeFluid.class;
+
+        // Plastic
+        // MultiTileEntityPipeFluid
+        // .addFluidPipes(id += 20, pipeID, 100, T, F, F, F, T, F, F, T, aRegistry, aWooden, aClass, 370, RCMT.PVC);
     }
 
     // Use 5 000 - 5 999
     private static void machines(MultiTileEntityRegistry aRegistry, MultiTileEntityBlock aMachine) {
+        id = 5000;
+
         aClass = MultiTileEntityBasicMachine.class;
 
     }
@@ -113,12 +136,15 @@ public class MultiTileEntityLoader implements Runnable {
         MultiTileEntityBlock aMachine) {
         aClass = MultiTileEntityMultiBlockPart.class;
 
+        int creativeID = id;
+        id = 10000;
+
         aMat = RCMT.Ubn;
         aRegistry.add(
             "Large Unbinilium Coil",
             "Multiblock Machines",
-            20000,
-            20000,
+            id++,
+            creativeID,
             aClass,
             aMat.mToolQuality,
             64,
@@ -144,8 +170,8 @@ public class MultiTileEntityLoader implements Runnable {
         aRegistry.add(
             "Pyrolyse Oven",
             "Multiblock Machines",
-            17119,
-            17101,
+            id++,
+            creativeID,
             MultiTileEntityPyrolyseOven.class,
             aMat.mToolQuality,
             16,
@@ -192,6 +218,46 @@ public class MultiTileEntityLoader implements Runnable {
             OP.plateDense.dat(aMat),
             'S',
             OP.screw.dat(aMat));
+        aMat = MT.StainlessSteel;
+        aRegistry.add(
+            "Polymerization Chamber",
+            "Multiblock Machine",
+            id++,
+            creativeID,
+            MultiTileEntityPolymerizationChamber.class,
+            aMat.mToolQuality,
+            16,
+            aMachine,
+            UT.NBT.make(
+                NBT_MATERIAL,
+                aMat,
+                NBT_HARDNESS,
+                6.0F,
+                NBT_TEXTURE,
+                "polymerizationchamber",
+                NBT_INPUT,
+                512,
+                NBT_INPUT_MIN,
+                1,
+                NBT_INPUT_MAX,
+                1024,
+                NBT_ENERGY_ACCEPTED,
+                TD.Energy.HU,
+                NBT_RECIPEMAP,
+                RCRM.Polymerization,
+                NBT_INV_SIDE_AUTO_OUT,
+                SIDE_BACK,
+                NBT_TANK_SIDE_AUTO_OUT,
+                SIDE_BACK,
+                NBT_CHEAP_OVERCLOCKING,
+                T),
+            "PPP",
+            "PMP",
+            "PPP",
+            'M',
+            aRegistryGT.getItem(18102),
+            'P',
+            OP.pipeNonuple.dat(MT.Steel));
 
         /**
          * aMat = MT.Ad;
@@ -243,6 +309,8 @@ public class MultiTileEntityLoader implements Runnable {
 
     // Use 15 000 - 19 999
     private static void unsorted(MultiTileEntityRegistry aRegistry, MultiTileEntityBlock aMachine) {
+        id = 15000;
+
         // TODO: Adjust recipes!
         aClass = MultiTileEntityHeaterElectric.class;
         aMat = MT.DATA.Electric_T[6];

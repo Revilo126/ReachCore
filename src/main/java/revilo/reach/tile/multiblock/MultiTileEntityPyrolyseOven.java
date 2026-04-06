@@ -14,8 +14,9 @@ import gregapi.data.LH;
 import gregapi.data.LH.Chat;
 import gregapi.tileentity.delegate.DelegatorTileEntity;
 import gregapi.tileentity.multiblocks.MultiTileEntityMultiBlockPart;
-import revilo.multihelper.structure.StructureElementPart;
+import revilo.multihelper.structure.StructureUtil;
 import revilo.multihelper.structure.StructureUtil.Definition;
+import revilo.multihelper.structure.elements.StructureElementPart;
 import revilo.multihelper.tile.multiblock.TileEntityBase10MultiBlockMachineMH;
 
 public class MultiTileEntityPyrolyseOven extends TileEntityBase10MultiBlockMachineMH<MultiTileEntityPyrolyseOven> {
@@ -40,7 +41,7 @@ public class MultiTileEntityPyrolyseOven extends TileEntityBase10MultiBlockMachi
                     new StructureElementPart<>(
                         this,
                         18002,
-                        getMultiTileEntityRegistryID(),
+                        StructureUtil.getGTRegistryID(),
                         0,
                         MultiTileEntityMultiBlockPart.ONLY_ITEM_FLUID))
                 .addElement(
@@ -48,7 +49,7 @@ public class MultiTileEntityPyrolyseOven extends TileEntityBase10MultiBlockMachi
                     new StructureElementPart<>(
                         this,
                         18042,
-                        getMultiTileEntityRegistryID(),
+                        StructureUtil.getGTRegistryID(),
                         0,
                         MultiTileEntityMultiBlockPart.ONLY_ITEM_FLUID))
                 .build();

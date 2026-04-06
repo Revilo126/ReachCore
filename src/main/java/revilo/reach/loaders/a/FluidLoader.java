@@ -29,5 +29,8 @@ public class FluidLoader implements Runnable {
 
         // Superfluids
         FL.create("superfluidhelium", "Superfluid Helium", null, 1, 144, 2);
+
+        // Plastics
+
     }
 }

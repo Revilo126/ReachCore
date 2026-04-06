@@ -20,9 +20,12 @@ public abstract class TileEntityBase10MultiBlockBaseMH<T extends TileEntityBase1
         return getStructure().check((T) this, aCoordinates, aPlayer, aInventory, tX, tY, tZ);
     }
 
-    /**
-     * @Override TODO: Add aut isInsideStructure
-     *           public boolean isInsideStructure(int aX, int aY, int aZ) {
-     *           }
-     */
+    @Override
+    public boolean isInsideStructure(int aX, int aY, int aZ) {
+        int baseX = getOffsetXN(mFacing);
+        int baseY = yCoord;
+        int baseZ = getOffsetZN(mFacing);
+
+        return getStructure().isInside(aX, aY, aZ, baseX, baseY, baseZ);
+    }
 }

@@ -4,6 +4,7 @@ import static gregapi.data.CS.*;
 import static revilo.reach.data.RCCS.*;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,6 +25,7 @@ import gregapi.block.multitileentity.MultiTileEntityBlock;
 import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.code.ArrayListNoNulls;
 import gregapi.data.CS.ModIDs;
+import revilo.reach.data.RCCS;
 import revilo.reach.data.RCMD;
 import revilo.reach.loaders.a.FluidLoader;
 import revilo.reach.loaders.a.ItemLoader;
@@ -33,6 +35,7 @@ import revilo.reach.loaders.b.gt.GregTechLoader;
 import revilo.reach.loaders.c.LoaderRecipesAlloys;
 import revilo.reach.loaders.c.LoaderRecipesGems;
 import revilo.reach.loaders.c.LoaderRecipesOthers;
+import revilo.reach.loaders.c.LoaderRecipesPlastics;
 import revilo.reach.scripts.ScriptLoader;
 
 @Mod(
@@ -123,7 +126,8 @@ public class Reach extends Abstract_Mod {
             new ItemLoader(),
             new LoaderRecipesAlloys(),
             new LoaderRecipesGems(),
-            new LoaderRecipesOthers());
+            new LoaderRecipesOthers(),
+            new LoaderRecipesPlastics());
 
         for (Runnable tRunnable : tList) try {
             tRunnable.run();
@@ -153,7 +157,9 @@ public class Reach extends Abstract_Mod {
             0,
             15,
             F,
-            F); // Machines
+            F);
+        MultiTileEntityBlock
+            .getOrCreate(RCCS.ModIds.REACH, "wood", Material.wood, Block.soundTypeWood, TOOL_axe, 0, 0, 15, F, F); // Machines
 
         new FluidLoader().run(); // This also registers Materials!
     }

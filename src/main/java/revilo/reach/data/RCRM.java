@@ -10,18 +10,34 @@ import gregapi.recipes.Recipe.RecipeMap;
 @SuppressWarnings("deprecation")
 public class RCRM {
 
-    /**
-     * public static final RecipeMap PolymerizationCrucible = new RecipeMap( // TODO: Expand plastic processing (PVC,
-     * PVE, etc.)
-     * null,
-     * "reach.recipe.polymerization",
-     * "Polymerization Chamber",
-     * null,
-     * 0,
-     * 1,
-     * RES_PATH_GUI + "machines/CrystallisationCrucible",
-     * )
-     */
+    public static final RecipeMap Polymerization = new RecipeMap(
+        null,
+        "reach.recipe.polymerization",
+        "Polymerization Tank",
+        null,
+        0,
+        1,
+        RCCS.RES_PATH_GUI + "machines/Polymerization",
+        /* IN-OUT-MIN-ITEM */
+        1,
+        2,
+        0,
+        /* IN-OUT-MIN-FLUID */
+        6,
+        3,
+        0,
+        2,
+        1,
+        "",
+        1,
+        "",
+        T,
+        T,
+        T,
+        T,
+        F,
+        F,
+        F);
 
     public static final RecipeMap FusionT2 = new RecipeMap(
         null,

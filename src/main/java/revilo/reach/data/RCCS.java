@@ -1,8 +1,5 @@
 package revilo.reach.data;
 
-import java.util.Set;
-
-import gregapi.code.BiomeNameSet;
 import gregapi.item.multiitem.MultiItemRandom;
 
 /**
@@ -10,21 +7,12 @@ import gregapi.item.multiitem.MultiItemRandom;
  */
 public class RCCS {
 
-    // Alpha Centauri System
-    public static final Set<String> GEN_PROXIMA_B = new BiomeNameSet(
-        "proxima_b_beach",
-        "proxima_b_forest",
-        "proxima_b_ice_plains",
-        "proxima_b_mountains",
-        "proxima_b_ocean",
-        "proxima_b_plains");
-
-    // Bernards System
-    public static final Set<String> GEN_BERNARDA_C = new BiomeNameSet("barnard_c_dunes");
-    // GEN_BERNARDA_E = new BiomeNameSet("") // Can't find name
-
-    // Solar System TODO
-    // public static final Set<String> GEN_
+    public static final String TEX_DIR = "textures/", TEX_DIR_GUI = TEX_DIR + "gui/", TEX_DIR_ITEM = TEX_DIR + "items/",
+        TEX_DIR_MODEL = TEX_DIR + "model/", TEX_DIR_BLOCK = TEX_DIR + "blocks/", TEX_DIR_ARMOR = TEX_DIR + "armor/",
+        TEX_DIR_ENTITY = TEX_DIR + "entity/", RES_PATH = RCMD.RC.mID + ":" + TEX_DIR,
+        RES_PATH_GUI = RCMD.RC.mID + ":" + TEX_DIR_GUI, RES_PATH_ITEM = RCMD.RC.mID + ":",
+        RES_PATH_BLOCK = RCMD.RC.mID + ":", RES_PATH_MODEL = RCMD.RC.mID + ":" + TEX_DIR_MODEL,
+        RES_PATH_ARMOR = RCMD.RC.mID + ":" + TEX_DIR_ARMOR, RES_PATH_ENTITY = RCMD.RC.mID + ":" + TEX_DIR_ENTITY;
 
     public static class Chat {
 

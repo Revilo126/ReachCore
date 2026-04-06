@@ -47,6 +47,13 @@ public class ScriptLoader implements Runnable {
             ERR.println(String.format("Reach: Script \"%s\" failed to load due to errors!", tScript.getScriptName()));
             e.printStackTrace(ERR);
         }
+
+        try {
+            OUT.println(String.format("Reach: Nuking %s amount of items.", RecipeUtil.toNuke.toArray().length));
+            new RecipeUtil().run();
+        } catch (Throwable e) {
+            e.printStackTrace(ERR);
+        }
     }
 
     @Override
@@ -72,13 +79,6 @@ public class ScriptLoader implements Runnable {
             CF.addErrorToChatServerStart(
                 String.format("Reach: Script \"%s\" failed to load due to errors!", tScript.getScriptName()));
             ERR.println(String.format("Reach: Script \"%s\" failed to load due to errors!", tScript.getScriptName()));
-            e.printStackTrace(ERR);
-        }
-
-        try {
-            OUT.println(String.format("Reach: Nuking %s amount of items.", RecipeUtil.toNuke.toArray().length));
-            new RecipeUtil().run();
-        } catch (Throwable e) {
             e.printStackTrace(ERR);
         }
     }

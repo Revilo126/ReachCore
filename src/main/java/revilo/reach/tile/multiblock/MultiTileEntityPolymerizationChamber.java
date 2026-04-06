@@ -12,8 +12,9 @@ import gregapi.tileentity.energy.ITileEntityEnergy;
 import gregapi.tileentity.machines.ITileEntityAdjacentOnOff;
 import gregapi.tileentity.multiblocks.MultiTileEntityMultiBlockPart;
 import gregapi.util.WD;
-import revilo.multihelper.structure.StructureElementPart;
+import revilo.multihelper.structure.StructureUtil;
 import revilo.multihelper.structure.StructureUtil.Definition;
+import revilo.multihelper.structure.elements.StructureElementPart;
 import revilo.multihelper.tile.multiblock.TileEntityBase10MultiBlockMachineMH;
 
 public class MultiTileEntityPolymerizationChamber
@@ -30,6 +31,7 @@ public class MultiTileEntityPolymerizationChamber
         return aX >= -1 && aY >= tY - 1 && aZ >= tZ - 1 && aX <= tX + 1 && aY <= tY + 2 && aZ <= tZ + 1;
     }
 
+    // Should i change to Polymerization Chamber Part?
     @Override
     public Definition<MultiTileEntityPolymerizationChamber> getStructure() {
         if (DEFINITION == null) {
@@ -39,7 +41,7 @@ public class MultiTileEntityPolymerizationChamber
                     new StructureElementPart<>(
                         this,
                         18002,
-                        getMultiTileEntityRegistryID(),
+                        StructureUtil.getGTRegistryID(),
                         0,
                         MultiTileEntityMultiBlockPart.ONLY_ITEM_FLUID))
                 .addElement(
@@ -47,7 +49,7 @@ public class MultiTileEntityPolymerizationChamber
                     new StructureElementPart<>(
                         this,
                         18101,
-                        getMultiTileEntityRegistryID(),
+                        StructureUtil.getGTRegistryID(),
                         0,
                         MultiTileEntityMultiBlockPart.ONLY_ENERGY_IN))
                 .build();
@@ -76,7 +78,8 @@ public class MultiTileEntityPolymerizationChamber
 
     @Override
     public DelegatorTileEntity<TileEntity> getItemOutputTarget(byte aSide) {
-        return getAdjacentTileEntity(SIDE_TOP);
+        // return getAdjacentTileEntity(SIDE_TOP);
+        return null;
     }
 
     @Override
@@ -86,7 +89,8 @@ public class MultiTileEntityPolymerizationChamber
 
     @Override
     public DelegatorTileEntity<IFluidHandler> getFluidOutputTarget(byte aSide, Fluid aOutput) {
-        return getAdjacentTank(SIDE_TOP);
+        // return getAdjacentTank(SIDE_TOP);
+        return null;
     }
 
     @Override

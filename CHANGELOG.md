@@ -7,7 +7,7 @@ Reach Changelog (Doesn't include modpack changes only Core Mod)!
 [Added] Tier 6+ converters. E.g: Heaters, Motors, and Engines.
 [Added] Pyrolyse Oven (Large coke oven), made in a 5x5x3 basin of stainless steel walls (72), filled with 3x3x2 of NiChrome coils (18). Made to show off my new library MultiHelper, inspired by StructureLib, made due to the fact StructureLib was too complicated at the moment to implement into GregTech6. Works using Structure Definitions and only accepts multiblock parts.
 [Added] Polymerization Chamber (Plastic production), made with a base of 3x3 heat transmitters, and a hollow 3x3 cube of stainless steel walls, with the controller on the bottom-front side of the walls. Used for early-late game plastics, aswell as opening up a window for more complex polymers (Polyethylene and more).
-[Added WIP] Complex plastic progression, eqch use for plastic will require special types, so you cant use the same plastic for lets say Circuits and Pipes.
+[Added] Complex plastic progression, eqch use for plastic will require special types, so you cant use the same plastic for lets say Circuits and Pipes.
 [Removed] Gregtech recipe changes are not needed as of my own personal fork of GT6, this doesn't include those in the "Loaders" subfolders, these are specifically for this mod.
 
 0.1.1: First proper version!
