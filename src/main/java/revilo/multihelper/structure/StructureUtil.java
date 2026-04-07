@@ -27,7 +27,7 @@ public class StructureUtil {
 
     public static class Definition<T extends ITileEntityMultiBlockController> {
 
-        private String[][] structure;
+        public String[][] structure;
         private Map<Character, IStructureElement<T>> elements;
         public int offsetX, offsetY, offsetZ;
 
@@ -158,16 +158,18 @@ public class StructureUtil {
                             break;
                     }
 
-                    OUT.println(
-                        String.format("MultiHelper: Checking %s at %d, %d, %d", symbol, worldX, worldY, worldZ));
+                    // OUT.println(
+                    // String.format("MultiHelper: Checking %s at %d, %d, %d", symbol, worldX, worldY, worldZ));
                     if (!element.check(t, aCoordinates, aPlayer, aInventory, worldX, worldY, worldZ)) {
-                        ERR.println(
-                            String.format(
-                                "MultiHelper: Failed at %d, %d, %d, expected %s",
-                                worldX,
-                                worldY,
-                                worldZ,
-                                symbol));
+                        /*
+                         * ERR.println(
+                         * String.format(
+                         * "MultiHelper: Failed at %d, %d, %d, expected %s",
+                         * worldX,
+                         * worldY,
+                         * worldZ,
+                         * symbol));
+                         */
                         tSuccess = F;
                     }
                 }

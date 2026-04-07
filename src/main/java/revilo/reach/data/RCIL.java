@@ -34,7 +34,9 @@ public enum RCIL implements IItemContainer {
     Circuit_Part_Quantum_T1,
     Circuit_Board_Quantum_T1,
     Circuit_Wiring_Quantum_T1,
-    Circuit_Plate_Quantum_T1;
+    Circuit_Plate_Quantum_T1,
+
+    Laptop_Tool;
 
     private ItemStack mStack;
     private boolean mHasNotBeenSet = T;

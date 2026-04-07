@@ -375,6 +375,14 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
             FL.make("superfluidhelium", 144),
             NF,
             RCIL.Circuit_Quantum_T1.get(1));
+
+        // Tech Tools //
+
+        // RCIL.Laptop_Tool.set(addItem(1100, "Laptop", "", new Behaviour_Laptop(), EnergyStat.makeTool(TD.Energy.EU,
+        // V[5]*8000, V[5], 64, next())));
+        // CR.shaped(RCIL.Laptop_Tool.get(1), CR.DEF_REV, "CSC", "NUE", "BUB", 'C', OD_CIRCUITS[5], 'S',
+        // IL.Tool_Scanner.get(1), 'N', IL.SENSORS[5], 'U', OD_USB_STICKS[3], 'E', IL.EMITTERS[5], 'B',
+        // IL.Battery_Alkaline_EV, 'U', OD_USB_CABLES[3]);
     }
 
 }

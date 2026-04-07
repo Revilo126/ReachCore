@@ -2,11 +2,16 @@ package revilo.reach.tile.multiblock;
 
 import static gregapi.data.CS.*;
 
+import java.util.List;
+
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.IFluidHandler;
 
+import gregapi.data.LH;
+import gregapi.data.LH.Chat;
 import gregapi.tileentity.delegate.DelegatorTileEntity;
 import gregapi.tileentity.energy.ITileEntityEnergy;
 import gregapi.tileentity.machines.ITileEntityAdjacentOnOff;
@@ -25,7 +30,6 @@ public class MultiTileEntityPolymerizationChamber
 
     private static Definition<MultiTileEntityPolymerizationChamber> DEFINITION;
 
-    // Should i change to Polymerization Chamber Part?
     @Override
     public Definition<MultiTileEntityPolymerizationChamber> getStructure() {
         if (DEFINITION == null) {
@@ -61,6 +65,23 @@ public class MultiTileEntityPolymerizationChamber
                 ((ITileEntityAdjacentOnOff) tDelegator.mTileEntity).setAdjacentOnOff(getStateOnOff());
             }
         }
+    }
+
+    static {
+        LH.add("reach.tooltip.multiblock.polymerization.1", "3x3 base of Heat Transmitter");
+        LH.add("reach.tooltip.multiblock.polymerization.2", "Hollow 3x3x3 cube of Stainless Steel Walls");
+        LH.add("reach.tooltip.multiblock.polymerization.3", "Main block centered on Side-Bottom facing outwards");
+        LH.add("reach.tooltip.multiblock.polymerization.4", "Input and output at any Wall");
+    }
+
+    @Override
+    public void addToolTips(List<String> aList, ItemStack aStack, boolean aF3_H) {
+        aList.add(Chat.CYAN + LH.get(LH.STRUCTURE) + ":");
+        aList.add(Chat.WHITE + LH.get("reach.tooltip.multiblock.polymerization.1"));
+        aList.add(Chat.WHITE + LH.get("reach.tooltip.multiblock.polymerization.2"));
+        aList.add(Chat.WHITE + LH.get("reach.tooltip.multiblock.polymerization.3"));
+        aList.add(Chat.WHITE + LH.get("reach.tooltip.multiblock.polymerization.4"));
+        super.addToolTips(aList, aStack, aF3_H);
     }
 
     @Override
