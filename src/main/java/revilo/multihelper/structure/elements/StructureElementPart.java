@@ -1,5 +1,7 @@
 package revilo.multihelper.structure.elements;
 
+import static gregapi.data.CS.*;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ChunkCoordinates;
@@ -10,7 +12,7 @@ public class StructureElementPart<T extends ITileEntityMultiBlockController> imp
 
     private final int aRegistryMeta, aRegistryID, aDesign, aMode;
 
-    public StructureElementPart(T t, int tRegistryMeta, int tRegistryID, int tDesign, int tMode) {
+    public StructureElementPart(int tRegistryMeta, int tRegistryID, int tDesign, int tMode) {
         this.aRegistryMeta = tRegistryMeta;
         this.aRegistryID = tRegistryID;
         this.aDesign = tDesign;
@@ -20,18 +22,23 @@ public class StructureElementPart<T extends ITileEntityMultiBlockController> imp
     @Override
     public boolean check(T t, ChunkCoordinates aCoordinates, Entity aPlayer, IInventory aInventory, int tX, int tY,
         int tZ) {
-        return ITileEntityMultiBlockController.Util.checkAndSetTarget(
-            t,
-            tX,
-            tY,
-            tZ,
-            aRegistryMeta,
-            aRegistryID,
-            aDesign,
-            aMode,
-            aCoordinates,
-            aPlayer,
-            aInventory);
+        try {
+            return ITileEntityMultiBlockController.Util.checkAndSetTarget(
+                t,
+                tX,
+                tY,
+                tZ,
+                aRegistryMeta,
+                aRegistryID,
+                aDesign,
+                aMode,
+                aCoordinates,
+                aPlayer,
+                aInventory);
+        } catch (Throwable e) {
+            e.printStackTrace(ERR);
+        }
+        return F;
     }
 
 }

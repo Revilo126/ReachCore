@@ -16,8 +16,7 @@ public abstract class TileEntityBase10MultiBlockBaseMH<T extends TileEntityBase1
     @SuppressWarnings("unchecked")
     @Override
     public boolean checkStructure2(ChunkCoordinates aCoordinates, Entity aPlayer, IInventory aInventory) {
-        int tX = getOffsetXN(mFacing), tY = yCoord, tZ = getOffsetZN(mFacing);
-        return getStructure().check((T) this, aCoordinates, aPlayer, aInventory, tX, tY, tZ);
+        return getStructure().check((T) this, aCoordinates, aPlayer, aInventory, getX(), getY(), getZ(), mFacing);
     }
 
     @Override

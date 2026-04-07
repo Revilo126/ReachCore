@@ -27,19 +27,12 @@ public class MultiTileEntityPyrolyseOven extends TileEntityBase10MultiBlockMachi
     private static Definition<MultiTileEntityPyrolyseOven> DEFINITION;
 
     @Override
-    public boolean isInsideStructure(int aX, int aY, int aZ) {
-        int tX = getOffsetXN(mFacing, 2), tY = yCoord, tZ = getOffsetZN(mFacing, 2);
-        return aX >= tX - 2 && aY >= tY && aZ >= tZ - 2 && aX <= tX + 2 && aY <= tY + 6 && aZ <= tZ + 2;
-    }
-
-    @Override
     public Definition<MultiTileEntityPyrolyseOven> getStructure() {
         if (DEFINITION == null) {
             DEFINITION = Definition.<MultiTileEntityPyrolyseOven>builder(STRUCTURE)
                 .addElement(
                     'W',
                     new StructureElementPart<>(
-                        this,
                         18002,
                         StructureUtil.getGTRegistryID(),
                         0,
@@ -47,7 +40,6 @@ public class MultiTileEntityPyrolyseOven extends TileEntityBase10MultiBlockMachi
                 .addElement(
                     'C',
                     new StructureElementPart<>(
-                        this,
                         18042,
                         StructureUtil.getGTRegistryID(),
                         0,

@@ -85,8 +85,10 @@ public class StructureUtil {
                         this.offsetZ = z;
                         this.offsetY = y;
                         this.offsetX = x;
+                        return;
                     }
                 }
+            ERR.println("MultiHelper: No anchor found in structure!");
         }
 
         public static class Builder<T extends ITileEntityMultiBlockController> {
@@ -111,9 +113,11 @@ public class StructureUtil {
         }
 
         public boolean check(T t, ChunkCoordinates aCoordinates, Entity aPlayer, IInventory aInventory, int tX, int tY,
-            int tZ) {
+            int tZ, byte mFacing) {
+            boolean tSuccess = T;
+
             for (byte z = 0; z < structure.length; z++)
-                for (byte y = 0; y < structure[z].length; y++) for (byte x = 0; x < structure[x][y].length(); x++) {
+                for (byte y = 0; y < structure[z].length; y++) for (byte x = 0; x < structure[z][y].length(); x++) {
                     char symbol = structure[z][y].charAt(x);
                     if (symbol == '-' || symbol == ' ') continue;
                     IStructureElement<T> element = elements.get(symbol);
@@ -122,14 +126,62 @@ public class StructureUtil {
                         continue;
                     }
 
-                    int worldX = tX + (x - offsetX);
-                    int worldY = tY + (y - offsetY);
-                    int worldZ = tZ + (z - offsetZ);
+                    int dx = x - offsetX;
+                    int dz = z - offsetZ;
 
-                    if (!element.check(t, aCoordinates, aPlayer, aInventory, worldX, worldY, worldZ)) return F;
+                    int worldX = tX;
+                    int worldZ = tZ;
+
+                    int flippedOffsetY = getSizeY() - 1 - offsetY;
+                    int worldY = tY + (getSizeY() - 1 - y - flippedOffsetY);
+
+                    switch (mFacing) {
+                        case SIDE_X_POS:
+                            worldX += dz;
+                            worldZ -= dx;
+                            break;
+
+                        case SIDE_X_NEG:
+                            worldX -= dz;
+                            worldZ += dx;
+                            break;
+
+                        case SIDE_Z_POS:
+                            worldX -= dx;
+                            worldZ -= dz;
+                            break;
+
+                        case SIDE_Z_NEG:
+                        default:
+                            worldX += dx;
+                            worldZ += dz;
+                            break;
+                    }
+
+                    OUT.println(
+                        String.format("MultiHelper: Checking %s at %d, %d, %d", symbol, worldX, worldY, worldZ));
+                    if (!element.check(t, aCoordinates, aPlayer, aInventory, worldX, worldY, worldZ)) {
+                        ERR.println(
+                            String.format(
+                                "MultiHelper: Failed at %d, %d, %d, expected %s",
+                                worldX,
+                                worldY,
+                                worldZ,
+                                symbol));
+                        tSuccess = F;
+                    }
                 }
-            return T;
+            return tSuccess;
         }
     }
 
+    /*
+     * Checking functions for use with multiblocks that have basic blocks/fluids (E.g Fish farm).
+     */
+    public static class CheckUtils {
+
+        public static void check() {
+
+        }
+    }
 }
