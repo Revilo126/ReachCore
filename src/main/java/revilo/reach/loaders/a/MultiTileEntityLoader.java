@@ -114,13 +114,13 @@ public class MultiTileEntityLoader implements Runnable {
 
         // Fluid //
 
-        // int pipeID = id;
+        int pipeID = id;
 
         aClass = MultiTileEntityPipeFluid.class;
 
         // Plastic
-        // MultiTileEntityPipeFluid
-        // .addFluidPipes(id += 20, pipeID, 100, T, F, F, F, T, F, F, T, aRegistry, aWooden, aClass, 370, RCMT.PVC);
+        MultiTileEntityPipeFluid
+            .addFluidPipes(id += 20, pipeID, 100, T, F, F, F, T, F, F, T, aRegistry, aWooden, aClass, 370, RCMT.PVC);
     }
 
     // Use 5 000 - 5 999
