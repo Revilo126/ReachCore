@@ -137,13 +137,13 @@ public class StructureUtil {
 
                     switch (mFacing) {
                         case SIDE_X_POS:
-                            worldX += dz;
-                            worldZ -= dx;
+                            worldX -= dz;
+                            worldZ += dx;
                             break;
 
                         case SIDE_X_NEG:
-                            worldX -= dz;
-                            worldZ += dx;
+                            worldX += dz;
+                            worldZ -= dx;
                             break;
 
                         case SIDE_Z_POS:
