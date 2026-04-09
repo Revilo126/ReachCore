@@ -21,7 +21,7 @@ import revilo.multihelper.tile.multiblock.TileEntityBase10MultiBlockMachineMH;
 
 public class MultiTileEntityPyrolyseOven extends TileEntityBase10MultiBlockMachineMH<MultiTileEntityPyrolyseOven> {
 
-    static String[][] STRUCTURE = { { "WWWWW", "WW-WW", "WWWWW" }, { "WCCCW", "WCCCW", "WWWWW" },
+    static String[][] STRUCTURE = { { "WWWWW", "WWWWW", "WW-WW" }, { "WCCCW", "WCCCW", "WWWWW" },
         { "WCCCW", "WCCCW", "WWWWW" }, { "WCCCW", "WCCCW", "WWWWW" }, { "WWWWW", "WWWWW", "WWWWW" } };
 
     private static Definition<MultiTileEntityPyrolyseOven> DEFINITION;

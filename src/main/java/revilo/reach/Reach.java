@@ -25,6 +25,7 @@ import gregapi.block.multitileentity.MultiTileEntityBlock;
 import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.code.ArrayListNoNulls;
 import gregapi.data.CS.ModIDs;
+import revilo.reach.config.ReachConfig;
 import revilo.reach.data.RCCS;
 import revilo.reach.data.RCMD;
 import revilo.reach.loaders.a.FluidLoader;
@@ -36,6 +37,7 @@ import revilo.reach.loaders.c.LoaderRecipesAlloys;
 import revilo.reach.loaders.c.LoaderRecipesGems;
 import revilo.reach.loaders.c.LoaderRecipesOthers;
 import revilo.reach.loaders.c.LoaderRecipesPlastics;
+import revilo.reach.modpack.LoadedModsExporter;
 import revilo.reach.scripts.ScriptLoader;
 
 @Mod(
@@ -75,7 +77,7 @@ public class Reach extends Abstract_Mod {
     }
 
     @Override
-    public gregapi.api.Abstract_Proxy getProxy() {
+    public Abstract_Proxy getProxy() {
         return PROXY;
     }
 
@@ -122,6 +124,7 @@ public class Reach extends Abstract_Mod {
 
         ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(
             F,
+            new ReachConfig(),
             new FluidLoader(),
             new ItemLoader(),
             new LoaderRecipesAlloys(),
@@ -185,6 +188,14 @@ public class Reach extends Abstract_Mod {
     @Override
     public void onModPostInit2(FMLPostInitializationEvent aEvent) {
         new ScriptLoader().postInit();
+
+        ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(F, new LoadedModsExporter());
+
+        for (Runnable tRunnable : tList) try {
+            tRunnable.run();
+        } catch (Throwable e) {
+            e.printStackTrace(ERR);
+        }
     }
 
     @Override

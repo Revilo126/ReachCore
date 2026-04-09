@@ -20,6 +20,7 @@ public class Behaviour_Laptop extends AbstractBehaviorDefault {
      * Upgrade machines (Keep setting and if player has in inventory replace the block with next tier E.g LV-MV)
      * Ore/Fluid (Basic) prospecting
      * Maybe Tiers?
+     * Build Schematics?
      */
 
 }

@@ -11,42 +11,13 @@ import static revilo.reach.recipes.RecipeUtil.*;
 import java.util.Arrays;
 import java.util.List;
 
-import gregapi.data.ANY;
 import gregapi.data.MD;
-import gregapi.data.MT;
 import revilo.reach.recipes.RecipeUtil;
 
 public class ScriptMinecraft implements IScriptLoader {
 
     @Override
     public void loadRecipes() {
-        delate(make(MC, "crafting_table", 1));
-        shaped(make(MC, "crafting_table", 1), DEF_REM_REV, "Xk", "La", 'X', make(MC, "flint", 1), 'L', logWood);
-
-        shaped(make(MC, "chest", 1), DEF_REM_REV, "LPL", "PaP", "LPL", 'L', logWood, 'P', plankWood);
-
-        shaped(make(MC, "furnace", 1), DEF_REM_REV, " S ", "SFS", " Sh", 'S', cobblestone, 'F', craftingFirestarter);
-        shaped(
-            make(MC, "furnace", 1),
-            DEF_REM_REV,
-            " S ",
-            "SFS",
-            " Sh",
-            'S',
-            stone.dat(MT.STONES.Basalt),
-            'F',
-            craftingFirestarter);
-        shaped(
-            make(MC, "furnace", 1),
-            DEF_REM_REV,
-            " S ",
-            "SFS",
-            " Sh",
-            'S',
-            rockGt.dat(ANY.Stone),
-            'F',
-            craftingFirestarter);
-
         String[] tiers = { "iron", "wooden", "stone", "golden", "diamond" };
         for (byte i = 0; i < 5; i++) {
             RecipeUtil.nuke(make(MD.MC, tiers[i] + "_sword", 1, 0));
