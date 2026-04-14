@@ -1,5 +1,7 @@
 package revilo.reach.data;
 
+import gregapi.block.BlockBase;
+import gregapi.block.IPrefixBlock;
 import gregapi.item.multiitem.MultiItemRandom;
 
 /**
@@ -28,5 +30,16 @@ public class RCCS {
 
         public static MultiItemRandom TECH;
         public static MultiItemRandom[] ALL_MULTI_ITEMS = new MultiItemRandom[] { TECH };
+    }
+
+    public static class BlocksReach {
+
+        // Stones (Planets)
+        public static BlockBase Alkalai, Tungle, Vita, Sulf, Adam;
+        // Contains all Reach stone types
+        public static BlockBase[] stones = { Alkalai, Tungle, Vita, Sulf, Adam };
+        // Contains the Ore Blocks for all the Reach Type Stones
+        public static IPrefixBlock[] ores_normal = new IPrefixBlock[stones.length],
+            ores_broken = new IPrefixBlock[stones.length], ores_small = new IPrefixBlock[stones.length];
     }
 }

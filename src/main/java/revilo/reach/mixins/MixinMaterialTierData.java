@@ -75,7 +75,7 @@ public class MixinMaterialTierData {
     public static OreDictMaterial[] Flux_T;
 
     @Inject(method = "<clinit>", at = @At("TAIL"))
-    private static void onDataInit(CallbackInfo ci) {
+    private static void reach$refactorMaterialData(CallbackInfo ci) {
         OUT.println("Reach: Refactoring GT6's Material Data");
         WIRES_01 = new OreDictItemData[] { OP.wireGt01.dat(Pb), // ULV
             OP.wireGt01.dat(Sn), // LV

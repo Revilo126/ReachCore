@@ -42,6 +42,49 @@ public class LoaderRecipesOthers implements Runnable {
                 });
             }
         };
+
+        // Space Rocks
+        RM.Centrifuge.addRecipe1(
+            T,
+            64,
+            144,
+            new long[] { 8000, 450, 450, 150 },
+            blockDust.mat(RCMT.STONES.Alkalai, 1),
+            dust.mat(MT.STONES.GraniteRed, 9),
+            dustTiny.mat(MT.Be, 9),
+            dustTiny.mat(MT.Mg, 9),
+            dustTiny.mat(MT.Sr, 9));
+        RM.Centrifuge.addRecipe1(
+            T,
+            64,
+            16,
+            new long[] { 8000, 450, 450, 150 },
+            dust.mat(RCMT.STONES.Alkalai, 1),
+            dust.mat(MT.STONES.GraniteRed, 1),
+            dustTiny.mat(MT.Be, 1),
+            dustTiny.mat(MT.Mg, 1),
+            dustTiny.mat(MT.Sr, 1));
+        RM.Centrifuge.addRecipe1(
+            T,
+            64,
+            144,
+            new long[] { 8000, 800, 100, 100 },
+            blockDust.mat(RCMT.STONES.Tungle, 1),
+            dust.mat(MT.STONES.Basalt, 9),
+            dustTiny.mat(MT.C, 9),
+            dustTiny.mat(MT.RareEarth, 9),
+            dustTiny.mat(MT.Pt, 9));
+        RM.Centrifuge.addRecipe1(
+            T,
+            64,
+            16,
+            new long[] { 8000, 800, 100, 100 },
+            dust.mat(RCMT.STONES.Tungle, 1),
+            dust.mat(MT.STONES.Basalt, 1),
+            dustTiny.mat(MT.C, 1),
+            dustTiny.mat(MT.RareEarth, 1),
+            dustTiny.mat(MT.Pt, 1));
+        // TODO: Complete
     }
 
 }

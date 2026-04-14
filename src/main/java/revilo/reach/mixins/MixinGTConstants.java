@@ -21,7 +21,7 @@ public class MixinGTConstants {
     public static String[] OD_CIRCUITS;
 
     @Inject(method = "<clinit>", at = @At("TAIL"))
-    private static void onCSInit(CallbackInfo ci) {
+    private static void reach$refactorConstants(CallbackInfo ci) {
         OUT.println("Reach: Refactoring GT6's Constant Data");
 
         // Base GT only had capability to go up to T9 Circuit

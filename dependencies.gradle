@@ -44,9 +44,8 @@ dependencies {
     implementation("com.gregoriust.gregtech:gregtech_1.7.10:6.17.06:dev") // TODO: Maybe fork
     implementation("com.github.GTNewHorizons:CodeChickenCore:1.4.12:dev")
     
-    implementation("micdoodle8.mods:MicdoodleCore:1.7-3.0.12.504:Dev")
-    implementation("micdoodle8.mods:GalacticraftCore:1.7-3.0.12.504:Dev") // TODO: Fork
-    implementation("micdoodle8.mods:Galacticraft-Planets:1.7-3.0.12.504:Dev")
+    compileOnly("micdoodle8.mods:MicdoodleCore:1.7-3.0.12.504:Dev")
+    compileOnly("micdoodle8.mods:GalacticraftCore:1.7-3.0.12.504:Dev") // TODO: Fork
     
     compileOnly("curse.maven:avaritia-233785:2519595") // TODO: Fork
     

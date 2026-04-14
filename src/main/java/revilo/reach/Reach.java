@@ -31,6 +31,7 @@ import revilo.reach.data.RCMD;
 import revilo.reach.loaders.a.FluidLoader;
 import revilo.reach.loaders.a.ItemLoader;
 import revilo.reach.loaders.a.MultiTileEntityLoader;
+import revilo.reach.loaders.a.RocksLoader;
 import revilo.reach.loaders.a.WorldGenLoader;
 import revilo.reach.loaders.b.gt.GregTechLoader;
 import revilo.reach.loaders.c.LoaderRecipesAlloys;
@@ -46,12 +47,20 @@ import revilo.reach.scripts.ScriptLoader;
     name = Reach.MODNAME,
     acceptedMinecraftVersions = "[1.7.10]",
     dependencies = "required-after:" + ModIDs.GAPI_POST
-        + ";required-after:"
-        + ModIDs.GT
+        + ";after:"
+        + ModIDs.GC_ADV_ROCKETRY
+        + ";after:"
+        + ModIDs.AE
+        + ";after:"
+        + ModIds.AE2FC
+        + ";after:"
+        + ModIDs.AV
+        + ";after:"
+        + ModIds.BP
         + ";after:"
         + ModIDs.MO
         + ";after:"
-        + ModIDs.GC_ADV_ROCKETRY)
+        + ModIds.PerDim)
 public class Reach extends Abstract_Mod {
 
     public static final Logger LOG = LogManager.getLogger("Reach");
@@ -127,6 +136,7 @@ public class Reach extends Abstract_Mod {
             new ReachConfig(),
             new FluidLoader(),
             new ItemLoader(),
+            new RocksLoader(),
             new LoaderRecipesAlloys(),
             new LoaderRecipesGems(),
             new LoaderRecipesOthers(),
@@ -163,8 +173,6 @@ public class Reach extends Abstract_Mod {
             F);
         MultiTileEntityBlock
             .getOrCreate(RCCS.ModIds.REACH, "wood", Material.wood, Block.soundTypeWood, TOOL_axe, 0, 0, 15, F, F); // Machines
-
-        new FluidLoader().run(); // This also registers Materials!
     }
 
     @Override

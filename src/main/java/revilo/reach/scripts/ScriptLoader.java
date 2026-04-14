@@ -17,11 +17,11 @@ public class ScriptLoader implements Runnable {
     ArrayListNoNulls<IScriptLoader> tScriptList = new ArrayListNoNulls<>(
         F,
         new ScriptMinecraft(),
+        new ScriptAdvRocketry(),
         new ScriptAE2(),
         new ScriptAE2FC(),
         new ScriptAvaritia(),
         new ScriptBackpacks(),
-        new ScriptGalacticraft(),
         new ScriptMatterOverdrive(),
         new ScriptPersonalDim(),
         new ScriptGregTech());
