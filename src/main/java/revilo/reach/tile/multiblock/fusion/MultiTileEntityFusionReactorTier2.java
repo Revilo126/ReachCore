@@ -10,7 +10,7 @@ import net.minecraftforge.fluids.IFluidHandler;
 import gregapi.tileentity.delegate.DelegatorTileEntity;
 import gregapi.tileentity.energy.ITileEntityEnergy;
 import gregapi.util.WD;
-import revilo.multihelper.structure.StructureUtil.Definition;
+import revilo.multihelper.structure.Definition;
 import revilo.multihelper.tile.multiblock.TileEntityBase10MultiBlockMachineMH;
 
 public class MultiTileEntityFusionReactorTier2

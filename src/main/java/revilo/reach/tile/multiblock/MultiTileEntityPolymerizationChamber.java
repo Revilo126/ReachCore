@@ -17,8 +17,8 @@ import gregapi.tileentity.energy.ITileEntityEnergy;
 import gregapi.tileentity.machines.ITileEntityAdjacentOnOff;
 import gregapi.tileentity.multiblocks.MultiTileEntityMultiBlockPart;
 import gregapi.util.WD;
+import revilo.multihelper.structure.Definition;
 import revilo.multihelper.structure.StructureUtil;
-import revilo.multihelper.structure.StructureUtil.Definition;
 import revilo.multihelper.structure.elements.StructureElementPart;
 import revilo.multihelper.tile.multiblock.TileEntityBase10MultiBlockMachineMH;
 
@@ -28,12 +28,9 @@ public class MultiTileEntityPolymerizationChamber
     static String[][] STRUCTURE = { { "WWW", "WWW", "W-W", "HHH" }, { "WWW", "W W", "WWW", "HHH" },
         { "WWW", "WWW", "WWW", "HHH" } };
 
-    private static Definition<MultiTileEntityPolymerizationChamber> DEFINITION;
-
     @Override
     public Definition<MultiTileEntityPolymerizationChamber> getStructure() {
-        if (DEFINITION == null) {
-            DEFINITION = Definition.<MultiTileEntityPolymerizationChamber>builder(STRUCTURE)
+            return Definition.<MultiTileEntityPolymerizationChamber>builder(STRUCTURE)
                 .addElement(
                     'W',
                     new StructureElementPart<>(
@@ -49,8 +46,6 @@ public class MultiTileEntityPolymerizationChamber
                         0,
                         MultiTileEntityMultiBlockPart.ONLY_ENERGY_IN))
                 .build();
-        }
-        return DEFINITION;
     }
 
     @Override

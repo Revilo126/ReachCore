@@ -14,8 +14,8 @@ import gregapi.data.LH;
 import gregapi.data.LH.Chat;
 import gregapi.tileentity.delegate.DelegatorTileEntity;
 import gregapi.tileentity.multiblocks.MultiTileEntityMultiBlockPart;
+import revilo.multihelper.structure.Definition;
 import revilo.multihelper.structure.StructureUtil;
-import revilo.multihelper.structure.StructureUtil.Definition;
 import revilo.multihelper.structure.elements.StructureElementPart;
 import revilo.multihelper.tile.multiblock.TileEntityBase10MultiBlockMachineMH;
 
@@ -24,12 +24,9 @@ public class MultiTileEntityPyrolyseOven extends TileEntityBase10MultiBlockMachi
     static String[][] STRUCTURE = { { "WWWWW", "WWWWW", "WW-WW" }, { "WCCCW", "WCCCW", "WWWWW" },
         { "WCCCW", "WCCCW", "WWWWW" }, { "WCCCW", "WCCCW", "WWWWW" }, { "WWWWW", "WWWWW", "WWWWW" } };
 
-    private static Definition<MultiTileEntityPyrolyseOven> DEFINITION;
-
     @Override
     public Definition<MultiTileEntityPyrolyseOven> getStructure() {
-        if (DEFINITION == null) {
-            DEFINITION = Definition.<MultiTileEntityPyrolyseOven>builder(STRUCTURE)
+        return Definition.<MultiTileEntityPyrolyseOven>builder(STRUCTURE)
                 .addElement(
                     'W',
                     new StructureElementPart<>(
@@ -45,8 +42,6 @@ public class MultiTileEntityPyrolyseOven extends TileEntityBase10MultiBlockMachi
                         0,
                         MultiTileEntityMultiBlockPart.ONLY_ITEM_FLUID))
                 .build();
-        }
-        return DEFINITION;
     }
 
     static {

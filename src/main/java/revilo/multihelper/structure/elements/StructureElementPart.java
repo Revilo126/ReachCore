@@ -5,7 +5,6 @@ import static gregapi.data.CS.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ChunkCoordinates;
-
 import gregapi.tileentity.multiblocks.ITileEntityMultiBlockController;
 
 public class StructureElementPart<T extends ITileEntityMultiBlockController> implements IStructureElement<T> {
@@ -40,5 +39,4 @@ public class StructureElementPart<T extends ITileEntityMultiBlockController> imp
         }
         return F;
     }
-
 }

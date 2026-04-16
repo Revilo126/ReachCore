@@ -4,6 +4,12 @@ import cpw.mods.fml.common.Mod;
 import gregapi.api.Abstract_Mod;
 import revilo.reach.Tags;
 
+/*
+ * TODO:
+ * Add NEI viewer similar to StructureLib
+ * Autobuilder
+ */
+
 @Mod(
     modid = MultiHelper.MOD_ID,
     name = MultiHelper.MOD_NAME,

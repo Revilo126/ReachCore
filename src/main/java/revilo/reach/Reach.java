@@ -3,6 +3,8 @@ package revilo.reach;
 import static gregapi.data.CS.*;
 import static revilo.reach.data.RCCS.*;
 
+import java.io.File;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
@@ -24,8 +26,8 @@ import gregapi.block.MaterialMachines;
 import gregapi.block.multitileentity.MultiTileEntityBlock;
 import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.code.ArrayListNoNulls;
+import gregapi.config.Config;
 import gregapi.data.CS.ModIDs;
-import revilo.reach.config.ReachConfig;
 import revilo.reach.data.RCCS;
 import revilo.reach.data.RCMD;
 import revilo.reach.loaders.a.FluidLoader;
@@ -130,10 +132,13 @@ public class Reach extends Abstract_Mod {
 
     @Override
     public void onModPreInit2(FMLPreInitializationEvent aEvent) {
+    	DirectoriesRC.CONFIG_REACH = new File(DirectoriesGT.CONFIG, "Reach");
+    	if (!DirectoriesRC.CONFIG_REACH.exists()) DirectoriesRC.CONFIG_REACH = new File(DirectoriesGT.CONFIG, "reach");
+    	
+    	ConfigsRC.BIOME = new Config(DirectoriesRC.CONFIG_REACH, "Biomes.cfg");
 
         ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(
             F,
-            new ReachConfig(),
             new FluidLoader(),
             new ItemLoader(),
             new RocksLoader(),

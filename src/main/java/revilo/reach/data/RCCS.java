@@ -1,7 +1,10 @@
 package revilo.reach.data;
 
+import java.io.File;
+
 import gregapi.block.BlockBase;
 import gregapi.block.IPrefixBlock;
+import gregapi.config.Config;
 import gregapi.item.multiitem.MultiItemRandom;
 
 /**
@@ -41,5 +44,14 @@ public class RCCS {
         // Contains the Ore Blocks for all the Reach Type Stones
         public static IPrefixBlock[] ores_normal = new IPrefixBlock[stones.length],
             ores_broken = new IPrefixBlock[stones.length], ores_small = new IPrefixBlock[stones.length];
+    }
+    
+    public static class DirectoriesRC {
+    	public static File CONFIG_REACH;
+    }
+    
+    public static class ConfigsRC {
+    	public static Config
+    	BIOME;
     }
 }

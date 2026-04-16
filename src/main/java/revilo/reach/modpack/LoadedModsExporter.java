@@ -8,7 +8,6 @@ import java.util.List;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
-import revilo.reach.config.ReachConfig;
 
 /*
  * Exports all loaded mods to ModList.md
@@ -38,9 +37,11 @@ public class LoadedModsExporter implements Runnable {
         return F;
     }
 
-    @Override
+    @SuppressWarnings("unused")
+	@Override
     public void run() {
-        if (ReachConfig.DEV_ENV.get()) {
+    	// Disable for now.
+        if (false) {
             if (exportModList()) {
                 OUT.println("Reach: Generated mod list to \"modlist.md\"!");
             } else {

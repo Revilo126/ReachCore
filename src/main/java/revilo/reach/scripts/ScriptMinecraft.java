@@ -14,6 +14,7 @@ import java.util.List;
 import gregapi.data.MD;
 import revilo.reach.recipes.RecipeUtil;
 
+@SuppressWarnings("unused")
 public class ScriptMinecraft implements IScriptLoader {
 
     @Override
