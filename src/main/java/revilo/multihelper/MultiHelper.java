@@ -7,7 +7,8 @@ import revilo.reach.Tags;
 /*
  * TODO:
  * Add NEI viewer similar to StructureLib
- * Autobuilder
+ * Autobuilder, this includes all the functions included.
+ * Maybe compat with structurelib?
  */
 
 @Mod(

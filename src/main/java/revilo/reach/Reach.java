@@ -132,10 +132,10 @@ public class Reach extends Abstract_Mod {
 
     @Override
     public void onModPreInit2(FMLPreInitializationEvent aEvent) {
-    	DirectoriesRC.CONFIG_REACH = new File(DirectoriesGT.CONFIG, "Reach");
-    	if (!DirectoriesRC.CONFIG_REACH.exists()) DirectoriesRC.CONFIG_REACH = new File(DirectoriesGT.CONFIG, "reach");
-    	
-    	ConfigsRC.BIOME = new Config(DirectoriesRC.CONFIG_REACH, "Biomes.cfg");
+        DirectoriesRC.CONFIG_REACH = new File(DirectoriesGT.CONFIG, "Reach");
+        if (!DirectoriesRC.CONFIG_REACH.exists()) DirectoriesRC.CONFIG_REACH = new File(DirectoriesGT.CONFIG, "reach");
+
+        ConfigsRC.BIOME = new Config(DirectoriesRC.CONFIG_REACH, "Biomes.cfg");
 
         ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(
             F,

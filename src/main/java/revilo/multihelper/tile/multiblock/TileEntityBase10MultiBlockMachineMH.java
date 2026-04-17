@@ -3,9 +3,10 @@ package revilo.multihelper.tile.multiblock;
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ChunkCoordinates;
+
+import gregapi.tileentity.multiblocks.TileEntityBase10MultiBlockMachine;
 import revilo.multihelper.structure.Definition;
 import revilo.multihelper.structure.IStructured;
-import gregapi.tileentity.multiblocks.TileEntityBase10MultiBlockMachine;
 
 public abstract class TileEntityBase10MultiBlockMachineMH<T extends TileEntityBase10MultiBlockMachineMH<T>>
     extends TileEntityBase10MultiBlockMachine implements IStructured<T> {

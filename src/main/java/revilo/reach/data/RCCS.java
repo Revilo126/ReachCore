@@ -45,13 +45,14 @@ public class RCCS {
         public static IPrefixBlock[] ores_normal = new IPrefixBlock[stones.length],
             ores_broken = new IPrefixBlock[stones.length], ores_small = new IPrefixBlock[stones.length];
     }
-    
+
     public static class DirectoriesRC {
-    	public static File CONFIG_REACH;
+
+        public static File CONFIG_REACH;
     }
-    
+
     public static class ConfigsRC {
-    	public static Config
-    	BIOME;
+
+        public static Config BIOME;
     }
 }

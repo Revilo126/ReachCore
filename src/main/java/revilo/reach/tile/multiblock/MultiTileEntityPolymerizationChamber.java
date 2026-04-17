@@ -30,22 +30,22 @@ public class MultiTileEntityPolymerizationChamber
 
     @Override
     public Definition<MultiTileEntityPolymerizationChamber> getStructure() {
-            return Definition.<MultiTileEntityPolymerizationChamber>builder(STRUCTURE)
-                .addElement(
-                    'W',
-                    new StructureElementPart<>(
-                        18002,
-                        StructureUtil.getGTRegistryID(),
-                        0,
-                        MultiTileEntityMultiBlockPart.ONLY_ITEM_FLUID))
-                .addElement(
-                    'H',
-                    new StructureElementPart<>(
-                        18101,
-                        StructureUtil.getGTRegistryID(),
-                        0,
-                        MultiTileEntityMultiBlockPart.ONLY_ENERGY_IN))
-                .build();
+        return Definition.<MultiTileEntityPolymerizationChamber>builder(STRUCTURE)
+            .addElement(
+                'W',
+                new StructureElementPart<>(
+                    18002,
+                    StructureUtil.getGTRegistryID(),
+                    0,
+                    MultiTileEntityMultiBlockPart.ONLY_ITEM_FLUID))
+            .addElement(
+                'H',
+                new StructureElementPart<>(
+                    18101,
+                    StructureUtil.getGTRegistryID(),
+                    0,
+                    MultiTileEntityMultiBlockPart.ONLY_ENERGY_IN))
+            .build();
     }
 
     @Override

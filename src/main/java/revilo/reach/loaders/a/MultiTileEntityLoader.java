@@ -26,6 +26,7 @@ import gregtech.tileentity.energy.converters.MultiTileEntityMotorElectric;
 import revilo.reach.data.RCCS;
 import revilo.reach.data.RCMT;
 import revilo.reach.data.RCRM;
+import revilo.reach.tile.multiblock.MultiTileEntityLargeSolarPanelElectric;
 import revilo.reach.tile.multiblock.MultiTileEntityPolymerizationChamber;
 import revilo.reach.tile.multiblock.MultiTileEntityPyrolyseOven;
 
@@ -134,15 +135,15 @@ public class MultiTileEntityLoader implements Runnable {
     // Use 10 000 - 14 999
     private static void multiblocks(MultiTileEntityRegistry aRegistry, MultiTileEntityRegistry aRegistryGT,
         MultiTileEntityBlock aMachine) {
-        aClass = MultiTileEntityMultiBlockPart.class;
 
         int creativeID = id;
         id = 10000;
 
-        aMat = RCMT.Ubn;
+        aClass = MultiTileEntityMultiBlockPart.class;
+        aMat = MT.StainlessSteel;
         aRegistry.add(
-            "Large Unbinilium Coil",
-            "Multiblock Machines",
+            "Large Solar Panel Part",
+            "MultiblockMachines",
             id++,
             creativeID,
             aClass,
@@ -157,14 +158,9 @@ public class MultiTileEntityLoader implements Runnable {
                 NBT_RESISTANCE,
                 6.0F,
                 NBT_TEXTURE,
-                "coil",
+                "solarpanelpart",
                 NBT_DESIGNS,
-                1),
-            "WWW",
-            "WxW",
-            "WWW",
-            'W',
-            OP.wireGt04.dat(aMat));
+                2));
 
         aMat = MT.StainlessSteel;
         aRegistry.add(
@@ -258,6 +254,48 @@ public class MultiTileEntityLoader implements Runnable {
             aRegistryGT.getItem(18102),
             'P',
             OP.pipeNonuple.dat(MT.Steel));
+        aClass = MultiTileEntityLargeSolarPanelElectric.class;
+        aMat = MT.StainlessSteel;
+        aRegistry.add(
+            "Large Solar Panel (Silicon)",
+            "Solar Panels",
+            id++,
+            creativeID,
+            aClass,
+            aMat.mToolQuality,
+            16,
+            aMachine,
+            UT.NBT.make(
+                NBT_MATERIAL,
+                aMat,
+                NBT_HARDNESS,
+                6.0F,
+                NBT_RESISTANCE,
+                6.0F,
+                NBT_OUTPUT,
+                256,
+                NBT_ENERGY_EMITTED,
+                TD.Energy.EU));
+        aRegistry.add(
+            "Large Solar Panel (Germanium)",
+            "Solar Panels",
+            id++,
+            creativeID,
+            aClass,
+            aMat.mToolQuality,
+            16,
+            aMachine,
+            UT.NBT.make(
+                NBT_MATERIAL,
+                aMat,
+                NBT_HARDNESS,
+                6.0F,
+                NBT_RESISTANCE,
+                6.0F,
+                NBT_OUTPUT,
+                512,
+                NBT_ENERGY_EMITTED,
+                TD.Energy.EU));
 
         /**
          * aMat = MT.Ad;

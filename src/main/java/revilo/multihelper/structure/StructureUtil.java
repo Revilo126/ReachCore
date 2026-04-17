@@ -12,10 +12,10 @@ public class StructureUtil {
     public static short getGTRegistryID() {
         return getRegistryID(MultiTileEntityRegistry.getRegistry("gt.multitileentity"));
     }
-    
-    //public static boolean iterate(IIteratorAction uponEachIteration) {
-    //	
-    //}
+
+    // public static boolean iterate(IIteratorAction uponEachIteration) {
+    //
+    // }
 
     /*
      * Checking functions for use with multiblocks that have basic blocks/fluids (E.g Fish farm).

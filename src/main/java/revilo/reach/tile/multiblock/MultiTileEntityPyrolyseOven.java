@@ -27,21 +27,21 @@ public class MultiTileEntityPyrolyseOven extends TileEntityBase10MultiBlockMachi
     @Override
     public Definition<MultiTileEntityPyrolyseOven> getStructure() {
         return Definition.<MultiTileEntityPyrolyseOven>builder(STRUCTURE)
-                .addElement(
-                    'W',
-                    new StructureElementPart<>(
-                        18002,
-                        StructureUtil.getGTRegistryID(),
-                        0,
-                        MultiTileEntityMultiBlockPart.ONLY_ITEM_FLUID))
-                .addElement(
-                    'C',
-                    new StructureElementPart<>(
-                        18042,
-                        StructureUtil.getGTRegistryID(),
-                        0,
-                        MultiTileEntityMultiBlockPart.ONLY_ITEM_FLUID))
-                .build();
+            .addElement(
+                'W',
+                new StructureElementPart<>(
+                    18002,
+                    StructureUtil.getGTRegistryID(),
+                    0,
+                    MultiTileEntityMultiBlockPart.ONLY_ITEM_FLUID))
+            .addElement(
+                'C',
+                new StructureElementPart<>(
+                    18042,
+                    StructureUtil.getGTRegistryID(),
+                    0,
+                    MultiTileEntityMultiBlockPart.ONLY_ITEM_FLUID))
+            .build();
     }
 
     static {

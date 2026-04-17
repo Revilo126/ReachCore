@@ -5,12 +5,12 @@ import static gregapi.data.CS.*;
 import java.util.HashMap;
 import java.util.Map;
 
-import gregapi.tileentity.multiblocks.ITileEntityMultiBlockController;
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ChunkCoordinates;
+
+import gregapi.tileentity.multiblocks.ITileEntityMultiBlockController;
 import revilo.multihelper.structure.elements.IStructureElement;
-import revilo.multihelper.structure.elements.StructureElementPart;
 
 public class Definition<T extends ITileEntityMultiBlockController> {
 
@@ -44,11 +44,7 @@ public class Definition<T extends ITileEntityMultiBlockController> {
         int maxY = minY + getSizeY() - 1;
         int maxZ = minZ + getSizeZ() - 1;
 
-        return worldX >= minX && worldX <= maxX
-            && worldY >= minY
-            && worldY <= maxY
-            && worldZ >= minZ
-            && worldZ <= maxZ;
+        return worldX >= minX && worldX <= maxX && worldY >= minY && worldY <= maxY && worldZ >= minZ && worldZ <= maxZ;
     }
 
     public static <T extends ITileEntityMultiBlockController> Builder<T> builder(String[][] structure) {
@@ -88,7 +84,7 @@ public class Definition<T extends ITileEntityMultiBlockController> {
             this.elements = new HashMap<>();
         }
 
-        public Builder<T> addElement(char symbol, StructureElementPart<T> part) {
+        public Builder<T> addElement(char symbol, IStructureElement<T> part) {
             elements.putIfAbsent(symbol, part);
             return this;
         }

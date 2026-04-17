@@ -6,6 +6,8 @@ import cpw.mods.fml.common.Loader;
 
 /**
  * Base Interface for Recipe Scripts.
+ * 
+ * @author Revilo12
  */
 public interface IScriptLoader {
 
@@ -24,12 +26,12 @@ public interface IScriptLoader {
     List<String> getDependencies();
 
     /**
-     * Method to override in order to load the recipes
+     * Method to override in order to load the recipes. Runs in Post-Init.
      */
     void loadRecipes();
 
     /*
-     * Machine Recipes to run in PostInit
+     * Load the recipes of Machines. Runs in Pre-Init.
      */
     void loadMachines();
 

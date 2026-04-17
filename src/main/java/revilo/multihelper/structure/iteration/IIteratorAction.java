@@ -1,5 +1,5 @@
 package revilo.multihelper.structure.iteration;
 
-public interface IIteratorAction { 
+public interface IIteratorAction {
 
 }
