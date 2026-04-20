@@ -35,7 +35,7 @@ import revilo.reach.loaders.a.ItemLoader;
 import revilo.reach.loaders.a.MultiTileEntityLoader;
 import revilo.reach.loaders.a.RocksLoader;
 import revilo.reach.loaders.a.WorldGenLoader;
-import revilo.reach.loaders.b.gt.GregTechLoader;
+import revilo.reach.loaders.b.GregTechLoader;
 import revilo.reach.loaders.c.LoaderRecipesAlloys;
 import revilo.reach.loaders.c.LoaderRecipesGems;
 import revilo.reach.loaders.c.LoaderRecipesOthers;

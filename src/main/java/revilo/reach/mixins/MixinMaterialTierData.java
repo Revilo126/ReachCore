@@ -85,7 +85,7 @@ public class MixinMaterialTierData {
             OP.wireGt01.dat(Pt), // IV
             OP.wireGt01.dat(Nq), // LuV
             OP.wireGt01.dat(Nq_528), // ZPM
-            OP.wireGt01.dat(RCMT.Ubn), // UV
+            OP.wireGt01.dat(Ubn), // UV
             OP.wireGt01.dat(Nq_522), // PUV1
             OP.wireGt01.dat(Graphene), // PUV2
             OP.wireGt01.dat(Superconductor), // PUV3
@@ -102,7 +102,7 @@ public class MixinMaterialTierData {
             OP.wireGt04.dat(Pt), // IV
             OP.wireGt04.dat(Nq), // LuV
             OP.wireGt04.dat(Nq_528), // ZPM
-            OP.wireGt04.dat(RCMT.Ubn), // UV
+            OP.wireGt04.dat(Ubn), // UV
             OP.wireGt04.dat(Nq_522), // PUV1
             OP.wireGt04.dat(Graphene), // PUV2
             OP.wireGt04.dat(Superconductor), // PUV3
@@ -119,7 +119,7 @@ public class MixinMaterialTierData {
             OP.cableGt01.dat(Pt), // IV
             OP.cableGt01.dat(Nq), // LuV
             OP.cableGt01.dat(Nq_528), // ZPM
-            OP.cableGt01.dat(RCMT.Ubn), // UV
+            OP.cableGt01.dat(Ubn), // UV
             OP.cableGt01.dat(Nq_522), // PUV1
             OP.wireGt01.dat(Graphene), // PUV2
             OP.wireGt01.dat(Superconductor), // PUV3
@@ -136,7 +136,7 @@ public class MixinMaterialTierData {
             OP.cableGt04.dat(Pt), // IV
             OP.cableGt04.dat(Nq), // LuV
             OP.cableGt04.dat(Nq_528), // ZPM
-            OP.cableGt04.dat(RCMT.Ubn), // UV
+            OP.cableGt04.dat(Ubn), // UV
             OP.cableGt04.dat(Nq_522), // PUV1
             OP.wireGt04.dat(Graphene), // PUV2
             OP.wireGt04.dat(Superconductor), // PUV3
@@ -156,7 +156,7 @@ public class MixinMaterialTierData {
         Kinetic_T = new OreDictMaterial[] { ANY.Wood, Bronze, ANY.Steel, Ti, TungstenSteel, Ir, Os, Os, Os, Os, Os, Os,
             Os, Os, Os, Os };
         Electric_T = new OreDictMaterial[] { TinAlloy, SteelGalvanized, Al, StainlessSteel, Cr, Ti, Ir, Os, Trinitanium,
-            Trinaquadalloy, RCMT.Uue, AdUue, Neutronium, Infinity, Neutronium, Neutronium };
+            Trinaquadalloy, Uue, AdUue, Neutronium, Infinity, Neutronium, Neutronium };
         Flux_T = new OreDictMaterial[] { Sn, Pb, Invar, Electrum, EnderiumBase, Enderium, TungstenCarbide,
             TungstenCarbide, TungstenCarbide, TungstenCarbide, TungstenCarbide, TungstenCarbide, TungstenCarbide,
             TungstenCarbide, TungstenCarbide, TungstenCarbide };

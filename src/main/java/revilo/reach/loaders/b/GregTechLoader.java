@@ -1,9 +1,9 @@
-package revilo.reach.loaders.b.gt;
+package revilo.reach.loaders.b;
 
 import static gregapi.data.CS.*;
 
 import gregapi.code.ArrayListNoNulls;
-import revilo.reach.loaders.b.gt.lines.LineLoader;
+import revilo.reach.loaders.b.lines.LineLoader;
 
 public class GregTechLoader implements Runnable {
 

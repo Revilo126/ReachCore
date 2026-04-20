@@ -1,4 +1,4 @@
-package revilo.reach.loaders.b.gt;
+package revilo.reach.loaders.b;
 
 import static gregapi.data.CS.F;
 import static gregapi.data.CS.T;
@@ -9,7 +9,6 @@ import gregapi.data.FL;
 import gregapi.data.MT;
 import gregapi.data.RM;
 import gregapi.util.ST;
-import revilo.reach.data.RCMT;
 import revilo.reach.data.RCRM;
 
 // TODO: Add more fusion uses (power focused)
@@ -17,6 +16,8 @@ public class FusionLoader implements Runnable {
 
     @Override
     public void run() {
+
+        // Theoretical Elements - Fusion only
         RM.Fusion
             .addRecipe1(
                 F,
@@ -24,7 +25,7 @@ public class FusionLoader implements Runnable {
                 4352,
                 ST.tag(3),
                 FL.array(MT.U_238.liquid(U, T), MT.Ni.liquid(U, T)),
-                FL.array(RCMT.Ubn.liquid(U, F)),
+                FL.array(MT.Ubn.liquid(U, F)),
                 ZL_IS)
             .setSpecialNumber(4352L * 8192L * 32L);
         RCRM.FusionT2
@@ -34,9 +35,9 @@ public class FusionLoader implements Runnable {
                 4766,
                 ST.tag(3),
                 FL.array(MT.Am.liquid(U, T), MT.Cr.liquid(U, T)),
-                FL.array(RCMT.Uue.liquid(U, F)),
+                FL.array(MT.Uue.liquid(U, F)),
                 ZL_IS)
-            .setSpecialNumber(4096L * 8192L * 64L); // Theoretical Elements - Fusion only
+            .setSpecialNumber(4096L * 8192L * 64L);
         RCRM.FusionT2
             .addRecipe1(
                 F,
@@ -44,7 +45,7 @@ public class FusionLoader implements Runnable {
                 4202,
                 ST.tag(3),
                 FL.array(MT.U_238.liquid(U, T), MT.Cu.liquid(U, T)),
-                FL.array(RCMT.Ubu.liquid(U, F)),
+                FL.array(MT.Ubu.liquid(U, F)),
                 ZL_IS)
             .setSpecialNumber(4608L * 8192L * 64L);
     }

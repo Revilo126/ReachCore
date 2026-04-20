@@ -29,6 +29,7 @@ public class BiomeGenAdam extends BiomeGenBase {
         this.biomeName = "Adam";
     }
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public List getSpawnableList(EnumCreatureType p_76747_1_) {
         return new LinkedList<>();

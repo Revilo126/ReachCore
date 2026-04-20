@@ -29,6 +29,7 @@ public class BiomeGenSulf extends BiomeGenBase {
         this.biomeName = "Sulf";
     }
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public List getSpawnableList(EnumCreatureType p_76747_1_) {
         return new LinkedList<>();

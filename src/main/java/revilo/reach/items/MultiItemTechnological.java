@@ -15,7 +15,6 @@ import gregapi.item.multiitem.MultiItemRandomWithCompat;
 import gregapi.oredict.OreDictItemData;
 import gregapi.util.ST;
 import revilo.reach.data.RCIL;
-import revilo.reach.data.RCMT;
 
 @SuppressWarnings("unused")
 public class MultiItemTechnological extends MultiItemRandomWithCompat {
@@ -63,13 +62,13 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
                 852,
                 "Circuit Wiring (Unbinillium)",
                 "Needs to be placed on an empty Circuit Plate",
-                new OreDictItemData(RCMT.Ubn, U)));
+                new OreDictItemData(MT.Ubn, U)));
         RCIL.Circuit_Plate_Quantum_T1.set(
             addItem(
                 853,
                 "Circuit Plate (Unbinillium)",
                 "Needs Circuit Parts",
-                new OreDictItemData(RCMT.Ubn, U, ANY.SiO2, U, ANY.Plastic, U)));
+                new OreDictItemData(MT.Ubn, U, ANY.SiO2, U, ANY.Plastic, U)));
 
         RM.Press.addRecipe2(
             T,
@@ -151,7 +150,7 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
             16,
             16,
             ST.array(
-                OP.wireFine.mat(RCMT.Ubn, 1),
+                OP.wireFine.mat(MT.Ubn, 1),
                 OP.wireFine.mat(MT.Signalum, 1),
                 OP.plateGemTiny.mat(MT.RedstoneAlloy, 1)),
             RCIL.Circuit_Part_Quantum_T1.get(1));

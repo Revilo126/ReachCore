@@ -17,6 +17,7 @@ import gregapi.render.TextureSet;
 /**
  * Reach Materials
  */
+@SuppressWarnings("unused")
 public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
 
     /*
@@ -71,14 +72,22 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             .put(aTags);
     }
 
+    // Note it is decomposable
     static OreDictMaterial gas(String aNameOreDict, String aSymbol) {
         return create(aNameOreDict, aSymbol).setTextures(SET_GAS)
-            .put(DECOMPOSABLE, GASES);
+            .put(DECOMPOSABLE, GASES, G_CONTAINERS, CONTAINERS_GAS);
     }
 
+    // Note it is decomposable
     static OreDictMaterial liquid(String aNameOreDict, String aSymbol) {
         return create(aNameOreDict, aSymbol).setTextures(SET_GAS)
             .put(DECOMPOSABLE, LIQUID);
+    }
+
+    // Note it is decomposable
+    static OreDictMaterial dust(String aNameOreDict, String aSymbol) {
+        return create(aNameOreDict, aSymbol).setTextures(SET_SHARDS)
+            .put(G_DUST, MORTAR, DECOMPOSABLE);
     }
 
     // Periodic Table 23010 - 23099
@@ -90,63 +99,65 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
         QuantumT5 = tier("QuantumT5"), QuantumT6 = tier("QuantumT6"), QuantumT7 = tier("QuantumT7");
 
     // Theoretical elements 23100 - 23199
-    public static OreDictMaterial Uue = element(
-        "Ununennium",
-        "Uue",
-        119,
-        183,
-        303,
-        903,
-        3,
-        SET_METALLIC,
-        195,
-        170,
-        250,
-        G_INGOT_MACHINE,
-        MOLTEN,
-        ALKALI_METAL,
-        FUSION,
-        NEVER_FURNACE,
-        EXTRUDER,
-        MELTING),
-        Ubn = element(
-            "Unbinilium",
-            "Ubn",
-            120,
-            179,
-            953,
-            1973,
-            7,
-            SET_METALLIC,
-            250,
-            170,
-            217,
-            G_INGOT_ORES,
-            MOLTEN,
-            ALKALINE_EARTH_METAL,
-            FUSION,
-            NEVER_FURNACE,
-            EXTRUDER,
-            MELTING),
-        Ubu = element(
-            "Unbiunium",
-            "Ubu",
-            121,
-            182,
-            950,
-            1985,
-            7,
-            SET_METALLIC,
-            250,
-            243,
-            170,
-            G_INGOT_ORES,
-            MOLTEN,
-            ALKALINE_EARTH_METAL,
-            FUSION,
-            NEVER_FURNACE,
-            EXTRUDER,
-            MELTING);
+    /*
+     * public static OreDictMaterial Uue = element(
+     * "Ununennium",
+     * "Uue",
+     * 119,
+     * 183,
+     * 303,
+     * 903,
+     * 3,
+     * SET_METALLIC,
+     * 195,
+     * 170,
+     * 250,
+     * G_INGOT_MACHINE,
+     * MOLTEN,
+     * ALKALI_METAL,
+     * FUSION,
+     * NEVER_FURNACE,
+     * EXTRUDER,
+     * MELTING),
+     * Ubn = element(
+     * "Unbinilium",
+     * "Ubn",
+     * 120,
+     * 179,
+     * 953,
+     * 1973,
+     * 7,
+     * SET_METALLIC,
+     * 250,
+     * 170,
+     * 217,
+     * G_INGOT_ORES,
+     * MOLTEN,
+     * ALKALINE_EARTH_METAL,
+     * FUSION,
+     * NEVER_FURNACE,
+     * EXTRUDER,
+     * MELTING),
+     * Ubu = element(
+     * "Unbiunium",
+     * "Ubu",
+     * 121,
+     * 182,
+     * 950,
+     * 1985,
+     * 7,
+     * SET_METALLIC,
+     * 250,
+     * 243,
+     * 170,
+     * G_INGOT_ORES,
+     * MOLTEN,
+     * ALKALINE_EARTH_METAL,
+     * FUSION,
+     * NEVER_FURNACE,
+     * EXTRUDER,
+     * MELTING);
+     */
 
     // Alloys 23200 - 23299
     public static OreDictMaterial AdUue = create("Adamennium").setRGBa(255, 133, 233, 255)
@@ -165,7 +176,7 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             ALLOY,
             CRUCIBLE_ALLOY)
         .qual(3, 12.0, 6128, 6)
-        .uumAloy(0, MT.Ad, 1 * U, Uue, 1 * U)
+        .setAloy(0, MT.Ad, 1 * U, MT.Uue, 1 * U)
         .heat(6225, 16768);
 
     public static final OreDictMaterial RUTAlloy = create("RUT-Alloy", "Revilo's Useful Tool-Alloy")
@@ -175,7 +186,7 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
         .qual(9, 10240, 4)
         .handle(ANY.WoodPlastic)
         .heat(MT.Redstone.mMeltingPoint, MT.Redstone.mBoilingPoint)
-        .uumAloy(0, MT.Redstone, 2 * U, MT.U_238, 1 * U, MT.Ti, 1 * U);
+        .setAloy(0, MT.Redstone, 2 * U, MT.U_238, 1 * U, MT.Ti, 1 * U);
 
     // Distrontium Ruthenate line
     public static final OreDictMaterial Sr2RuO4 = create("Distrontium Ruthenate", "Sr2RuO4").setTextures(SET_METALLIC)
@@ -195,6 +206,24 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             .setRGBa(20, 20, 20, 255)
             .put(G_DUST)
             .setMcfg(0, MT.Ru, 1 * U, MT.Cl, 3 * U);
+
+    // Naquadah refining
+    public static final OreDictMaterial NqGe2F4 = dust("Naquadah Digermanium Tetrafluoride", "NqGe2F4")
+        .setRGBa(40, 40, 40, 255)
+        .setMcfg(0, MT.Nq, 1 * U, MT.Ge, 2 * U, MT.F, 4 * U)
+        .put(MELTING, MOLTEN),
+        NqGe2F6 = gas("Naquadah Digermanium Hexafluoride", "NqGe2F6").setRGBa(48, 48, 48, 255)
+            .setMcfg(0, MT.Nq, 1 * U, MT.Ge, 2 * U, MT.F, 6 * U),
+        Nq528Ge2F4 = dust("Naquadah-Enriched Digermanium Tetrafluoride", "Nq528Ge2F4").setRGBa(30, 30, 30, 255)
+            .setMcfg(0, MT.Nq_528, 1 * U, MT.Ge, 2 * U, MT.F, 4 * U)
+            .put(MELTING, MOLTEN),
+        Nq528Ge2F6 = gas("Naquadah-Enriched Digermanium Hexafluoride", "Nq528Ge2F6").setRGBa(38, 38, 38, 255)
+            .setMcfg(0, MT.Nq_528, 1 * U, MT.Ge, 2 * U, MT.F, 6 * U),
+        Nq522Ge2F4 = dust("Naquadria Digermanium Tetrafluoride", "Nq522Ge2F4").setRGBa(20, 20, 20, 255)
+            .setMcfg(0, MT.Nq_522, 1 * U, MT.Ge, 2 * U, MT.F, 4 * U)
+            .put(MELTING, MOLTEN),
+        Nq522Ge2F6 = gas("Naquadria Digermanium Hexafluoride", "Nq522Ge2F6").setRGBa(28, 28, 28, 255)
+            .setMcfg(0, MT.Nq_522, 1 * U, MT.Ge, 2 * U, MT.F, 6 * U);
 
     // Plastics TODO: Add more types
 

@@ -94,7 +94,7 @@ public class MultiTileEntityLoader implements Runnable {
         // UV //
 
         MultiTileEntityWireElectric // Unbinillium
-            .addElectricWires(id += 50, wireID, V[8], 8, 8, 2, T, F, T, aRegistry, aMetalWires, aClass, RCMT.Ubn);
+            .addElectricWires(id += 50, wireID, V[8], 8, 8, 2, T, F, T, aRegistry, aMetalWires, aClass, MT.Ubn);
 
         // PUV1 //
 
