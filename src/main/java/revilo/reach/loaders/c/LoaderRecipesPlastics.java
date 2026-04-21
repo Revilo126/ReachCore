@@ -28,6 +28,9 @@ public class LoaderRecipesPlastics implements Runnable {
             FL.array(FL.Hydrogen.make(56), RCMT.EDC.liquid(56, F)),
             FL.array(RCMT.VCM.gas(36, F), MT.HCl.gas(20, F)),
             ZL_IS);
+
+        // SBR // TODO: Make Styrene and Benzene
+        // RM.Mixer.addRecipe0(T, 16, 128, FL.array(MT.Sty), );
     }
 
 }

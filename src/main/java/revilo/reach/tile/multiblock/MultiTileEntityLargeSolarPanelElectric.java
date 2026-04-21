@@ -27,6 +27,7 @@ import gregapi.util.WD;
 import revilo.multihelper.structure.Definition;
 import revilo.multihelper.structure.elements.StructureElementPart;
 import revilo.multihelper.tile.multiblock.TileEntityBase10MultiBlockBaseMH;
+import revilo.reach.loaders.a.MultiTileEntityLoader;
 
 public class MultiTileEntityLargeSolarPanelElectric
     extends TileEntityBase10MultiBlockBaseMH<MultiTileEntityLargeSolarPanelElectric>
@@ -73,7 +74,7 @@ public class MultiTileEntityLargeSolarPanelElectric
     @Override
     public void onTick2(long aTimer, boolean aIsServerSide) {
         if (aIsServerSide) {
-            if (!mStopped) generateEnergy(aTimer);
+            if (!mStopped && tSuccess) generateEnergy(aTimer);
         }
     }
 
@@ -296,7 +297,7 @@ public class MultiTileEntityLargeSolarPanelElectric
             .addElement(
                 'S',
                 new StructureElementPart<>(
-                    10000,
+                    MultiTileEntityLoader.solarPart,
                     getMultiTileEntityRegistryID(),
                     0,
                     MultiTileEntityMultiBlockPart.NOTHING))

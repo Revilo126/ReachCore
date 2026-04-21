@@ -1,5 +1,7 @@
 package revilo.multihelper.tile.multiblock;
 
+import static gregapi.data.CS.F;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ChunkCoordinates;
@@ -10,10 +12,13 @@ import revilo.multihelper.structure.IStructured;
 public abstract class TileEntityBase10MultiBlockBaseMH<T extends TileEntityBase10MultiBlockBaseMH<T>>
     extends TileEntityBase10MultiBlockBase implements IStructured<T> {
 
+    protected boolean tSuccess = F;
+
     @SuppressWarnings("unchecked")
     @Override
     public boolean checkStructure2(ChunkCoordinates aCoordinates, Entity aPlayer, IInventory aInventory) {
-        return check((T) this, aCoordinates, aPlayer, aInventory, getX(), getY(), getZ(), mFacing);
+        tSuccess = check((T) this, aCoordinates, aPlayer, aInventory, getX(), getY(), getZ(), mFacing);
+        return tSuccess;
     }
 
     @Override

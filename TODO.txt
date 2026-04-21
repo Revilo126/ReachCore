@@ -1,0 +1,4 @@
+Todo List (This includes the modpack's todos)
+
+Improve Gui Textures (Gas Centrifuge + Polymerization)
+Improve Block Textures, mainly make a good one for Polymerization and the centrifuge. Maybe Pyrolyse?

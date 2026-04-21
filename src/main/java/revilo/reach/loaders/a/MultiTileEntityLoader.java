@@ -16,9 +16,12 @@ import gregapi.data.RM;
 import gregapi.data.TD;
 import gregapi.oredict.OreDictMaterial;
 import gregapi.tileentity.connectors.MultiTileEntityPipeFluid;
+import gregapi.tileentity.connectors.MultiTileEntityPipeItem;
 import gregapi.tileentity.connectors.MultiTileEntityWireElectric;
 import gregapi.tileentity.machines.MultiTileEntityBasicMachine;
 import gregapi.tileentity.multiblocks.MultiTileEntityMultiBlockPart;
+import gregapi.util.OM;
+import gregapi.util.ST;
 import gregapi.util.UT;
 import gregtech.tileentity.energy.converters.MultiTileEntityEngineElectric;
 import gregtech.tileentity.energy.converters.MultiTileEntityHeaterElectric;
@@ -29,14 +32,20 @@ import revilo.reach.data.RCRM;
 import revilo.reach.tile.multiblock.MultiTileEntityLargeSolarPanelElectric;
 import revilo.reach.tile.multiblock.MultiTileEntityPolymerizationChamber;
 import revilo.reach.tile.multiblock.MultiTileEntityPyrolyseOven;
+import revilo.reach.tile.multiblock.fusion.MultiTileEntityFusionReactorTier2;
 
 public class MultiTileEntityLoader implements Runnable {
 
     static Class<? extends TileEntity> aClass;
     static OreDictMaterial aMat = MT.NULL;
 
-    // Same reason as RCMT, it is easier.
-    private static int id = 0;
+    // Multiblock Parts
+    public static int solarPart;
+
+    public static int naqCoils;
+
+    public static int iridiumWall;
+    public static int osmiumWall;
 
     @Override
     public void run() {
@@ -79,27 +88,27 @@ public class MultiTileEntityLoader implements Runnable {
     private static void cables(MultiTileEntityRegistry aRegistry, MultiTileEntityBlock aMetalWires,
         MultiTileEntityBlock aWooden) {
 
-        int wireID = id;
+        int wireID = 0;
 
         aClass = MultiTileEntityWireElectric.class;
 
         // ZPM //
 
         MultiTileEntityWireElectric // Distrontium Ruthenate
-            .addElectricWires(id += 50, wireID, V[7], 4, 6, 2, T, F, T, aRegistry, aMetalWires, aClass, RCMT.Sr2RuO4);
+            .addElectricWires(wireID += 50, 0, V[7], 4, 6, 2, T, F, T, aRegistry, aMetalWires, aClass, RCMT.Sr2RuO4);
 
         MultiTileEntityWireElectric // Enriched Naquadah
-            .addElectricWires(id += 50, wireID, VMAX[7], 4, 4, 2, T, F, T, aRegistry, aMetalWires, aClass, MT.Nq_528);
+            .addElectricWires(wireID += 50, 0, VMAX[7], 4, 4, 2, T, F, T, aRegistry, aMetalWires, aClass, MT.Nq_528);
 
         // UV //
 
         MultiTileEntityWireElectric // Unbinillium
-            .addElectricWires(id += 50, wireID, V[8], 8, 8, 2, T, F, T, aRegistry, aMetalWires, aClass, MT.Ubn);
+            .addElectricWires(wireID += 50, 0, V[8], 8, 8, 2, T, F, T, aRegistry, aMetalWires, aClass, MT.Ubn);
 
         // PUV1 //
 
         MultiTileEntityWireElectric // Naquadria
-            .addElectricWires(id += 50, wireID, V[9], 16, 16, 8, T, F, T, aRegistry, aMetalWires, aClass, MT.Nq_522);
+            .addElectricWires(wireID += 50, 0, V[9], 16, 16, 8, T, F, T, aRegistry, aMetalWires, aClass, MT.Nq_522);
 
         // PUV2 //
 
@@ -115,18 +124,25 @@ public class MultiTileEntityLoader implements Runnable {
 
         // Fluid //
 
-        // int pipeID = id;
+        int pipeID = 2000;
 
         aClass = MultiTileEntityPipeFluid.class;
 
-        // Plastic
-        // MultiTileEntityPipeFluid
-        // .addFluidPipes(id += 20, pipeID, 100, T, F, F, F, T, F, F, T, aRegistry, aWooden, aClass, 370, RCMT.PVC);
+        MultiTileEntityPipeFluid
+            .addFluidPipes(pipeID += 20, 2500, 100, T, F, F, F, T, F, F, T, aRegistry, aWooden, aClass, 370, RCMT.PVC);
+
+        // Item //
+
+        @SuppressWarnings("unused")
+        int itemID = 4000;
+
+        aClass = MultiTileEntityPipeItem.class;
     }
 
     // Use 5 000 - 5 999
     private static void machines(MultiTileEntityRegistry aRegistry, MultiTileEntityBlock aMachine) {
-        id = 5000;
+        @SuppressWarnings("unused")
+        int machineID = 5000;
 
         aClass = MultiTileEntityBasicMachine.class;
 
@@ -136,16 +152,16 @@ public class MultiTileEntityLoader implements Runnable {
     private static void multiblocks(MultiTileEntityRegistry aRegistry, MultiTileEntityRegistry aRegistryGT,
         MultiTileEntityBlock aMachine) {
 
-        int creativeID = id;
-        id = 10000;
+        int multiblockID = 10000;
 
         aClass = MultiTileEntityMultiBlockPart.class;
         aMat = MT.StainlessSteel;
+        solarPart = multiblockID;
         aRegistry.add(
             "Large Solar Panel Part",
             "MultiblockMachines",
-            id++,
-            creativeID,
+            multiblockID++,
+            10000,
             aClass,
             aMat.mToolQuality,
             64,
@@ -162,12 +178,140 @@ public class MultiTileEntityLoader implements Runnable {
                 NBT_DESIGNS,
                 2));
 
+        aMat = MT.Nq;
+        naqCoils = multiblockID;
+        aRegistry.add(
+            "Large Naquadah Coil",
+            "Multiblock Machines",
+            multiblockID++,
+            10000,
+            aClass,
+            aMat.mToolQuality,
+            64,
+            aMachine,
+            UT.NBT.make(
+                NBT_MATERIAL,
+                aMat,
+                NBT_HARDNESS,
+                6.0F,
+                NBT_RESISTANCE,
+                6.0F,
+                NBT_TEXTURE,
+                "coil",
+                NBT_DESIGNS,
+                1),
+            "WWW",
+            "WxW",
+            "WWW",
+            'W',
+            OP.wireGt04.dat(aMat));
+
+        aMat = MT.Ir;
+        iridiumWall = multiblockID;
+        aRegistry.add(
+            "Iridium Wall",
+            "Multiblock Machines",
+            multiblockID++,
+            10000,
+            aClass,
+            aMat.mToolQuality,
+            64,
+            aMachine,
+            UT.NBT.make(
+                NBT_MATERIAL,
+                aMat,
+                NBT_HARDNESS,
+                8.0F,
+                NBT_RESISTANCE,
+                8.0F,
+                NBT_TEXTURE,
+                "metalwall",
+                NBT_DESIGNS,
+                7),
+            "wPP",
+            "hPP",
+            'P',
+            OP.plate.dat(aMat));
+        RM.Welder.addRecipe2(F, 16, 256, OP.plate.mat(aMat, 4), ST.tag(10), aRegistry.getItem());
+        aRegistry.add(
+            "Dense Iridium Wall",
+            "Multiblock Machines",
+            multiblockID++,
+            10000,
+            aClass,
+            aMat.mToolQuality,
+            64,
+            aMachine,
+            UT.NBT.make(
+                NBT_MATERIAL,
+                aMat,
+                NBT_HARDNESS,
+                8.0F,
+                NBT_RESISTANCE,
+                8.0F,
+                NBT_TEXTURE,
+                "metalwalldense",
+                NBT_DESIGNS,
+                7));
+        OM.data(aRegistry.getItem(), aMat, U * 36);
+        RM.Welder.addRecipe2(F, 64, 512, OP.plateDense.mat(aMat, 4), ST.tag(10), aRegistry.getItem());
+
+        aMat = MT.Os;
+        osmiumWall = multiblockID;
+        aRegistry.add(
+            "Osmium Wall",
+            "Multiblock Machines",
+            multiblockID++,
+            10000,
+            aClass,
+            aMat.mToolQuality,
+            64,
+            aMachine,
+            UT.NBT.make(
+                NBT_MATERIAL,
+                aMat,
+                NBT_HARDNESS,
+                8.0F,
+                NBT_RESISTANCE,
+                8.0F,
+                NBT_TEXTURE,
+                "metalwall",
+                NBT_DESIGNS,
+                7),
+            "wPP",
+            "hPP",
+            'P',
+            OP.plate.dat(aMat));
+        RM.Welder.addRecipe2(F, 16, 256, OP.plate.mat(aMat, 4), ST.tag(10), aRegistry.getItem());
+        aRegistry.add(
+            "Dense Osmium Wall",
+            "Multiblock Machines",
+            multiblockID++,
+            10000,
+            aClass,
+            aMat.mToolQuality,
+            64,
+            aMachine,
+            UT.NBT.make(
+                NBT_MATERIAL,
+                aMat,
+                NBT_HARDNESS,
+                8.0F,
+                NBT_RESISTANCE,
+                8.0F,
+                NBT_TEXTURE,
+                "metalwalldense",
+                NBT_DESIGNS,
+                7));
+        OM.data(aRegistry.getItem(), aMat, U * 36);
+        RM.Welder.addRecipe2(F, 64, 512, OP.plateDense.mat(aMat, 4), ST.tag(10), aRegistry.getItem());
+
         aMat = MT.StainlessSteel;
         aRegistry.add(
             "Pyrolyse Oven",
             "Multiblock Machines",
-            id++,
-            creativeID,
+            multiblockID++,
+            10000,
             MultiTileEntityPyrolyseOven.class,
             aMat.mToolQuality,
             16,
@@ -218,8 +362,8 @@ public class MultiTileEntityLoader implements Runnable {
         aRegistry.add(
             "Polymerization Chamber",
             "Multiblock Machine",
-            id++,
-            creativeID,
+            multiblockID++,
+            10000,
             MultiTileEntityPolymerizationChamber.class,
             aMat.mToolQuality,
             16,
@@ -259,8 +403,8 @@ public class MultiTileEntityLoader implements Runnable {
         aRegistry.add(
             "Large Solar Panel (Silicon)",
             "Solar Panels",
-            id++,
-            creativeID,
+            multiblockID++,
+            10000,
             aClass,
             aMat.mToolQuality,
             16,
@@ -279,8 +423,8 @@ public class MultiTileEntityLoader implements Runnable {
         aRegistry.add(
             "Large Solar Panel (Germanium)",
             "Solar Panels",
-            id++,
-            creativeID,
+            multiblockID++,
+            10000,
             aClass,
             aMat.mToolQuality,
             16,
@@ -296,6 +440,43 @@ public class MultiTileEntityLoader implements Runnable {
                 512,
                 NBT_ENERGY_EMITTED,
                 TD.Energy.EU));
+        aMat = MT.Os;
+        aRegistry.add(
+            "Fusion Reactor T2",
+            "Multiblock Machines",
+            multiblockID++,
+            10000,
+            MultiTileEntityFusionReactorTier2.class,
+            aMat.mToolQuality,
+            16,
+            aMachine,
+            UT.NBT.make(
+                NBT_MATERIAL,
+                aMat,
+                NBT_HARDNESS,
+                16.0F,
+                NBT_RESISTANCE,
+                16.0F,
+                NBT_TEXTURE,
+                "fusionreactor",
+                NBT_INPUT,
+                32768,
+                NBT_INPUT_MIN,
+                1,
+                NBT_INPUT_MAX,
+                65536,
+                NBT_ENERGY_ACCEPTED,
+                TD.Energy.TU,
+                NBT_RECIPEMAP,
+                RCRM.FusionT2,
+                NBT_ENERGY_ACCEPTED_2,
+                TD.Energy.LU,
+                NBT_ENERGY_EMITTED,
+                TD.Energy.EU,
+                NBT_SPECIAL_IS_START_ENERGY,
+                T,
+                NBT_NO_CONSTANT_POWER,
+                T));
 
         /**
          * aMat = MT.Ad;
@@ -347,7 +528,7 @@ public class MultiTileEntityLoader implements Runnable {
 
     // Use 15 000 - 19 999
     private static void unsorted(MultiTileEntityRegistry aRegistry, MultiTileEntityBlock aMachine) {
-        id = 15000;
+        int unsortedID = 15000;
 
         // TODO: Adjust recipes!
         aClass = MultiTileEntityHeaterElectric.class;
@@ -355,7 +536,7 @@ public class MultiTileEntityLoader implements Runnable {
         aRegistry.add(
             "Electric Heater (" + VN[6] + ")",
             "Heaters",
-            15000,
+            unsortedID++,
             15000,
             aClass,
             aMat.mToolQuality,
@@ -391,8 +572,8 @@ public class MultiTileEntityLoader implements Runnable {
         aRegistry.add(
             "Electric Heater (" + VN[7] + ")",
             "Heaters",
-            15001,
-            10001,
+            unsortedID++,
+            15000,
             aClass,
             aMat.mToolQuality,
             16,
@@ -427,8 +608,8 @@ public class MultiTileEntityLoader implements Runnable {
         aRegistry.add(
             "Electric Heater (" + VN[8] + ")",
             "Heaters",
-            15002,
-            10001,
+            unsortedID++,
+            15000,
             aClass,
             aMat.mToolQuality,
             16,
@@ -463,8 +644,8 @@ public class MultiTileEntityLoader implements Runnable {
         aRegistry.add(
             "Electric Heater (" + VN[9] + ")",
             "Heaters",
-            15003,
-            10001,
+            unsortedID++,
+            15000,
             aClass,
             aMat.mToolQuality,
             16,
@@ -499,8 +680,8 @@ public class MultiTileEntityLoader implements Runnable {
         aRegistry.add(
             "Electric Heater (" + VN[10] + ")",
             "Heaters",
-            15004,
-            10001,
+            unsortedID++,
+            15000,
             aClass,
             aMat.mToolQuality,
             16,
@@ -537,8 +718,8 @@ public class MultiTileEntityLoader implements Runnable {
         aRegistry.add(
             "Electric Engine (" + VN[6] + ")",
             "Engines",
-            10011,
-            1304,
+            unsortedID++,
+            15000,
             aClass,
             aMat.mToolQuality,
             16,
@@ -573,8 +754,8 @@ public class MultiTileEntityLoader implements Runnable {
         aRegistry.add(
             "Electric Engine (" + VN[7] + ")",
             "Engines",
-            10012,
-            1304,
+            unsortedID++,
+            15000,
             aClass,
             aMat.mToolQuality,
             16,
@@ -609,8 +790,8 @@ public class MultiTileEntityLoader implements Runnable {
         aRegistry.add(
             "Electric Engine (" + VN[8] + ")",
             "Engines",
-            10013,
-            1304,
+            unsortedID++,
+            15000,
             aClass,
             aMat.mToolQuality,
             16,
@@ -645,8 +826,8 @@ public class MultiTileEntityLoader implements Runnable {
         aRegistry.add(
             "Electric Engine (" + VN[9] + ")",
             "Engines",
-            10014,
-            1304,
+            unsortedID++,
+            15000,
             aClass,
             aMat.mToolQuality,
             16,
@@ -681,8 +862,8 @@ public class MultiTileEntityLoader implements Runnable {
         aRegistry.add(
             "Electric Engine (" + VN[10] + ")",
             "Engines",
-            10015,
-            1304,
+            unsortedID++,
+            15000,
             aClass,
             aMat.mToolQuality,
             16,
@@ -719,8 +900,8 @@ public class MultiTileEntityLoader implements Runnable {
         aRegistry.add(
             "Electric Motor (" + VN[6] + ")",
             "Motors",
-            10021,
-            10021,
+            unsortedID++,
+            15000,
             aClass,
             aMat.mToolQuality,
             16,
@@ -759,8 +940,8 @@ public class MultiTileEntityLoader implements Runnable {
         aRegistry.add(
             "Electric Motor (" + VN[7] + ")",
             "Motors",
-            10022,
-            10021,
+            unsortedID++,
+            15000,
             aClass,
             aMat.mToolQuality,
             16,
@@ -799,8 +980,8 @@ public class MultiTileEntityLoader implements Runnable {
         aRegistry.add(
             "Electric Motor (" + VN[8] + ")",
             "Motors",
-            10023,
-            10021,
+            unsortedID++,
+            15000,
             aClass,
             aMat.mToolQuality,
             16,
@@ -839,8 +1020,8 @@ public class MultiTileEntityLoader implements Runnable {
         aRegistry.add(
             "Electric Motor (" + VN[9] + ")",
             "Motors",
-            10024,
-            10021,
+            unsortedID++,
+            15000,
             aClass,
             aMat.mToolQuality,
             16,
@@ -879,8 +1060,8 @@ public class MultiTileEntityLoader implements Runnable {
         aRegistry.add(
             "Electric Motor (" + VN[10] + ")",
             "Motors",
-            10025,
-            10021,
+            unsortedID++,
+            15000,
             aClass,
             aMat.mToolQuality,
             16,

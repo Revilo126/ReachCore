@@ -207,7 +207,7 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             .put(G_DUST)
             .setMcfg(0, MT.Ru, 1 * U, MT.Cl, 3 * U);
 
-    // Naquadah refining
+    // Naquadah refining TODO
     public static final OreDictMaterial NqGe2F4 = dust("Naquadah Digermanium Tetrafluoride", "NqGe2F4")
         .setRGBa(40, 40, 40, 255)
         .setMcfg(0, MT.Nq, 1 * U, MT.Ge, 2 * U, MT.F, 4 * U)
@@ -225,7 +225,7 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
         Nq522Ge2F6 = gas("Naquadria Digermanium Hexafluoride", "Nq522Ge2F6").setRGBa(28, 28, 28, 255)
             .setMcfg(0, MT.Nq_522, 1 * U, MT.Ge, 2 * U, MT.F, 6 * U);
 
-    // Plastics TODO: Add more types
+    // Plastics
 
     // PVC
     public static final OreDictMaterial PVC = create("Polyvinal Chloride Plastic", "C2H3Cl").setTextures(SET_DULL)
@@ -250,6 +250,26 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
         EDC = liquid("Ethylene Dichloride", "C2H3Cl2").setRGBa(255, 255, 255, 255)
             .uumMcfg(0, MT.C, 2 * U, MT.H, 3 * U, MT.Cl, U * 2)
             .heat(238, 356);
+
+    // Synthetic Rubber
+    public static final OreDictMaterial SBR = create("Styrene-Butadiene Rubber", "C20H26").setTextures(SET_RUBBER)
+        .setRGBa(35, 35, 35, 255)
+        .put(
+            G_INGOT_MACHINE,
+            APPROXIMATE,
+            FLAMMABLE,
+            EXTRUDER,
+            EXTRUDER_SIMPLE,
+            WIRES,
+            MORTAR,
+            BOUNCY,
+            STRETCHY,
+            FURNACE)
+        .uumMcfg(0, MT.C, 20 * U, MT.H, 26 * U)
+        .heat(708)
+        .setBurning(MT.Ash, U9)
+        .setSmelting(null, 2 * U3)
+        .qual(1, 3.0, 256, 0);
 
     public static class STONES {
 
