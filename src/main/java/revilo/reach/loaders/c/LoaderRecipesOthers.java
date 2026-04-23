@@ -3,13 +3,19 @@ package revilo.reach.loaders.c;
 import static gregapi.data.CS.*;
 import static gregapi.data.OP.*;
 
+import java.util.Collection;
+
+import net.minecraft.item.ItemStack;
+
 import gregapi.data.MT;
 import gregapi.data.RM;
 import gregapi.oredict.event.IOreDictListenerEvent;
 import gregapi.oredict.event.OreDictListenerEvent_Names;
+import gregapi.recipes.Recipe;
 import gregapi.util.ST;
 import revilo.reach.data.RCIL;
 import revilo.reach.data.RCMT;
+import revilo.reach.data.RCRM;
 
 public class LoaderRecipesOthers implements Runnable {
 
@@ -84,7 +90,27 @@ public class LoaderRecipesOthers implements Runnable {
             dustTiny.mat(MT.C, 1),
             dustTiny.mat(MT.RareEarth, 1),
             dustTiny.mat(MT.Pt, 1));
-        // TODO: Complete
-    }
 
+        // MultiMill copies
+        Collection<Recipe> tRecipes = RM.Wiremill.mRecipeList;
+        for (Recipe tRecipe : tRecipes) {
+            Recipe tCopy = tRecipe.copy();
+            tCopy.mInputs = new ItemStack[] { ST.tag(0), tRecipe.mInputs[0] };
+            RCRM.MultiMill.add(tCopy);
+        }
+
+        tRecipes = RM.ClusterMill.mRecipeList;
+        for (Recipe tRecipe : tRecipes) {
+            Recipe tCopy = tRecipe.copy();
+            tCopy.mInputs = new ItemStack[] { ST.tag(1), tRecipe.mInputs[0] };
+            RCRM.MultiMill.add(tCopy);
+        }
+
+        tRecipes = RM.RollingMill.mRecipeList;
+        for (Recipe tRecipe : tRecipes) {
+            Recipe tCopy = tRecipe.copy();
+            tCopy.mInputs = new ItemStack[] { ST.tag(2), tRecipe.mInputs[0] };
+            RCRM.MultiMill.add(tCopy);
+        }
+    }
 }

@@ -57,8 +57,8 @@ public class StructureElementBlock<T extends ITileEntityMultiBlockController> im
     }
 
     @Override
-    public boolean check(ITileEntityMultiBlockController t, ChunkCoordinates aCoordinates, Entity aPlayer,
-        IInventory aInventory, int tX, int tY, int tZ) {
+    public boolean check(T t, ChunkCoordinates aCoordinates, Entity aPlayer, IInventory aInventory, int tX, int tY,
+        int tZ) {
         if (checkAndSetTargetBlock(t, tZ, tX, tY, element, aMeta, aCoordinates, aPlayer, aInventory)) return T;
         return F;
     }

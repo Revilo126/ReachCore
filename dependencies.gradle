@@ -36,13 +36,14 @@
 dependencies {
 	api("com.github.GTNewHorizons:ModularUI2:2.3.46-1.7.10:dev")
 	api("com.github.GTNewHorizons:GTNHLib:0.9.44:dev")
-	
-	compileOnly("curse.maven:carbonconfig-898104:7842717")
 
     implementation("com.github.GTNewHorizons:NotEnoughItems:2.8.77-GTNH:dev")
 
-    implementation("com.gregoriust.gregtech:gregtech_1.7.10:6.17.06:dev") // TODO: Maybe fork
+    implementation("com.gregoriust.gregtech:gregtech_1.7.10:6.17.06:dev")
     implementation("com.github.GTNewHorizons:CodeChickenCore:1.4.12:dev")
+    
+    compileOnly("curse.maven:advrocketry-236542:2495943")
+    compileOnly("curse.maven:libVulpes-236541:2812784")
     
     compileOnly("micdoodle8.mods:MicdoodleCore:1.7-3.0.12.504:Dev")
     compileOnly("micdoodle8.mods:GalacticraftCore:1.7-3.0.12.504:Dev") // TODO: Fork

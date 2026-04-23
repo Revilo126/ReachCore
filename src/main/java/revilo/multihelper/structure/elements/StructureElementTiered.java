@@ -21,10 +21,9 @@ public class StructureElementTiered<T extends ITileEntityMultiBlockController> i
         this.setter = setter;
     }
 
-    @SuppressWarnings("unchecked")
     @Override
-    public boolean check(ITileEntityMultiBlockController t, ChunkCoordinates aCoordinates, Entity aPlayer,
-        IInventory aInventory, int tX, int tY, int tZ) {
+    public boolean check(T t, ChunkCoordinates aCoordinates, Entity aPlayer, IInventory aInventory, int tX, int tY,
+        int tZ) {
         for (Map.Entry<IStructureElement<T>, Integer> entry : tierMap.entrySet()) {
 
             if (entry.getKey()

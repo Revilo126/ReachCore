@@ -12,11 +12,12 @@ import revilo.multihelper.structure.StructureUtil;
 import revilo.multihelper.structure.elements.StructureElementPart;
 import revilo.reach.loaders.a.MultiTileEntityLoader;
 
-public class MultiTileEntityFusionReactorTier2 extends MultiTileEntityFusionReactorBase {
+public class MultiTileEntityFusionReactorTier2
+    extends MultiTileEntityFusionReactorBase<MultiTileEntityFusionReactorTier2> {
 
     @Override
-    public Definition<MultiTileEntityFusionReactorBase> getStructure() {
-        return Definition.<MultiTileEntityFusionReactorBase>builder(STRUCTURE)
+    public Definition<MultiTileEntityFusionReactorTier2> getStructure() {
+        return Definition.<MultiTileEntityFusionReactorTier2>builder(STRUCTURE)
             .addElement(
                 'W',
                 new StructureElementPart<>(

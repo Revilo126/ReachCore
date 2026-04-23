@@ -154,7 +154,7 @@ public class MultiTileEntityLargeSolarPanelElectric
             mCheck = F;
             mSky = getSkyAtSide(SIDE_TOP);
         }
-        if (mSky) {
+        if (mSky && mStructureOkay) {
             if (worldObj.isThundering()) {
                 mEnergy = 0;
             } else {

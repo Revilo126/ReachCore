@@ -8,8 +8,8 @@ import gregapi.data.RM;
 import gregapi.util.OM;
 import gregapi.util.ST;
 import revilo.reach.data.RCMT;
-import revilo.reach.data.RCRM;
 
+@SuppressWarnings("unused")
 public class LoaderRecipesChems implements Runnable {
 
     @Override
@@ -41,8 +41,6 @@ public class LoaderRecipesChems implements Runnable {
         RM.BurnMixer.addRecipe2(T, 2048L, 1024L, OM.dust(RCMT.SrCO3), OM.dust(RCMT.RuO2), OM.dust(RCMT.Sr2RuO4));
 
         // Gas Centrifuge Enriching
-        RCRM.GasCentrifuge.addRecipe0(T, 256, 2048, MT.UF6.gas(144, F), MT.U238F6.gas(143, F), MT.U235F6.gas(1, F));
-
-        // Naquadah enriching TODO
+        // RCRM.GasCentrifuge.addRecipe0(T, 256, 2048, MT.UF6.gas(144, F), MT.U238F6.gas(143, F), MT.U235F6.gas(1, F));
     }
 }

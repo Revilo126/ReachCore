@@ -2,6 +2,7 @@ package revilo.reach.data;
 
 import static gregapi.data.CS.*;
 
+import gregapi.data.CS;
 import gregapi.recipes.Recipe.RecipeMap;
 import revilo.reach.recipes.RecipeMapBuilder;
 
@@ -16,8 +17,7 @@ public class RCRM {
         .itemIO(1, 2, 0)
         .fluidIO(6, 3, 0)
         .minimumInputs(1)
-        .useBucketsIn(F)
-        .useBucketsOut(F)
+        .useBuckets(F)
         .build();
 
     public static final RecipeMap FusionT2 = RecipeMapBuilder
@@ -29,12 +29,28 @@ public class RCRM {
         .NEISpecial("Start: ", 1, " LU")
         .build();
 
-    public static final RecipeMap GasCentrifuge = RecipeMapBuilder
-        .builder("reach.recipe.gascentrifuge", "Gas Centrifuge")
-        .setGuiPath(RES_PATH_GUI + "machines/GasCentrifuge")
-        .fluidIO(1, 3, 1)
+    // TODO: Make the Gas Centrifuge Viable
+    /*
+     * public static final RecipeMap GasCentrifuge = RecipeMapBuilder
+     * .builder("reach.recipe.gascentrifuge", "Gas Centrifuge")
+     * .setGuiPath(RES_PATH_GUI + "machines/GasCentrifuge")
+     * .fluidIO(1, 3, 1)
+     * .minimumInputs(1)
+     * .useBuckets(F)
+     * .build();
+     */
+
+    public static final RecipeMap InterPlanetarySyphon = RecipeMapBuilder
+        .builder("reach.recipe.planetarysyphon", "Inter-Planetary Syphon")
+        .setGuiPath(RES_PATH_GUI + "machines/PlanetarySyphon")
+        .itemIO(1, 3, 0)
+        .fluidIO(1, 6, 0)
         .minimumInputs(1)
-        .useBucketsIn(F)
-        .useBucketsOut(F)
+        .useBuckets(F)
+        .build();
+
+    public static RecipeMap MultiMill = RecipeMapBuilder.builder("reach.recipe.multimill", "Large Mill")
+        .setGuiPath(CS.RES_PATH_GUI + "machines/Wiremill")
+        .itemIO(2, 1, 1)
         .build();
 }

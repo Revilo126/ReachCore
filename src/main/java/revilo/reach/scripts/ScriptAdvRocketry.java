@@ -27,11 +27,11 @@ public class ScriptAdvRocketry implements IScriptLoader {
      * Recipes for Advanced Rocketry are majority crafting table, however most parts should be welded or others.
      */
 
-    // Blocks (Not tiles).
+    // Blocks
     private ItemStack launchpad = make(MD.GC_ADV_ROCKETRY, "launchpad", 1),
         structureTower = make(MD.GC_ADV_ROCKETRY, "structureTower", 1),
         genericSeat = make(MD.GC_ADV_ROCKETRY, "seat", 1), engine = make(MD.GC_ADV_ROCKETRY, "rocketmotor", 1),
-        advEngine = make(MD.GC_ADV_ROCKETRY, "advRocket", 1), fuelTank = make(MD.GC_ADV_ROCKETRY, "fuelTank", 1),
+        advEngine = make(MD.GC_ADV_ROCKETRY, "tile.advRocket", 1), fuelTank = make(MD.GC_ADV_ROCKETRY, "fuelTank", 1),
         sawBlade = make(MD.GC_ADV_ROCKETRY, "sawBlade", 1), concrete = make(MD.GC_ADV_ROCKETRY, "concrete", 1),
         platePress = make(MD.GC_ADV_ROCKETRY, "blockHandPress", 1),
         airLock = make(MD.GC_ADV_ROCKETRY, "smallAirlockDoor", 1),
@@ -123,7 +123,7 @@ public class ScriptAdvRocketry implements IScriptLoader {
             T,
             16,
             64,
-            make(BlocksGT.Concrete, 1, 0),
+            make(BlocksGT.Concrete, 1, 7),
             FL.array(DYE_FLUIDS_WATER[DYE_INDEX_Black], DYE_FLUIDS_WATER[DYE_INDEX_Yellow]),
             NF,
             launchpad);
@@ -131,7 +131,7 @@ public class ScriptAdvRocketry implements IScriptLoader {
             T,
             16,
             64,
-            make(BlocksGT.Concrete, 1, 0),
+            make(BlocksGT.Concrete, 1, 7),
             FL.array(DYE_FLUIDS_FLOWER[DYE_INDEX_Black], DYE_FLUIDS_FLOWER[DYE_INDEX_Yellow]),
             NF,
             launchpad);
@@ -139,7 +139,7 @@ public class ScriptAdvRocketry implements IScriptLoader {
             T,
             16,
             64,
-            make(BlocksGT.Concrete, 1, 0),
+            make(BlocksGT.Concrete, 1, 7),
             FL.array(DYE_FLUIDS_CHEMICAL[DYE_INDEX_Black], DYE_FLUIDS_CHEMICAL[DYE_INDEX_Yellow]),
             NF,
             launchpad);

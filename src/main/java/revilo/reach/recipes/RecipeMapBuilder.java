@@ -46,6 +46,7 @@ public class RecipeMapBuilder {
             this.aNameLocal = aNameLocal;
         }
 
+        // If the progress bar is weird
         public Builder setProgressBar(long direction, long amount) {
             this.aProgressBarDirection = direction;
             this.aProgressBarAmount = amount;
@@ -89,6 +90,12 @@ public class RecipeMapBuilder {
 
         public Builder useBucketsOut(boolean useBucketsOut) {
             this.aUseBucketSizeOut = useBucketsOut;
+            return this;
+        }
+
+        public Builder useBuckets(boolean useBuckets) {
+            this.aUseBucketSizeIn = useBuckets;
+            this.aUseBucketSizeOut = useBuckets;
             return this;
         }
 
