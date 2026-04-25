@@ -1,6 +1,7 @@
 // Add any additional repositories for your dependencies here.
 
 repositories {
+	mavenCentral()
     maven {
         name = "gt"
         url = "https://mechaenetia.com/"
@@ -17,5 +18,9 @@ repositories {
 		name = "curse"
 		url = "https://cursemaven.com"
 	}
+	maven { 
+		url = "https://jitpack.io" 
+	}
+	
 	
 }

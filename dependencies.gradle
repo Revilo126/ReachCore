@@ -36,6 +36,8 @@
 dependencies {
 	api("com.github.GTNewHorizons:ModularUI2:2.3.46-1.7.10:dev")
 	api("com.github.GTNewHorizons:GTNHLib:0.9.44:dev")
+	
+	api("com.github.Revilo126:MultiHelper:0.0.2.2")
 
     implementation("com.github.GTNewHorizons:NotEnoughItems:2.8.77-GTNH:dev")
 
@@ -56,6 +58,7 @@ dependencies {
     compileOnly("curse.maven:matter-overdrive-community-edition-557428:5223722") // TODO: Fork
     compileOnly("applecore:AppleCore:1.7.10-3.1.1:deobf")// GT needs
     compileOnly("com.mod-buildcraft:buildcraft:7.1.23:dev")
+    compileOnly "net.sengir.forestry:forestry_1.7.10:4.2.16.64:dev"
     
     //runtimeOnlyNonPublishable("com.github.GTNewHorizons:Angelica:2.1.4:dev")
 }
