@@ -29,7 +29,6 @@ import gregtech.tileentity.energy.converters.MultiTileEntityMotorElectric;
 import revilo.reach.data.RCCS;
 import revilo.reach.data.RCMT;
 import revilo.reach.data.RCRM;
-import revilo.reach.tile.multiblock.MultiTileEntityLargeSolarPanelElectric;
 import revilo.reach.tile.multiblock.MultiTileEntityPolymerizationChamber;
 import revilo.reach.tile.multiblock.MultiTileEntityPyrolyseOven;
 import revilo.reach.tile.multiblock.fusion.MultiTileEntityFusionReactorTier2;
@@ -398,48 +397,50 @@ public class MultiTileEntityLoader implements Runnable {
             aRegistryGT.getItem(18102),
             'P',
             OP.pipeNonuple.dat(MT.Steel));
-        aClass = MultiTileEntityLargeSolarPanelElectric.class;
-        aMat = MT.StainlessSteel;
-        aRegistry.add(
-            "Large Solar Panel (Silicon)",
-            "Solar Panels",
-            multiblockID++,
-            10000,
-            aClass,
-            aMat.mToolQuality,
-            16,
-            aMachine,
-            UT.NBT.make(
-                NBT_MATERIAL,
-                aMat,
-                NBT_HARDNESS,
-                6.0F,
-                NBT_RESISTANCE,
-                6.0F,
-                NBT_OUTPUT,
-                256,
-                NBT_ENERGY_EMITTED,
-                TD.Energy.EU));
-        aRegistry.add(
-            "Large Solar Panel (Germanium)",
-            "Solar Panels",
-            multiblockID++,
-            10000,
-            aClass,
-            aMat.mToolQuality,
-            16,
-            aMachine,
-            UT.NBT.make(
-                NBT_MATERIAL,
-                aMat,
-                NBT_HARDNESS,
-                6.0F,
-                NBT_RESISTANCE,
-                6.0F,
-                NBT_OUTPUT,
-                512,
-                NBT_ENERGY_EMITTED,
-                TD.Energy.EU));
+        /*
+         * aClass = MultiTileEntityLargeSolarPanelElectric.class;
+         * aMat = MT.StainlessSteel;
+         * aRegistry.add(
+         * "Large Solar Panel (Silicon)",
+         * "Solar Panels",
+         * multiblockID++,
+         * 10000,
+         * aClass,
+         * aMat.mToolQuality,
+         * 16,
+         * aMachine,
+         * UT.NBT.make(
+         * NBT_MATERIAL,
+         * aMat,
+         * NBT_HARDNESS,
+         * 6.0F,
+         * NBT_RESISTANCE,
+         * 6.0F,
+         * NBT_OUTPUT,
+         * 256,
+         * NBT_ENERGY_EMITTED,
+         * TD.Energy.EU));
+         * aRegistry.add(
+         * "Large Solar Panel (Germanium)",
+         * "Solar Panels",
+         * multiblockID++,
+         * 10000,
+         * aClass,
+         * aMat.mToolQuality,
+         * 16,
+         * aMachine,
+         * UT.NBT.make(
+         * NBT_MATERIAL,
+         * aMat,
+         * NBT_HARDNESS,
+         * 6.0F,
+         * NBT_RESISTANCE,
+         * 6.0F,
+         * NBT_OUTPUT,
+         * 512,
+         * NBT_ENERGY_EMITTED,
+         * TD.Energy.EU));
+         */
         aMat = MT.Os;
         aRegistry.add(
             "Fusion Reactor T2",

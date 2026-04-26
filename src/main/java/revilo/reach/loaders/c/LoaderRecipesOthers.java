@@ -112,5 +112,7 @@ public class LoaderRecipesOthers implements Runnable {
             tCopy.mInputs = new ItemStack[] { ST.tag(2), tRecipe.mInputs[0] };
             RCRM.MultiMill.add(tCopy);
         }
+
+        // Modular Armour
     }
 }

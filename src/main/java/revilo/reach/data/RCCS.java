@@ -5,6 +5,7 @@ import java.io.File;
 import gregapi.block.BlockBase;
 import gregapi.block.IPrefixBlock;
 import gregapi.config.Config;
+import gregapi.item.ItemArmorBase;
 import gregapi.item.multiitem.MultiItemRandom;
 
 /**
@@ -44,6 +45,12 @@ public class RCCS {
         // Contains the Ore Blocks for all the Reach Type Stones
         public static IPrefixBlock[] ores_normal = new IPrefixBlock[stones.length],
             ores_broken = new IPrefixBlock[stones.length], ores_small = new IPrefixBlock[stones.length];
+    }
+
+    public static class ArmorsRC {
+
+        // Immune to all.
+        public static ItemArmorBase[] HAZMAT_ELECTRIC = new ItemArmorBase[4];
     }
 
     public static class DirectoriesRC {
