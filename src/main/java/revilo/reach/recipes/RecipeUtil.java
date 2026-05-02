@@ -140,6 +140,8 @@ public class RecipeUtil implements Runnable {
         if (valid(i)) {
             return i;
         }
+        ERR.println(
+            String.format("Reach: Couldn't retrieve TileEntity from Mod: %s With the id: %d", aModData.mName, aID));
         return NI;
     }
 
@@ -151,6 +153,11 @@ public class RecipeUtil implements Runnable {
         if (valid(i)) {
             return i;
         }
+        ERR.println(
+            String.format(
+                "Reach: Couldn't retrieve TileEntity from Registry: %s With the id: %d",
+                aRegistry.mNameInternal,
+                aID));
         return NI;
     }
 

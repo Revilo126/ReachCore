@@ -14,11 +14,14 @@ import java.util.List;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import gregapi.data.ANY;
 import gregapi.data.FL;
 import gregapi.data.MD;
 import gregapi.data.MT;
+import zmaster587.advancedRocketry.api.AdvancedRocketryAPI;
 
 @SuppressWarnings("unused")
 public class ScriptAdvRocketry implements IScriptLoader {
@@ -32,12 +35,12 @@ public class ScriptAdvRocketry implements IScriptLoader {
         structureTower = make(MD.GC_ADV_ROCKETRY, "structureTower", 1),
         genericSeat = make(MD.GC_ADV_ROCKETRY, "seat", 1), engine = make(MD.GC_ADV_ROCKETRY, "rocketmotor", 1),
         advEngine = make(MD.GC_ADV_ROCKETRY, "tile.advRocket", 1), fuelTank = make(MD.GC_ADV_ROCKETRY, "fuelTank", 1),
-        sawBlade = make(MD.GC_ADV_ROCKETRY, "sawBlade", 1), concrete = make(MD.GC_ADV_ROCKETRY, "concrete", 1),
+        sawBlade = make(MD.GC_ADV_ROCKETRY, "sawBlade", 1), concrete = make(MD.GC_ADV_ROCKETRY, "tile.concrete", 1),
         platePress = make(MD.GC_ADV_ROCKETRY, "blockHandPress", 1),
         airLock = make(MD.GC_ADV_ROCKETRY, "smallAirlockDoor", 1),
         landingPad = make(MD.GC_ADV_ROCKETRY, "dockingPad", 1),
-        oxygenDetector = make(MD.GC_ADV_ROCKETRY, "atmosphereDetector", 1),
-        oxygenScrubber = make(MD.GC_ADV_ROCKETRY, "scrubber", 1), lens = make(MD.GC_ADV_ROCKETRY, "lens", 1);
+        oxygenDetector = make(MD.GC_ADV_ROCKETRY, "tile.atmosphereDetector", 1),
+        oxygenScrubber = make(MD.GC_ADV_ROCKETRY, "tile.scrubber", 1), lens = make(MD.GC_ADV_ROCKETRY, "lens", 1);
 
     // Items
     private ItemStack wafer = make(MD.GC_ADV_ROCKETRY, "wafer", 1),
@@ -49,7 +52,7 @@ public class ScriptAdvRocketry implements IScriptLoader {
         asteroidChip = make(MD.GC_ADV_ROCKETRY, "asteroidChip", 1),
         stationPacked = make(MD.GC_ADV_ROCKETRY, "station", 1),
         smallAirlock = make(MD.GC_ADV_ROCKETRY, "smallAirlock", 1),
-        carbonCartridge = make(MD.GC_ADV_ROCKETRY, "carbonScrubberCartridge", 1),
+        carbonCartridge = make(MD.GC_ADV_ROCKETRY, "item.carbonScrubberCartridge", 1),
         lensI = make(MD.GC_ADV_ROCKETRY, "lens", 1),
         satellitePowerSource = make(MD.GC_ADV_ROCKETRY, "satellitePowerSource", 1),
         satellitePrimaryFunction = make(MD.GC_ADV_ROCKETRY, "satellitePrimaryFunction", 1);
@@ -119,6 +122,19 @@ public class ScriptAdvRocketry implements IScriptLoader {
 
     @Override
     public void loadMachines() {
+        for (byte i = 0; i < 4; i++) {
+            // Allow universal hazmat to space
+            ItemStack uniSpace = make((Item) ArmorsGT.HAZMAT_UNIVERSAL[i], 1, 0);
+            uniSpace.addEnchantment(AdvancedRocketryAPI.enchantmentSpaceProtection, 1);
+            Laminator.addRecipe2(
+                T,
+                16,
+                128,
+                plate.mat(ANY.Rubber, 2),
+                make((Item) ArmorsGT.HAZMAT_UNIVERSAL[i], 1, 0),
+                uniSpace);
+        }
+
         Injector.addRecipe1(
             T,
             16,
@@ -144,7 +160,13 @@ public class ScriptAdvRocketry implements IScriptLoader {
             NF,
             launchpad);
 
-        Welder.addRecipe1(T, 16, 128, stickLong.mat(MT.StainlessSteel, 6), structureTower);
+        Welder.addRecipe1(
+            T,
+            16,
+            128,
+            stickLong.mat(MT.StainlessSteel, 6),
+            plate.mat(MT.StainlessSteel, 2),
+            structureTower);
 
         Loom.addRecipe2(T, 16, 16, tag(1), make(Blocks.wool, 2, 0), genericSeat);
         Loom.addRecipe2(T, 16, 16, tag(2), make(Items.string, 8, 0), genericSeat);
@@ -159,11 +181,7 @@ public class ScriptAdvRocketry implements IScriptLoader {
 
         RollFormer.addRecipe1(T, 16, 128, plateCurved.mat(MT.StainlessSteel, 2), fuelTank);
 
-        // Whats sawblade for again?
-
-        // TODO: Concrete (Swap all ar stuff to GT's)!
-
-        Welder.addRecipe1(T, 16, 64, plate.mat(MT.StainlessSteel, 2), airLock);
+        Welder.addRecipe1(T, 16, 64, plateDouble.mat(MT.StainlessSteel, 2), gear.mat(MT.Cr, 4), airLock);
 
     }
 

@@ -4,12 +4,11 @@ import static gregapi.data.CS.*;
 
 import gregapi.data.FL;
 import gregapi.data.MT;
+import gregapi.data.OP;
 import gregapi.data.RM;
-import gregapi.util.OM;
 import gregapi.util.ST;
 import revilo.reach.data.RCMT;
 
-@SuppressWarnings("unused")
 public class LoaderRecipesChems implements Runnable {
 
     @Override
@@ -32,15 +31,27 @@ public class LoaderRecipesChems implements Runnable {
             T,
             512,
             512,
-            OM.dust(MT.OREMATS.Celestine),
+            OP.dust.mat(MT.OREMATS.Celestine, 1),
             FL.Water.make(100),
             FL.CarbonDioxide.make(100),
-            OM.dust(RCMT.SrCO3)); // too lazy to find h2s probs add later
-        RM.Smelter.addRecipe1(T, 512, 2048, OM.dust(MT.Ru), FL.make("chlorine", 100), NF, OM.dust(RCMT.RuCl3));
-        RM.Smelter.addRecipe1(T, 512, 2048, OM.dust(RCMT.RuCl3), FL.Water.make(250), NF, OM.dust(RCMT.RuO2));
-        RM.BurnMixer.addRecipe2(T, 2048L, 1024L, OM.dust(RCMT.SrCO3), OM.dust(RCMT.RuO2), OM.dust(RCMT.Sr2RuO4));
+            OP.dust.mat(RCMT.SrCO3, 1)); // too lazy to find h2s probs add later
+        RM.Smelter
+            .addRecipe1(T, 512, 2048, OP.dust.mat(MT.Ru, 1), FL.make("chlorine", 100), NF, OP.dust.mat(RCMT.RuCl3, 1));
+        RM.Smelter
+            .addRecipe1(T, 512, 2048, OP.dust.mat(RCMT.RuCl3, 1), FL.Water.make(250), NF, OP.dust.mat(RCMT.RuO2, 1));
+        RM.BurnMixer.addRecipe2(
+            T,
+            2048L,
+            1024L,
+            OP.dust.mat(RCMT.SrCO3, 1),
+            OP.dust.mat(RCMT.RuO2, 1),
+            OP.dust.mat(RCMT.Sr2RuO4, 1));
 
         // Gas Centrifuge Enriching
         // RCRM.GasCentrifuge.addRecipe0(T, 256, 2048, MT.UF6.gas(144, F), MT.U238F6.gas(143, F), MT.U235F6.gas(1, F));
+
+        RM.BurnMixer.addRecipe1(T, 16, 2048, OP.dust.mat(MT.P, 1), MT.Cl.gas(6 * U, T), NF, RCMT.PCL3.liquid(1 * U, T));
+        RM.Mixer
+            .addRecipe0(T, 16, 1024, RCMT.PCL3.liquid(2 * U, T), FL.Oxygen.make(1 * U), RCMT.POCL3.liquid(2 * U, T));
     }
 }

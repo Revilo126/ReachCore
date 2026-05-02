@@ -55,11 +55,10 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             .setAllToTheOutputOf(null, 0, 1);
     }
 
-    // Unused
     static OreDictMaterial stone(String aNameOreDict, long aR, long aG, long aB, long aA, Object... aRandomData) {
         return create(aNameOreDict).setRGBa(aR, aG, aB, aA)
             .setTextures(SET_STONE)
-            .put(aRandomData);
+            .put(aRandomData, G_STONE, ANY.Stone, STONE, BRITTLE, MORTAR, FURNACE, EXTRUDER, EXTRUDER_SIMPLE);
     }
 
     static OreDictMaterial element(String aNameOreDict, String aSymbol, long aProtonsAndElectrons, long aNeutrons,
@@ -208,22 +207,24 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             .setMcfg(0, MT.Ru, 1 * U, MT.Cl, 3 * U);
 
     // Naquadah refining TODO
-    public static final OreDictMaterial NqGe2F4 = dust("Naquadah Digermanium Tetrafluoride", "NqGe2F4")
-        .setRGBa(40, 40, 40, 255)
-        .setMcfg(0, MT.Nq, 1 * U, MT.Ge, 2 * U, MT.F, 4 * U)
-        .put(MELTING, MOLTEN),
-        NqGe2F6 = gas("Naquadah Digermanium Hexafluoride", "NqGe2F6").setRGBa(48, 48, 48, 255)
-            .setMcfg(0, MT.Nq, 1 * U, MT.Ge, 2 * U, MT.F, 6 * U),
-        Nq528Ge2F4 = dust("Naquadah-Enriched Digermanium Tetrafluoride", "Nq528Ge2F4").setRGBa(30, 30, 30, 255)
-            .setMcfg(0, MT.Nq_528, 1 * U, MT.Ge, 2 * U, MT.F, 4 * U)
-            .put(MELTING, MOLTEN),
-        Nq528Ge2F6 = gas("Naquadah-Enriched Digermanium Hexafluoride", "Nq528Ge2F6").setRGBa(38, 38, 38, 255)
-            .setMcfg(0, MT.Nq_528, 1 * U, MT.Ge, 2 * U, MT.F, 6 * U),
-        Nq522Ge2F4 = dust("Naquadria Digermanium Tetrafluoride", "Nq522Ge2F4").setRGBa(20, 20, 20, 255)
-            .setMcfg(0, MT.Nq_522, 1 * U, MT.Ge, 2 * U, MT.F, 4 * U)
-            .put(MELTING, MOLTEN),
-        Nq522Ge2F6 = gas("Naquadria Digermanium Hexafluoride", "Nq522Ge2F6").setRGBa(28, 28, 28, 255)
-            .setMcfg(0, MT.Nq_522, 1 * U, MT.Ge, 2 * U, MT.F, 6 * U);
+    /*
+     * public static final OreDictMaterial NqGe2F4 = dust("Naquadah Digermanium Tetrafluoride", "NqGe2F4")
+     * .setRGBa(40, 40, 40, 255)
+     * .setMcfg(0, MT.Nq, 1 * U, MT.Ge, 2 * U, MT.F, 4 * U)
+     * .put(MELTING, MOLTEN),
+     * NqGe2F6 = gas("Naquadah Digermanium Hexafluoride", "NqGe2F6").setRGBa(48, 48, 48, 255)
+     * .setMcfg(0, MT.Nq, 1 * U, MT.Ge, 2 * U, MT.F, 6 * U),
+     * Nq528Ge2F4 = dust("Naquadah-Enriched Digermanium Tetrafluoride", "Nq528Ge2F4").setRGBa(30, 30, 30, 255)
+     * .setMcfg(0, MT.Nq_528, 1 * U, MT.Ge, 2 * U, MT.F, 4 * U)
+     * .put(MELTING, MOLTEN),
+     * Nq528Ge2F6 = gas("Naquadah-Enriched Digermanium Hexafluoride", "Nq528Ge2F6").setRGBa(38, 38, 38, 255)
+     * .setMcfg(0, MT.Nq_528, 1 * U, MT.Ge, 2 * U, MT.F, 6 * U),
+     * Nq522Ge2F4 = dust("Naquadria Digermanium Tetrafluoride", "Nq522Ge2F4").setRGBa(20, 20, 20, 255)
+     * .setMcfg(0, MT.Nq_522, 1 * U, MT.Ge, 2 * U, MT.F, 4 * U)
+     * .put(MELTING, MOLTEN),
+     * Nq522Ge2F6 = gas("Naquadria Digermanium Hexafluoride", "Nq522Ge2F6").setRGBa(28, 28, 28, 255)
+     * .setMcfg(0, MT.Nq_522, 1 * U, MT.Ge, 2 * U, MT.F, 6 * U);
+     */
 
     // Plastics
 
@@ -251,27 +252,18 @@ public class RCMT { // Use id range 23000 - 23499 (i haven't asked Greg yet)
             .uumMcfg(0, MT.C, 2 * U, MT.H, 3 * U, MT.Cl, U * 2)
             .heat(238, 356);
 
-    // Synthetic Rubber
-    public static final OreDictMaterial SBR = create("Styrene-Butadiene Rubber", "C20H26").setTextures(SET_RUBBER)
-        .setRGBa(35, 35, 35, 255)
-        .put(
-            G_INGOT_MACHINE,
-            APPROXIMATE,
-            FLAMMABLE,
-            EXTRUDER,
-            EXTRUDER_SIMPLE,
-            WIRES,
-            MORTAR,
-            BOUNCY,
-            STRETCHY,
-            FURNACE)
-        .uumMcfg(0, MT.C, 20 * U, MT.H, 26 * U)
-        .heat(708)
-        .setBurning(MT.Ash, U9)
-        .setSmelting(null, 2 * U3)
-        .qual(1, 3.0, 256, 0);
+    // Semiconductor stuff
+
+    public static final OreDictMaterial PCL3 = liquid("Phosphorus Trichloride", "PCL3").setRGBa(255, 255, 255, 255)
+        .uumMcfg(0, MT.P, 1 * U, MT.Cl, 3 * U)
+        .heat(180, 350),
+        POCL3 = liquid("Phosphorus Oxychloride", "POCL3").setRGBa(255, 255, 255, 255)
+            .uumMcfg(0, MT.P, 1 * U, MT.O, 1 * U, MT.Cl, 3 * U)
+            .heat(274, 378);
 
     public static class STONES {
+
+        // TODO: Make Textures (Pain in the ass)
 
         public static final OreDictMaterial Alkalai = stone("Alkalai", 173, 52, 16, 255).qual(1, 5.0, 128, 1)
             .setGenerifying(ANY.Stone)

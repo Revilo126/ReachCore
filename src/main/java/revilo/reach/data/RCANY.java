@@ -4,6 +4,9 @@ import static gregapi.data.CS.*;
 
 import gregapi.data.ANY;
 
+/*
+ * All of Reach's ANY additions
+ */
 public class RCANY {
 
     private static boolean INITIALISED = F;
@@ -12,7 +15,7 @@ public class RCANY {
         if (INITIALISED) return;
         INITIALISED = T;
 
-        ANY.Rubber.addReRegistrationToThis(RCMT.SBR);
+        // ANY.Rubber.addReRegistrationToThis(RCMT.SBR);
         ANY.PlasticHard.addReRegistrationToThis(RCMT.PVC);
         ANY.Plastic.addReRegistrationToThis(RCMT.PVC);
     }

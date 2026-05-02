@@ -17,24 +17,39 @@ import gregapi.util.ST;
 import gregapi.util.UT;
 
 /**
- * Reach Item List
+ * Reach's Item List
  */
 
 public enum RCIL implements IItemContainer {
 
     Circuit_Nano,
-    Circuit_Part_Nano,
-    Circuit_Board_Nano,
-    Circuit_Wiring_Nano,
-    Circuit_Plate_Nano,
     Circuit_Atomic,
-    Circuit_Part_Atomic,
-    Circuit_Board_Atomic,
     Circuit_Quantum_T1,
-    Circuit_Part_Quantum_T1,
-    Circuit_Board_Quantum_T1,
-    Circuit_Wiring_Quantum_T1,
-    Circuit_Plate_Quantum_T1,
+
+    Crude_Silicon_Wafer,
+    Polished_Silicon_Wafer,
+
+    // HV-EV-IV-LuV
+    Crude_Silicon_Wafer_ID_Doped,
+    Crude_Silicon_Wafer_II_Doped,
+    Polished_Silicon_Wafer_ID_Doped,
+    Polished_Silicon_Wafer_II_Doped,
+
+    HV_Silicon_Wafer_Printed,
+    EV_Silicon_Wafer_Printed,
+    IV_Silicon_Wafer_Printed,
+    LuV_Silicon_Wafer_Printed,
+
+    HV_Silicon_Wafer_Traced,
+    EV_Silicon_Wafer_Traced,
+    IV_Silicon_Wafer_Traced,
+    LuV_Silicon_Wafer_Traced,
+
+    // Pressed into circuit parts
+    HV_Chip,
+    EV_Chip,
+    IV_Chip,
+    LuV_Chip,
 
     Laptop_Tool;
 

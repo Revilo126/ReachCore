@@ -7,7 +7,7 @@ import gregapi.recipes.Recipe.RecipeMap;
 import revilo.reach.recipes.RecipeMapBuilder;
 
 /**
- * Reach Recipe Maps
+ * Reach's Recipe Maps
  */
 public class RCRM {
 
@@ -29,28 +29,23 @@ public class RCRM {
         .NEISpecial("Start: ", 1, " LU")
         .build();
 
-    // TODO: Make the Gas Centrifuge Viable
-    /*
-     * public static final RecipeMap GasCentrifuge = RecipeMapBuilder
-     * .builder("reach.recipe.gascentrifuge", "Gas Centrifuge")
-     * .setGuiPath(RES_PATH_GUI + "machines/GasCentrifuge")
-     * .fluidIO(1, 3, 1)
-     * .minimumInputs(1)
-     * .useBuckets(F)
-     * .build();
-     */
-
     public static final RecipeMap InterPlanetarySyphon = RecipeMapBuilder
         .builder("reach.recipe.planetarysyphon", "Inter-Planetary Syphon")
         .setGuiPath(RES_PATH_GUI + "machines/PlanetarySyphon")
-        .itemIO(1, 3, 0)
+        .itemIO(1, 6, 0)
         .fluidIO(1, 6, 0)
         .minimumInputs(1)
         .useBuckets(F)
         .build();
 
-    public static RecipeMap MultiMill = RecipeMapBuilder.builder("reach.recipe.multimill", "Large Mill")
+    public static RecipeMap MultiMill = RecipeMapBuilder.builder("reach.recipe.multimill", "Multi Mill")
         .setGuiPath(CS.RES_PATH_GUI + "machines/Wiremill")
         .itemIO(2, 1, 1)
+        .build();
+
+    public static RecipeMap Lithography = RecipeMapBuilder.builder("reach.recipe.lithography", "Lithography")
+        .setGuiPath(RES_PATH_GUI + "machines/Lithography")
+        .itemIO(2, 1, 1)
+        .fluidIO(1, 0, 0)
         .build();
 }

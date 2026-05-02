@@ -8,6 +8,9 @@ import static gregapi.data.TD.Properties.*;
 import gregapi.data.TC;
 import gregapi.oredict.OreDictPrefix;
 
+/*
+ * Reach's Ore Prefixes
+ */
 @SuppressWarnings("unused")
 public class RCOP {
 

@@ -9,7 +9,7 @@ import gregapi.item.ItemArmorBase;
 import gregapi.item.multiitem.MultiItemRandom;
 
 /**
- * Constants
+ * Reach's Constants
  */
 public class RCCS {
 
@@ -27,7 +27,8 @@ public class RCCS {
 
     public static class ModIds {
 
-        public static final String REACH = "reach", BP = "Backpack", PerDim = "personalspace", AE2FC = "ae2fc";
+        public static final String REACH = "reach", BP = "Backpack", PerDim = "personalspace", AE2FC = "ae2fc",
+            MH = "multihelper";
     }
 
     public static class ItemsReach {

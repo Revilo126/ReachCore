@@ -8,7 +8,6 @@ import gregapi.util.ST;
 import revilo.reach.data.RCRM;
 
 // TODO: Add more fusion uses (power focused)
-@SuppressWarnings("unused")
 public class FusionLoader implements Runnable {
 
     @Override

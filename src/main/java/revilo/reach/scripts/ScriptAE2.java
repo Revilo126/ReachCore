@@ -1,9 +1,7 @@
 package revilo.reach.scripts;
 
 import static gregapi.data.CS.*;
-import static gregapi.data.CS.OreDictToolNames.*;
 import static gregapi.data.MD.*;
-import static gregapi.data.OD.*;
 import static gregapi.data.OP.*;
 import static gregapi.util.CR.*;
 import static gregapi.util.ST.*;
@@ -11,28 +9,72 @@ import static gregapi.util.ST.*;
 import java.util.Arrays;
 import java.util.List;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
+import gregapi.data.ANY;
+import gregapi.data.CS.ModIDs;
 import gregapi.data.IL;
 import gregapi.data.MD;
 import gregapi.data.MT;
+import gregapi.data.RM;
 import gregapi.util.ST;
 
-@SuppressWarnings("unused")
 public class ScriptAE2 implements IScriptLoader {
+
+    ItemStack Controller = make(AE, "tile.BlockController", 1, 0), Drive = make(AE, "tile.BlockDrive", 1, 0),
+
+        CraftingUnit = make(AE, "tile.BlockCraftingUnit", 1, 0),
+        CraftingUnit1 = make(AE, "tile.BlockCraftingUnit", 1, 1),
+        CraftingUnit4 = make(MD.AE, "tile.BlockCraftingUnit", 1, 2),
+        CraftingUnit16 = make(MD.AE, "tile.BlockCraftingUnit", 1, 3),
+        CraftingUnit64 = make(MD.AE, "tile.BlockAdvancedCraftingUnit", 1, 0),
+        CraftingUnit256 = make(MD.AE, "tile.BlockAdvancedCraftingUnit", 1, 1),
+        CraftingUnit1024 = make(MD.AE, "tile.BlockAdvancedCraftingUnit", 1, 2),
+        CraftingUnit4096 = make(MD.AE, "tile.BlockAdvancedCraftingUnit", 1, 3),
+
+        CraftingStorage1 = make(MD.AE, "tile.BlockCraftingStorage", 1, 0),
+        CraftingStorage4 = make(MD.AE, "tile.BlockCraftingStorage", 1, 1),
+        CraftingStorage16 = make(MD.AE, "tile.BlockCraftingStorage", 1, 2),
+        CraftingStorage64 = make(MD.AE, "tile.BlockCraftingStorage", 1, 3),
+        CraftingStorage256 = make(MD.AE, "tile.BlockAdvancedCraftingStorage", 1, 0),
+        CraftingStorage1024 = make(MD.AE, "tile.BlockAdvancedCraftingStorage", 1, 1),
+        CraftingStorage4096 = make(MD.AE, "tile.BlockAdvancedCraftingStorage", 1, 2),
+        CraftingStorage16384 = make(MD.AE, "tile.BlockAdvancedCraftingStorage", 1, 3),
+        CraftingStorageSingularity = make(MD.AE, "tile.BlockSingularityCraftingStorage", 1, 0),
+
+        Storage1 = make(MD.AE, "item.ItemMultiMaterial", 1, 35),
+        Storage4 = make(MD.AE, "item.ItemMultiMaterial", 1, 36),
+        Storage16 = make(MD.AE, "item.ItemMultiMaterial", 1, 37),
+        Storage64 = make(MD.AE, "item.ItemMultiMaterial", 1, 38),
+        Storage256 = make(MD.AE, "item.ItemMultiMaterial", 1, 57),
+        Storage1024 = make(MD.AE, "item.ItemMultiMaterial", 1, 58),
+        Storage4096 = make(MD.AE, "item.ItemMultiMaterial", 1, 59),
+        Storage16384 = make(MD.AE, "item.ItemMultiMaterial", 1, 60),
+
+        BrightPanel = make(MD.AE, "item.ItemMultiPart", 1, 160),
+        IlluminatedPanel = make(MD.AE, "item.ItemMultiPart", 1, 180),
+        DarkPanel = make(MD.AE, "item.ItemMultiPart", 1, 200),
+
+        StorageHousing = make(MD.AE, "item.ItemMultiMaterial", 1, 39),
+        AdvStorageHousing = make(MD.AE, "item.ItemMultiMaterial", 1, 61),
+
+        QuartzFiber = make(MD.AE, "item.ItemMultiPart", 1, 140), FluixCable = make(MD.AE, "item.ItemMultiPart", 1, 16),
+        FluixCoveredCable = make(MD.AE, "item.ItemMultiPart", 1, 36),
+        FluixDenseCoveredCable = make(MD.AE, "item.ItemMultiPart", 1, 546),
+        FluixSmartCable = make(MD.AE, "item.ItemMultiPart", 1, 56),
+        FluixDenseSmartCable = make(MD.AE, "item.ItemMultiPart", 1, 76),
+
+        BasicCard = make(MD.AE, "item.ItemMultiMaterial", 1, 25),
+        RedstoneCard = make(MD.AE, "item.ItemMultiMaterial", 1, 26),
+        CapacityCard = make(MD.AE, "item.ItemMultiMaterial", 1, 27),
+        CraftingCard = make(MD.AE, "item.ItemMultiMaterial", 1, 53),
+        StickyCard = make(MD.AE, "item.ItemMultiMaterial", 1, 64),
+        VoidCard = make(MD.AE, "item.ItemMultiMaterial", 1, 68);
 
     @Override
     public void loadRecipes() {
-        ItemStack Controller = make(AE, "tile.BlockController", 1, 0), // Blocks
-            Drive = make(AE, "tile.BlockDrive", 1, 0), CraftingUnit = make(AE, "tile.BlockCraftingUnit", 1, 0),
-            CraftingUnit1 = make(AE, "tile.BlockCraftingUnit", 1, 1),
-            CraftingUnit4 = make(MD.AE, "tile.BlockCraftingUnit", 1, 2),
-            CraftingUnit16 = make(MD.AE, "tile.BlockCraftingUnit", 1, 3),
-            CraftingUnit64 = make(MD.AE, "tile.BlockAdvancedCraftingUnit", 1, 0),
-            CraftingUnit256 = make(MD.AE, "tile.BlockAdvancedCraftingUnit", 1, 1),
-            CraftingUnit1024 = make(MD.AE, "tile.BlockAdvancedCraftingUnit", 1, 2),
-            CraftingUnit4096 = make(MD.AE, "tile.BlockAdvancedCraftingUnit", 1, 3);
-
         shaped(
             Controller,
             DEF_REM_REV,
@@ -64,7 +106,7 @@ public class ScriptAE2 implements IScriptLoader {
             'L',
             IL.EMITTERS[6],
             'H',
-            ST.make(AE, "item.ItemMultiMaterial", 1, 39));
+            StorageHousing);
 
         shaped(
             CraftingUnit,
@@ -162,11 +204,249 @@ public class ScriptAE2 implements IScriptLoader {
             'T',
             casingMachine.dat(MT.Trinaquadalloy));
 
+        shaped(
+            Storage1,
+            DEF_REM_REV,
+            "TNT",
+            "CPC",
+            "TNT",
+            'T',
+            plate.mat(MT.Ti, 1),
+            'N',
+            plateTiny.mat(MT.NiobiumTitanium, 1),
+            'C',
+            OD_CIRCUITS[5],
+            'P',
+            make(MD.AE, "item.ItemMultiMaterial", 1, 10));
+        shaped(
+            Storage4,
+            DEF_REM_REV,
+            "NCN",
+            "SPS",
+            "NSN",
+            'N',
+            plateTiny.mat(MT.NiobiumTitanium, 1),
+            'C',
+            OD_CIRCUITS[5],
+            'S',
+            Storage1,
+            'P',
+            make(MD.AE, "item.ItemMultiMaterial", 1, 10));
+        shaped(
+            Storage16,
+            DEF_REM_REV,
+            "NCN",
+            "SPS",
+            "NSN",
+            'N',
+            plateTiny.mat(MT.Ir, 1),
+            'C',
+            OD_CIRCUITS[6],
+            'S',
+            Storage4,
+            'P',
+            IL.Processor_Crystal_Emerald.get(1));
+        shaped(
+            Storage64,
+            DEF_REM_REV,
+            "NCN",
+            "SPS",
+            "NSN",
+            'N',
+            plateTiny.mat(MT.Ir, 1),
+            'C',
+            OD_CIRCUITS[6],
+            'S',
+            Storage16,
+            'P',
+            IL.Processor_Crystal_Emerald.get(1));
+
+        shapeless(BrightPanel, array(IlluminatedPanel, make(Items.glowstone_dust, 1, 0)));
+        shapeless(DarkPanel, array(IlluminatedPanel, dust.mat(MT.OREMATS.Magnetite, 1)));
+        shaped(
+            IlluminatedPanel,
+            DEF_REM_REV,
+            " G ",
+            "CLC",
+            "TPT",
+            'G',
+            make(Items.glowstone_dust, 1, 0),
+            'C',
+            OD_CIRCUITS[6],
+            'L',
+            lens.mat(MT.PurpleSapphire, 1),
+            'T',
+            plate.mat(MT.Ti, 1));
+        shapeless(IlluminatedPanel, array(BrightPanel));
+        shapeless(IlluminatedPanel, array(DarkPanel));
+
+        shaped(
+            FluixSmartCable,
+            DEF_REM_REV,
+            "FMF",
+            "RCR",
+            "FMF",
+            'F',
+            wireFine.mat(MT.RedAlloy, 1),
+            'M',
+            OD_CIRCUITS[5],
+            'R',
+            dust.mat(MT.CertusQuartz, 1),
+            'C',
+            FluixCoveredCable);
+        shaped(
+            FluixDenseSmartCable,
+            DEF_REM_REV,
+            "FMF",
+            "RCR",
+            "FMF",
+            'F',
+            wireFine.mat(MT.RedAlloy, 1),
+            'M',
+            OD_CIRCUITS[6],
+            'R',
+            dust.mat(MT.ChargedCertusQuartz, 1),
+            'C',
+            FluixDenseCoveredCable);
+
+        shaped(
+            BasicCard,
+            DEF_REM_REV,
+            "GIS",
+            "RCT",
+            "GIS",
+            'G',
+            wireFine.mat(MT.Au, 1),
+            'I',
+            plateCurved.mat(MT.Ir, 1),
+            'R',
+            wireFine.mat(MT.RedAlloy, 1),
+            'C',
+            OD_CIRCUITS[5],
+            'T',
+            plate.mat(MT.Ti, 1),
+            'S',
+            screw.mat(MT.Ti, 1));
+        shaped(
+            RedstoneCard,
+            DEF_REM_REV,
+            "RS ",
+            "BPd",
+            "RS ",
+            'R',
+            wireFine.mat(MT.RedAlloy, 1),
+            'S',
+            screw.mat(MT.Ir, 1),
+            'P',
+            plate.mat(MT.Ir, 1));
+        shaped(
+            CapacityCard,
+            DEF_REM_REV,
+            "CS ",
+            "BPd",
+            "CS ",
+            'C',
+            make(MD.AE, "item.ItemMultiMaterial", 1, 36),
+            'S',
+            screw.mat(MT.Ir, 1),
+            'P',
+            plate.mat(MT.Ir, 1));
+        shaped(
+            CraftingCard,
+            DEF_REM_REV,
+            "CS ",
+            "BPd",
+            "CS ",
+            'C',
+            make(Blocks.crafting_table, 1, 0),
+            'S',
+            screw.mat(MT.Ir, 1),
+            'P',
+            plate.mat(MT.Ir, 1));
+        shaped(
+            StickyCard,
+            DEF_REM_REV,
+            "SS ",
+            "BPd",
+            "SS ",
+            'S',
+            make(Items.slime_ball, 1, 0),
+            'S',
+            screw.mat(MT.Ir, 1),
+            'P',
+            plate.mat(MT.Ir, 1));
+        shaped(
+            VoidCard,
+            DEF_REM_REV,
+            "ES ",
+            "BPd",
+            "ES ",
+            'E',
+            make(Items.ender_pearl, 1, 0),
+            'S',
+            screw.mat(MT.Ir, 1),
+            'P',
+            plate.mat(MT.Ir, 1));
     }
 
     @Override
     public void loadMachines() {
+        delate(QuartzFiber);
+        RM.RollBender.addRecipe1(T, 256, 128, plate.mat(MT.CertusQuartz, 1), QuartzFiber);
+        delate(FluixCable);
+        RM.Injector.addRecipe2(T, 1024, 64, QuartzFiber, crystal.mat(MT.Fluix, 1), FluixCable);
+        delate(FluixCoveredCable);
+        RM.Laminator.addRecipe2(T, 256, 128, plate.mat(ANY.Rubber, 1), FluixCable, FluixCoveredCable);
+        delate(FluixDenseCoveredCable);
+        RM.Laminator.addRecipe2(
+            T,
+            256,
+            128,
+            plate.mat(ANY.Rubber, 4),
+            make(MD.AE, "item.ItemMultiPart", 4, 16),
+            FluixDenseCoveredCable);
 
+        for (byte i = 0; i < 16; i++) {
+            delate(make(MD.AE, "item.ItemMultiPart", 1, i));
+            RM.Bath
+                .addRecipe1(T, 0, 128, FluixCable, DYE_FLUIDS_CHEMICAL[i], NF, make(MD.AE, "item.ItemMultiPart", 1, i));
+            delate(make(MD.AE, "item.ItemMultiPart", 1, i + 20));
+            RM.Bath.addRecipe1(
+                T,
+                0,
+                128,
+                FluixCoveredCable,
+                DYE_FLUIDS_CHEMICAL[15 - i],
+                NF,
+                make(MD.AE, "item.ItemMultiPart", 1, i + 20));
+            delate(make(MD.AE, "item.ItemMultiPart", 1, i + 520));
+            RM.Bath.addRecipe1(
+                T,
+                0,
+                128,
+                FluixDenseCoveredCable,
+                DYE_FLUIDS_CHEMICAL[15 - i],
+                NF,
+                make(MD.AE, "item.ItemMultiPart", 1, i + 520));
+            delate(make(MD.AE, "item.ItemMultiPart", 1, i + 40));
+            RM.Bath.addRecipe1(
+                T,
+                0,
+                128,
+                FluixSmartCable,
+                DYE_FLUIDS_CHEMICAL[15 - i],
+                NF,
+                make(MD.AE, "item.ItemMultiPart", 1, i + 40));
+            delate(make(MD.AE, "item.ItemMultiPart", 1, i + 60));
+            RM.Bath.addRecipe1(
+                T,
+                0,
+                128,
+                FluixDenseSmartCable,
+                DYE_FLUIDS_CHEMICAL[15 - i],
+                NF,
+                make(MD.AE, "item.ItemMultiPart", 1, i + 60));
+        }
     }
 
     @Override
