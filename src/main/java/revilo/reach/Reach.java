@@ -25,22 +25,11 @@ import gregapi.api.Abstract_Proxy;
 import gregapi.block.MaterialMachines;
 import gregapi.block.multitileentity.MultiTileEntityBlock;
 import gregapi.block.multitileentity.MultiTileEntityRegistry;
-import gregapi.code.ArrayListNoNulls;
 import gregapi.config.Config;
 import gregapi.data.CS.ModIDs;
 import revilo.reach.data.RCCS;
 import revilo.reach.data.RCMD;
-import revilo.reach.loaders.a.FluidLoader;
-import revilo.reach.loaders.a.ItemLoader;
-import revilo.reach.loaders.a.MultiTileEntityLoader;
-import revilo.reach.loaders.a.RocksLoader;
-import revilo.reach.loaders.a.WorldGenLoader;
-import revilo.reach.loaders.b.GregTechLoader;
-import revilo.reach.loaders.c.LoaderRecipesAlloys;
-import revilo.reach.loaders.c.LoaderRecipesGems;
-import revilo.reach.loaders.c.LoaderRecipesOthers;
-import revilo.reach.loaders.c.LoaderRecipesPlastics;
-import revilo.reach.modpack.LoadedModsExporter;
+import revilo.reach.loaders.helper.Loader;
 import revilo.reach.scripts.ScriptLoader;
 
 @Mod(
@@ -49,6 +38,8 @@ import revilo.reach.scripts.ScriptLoader;
     name = Reach.MODNAME,
     acceptedMinecraftVersions = "[1.7.10]",
     dependencies = "required-after:" + ModIDs.GAPI_POST
+        + ";required-after:"
+        + ModIds.MH
         + ";after:"
         + ModIDs.GC_ADV_ROCKETRY
         + ";after:"
@@ -132,26 +123,13 @@ public class Reach extends Abstract_Mod {
 
     @Override
     public void onModPreInit2(FMLPreInitializationEvent aEvent) {
+
         DirectoriesRC.CONFIG_REACH = new File(DirectoriesGT.CONFIG, "Reach");
         if (!DirectoriesRC.CONFIG_REACH.exists()) DirectoriesRC.CONFIG_REACH = new File(DirectoriesGT.CONFIG, "reach");
-
         ConfigsRC.BIOME = new Config(DirectoriesRC.CONFIG_REACH, "Biomes.cfg");
 
-        ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(
-            F,
-            new FluidLoader(),
-            new ItemLoader(),
-            new RocksLoader(),
-            new LoaderRecipesAlloys(),
-            new LoaderRecipesGems(),
-            new LoaderRecipesOthers(),
-            new LoaderRecipesPlastics());
+        Loader.runPreInitLoaders(aEvent);
 
-        for (Runnable tRunnable : tList) try {
-            tRunnable.run();
-        } catch (Throwable e) {
-            e.printStackTrace(ERR);
-        }
         new MultiTileEntityRegistry("reach.multitileentity");
 
         MultiTileEntityBlock.getOrCreate(
@@ -183,32 +161,14 @@ public class Reach extends Abstract_Mod {
     @Override
     public void onModInit2(FMLInitializationEvent aEvent) {
 
-        ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(
-            F,
-            new GregTechLoader(),
-            new ScriptLoader(),
-            new MultiTileEntityLoader(),
-            new WorldGenLoader());
-
-        for (Runnable tRunnable : tList) try {
-            tRunnable.run();
-        } catch (Throwable e) {
-            e.printStackTrace(ERR);
-        }
-
+        Loader.runInitLoaders(aEvent);
     }
 
     @Override
     public void onModPostInit2(FMLPostInitializationEvent aEvent) {
+        Loader.runPostInitLoaders(aEvent);
+
         new ScriptLoader().postInit();
-
-        ArrayListNoNulls<Runnable> tList = new ArrayListNoNulls<>(F, new LoadedModsExporter());
-
-        for (Runnable tRunnable : tList) try {
-            tRunnable.run();
-        } catch (Throwable e) {
-            e.printStackTrace(ERR);
-        }
     }
 
     @Override

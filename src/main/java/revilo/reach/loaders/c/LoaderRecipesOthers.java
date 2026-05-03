@@ -1,7 +1,6 @@
 package revilo.reach.loaders.c;
 
 import static gregapi.data.CS.*;
-import static gregapi.data.OP.*;
 
 import java.util.Collection;
 
@@ -11,7 +10,9 @@ import gregapi.data.RM;
 import gregapi.recipes.Recipe;
 import gregapi.util.ST;
 import revilo.reach.data.RCRM;
+import revilo.reach.loaders.helper.Loader;
 
+@Loader.PreInit(priority = 1)
 public class LoaderRecipesOthers implements Runnable {
 
     @Override

@@ -9,7 +9,9 @@ import gregapi.code.ICondition.And;
 import gregapi.data.RM;
 import gregapi.recipes.handlers.RecipeMapHandlerPrefix;
 import gregapi.util.ST;
+import revilo.reach.loaders.helper.Loader;
 
+@Loader.PreInit(priority = 1)
 public class LoaderRecipesGems implements Runnable {
 
     @SuppressWarnings({ "unchecked", "rawtypes" })

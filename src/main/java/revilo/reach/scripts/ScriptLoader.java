@@ -3,6 +3,7 @@ package revilo.reach.scripts;
 import static gregapi.data.CS.*;
 
 import gregapi.code.ArrayListNoNulls;
+import revilo.reach.loaders.helper.Loader;
 import revilo.reach.recipes.RecipeUtil;
 import revilo.reach.util.CF;
 
@@ -12,6 +13,7 @@ import revilo.reach.util.CF;
  * If needed it is possible to run from Dev Env.
  */
 
+@Loader.Init(priority = 1)
 public class ScriptLoader implements Runnable {
 
     ArrayListNoNulls<IScriptLoader> tScriptList = new ArrayListNoNulls<>(

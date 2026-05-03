@@ -4,7 +4,9 @@ import static gregapi.data.CS.*;
 
 import gregapi.code.ArrayListNoNulls;
 import revilo.reach.loaders.b.lines.LineLoader;
+import revilo.reach.loaders.helper.Loader;
 
+@Loader.Init(priority = 1)
 public class GregTechLoader implements Runnable {
 
     @Override

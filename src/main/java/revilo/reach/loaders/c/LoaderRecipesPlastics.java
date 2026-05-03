@@ -9,7 +9,9 @@ import gregapi.data.RM;
 import gregapi.util.ST;
 import revilo.reach.data.RCMT;
 import revilo.reach.data.RCRM;
+import revilo.reach.loaders.helper.Loader;
 
+@Loader.PreInit(priority = 1)
 public class LoaderRecipesPlastics implements Runnable {
 
     @Override

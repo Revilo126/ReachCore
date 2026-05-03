@@ -8,7 +8,9 @@ import gregapi.data.OP;
 import gregapi.data.RM;
 import gregapi.util.ST;
 import revilo.reach.data.RCMT;
+import revilo.reach.loaders.helper.Loader;
 
+@Loader.PreInit(priority = 1)
 public class LoaderRecipesChems implements Runnable {
 
     @Override

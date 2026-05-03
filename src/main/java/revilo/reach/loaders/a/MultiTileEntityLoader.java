@@ -29,10 +29,12 @@ import gregtech.tileentity.energy.converters.MultiTileEntityMotorElectric;
 import revilo.reach.data.RCCS;
 import revilo.reach.data.RCMT;
 import revilo.reach.data.RCRM;
+import revilo.reach.loaders.helper.Loader;
 import revilo.reach.tile.multiblock.MultiTileEntityPolymerizationChamber;
 import revilo.reach.tile.multiblock.MultiTileEntityPyrolyseOven;
 import revilo.reach.tile.multiblock.fusion.MultiTileEntityFusionReactorTier2;
 
+@Loader.Init(priority = 1)
 public class MultiTileEntityLoader implements Runnable {
 
     static Class<? extends TileEntity> aClass;

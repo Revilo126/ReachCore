@@ -5,7 +5,9 @@ import gregapi.data.MT;
 import gregapi.data.TD;
 import gregapi.oredict.OreDictMaterial;
 import revilo.reach.data.RCMT;
+import revilo.reach.loaders.helper.Loader;
 
+@Loader.PreInit(priority = 0)
 public class FluidLoader implements Runnable {
 
     @Override

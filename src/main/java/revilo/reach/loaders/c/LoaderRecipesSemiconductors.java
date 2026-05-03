@@ -13,7 +13,9 @@ import gregapi.oredict.event.OreDictListenerEvent_Names;
 import gregapi.util.ST;
 import revilo.reach.data.RCIL;
 import revilo.reach.data.RCMT;
+import revilo.reach.loaders.helper.Loader;
 
+@Loader.PreInit(priority = 1)
 public class LoaderRecipesSemiconductors implements Runnable {
 
     /*

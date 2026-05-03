@@ -16,7 +16,9 @@ import revilo.reach.data.RCCS.BlocksReach;
 import revilo.reach.data.RCMD;
 import revilo.reach.data.RCMT;
 import revilo.reach.data.RCOP;
+import revilo.reach.loaders.helper.Loader;
 
+@Loader.PreInit(priority = 1)
 public class RocksLoader implements Runnable {
 
     @Override

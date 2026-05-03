@@ -3,6 +3,9 @@ package revilo.reach.loaders.a;
 import static gregapi.data.CS.*;
 import static revilo.reach.data.RCCS.*;
 
+import revilo.reach.loaders.helper.Loader;
+
+@Loader.Init(priority = 1)
 @SuppressWarnings("unused")
 public class WorldGenLoader implements Runnable {
 
