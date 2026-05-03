@@ -7,6 +7,8 @@ import gregapi.data.MT;
 import gregapi.data.TC;
 import gregapi.item.CreativeTab;
 import gregapi.item.multiitem.MultiItemRandomWithCompat;
+import gregapi.oredict.OreDictItemData;
+import gregapi.util.OM;
 import revilo.reach.data.RCIL;
 
 @SuppressWarnings("unused")
@@ -21,22 +23,6 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
     public void addItems() {
 
         // Circuit Parts //
-
-        /**
-         * RCIL.Circuit_CPU_Basic.set(addItem(1000, "Circuit CPU (Basic)", "The brains of a T1 Circuit"));
-         * RCIL.Circuit_CPU_Good.set(addItem(1001, "Circuit CPU (Good)", "The brains of a T2 Circuit"));
-         * RCIL.Circuit_CPU_Advanced.set(addItem(1002, "Circuit CPU (Advanced)", "The brains of a T3 Circuit"));
-         * RCIL.Circuit_CPU_Elite.set(addItem(1003, "Circuit CPU (Elite)", "The brains of a T4 Circuit"));
-         * RCIL.Circuit_CPU_Master.set(addItem(1004, "Circuit CPU (Master)", "The brains of a T5 Circuit"));
-         * RCIL.Circuit_CPU_Ultimate.set(addItem(1005, "Circuit CPU (Ultimate)", "The brains of a T6 Circuit"));
-         * 
-         * RCIL.Transistor_Basic.set(addItem(1010, "Transistor (Basic)", "The most basic T1 Circuit component."));
-         * RCIL.Transistor_Basic.set(addItem(1011, "Transistor (Good)", "The most basic T2 Circuit component."));
-         * RCIL.Transistor_Basic.set(addItem(1012, "Transistor (Advanced)", "The most basic T3 Circuit component."));
-         * RCIL.Transistor_Basic.set(addItem(1013, "Transistor (Elite)", "The most basic T4 Circuit component."));
-         * RCIL.Transistor_Basic.set(addItem(1014, "Transistor (Master)", "The most basic T5 Circuit component."));
-         * RCIL.Transistor_Basic.set(addItem(1015, "Transistor (Ultimate)", "The most basic T6 Circuit component."));
-         */ // TODO: Implement new circuit system!
 
         RCIL.Circuit_Nano.set(
             addItem(
@@ -62,6 +48,95 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
                 MT.DATA.CIRCUITS[9],
                 OD_CIRCUITS[9],
                 TC.stack(TC.COGNITIO, 10)));
+
+        RCIL.Crude_Silicon_Wafer
+            .set(addItem(850, "Crude Silicon Wafer", "Must be doped", new OreDictItemData(MT.Si, U)));
+        RCIL.Polished_Silicon_Wafer
+            .set(addItem(851, "Polished Silicon Wafer", "Must be doped", new OreDictItemData(MT.Si, U)));
+
+        RCIL.Crude_Silicon_Wafer_ID_Doped.set(
+            addItem(
+                860,
+                "Crude Phosphorus Ion-Diffusion Doped Wafer",
+                "Must be Etched",
+                new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
+        RCIL.Crude_Silicon_Wafer_II_Doped.set(
+            addItem(
+                861,
+                "Crude Phosphorus Ion-Implantation Doped Wafer",
+                "Must be Etched",
+                new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
+        RCIL.Polished_Silicon_Wafer_ID_Doped.set(
+            addItem(
+                862,
+                "Polished Phosphorus Ion-Diffusion Doped Wafer",
+                "Must be Etched",
+                new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
+        RCIL.Polished_Silicon_Wafer_II_Doped.set(
+            addItem(
+                863,
+                "Polished Phosphorus Ion-Implantation Doped Wafer",
+                "Must be Etched",
+                new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
+
+        RCIL.HV_Silicon_Wafer_Printed.set(
+            addItem(
+                870,
+                "Printed Silicon Wafer (HV)",
+                "To be traced",
+                new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
+        RCIL.EV_Silicon_Wafer_Printed.set(
+            addItem(
+                871,
+                "Printed Silicon Wafer (EV)",
+                "To be traced",
+                new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
+        RCIL.IV_Silicon_Wafer_Printed.set(
+            addItem(
+                872,
+                "Printed Silicon Wafer (IV)",
+                "To be traced",
+                new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
+        RCIL.LuV_Silicon_Wafer_Printed.set(
+            addItem(
+                873,
+                "Printed Silicon Wafer (LuV)",
+                "To be traced",
+                new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
+
+        RCIL.HV_Silicon_Wafer_Traced.set(
+            addItem(
+                880,
+                "Traced Silicon Wafer (HV)",
+                "Needs to be cut",
+                new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
+        RCIL.EV_Silicon_Wafer_Traced.set(
+            addItem(
+                881,
+                "Traced Silicon Wafer (EV)",
+                "Needs to be cut",
+                new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
+        RCIL.IV_Silicon_Wafer_Traced.set(
+            addItem(
+                882,
+                "Traced Silicon Wafer (IV)",
+                "Needs to be cut",
+                new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
+        RCIL.LuV_Silicon_Wafer_Traced.set(
+            addItem(
+                883,
+                "Traced Silicon Wafer (LuV)",
+                "Needs to be cut",
+                new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
+
+        RCIL.HV_Chip
+            .set(addItem(890, "HV Chip", "To be encased", new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
+        RCIL.EV_Chip
+            .set(addItem(891, "EV Chip", "To be encased", new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
+        RCIL.IV_Chip
+            .set(addItem(892, "IV Chip", "To be encased", new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
+        RCIL.LuV_Chip.set(
+            addItem(893, "LuV Chip", "To be encased", new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
 
         // Tech Tools //
 

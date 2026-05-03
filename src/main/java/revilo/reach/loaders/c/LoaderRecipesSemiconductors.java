@@ -59,7 +59,7 @@ public class LoaderRecipesSemiconductors implements Runnable {
             NF,
             RCIL.Polished_Silicon_Wafer.get(1));
 
-        // In-Diffusion (HV-IV)
+        // In-Diffusion (HV-EV)
         BurnMixer.addRecipe1(
             T,
             64,
@@ -70,26 +70,26 @@ public class LoaderRecipesSemiconductors implements Runnable {
             RCIL.Crude_Silicon_Wafer_ID_Doped.get(1));
         BurnMixer.addRecipe1(
             T,
+            256,
+            128,
+            RCIL.Crude_Silicon_Wafer.get(1),
+            RCMT.POCL3.liquid(1 * U9, T),
+            NF,
+            RCIL.Crude_Silicon_Wafer_II_Doped.get(1));
+
+        // Ion Implantation (IV-LuV)
+        Injector.addRecipe1(
+            T,
             1024,
             256,
             RCIL.Polished_Silicon_Wafer.get(1),
             RCMT.POCL3.liquid(1 * U9, T),
             NF,
             RCIL.Polished_Silicon_Wafer_ID_Doped.get(1));
-
-        // Ion Implantation (EV-LuV)
-        Injector.addRecipe1(
-            T,
-            256,
-            256,
-            RCIL.Crude_Silicon_Wafer.get(1),
-            RCMT.POCL3.liquid(1 * U9, T),
-            NF,
-            RCIL.Crude_Silicon_Wafer_II_Doped.get(1));
         Injector.addRecipe1(
             T,
             4096,
-            256,
+            128,
             RCIL.Polished_Silicon_Wafer.get(1),
             RCMT.POCL3.liquid(1 * U9, T),
             NF,
@@ -179,10 +179,30 @@ public class LoaderRecipesSemiconductors implements Runnable {
             .addRecipe1(T, 16, 128, RCIL.LuV_Silicon_Wafer_Traced.get(1), FL.Water.make(U), NF, RCIL.LuV_Chip.get(12));
 
         // Circuit Parts
-        Press.addRecipe2(T, 16, 64, RCIL.HV_Chip.get(1), plateTiny.mat(MT.Si, 1), IL.Circuit_Part_Advanced.get(1));
-        Press.addRecipe2(T, 16, 64, RCIL.EV_Chip.get(1), plateTiny.mat(MT.Si, 1), IL.Circuit_Part_Elite.get(1));
-        Press.addRecipe2(T, 16, 64, RCIL.IV_Chip.get(1), plateTiny.mat(MT.Si, 1), IL.Circuit_Part_Master.get(1));
-        Press.addRecipe2(T, 16, 64, RCIL.LuV_Chip.get(1), plateTiny.mat(MT.Si, 1), IL.Circuit_Part_Ultimate.get(1));
+        Press.addRecipeX(
+            T,
+            16,
+            64,
+            ST.array(RCIL.HV_Chip.get(1), wireFine.mat(MT.Au, 1), plateTiny.mat(MT.Si, 1)),
+            IL.Circuit_Part_Advanced.get(1));
+        Press.addRecipeX(
+            T,
+            16,
+            64,
+            ST.array(RCIL.EV_Chip.get(1), wireFine.mat(MT.Au, 1), plateTiny.mat(MT.Si, 1)),
+            IL.Circuit_Part_Elite.get(1));
+        Press.addRecipeX(
+            T,
+            16,
+            64,
+            ST.array(RCIL.IV_Chip.get(1), wireFine.mat(MT.Pt, 1), plateTiny.mat(MT.Si, 1)),
+            IL.Circuit_Part_Master.get(1));
+        Press.addRecipeX(
+            T,
+            16,
+            64,
+            ST.array(RCIL.LuV_Chip.get(1), wireFine.mat(MT.Pt, 1), plateTiny.mat(MT.Si, 1)),
+            IL.Circuit_Part_Ultimate.get(1));
 
         // Circuit Plates (Bath in solder can stay for now)
         Welder.addRecipe2(
