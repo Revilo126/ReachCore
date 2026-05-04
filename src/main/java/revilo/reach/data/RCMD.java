@@ -10,5 +10,6 @@ public class RCMD {
     public static final ModData RC = new ModData(RCCS.ModIds.REACH, "Reach"),
         BP = new ModData(RCCS.ModIds.BP, "Backpack Edited for ModdedNetwork"),
         PerDim = new ModData(RCCS.ModIds.PerDim, "Personal Space"),
-        AE2FC = new ModData(RCCS.ModIds.AE2FC, "AE2 Fluid Crafting"), MH = new ModData(RCCS.ModIds.MH, "MultiHelper");
+        AE2FC = new ModData(RCCS.ModIds.AE2FC, "AE2 Fluid Crafting"), MH = new ModData(RCCS.ModIds.MH, "MultiHelper"),
+        ES = new ModData(RCCS.ModIds.ES, "EnderStorage");
 }

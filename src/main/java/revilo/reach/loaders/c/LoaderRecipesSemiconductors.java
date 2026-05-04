@@ -40,7 +40,6 @@ public class LoaderRecipesSemiconductors implements Runnable {
     public void run() {
 
         // Wafers
-        // HV-EV Circuits
         Mixer.addRecipe1(
             T,
             64,
@@ -49,7 +48,6 @@ public class LoaderRecipesSemiconductors implements Runnable {
             MT.HF.liquid(1 * U, T),
             NF,
             RCIL.Crude_Silicon_Wafer.get(1));
-        // IV-LuV Circuits
         Mixer.addRecipe1(
             T,
             1024,

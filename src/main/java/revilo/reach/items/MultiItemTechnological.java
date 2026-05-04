@@ -129,14 +129,10 @@ public class MultiItemTechnological extends MultiItemRandomWithCompat {
                 "Needs to be cut",
                 new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
 
-        RCIL.HV_Chip
-            .set(addItem(890, "HV Chip", "To be encased", new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
-        RCIL.EV_Chip
-            .set(addItem(891, "EV Chip", "To be encased", new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
-        RCIL.IV_Chip
-            .set(addItem(892, "IV Chip", "To be encased", new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
-        RCIL.LuV_Chip.set(
-            addItem(893, "LuV Chip", "To be encased", new OreDictItemData(OM.stack(MT.Si, U), OM.stack(MT.P, U9))));
+        RCIL.HV_Chip.set(addItem(890, "HV Chip", "To be encased", new OreDictItemData(OM.stack(MT.Si, U9))));
+        RCIL.EV_Chip.set(addItem(891, "EV Chip", "To be encased", new OreDictItemData(OM.stack(MT.Si, U9))));
+        RCIL.IV_Chip.set(addItem(892, "IV Chip", "To be encased", new OreDictItemData(OM.stack(MT.Si, U9))));
+        RCIL.LuV_Chip.set(addItem(893, "LuV Chip", "To be encased", new OreDictItemData(OM.stack(MT.Si, U9))));
 
         // Tech Tools //
 

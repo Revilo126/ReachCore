@@ -29,7 +29,6 @@ public enum RCIL implements IItemContainer {
     Crude_Silicon_Wafer,
     Polished_Silicon_Wafer,
 
-    // HV-EV-IV-LuV
     Crude_Silicon_Wafer_ID_Doped,
     Crude_Silicon_Wafer_II_Doped,
     Polished_Silicon_Wafer_ID_Doped,
@@ -45,7 +44,6 @@ public enum RCIL implements IItemContainer {
     IV_Silicon_Wafer_Traced,
     LuV_Silicon_Wafer_Traced,
 
-    // Pressed into circuit parts
     HV_Chip,
     EV_Chip,
     IV_Chip,

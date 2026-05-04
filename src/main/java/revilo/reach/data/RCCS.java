@@ -28,7 +28,7 @@ public class RCCS {
     public static class ModIds {
 
         public static final String REACH = "reach", BP = "Backpack", PerDim = "personalspace", AE2FC = "ae2fc",
-            MH = "multihelper";
+            MH = "multihelper", ES = "EnderStorage";
     }
 
     public static class ItemsReach {
