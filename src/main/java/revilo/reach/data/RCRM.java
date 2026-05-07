@@ -9,6 +9,7 @@ import revilo.reach.recipes.RecipeMapBuilder;
 /**
  * Reach's Recipe Maps
  */
+@SuppressWarnings("deprecation")
 public class RCRM {
 
     public static final RecipeMap Polymerization = RecipeMapBuilder

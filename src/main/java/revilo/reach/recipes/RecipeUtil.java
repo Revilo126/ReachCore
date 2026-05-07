@@ -17,6 +17,7 @@ import fox.spiteful.avaritia.crafting.ExtremeCraftingManager;
 import gregapi.block.multitileentity.MultiTileEntityRegistry;
 import gregapi.code.ArrayListNoNulls;
 import gregapi.code.ModData;
+import gregapi.data.MD;
 import gregapi.recipes.Recipe;
 import gregapi.util.CR;
 import gregapi.util.ST;
@@ -166,18 +167,22 @@ public class RecipeUtil implements Runnable {
         // Copied from GTNH.
         @SuppressWarnings("unchecked")
         public static void removeExtremeCraftingRecipe(ItemStack output) {
-            ExtremeCraftingManager.getInstance()
-                .getRecipeList()
-                .removeIf(r -> r instanceof IRecipe && equal(((IRecipe) r).getRecipeOutput(), output, T));
+            if (MD.AV.mLoaded) {
+                ExtremeCraftingManager.getInstance()
+                    .getRecipeList()
+                    .removeIf(r -> r instanceof IRecipe && equal(((IRecipe) r).getRecipeOutput(), output, T));
+            }
         }
 
         public static void addExtremeRecipe(ItemStack aItem, Object... args) {
-            if (!(aItem == null)) {
-                removeExtremeCraftingRecipe(aItem);
-                ExtremeCraftingManager.getInstance()
-                    .addRecipe(aItem, args);
-            } else {
-                ERR.println("Reach: Skipping Extreme Recipe: Output is null!");
+            if (MD.AV.mLoaded) {
+                if (!(aItem == null)) {
+                    removeExtremeCraftingRecipe(aItem);
+                    ExtremeCraftingManager.getInstance()
+                        .addRecipe(aItem, args);
+                } else {
+                    ERR.println("Reach: Skipping Extreme Recipe: Output is null!");
+                }
             }
         }
     }

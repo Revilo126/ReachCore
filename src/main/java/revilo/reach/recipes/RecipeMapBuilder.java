@@ -8,8 +8,9 @@ import gregapi.recipes.Recipe;
 import gregapi.recipes.Recipe.RecipeMap;
 
 /*
- * To ease the creation of RecipeMaps
+ * To be moved to MultiHelper. Removing by update 0.1.2
  */
+@Deprecated
 public class RecipeMapBuilder {
 
     public static Builder builder(String aNameInternal, String aNameLocal) {
