@@ -11,7 +11,7 @@ import revilo.reach.data.RCMT;
 import revilo.reach.data.RCRM;
 import revilo.reach.loaders.helper.Loader;
 
-@Loader.PreInit(priority = 1)
+@Loader.PreInit(priority = 2)
 public class LoaderRecipesPlastics implements Runnable {
 
     @Override

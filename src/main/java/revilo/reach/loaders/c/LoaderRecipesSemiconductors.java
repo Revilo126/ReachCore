@@ -15,7 +15,7 @@ import revilo.reach.data.RCIL;
 import revilo.reach.data.RCMT;
 import revilo.reach.loaders.helper.Loader;
 
-@Loader.PreInit(priority = 1)
+@Loader.Init(priority = 1)
 public class LoaderRecipesSemiconductors implements Runnable {
 
     /*

@@ -4,12 +4,11 @@ import static gregapi.data.CS.*;
 
 import gregapi.data.CS;
 import gregapi.recipes.Recipe.RecipeMap;
-import revilo.reach.recipes.RecipeMapBuilder;
+import revilo.multihelper.recipe.RecipeMapBuilder;
 
 /**
  * Reach's Recipe Maps
  */
-@SuppressWarnings("deprecation")
 public class RCRM {
 
     public static final RecipeMap Polymerization = RecipeMapBuilder

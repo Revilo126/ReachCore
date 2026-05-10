@@ -29,61 +29,143 @@ import revilo.multihelper.tile.multiblock.TileEntityBase10MultiBlockMachineMH;
 public abstract class MultiTileEntityFusionReactorBase<T extends TileEntityBase10MultiBlockMachineMH<T>>
     extends TileEntityBase10MultiBlockMachineMH<T> implements ICountedStructure {
 
+    // spotless:off
     public static String[][] STRUCTURE = {
-        { "                   ", "       WWWWW       ", "       RRPRR       ", "       WWWWW       ",
-            "                   " },
-        { "       WWWWW       ", "      WWWWWWW      ", "      RCCCCCR      ", "      WWWWWWW      ",
-            "       WWWWW       " },
-        { "      WWWWWWW      ", "     WWCCCCCWW     ", "     RCSSSSSCR     ", "     WWCCCCCWW     ",
-            "      WWWWWWW      " },
-        { "     WWWWWWWWW     ", "    WWCWWWWWCWW    ", "    RCSCCCCCSCR    ", "    WWCWWWWWCWW    ",
-            "     WWWWWWWWW     " },
-        { "    WWW     WWW    ", "   WWCWWWWWWWCWW   ", "   RCSCRRRRRCSCR   ", "   WWCWWWWWWWCWW   ",
-            "    WWW     WWW    " },
+        { 
+        	"                   ", 
+        	"       WWWWW       ", 
+        	"       RRPRR       ", 
+        	"       WWWWW       ",
+            "                   " 
+        },
+        { 
+        	"       WWWWW       ", 
+        	"      WWWWWWW      ", 
+        	"      RCCCCCR      ", 
+        	"      WWWWWWW      ",
+            "       WWWWW       " 
+        },
+        { 
+        	"      WWWWWWW      ", 
+        	"     WWCCCCCWW     ", 
+        	"     RCSSSSSCR     ", 
+        	"     WWCCCCCWW     ",
+            "      WWWWWWW      "
+        },
+        { 
+        	"     WWWWWWWWW     ", 
+        	"    WWCWWWWWCWW    ", 
+        	"    RCSCCCCCSCR    ", 
+        	"    WWCWWWWWCWW    ",
+            "     WWWWWWWWW     " 
+        },
+        { 
+        	"    WWW     WWW    ", 
+        	"   WWCWWWWWWWCWW   ", 
+        	"   RCSCRRRRRCSCR   ", 
+        	"   WWCWWWWWWWCWW   ",
+            "    WWW     WWW    " 
+        },
         {
-
-            "   WWW       WWW   ", "  WWCWW     WWCWW  ", "  RCSCR     RCSCR  ", "  WWCWW     WWCWW  ",
-            "   WWW       WWW   " },
-        { "  WWW         WWW  ", " WWCWW       WWCWW ", " RCSCR       RCSCR ", " WWCWW       WWCWW ",
-            "  WWW         WWW  " },
+            "   WWW       WWW   ", 
+            "  WWCWW     WWCWW  ", 
+            "  RCSCR     RCSCR  ", 
+            "  WWCWW     WWCWW  ",
+            "   WWW       WWW   " 
+        },
+        { 
+        	"  WWW         WWW  ", 
+        	" WWCWW       WWCWW ", 
+        	" RCSCR       RCSCR ", 
+        	" WWCWW       WWCWW ",
+            "  WWW         WWW  " 
+        },
         {
-
-            " WWW   GGGGG   WWW ", "WWCWW  GVVVG  WWCWW", "RCSCR  GV-VG  RCSCR", "WWCWW  GVVVG  WWCWW",
-            " WWW   GGGGG   WWW " },
+            " WWW   GGGGG   WWW ", 
+            "WWCWW  GVVVG  WWCWW", 
+            "RCSCR  GV-VG  RCSCR", 
+            "WWCWW  GVVVG  WWCWW",
+            " WWW   GGGGG   WWW " 
+        },
         {
-
-            " WWW   GVVVG   WWW ", "WWCWW  VLLLV  WWCWW", "RCSCR  VLLLV  RCSCR", "WWCWW  VLLLV  WWCWW",
-            " WWW   GVVVG   WWW " },
+            " WWW   GVVVG   WWW ", 
+            "WWCWW  VLLLV  WWCWW", 
+            "RCSCR  VLLLV  RCSCR", 
+            "WWCWW  VLLLV  WWCWW",
+            " WWW   GVVVG   WWW " 
+        },
         {
-
-            " WWW   GVVVG   WWW ", "WWCWW  VLLLV  WWCWW", "PCSCRGGGLLLGGGRCSCP", "WWCWW  VLLLV  WWCWW",
-            " WWW   GVVVG   WWW " },
+            " WWW   GVVVG   WWW ", 
+            "WWCWW  VLLLV  WWCWW", 
+            "PCSCRGGGLLLGGGRCSCP", 
+            "WWCWW  VLLLV  WWCWW",
+            " WWW   GVVVG   WWW " 
+        },
         {
-
-            " WWW   GVVVG   WWW ", "WWCWW  VLLLV  WWCWW", "RCSCR  VLLLV  RCSCR", "WWCWW  VLLLV  WWCWW",
-            " WWW   GVVVG   WWW " },
+            " WWW   GVVVG   WWW ", 
+            "WWCWW  VLLLV  WWCWW", 
+            "RCSCR  VLLLV  RCSCR",
+            "WWCWW  VLLLV  WWCWW",
+            " WWW   GVVVG   WWW " 
+        },
         {
-
-            " WWW   GGGGG   WWW ", "WWCWW  GVVVG  WWCWW", "RCSCR  GVGVG  RCSCR", "WWCWW  GVVVG  WWCWW",
-            " WWW   GGGGG   WWW " },
-        { "  WWW         WWW  ", " WWCWW       WWCWW ", " RCSCW   G   RCSCR ", " WWCWW       WWCWW ",
-            "  WWW         WWW  " },
+            " WWW   GGGGG   WWW ",
+            "WWCWW  GVVVG  WWCWW",
+            "RCSCR  GVGVG  RCSCR",
+            "WWCWW  GVVVG  WWCWW",
+            " WWW   GGGGG   WWW " 
+        },
+        { 
+        	"  WWW         WWW  ", 
+        	" WWCWW       WWCWW ", 
+        	" RCSCW   G   RCSCR ", 
+        	" WWCWW       WWCWW ",
+            "  WWW         WWW  " 
+        },
         {
-
-            "   WWW       WWW   ", "  WWCWW     WWCWW  ", "  RCSCR  G  RCSCR  ", "  WWCWW     WWCWW  ",
-            "   WWW       WWW   " },
-        { "    WWW     WWW    ", "   WWCWWWWWWWCWW   ", "   RCSCRRRRRCSCR   ", "   WWCWWWWWWWCWW   ",
-            "    WWW     WWW    " },
-        { "     WWWWWWWWW     ", "    WWCWWWWWCWW    ", "    RCSCCCCCSCR    ", "    WWCWWWWWCWW    ",
-            "     WWWWWWWWW     " },
-        { "      WWWWWWW      ", "     WWCCCCCWW     ", "     RCSSSSSCR     ", "     WWCCCCCWW     ",
-            "      WWWWWWW      " },
-        { "       WWWWW       ", "      WWWWWWW      ", "      RCCCCCR      ", "      WWWWWWW      ",
-            "       WWWWW       " },
-        { "                   ", "       WWWWW       ", "       RRPRR       ", "       WWWWW       ",
-            "                   " }
-
+            "   WWW       WWW   ", 
+            "  WWCWW     WWCWW  ", 
+            "  RCSCR  G  RCSCR  ", 
+            "  WWCWW     WWCWW  ",
+            "   WWW       WWW   " 
+        },
+        { 
+        	"    WWW     WWW    ", 
+        	"   WWCWWWWWWWCWW   ", 
+        	"   RCSCRRRRRCSCR   ", 
+        	"   WWCWWWWWWWCWW   ",
+            "    WWW     WWW    " 
+        },
+        { 
+        	"     WWWWWWWWW     ", 
+        	"    WWCWWWWWCWW    ", 
+        	"    RCSCCCCCSCR    ", 
+        	"    WWCWWWWWCWW    ",
+            "     WWWWWWWWW     " 
+        },
+        { 
+        	"      WWWWWWW      ", 
+        	"     WWCCCCCWW     ", 
+        	"     RCSSSSSCR     ", 
+        	"     WWCCCCCWW     ",
+            "      WWWWWWW      " 
+        },
+        { 
+        	"       WWWWW       ", 
+        	"      WWWWWWW      ", 
+        	"      RCCCCCR      ", 
+        	"      WWWWWWW      ",
+            "       WWWWW       " 
+        },
+        { 
+        	"                   ",
+        	"       WWWWW       ",
+        	"       RRPRR       ",
+        	"       WWWWW       ",
+            "                   " 
+        }
     };
+    //spotless:on
 
     private final Map<String, Integer> counts = new HashMap<String, Integer>();
 

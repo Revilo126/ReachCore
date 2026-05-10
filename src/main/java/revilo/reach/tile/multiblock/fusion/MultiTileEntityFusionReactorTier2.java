@@ -69,23 +69,20 @@ public class MultiTileEntityFusionReactorTier2
                     MultiTileEntityMultiBlockPart.NOTHING))
             .addElement(
                 'L',
-                StructureUtil.counted(
+                StructureUtil.counted3(
                     "versatile",
-                    3,
                     new StructureElementPart<>(
                         18200,
                         StructureUtil.getGTRegistryID(),
                         0,
                         MultiTileEntityMultiBlockPart.NOTHING),
                     "logic",
-                    12,
                     new StructureElementPart<>(
                         18201,
                         StructureUtil.getGTRegistryID(),
                         0,
                         MultiTileEntityMultiBlockPart.NOTHING),
                     "control",
-                    12,
                     new StructureElementPart<>(
                         18202,
                         StructureUtil.getGTRegistryID(),

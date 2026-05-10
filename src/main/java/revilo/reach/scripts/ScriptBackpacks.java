@@ -1,13 +1,9 @@
 package revilo.reach.scripts;
 
 import static gregapi.data.CS.*;
-import static gregapi.data.CS.OreDictToolNames.*;
-import static gregapi.data.MD.*;
-import static gregapi.data.OD.*;
 import static gregapi.data.OP.*;
 import static gregapi.data.RM.*;
 import static gregapi.util.CR.*;
-import static gregapi.util.ST.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,7 +16,6 @@ import gregapi.util.ST;
 import revilo.reach.data.RCCS.ModIds;
 import revilo.reach.data.RCMD;
 
-@SuppressWarnings("unused")
 public class ScriptBackpacks implements IScriptLoader {
 
     @Override
@@ -64,12 +59,6 @@ public class ScriptBackpacks implements IScriptLoader {
             ST.make(RCMD.BP, "workbenchbackpack", 1, 217));
 
         delate(ST.make(RCMD.BP, "backpack", 1, 31999));
-        Loom.addRecipeX(
-            T,
-            16,
-            128,
-            ST.array(ST.tag(4), ST.make(RCMD.BP, "backpack", 1, 0), ST.make(Blocks.ender_chest, 1, 0)),
-            ST.make(RCMD.BP, "backpack", 1, 31999));
 
         for (byte i = 0; i < 16; i++) {
             delate(ST.make(RCMD.BP, "backpack", 1, i + 1));

@@ -19,6 +19,8 @@ import gregapi.data.IL;
 import gregapi.data.MD;
 import gregapi.data.MT;
 import gregapi.data.RM;
+import gregapi.oredict.OreDictItemData;
+import gregapi.util.OM;
 import gregapi.util.ST;
 
 public class ScriptAE2 implements IScriptLoader {
@@ -62,7 +64,7 @@ public class ScriptAE2 implements IScriptLoader {
 
         QuartzFiber = make(MD.AE, "item.ItemMultiPart", 1, 140), FluixCable = make(MD.AE, "item.ItemMultiPart", 1, 16),
         FluixCoveredCable = make(MD.AE, "item.ItemMultiPart", 1, 36),
-        FluixDenseCoveredCable = make(MD.AE, "item.ItemMultiPart", 1, 546),
+        FluixDenseCoveredCable = make(MD.AE, "item.ItemMultiPart", 1, 536),
         FluixSmartCable = make(MD.AE, "item.ItemMultiPart", 1, 56),
         FluixDenseSmartCable = make(MD.AE, "item.ItemMultiPart", 1, 76),
 
@@ -71,7 +73,12 @@ public class ScriptAE2 implements IScriptLoader {
         CapacityCard = make(MD.AE, "item.ItemMultiMaterial", 1, 27),
         CraftingCard = make(MD.AE, "item.ItemMultiMaterial", 1, 53),
         StickyCard = make(MD.AE, "item.ItemMultiMaterial", 1, 64),
-        VoidCard = make(MD.AE, "item.ItemMultiMaterial", 1, 68);
+        VoidCard = make(MD.AE, "item.ItemMultiMaterial", 1, 68),
+
+        AdvCard = make(MD.AE, "item.ItemMultiMaterial", 1, 28),
+        FuzzyCard = make(MD.AE, "item.ItemMultiMaterial", 1, 29),
+        AccelCard = make(MD.AE, "item.ItemMultiMaterial", 1, 30),
+        InverterCard = make(MD.AE, "item.ItemMultiMaterial", 1, 31);
 
     @Override
     public void loadRecipes() {
@@ -204,6 +211,15 @@ public class ScriptAE2 implements IScriptLoader {
             'T',
             casingMachine.dat(MT.Trinaquadalloy));
 
+        shaped(CraftingStorage1, DEF_REM_REV, "US", "wd", 'U', CraftingUnit, 'S', Storage1);
+        shaped(CraftingStorage4, DEF_REM_REV, "US", "wd", 'U', CraftingUnit, 'S', Storage4);
+        shaped(CraftingStorage16, DEF_REM_REV, "US", "wd", 'U', CraftingUnit, 'S', Storage16);
+        shaped(CraftingStorage64, DEF_REM_REV, "US", "wd", 'U', CraftingUnit, 'S', Storage64);
+        shaped(CraftingStorage256, DEF_REM_REV, "US", "wd", 'U', CraftingUnit, 'S', Storage256);
+        shaped(CraftingStorage1024, DEF_REM_REV, "US", "wd", 'U', CraftingUnit, 'S', Storage1024);
+        shaped(CraftingStorage4096, DEF_REM_REV, "US", "wd", 'U', CraftingUnit, 'S', Storage4096);
+        shaped(CraftingStorage16384, DEF_REM_REV, "US", "wd", 'U', CraftingUnit, 'S', Storage16384);
+
         shaped(
             Storage1,
             DEF_REM_REV,
@@ -281,6 +297,30 @@ public class ScriptAE2 implements IScriptLoader {
         shapeless(IlluminatedPanel, array(DarkPanel));
 
         shaped(
+            StorageHousing,
+            DEF_REM_REV,
+            "dNh",
+            "TCT",
+            'N',
+            plateTiny.mat(MT.NiobiumTitanium, 1),
+            'T',
+            plate.mat(MT.Ti, 1),
+            'C',
+            OD_CIRCUITS[5]);
+
+        shaped(
+            AdvStorageHousing,
+            DEF_REM_REV,
+            "dNh",
+            "TCT",
+            'N',
+            plateTiny.mat(MT.Ir, 1),
+            'T',
+            plate.mat(MT.Os, 1),
+            'C',
+            OD_CIRCUITS[7]);
+
+        shaped(
             FluixSmartCable,
             DEF_REM_REV,
             "FMF",
@@ -333,6 +373,8 @@ public class ScriptAE2 implements IScriptLoader {
             "RS ",
             "BPd",
             "RS ",
+            'B',
+            BasicCard,
             'R',
             wireFine.mat(MT.RedAlloy, 1),
             'S',
@@ -345,6 +387,8 @@ public class ScriptAE2 implements IScriptLoader {
             "CS ",
             "BPd",
             "CS ",
+            'B',
+            BasicCard,
             'C',
             make(MD.AE, "item.ItemMultiMaterial", 1, 36),
             'S',
@@ -357,6 +401,8 @@ public class ScriptAE2 implements IScriptLoader {
             "CS ",
             "BPd",
             "CS ",
+            'B',
+            BasicCard,
             'C',
             make(Blocks.crafting_table, 1, 0),
             'S',
@@ -366,10 +412,12 @@ public class ScriptAE2 implements IScriptLoader {
         shaped(
             StickyCard,
             DEF_REM_REV,
-            "SS ",
+            "AS ",
             "BPd",
-            "SS ",
-            'S',
+            "AS ",
+            'B',
+            BasicCard,
+            'A',
             make(Items.slime_ball, 1, 0),
             'S',
             screw.mat(MT.Ir, 1),
@@ -381,35 +429,62 @@ public class ScriptAE2 implements IScriptLoader {
             "ES ",
             "BPd",
             "ES ",
+            'B',
+            BasicCard,
             'E',
             make(Items.ender_pearl, 1, 0),
             'S',
             screw.mat(MT.Ir, 1),
             'P',
             plate.mat(MT.Ir, 1));
+
+        shaped(
+            AdvCard,
+            DEF_REM_REV,
+            "POS",
+            "CUI",
+            "POS",
+            'P',
+            wireFine.mat(MT.Pt, 1),
+            'O',
+            plateCurved.mat(MT.Os, 1),
+            'S',
+            screw.mat(MT.Ir, 1),
+            'C',
+            wireFine.mat(MT.Co, 1),
+            'U',
+            OD_CIRCUITS[6],
+            'I',
+            plate.mat(MT.Ir, 1));
+
     }
 
     @Override
     public void loadMachines() {
         delate(QuartzFiber);
-        RM.RollBender.addRecipe1(T, 256, 128, plate.mat(MT.CertusQuartz, 1), QuartzFiber);
+        RM.RollBender.addRecipe1(T, 256, 128, plateGem.mat(MT.CertusQuartz, 1), QuartzFiber);
+        OM.data(QuartzFiber, new OreDictItemData(MT.CertusQuartz, U));
         delate(FluixCable);
         RM.Injector.addRecipe2(T, 1024, 64, QuartzFiber, crystal.mat(MT.Fluix, 1), FluixCable);
+        OM.data(FluixCable, new OreDictItemData(MT.CertusQuartz, U, MT.Fluix, U));
         delate(FluixCoveredCable);
         RM.Laminator.addRecipe2(T, 256, 128, plate.mat(ANY.Rubber, 1), FluixCable, FluixCoveredCable);
+        OM.data(FluixCable, new OreDictItemData(MT.CertusQuartz, U, MT.Fluix, U, ANY.Rubber, U));
         delate(FluixDenseCoveredCable);
-        RM.Laminator.addRecipe2(
-            T,
-            256,
-            128,
-            plate.mat(ANY.Rubber, 4),
-            make(MD.AE, "item.ItemMultiPart", 4, 16),
-            FluixDenseCoveredCable);
+        RM.Compressor.addRecipe1(T, 256, 64, amount(4, FluixCoveredCable), FluixDenseCoveredCable);
+        OM.data(FluixCable, new OreDictItemData(MT.CertusQuartz, U * 4, MT.Fluix, U * 4, ANY.Rubber, U * 4));
 
         for (byte i = 0; i < 16; i++) {
             delate(make(MD.AE, "item.ItemMultiPart", 1, i));
-            RM.Bath
-                .addRecipe1(T, 0, 128, FluixCable, DYE_FLUIDS_CHEMICAL[i], NF, make(MD.AE, "item.ItemMultiPart", 1, i));
+            RM.Bath.addRecipe1(
+                T,
+                0,
+                128,
+                FluixCable,
+                DYE_FLUIDS_CHEMICAL[15 - i],
+                NF,
+                make(MD.AE, "item.ItemMultiPart", 1, i));
+            OM.data(make(MD.AE, "item.ItemMultiPart", 1, i), new OreDictItemData());
             delate(make(MD.AE, "item.ItemMultiPart", 1, i + 20));
             RM.Bath.addRecipe1(
                 T,

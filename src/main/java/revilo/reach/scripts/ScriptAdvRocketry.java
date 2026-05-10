@@ -19,6 +19,7 @@ import net.minecraft.item.ItemStack;
 
 import gregapi.data.ANY;
 import gregapi.data.FL;
+import gregapi.data.IL;
 import gregapi.data.MD;
 import gregapi.data.MT;
 import zmaster587.advancedRocketry.api.AdvancedRocketryAPI;
@@ -37,10 +38,11 @@ public class ScriptAdvRocketry implements IScriptLoader {
         advEngine = make(MD.GC_ADV_ROCKETRY, "tile.advRocket", 1), fuelTank = make(MD.GC_ADV_ROCKETRY, "fuelTank", 1),
         sawBlade = make(MD.GC_ADV_ROCKETRY, "sawBlade", 1), concrete = make(MD.GC_ADV_ROCKETRY, "tile.concrete", 1),
         platePress = make(MD.GC_ADV_ROCKETRY, "blockHandPress", 1),
-        airLock = make(MD.GC_ADV_ROCKETRY, "smallAirlockDoor", 1),
+        airLock = make(MD.GC_ADV_ROCKETRY, "item.smallAirlock", 1),
         landingPad = make(MD.GC_ADV_ROCKETRY, "dockingPad", 1),
-        oxygenDetector = make(MD.GC_ADV_ROCKETRY, "tile.atmosphereDetector", 1),
-        oxygenScrubber = make(MD.GC_ADV_ROCKETRY, "tile.scrubber", 1), lens = make(MD.GC_ADV_ROCKETRY, "lens", 1);
+        atmosDetector = make(MD.GC_ADV_ROCKETRY, "tile.atmosphereDetector", 1),
+        co2Scrubber = make(MD.GC_ADV_ROCKETRY, "tile.scrubber", 1),
+        oxygenVent = make(MD.GC_ADV_ROCKETRY, "tile.oxygenVent", 1), lens = make(MD.GC_ADV_ROCKETRY, "lens", 1);
 
     // Items
     private ItemStack wafer = make(MD.GC_ADV_ROCKETRY, "wafer", 1),
@@ -80,44 +82,62 @@ public class ScriptAdvRocketry implements IScriptLoader {
         delate(platePress);
         delate(airLock);
         delate(landingPad);
-        delate(oxygenDetector);
-        delate(oxygenScrubber);
+        delate(atmosDetector);
+        delate(co2Scrubber);
+        delate(oxygenVent);
         delate(lens);
 
         shapeless(landingPad, array(make(BlocksGT.Concrete, 1, 0)));
 
         shaped(
-            oxygenDetector,
+            atmosDetector,
             DEF_REV_NCC,
-            "wPs",
+            "wPd",
             "CMC",
             "SGS",
             'P',
-            plate.dat(MT.StainlessSteel),
+            plate.mat(MT.StainlessSteel, 1),
             'C',
             OD_CIRCUITS[3],
             'M',
-            casingMachine.dat(MT.StainlessSteel),
+            casingMachine.mat(MT.StainlessSteel, 1),
             'S',
-            screw.dat(MT.StainlessSteel),
+            screw.mat(MT.StainlessSteel, 1),
             'G',
             carbonCartridge);
         shaped(
-            oxygenDetector,
+            co2Scrubber,
             DEF_REV_NCC,
-            "wPs",
+            "wPd",
             "CRC",
             "GMG",
             'P',
-            plate.dat(MT.StainlessSteel),
+            plate.mat(MT.StainlessSteel, 1),
             'C',
             OD_CIRCUITS[3],
             'M',
-            casingMachine.dat(MT.StainlessSteel),
+            casingMachine.mat(MT.StainlessSteel, 1),
             'G',
             carbonCartridge,
             'R',
-            rotor.dat(MT.StainlessSteel));
+            rotor.mat(MT.StainlessSteel, 1));
+        shaped(
+            oxygenVent,
+            DEF_REV_NCC,
+            "wPd",
+            "CMC",
+            "ROR",
+            'P',
+            plate.mat(MT.StainlessSteel, 1),
+            'C',
+            OD_CIRCUITS[3],
+            'M',
+            casingMachine.mat(MT.StainlessSteel, 1),
+            'R',
+            rotor.mat(MT.StainlessSteel, 1),
+            'O',
+            IL.MOTORS[3]);
+
     }
 
     @Override
@@ -128,7 +148,7 @@ public class ScriptAdvRocketry implements IScriptLoader {
             uniSpace.addEnchantment(AdvancedRocketryAPI.enchantmentSpaceProtection, 1);
             Laminator.addRecipe2(
                 T,
-                16,
+                64,
                 128,
                 plate.mat(ANY.Rubber, 2),
                 make((Item) ArmorsGT.HAZMAT_UNIVERSAL[i], 1, 0),
@@ -137,7 +157,7 @@ public class ScriptAdvRocketry implements IScriptLoader {
 
         Injector.addRecipe1(
             T,
-            16,
+            64,
             64,
             make(BlocksGT.Concrete, 1, 7),
             FL.array(DYE_FLUIDS_WATER[DYE_INDEX_Black], DYE_FLUIDS_WATER[DYE_INDEX_Yellow]),
@@ -145,7 +165,7 @@ public class ScriptAdvRocketry implements IScriptLoader {
             launchpad);
         Injector.addRecipe1(
             T,
-            16,
+            64,
             64,
             make(BlocksGT.Concrete, 1, 7),
             FL.array(DYE_FLUIDS_FLOWER[DYE_INDEX_Black], DYE_FLUIDS_FLOWER[DYE_INDEX_Yellow]),
@@ -153,16 +173,16 @@ public class ScriptAdvRocketry implements IScriptLoader {
             launchpad);
         Injector.addRecipe1(
             T,
-            16,
+            64,
             64,
             make(BlocksGT.Concrete, 1, 7),
             FL.array(DYE_FLUIDS_CHEMICAL[DYE_INDEX_Black], DYE_FLUIDS_CHEMICAL[DYE_INDEX_Yellow]),
             NF,
             launchpad);
 
-        Welder.addRecipe1(
+        Welder.addRecipe2(
             T,
-            16,
+            64,
             128,
             stickLong.mat(MT.StainlessSteel, 6),
             plate.mat(MT.StainlessSteel, 2),
@@ -173,15 +193,15 @@ public class ScriptAdvRocketry implements IScriptLoader {
 
         Welder.addRecipeX(
             T,
-            16,
+            256,
             512,
             array(tag(0), plateCurved.mat(MT.StainlessSteel, 4), pipeSmall.mat(MT.Al, 2)),
             engine);
-        Welder.addRecipeX(T, 16, 512, array(tag(0), plateCurved.mat(MT.Ti, 4), pipeMedium.mat(MT.Cr, 2)), engine);
+        Welder.addRecipeX(T, 1024, 512, array(tag(0), plateCurved.mat(MT.Ti, 4), pipeMedium.mat(MT.Cr, 2)), advEngine);
 
-        RollFormer.addRecipe1(T, 16, 128, plateCurved.mat(MT.StainlessSteel, 2), fuelTank);
+        RollFormer.addRecipe1(T, 256, 128, plateCurved.mat(MT.StainlessSteel, 2), fuelTank);
 
-        Welder.addRecipe1(T, 16, 64, plateDouble.mat(MT.StainlessSteel, 2), gear.mat(MT.Cr, 4), airLock);
+        Welder.addRecipe2(T, 256, 64, plateDouble.mat(MT.StainlessSteel, 2), gear.mat(MT.Cr, 4), airLock);
 
     }
 

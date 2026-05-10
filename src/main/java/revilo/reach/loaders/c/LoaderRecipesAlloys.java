@@ -7,7 +7,7 @@ import gregapi.data.RM;
 import gregapi.util.ST;
 import revilo.reach.loaders.helper.Loader;
 
-@Loader.PreInit(priority = 1)
+@Loader.PreInit(priority = 2)
 public class LoaderRecipesAlloys implements Runnable {
 
     @Override

@@ -12,7 +12,7 @@ import gregapi.util.ST;
 import revilo.reach.data.RCRM;
 import revilo.reach.loaders.helper.Loader;
 
-@Loader.PreInit(priority = 1)
+@Loader.PreInit(priority = 2)
 public class LoaderRecipesOthers implements Runnable {
 
     @Override

@@ -37,7 +37,7 @@ dependencies {
 	api("com.github.GTNewHorizons:ModularUI2:2.3.46-1.7.10:dev")
 	api("com.github.GTNewHorizons:GTNHLib:0.9.44:dev")
 	
-	api("com.github.Revilo126:MultiHelper:0.0.2.3") {
+	api("com.github.Revilo126:MultiHelper:0.0.3") {
 		// Keep GT from being shipped with MultiHelper
     	exclude group: "com.gregoriust.gregtech"
 	}
@@ -48,10 +48,10 @@ dependencies {
     implementation("com.github.GTNewHorizons:CodeChickenCore:1.4.12:dev")
     
     compileOnly("curse.maven:advrocketry-236542:2495943")
-    compileOnly("curse.maven:libVulpes-236541:2812784")
+    compileOnly("curse.maven:libVulpes-236541:2812784") // TODO: Fork
     
     compileOnly("micdoodle8.mods:MicdoodleCore:1.7-3.0.12.504:Dev")
-    compileOnly("micdoodle8.mods:GalacticraftCore:1.7-3.0.12.504:Dev") // TODO: Fork
+    compileOnly("micdoodle8.mods:GalacticraftCore:1.7-3.0.12.504:Dev")
     
     compileOnly("curse.maven:avaritia-233785:2519595") // TODO: Fork
     
