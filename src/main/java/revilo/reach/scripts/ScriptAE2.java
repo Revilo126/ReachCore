@@ -15,12 +15,11 @@ import net.minecraft.item.ItemStack;
 
 import gregapi.data.ANY;
 import gregapi.data.CS.ModIDs;
+import gregapi.data.CS.ToolsGT;
 import gregapi.data.IL;
 import gregapi.data.MD;
 import gregapi.data.MT;
 import gregapi.data.RM;
-import gregapi.oredict.OreDictItemData;
-import gregapi.util.OM;
 import gregapi.util.ST;
 
 public class ScriptAE2 implements IScriptLoader {
@@ -55,12 +54,27 @@ public class ScriptAE2 implements IScriptLoader {
         Storage4096 = make(MD.AE, "item.ItemMultiMaterial", 1, 59),
         Storage16384 = make(MD.AE, "item.ItemMultiMaterial", 1, 60),
 
+        StorageCell1 = make(MD.AE, "item.ItemBasicStorageCell.1k", 1, 0),
+        StorageCell4 = make(MD.AE, "item.ItemBasicStorageCell.4k", 1, 0),
+        StorageCell16 = make(MD.AE, "item.ItemBasicStorageCell.16k", 1, 0),
+        StorageCell64 = make(MD.AE, "item.ItemBasicStorageCell.64k", 1, 0),
+        StorageCell256 = make(MD.AE, "item.ItemAdvancedStorageCell.256k", 1, 0),
+        StorageCell1024 = make(MD.AE, "item.ItemAdvancedStorageCell.1024k", 1, 0),
+        StorageCell4096 = make(MD.AE, "item.ItemAdvancedStorageCell.4096k", 1, 0),
+        StorageCell16384 = make(MD.AE, "item.ItemAdvancedStorageCell.16384k", 1, 0),
+
         BrightPanel = make(MD.AE, "item.ItemMultiPart", 1, 160),
         IlluminatedPanel = make(MD.AE, "item.ItemMultiPart", 1, 180),
         DarkPanel = make(MD.AE, "item.ItemMultiPart", 1, 200),
 
+        Terminal = make(MD.AE, "item.ItemMultiPart", 1, 380),
+        CraftingTerminal = make(MD.AE, "item.ItemMultiPart", 1, 360),
+        PatternTerminal = make(MD.AE, "item.ItemMultiPart", 1, 340),
+
         StorageHousing = make(MD.AE, "item.ItemMultiMaterial", 1, 39),
         AdvStorageHousing = make(MD.AE, "item.ItemMultiMaterial", 1, 61),
+
+        EmptyPattern = make(MD.AE, "item.ItemMultiMaterial", 1, 52),
 
         QuartzFiber = make(MD.AE, "item.ItemMultiPart", 1, 140), FluixCable = make(MD.AE, "item.ItemMultiPart", 1, 16),
         FluixCoveredCable = make(MD.AE, "item.ItemMultiPart", 1, 36),
@@ -276,9 +290,10 @@ public class ScriptAE2 implements IScriptLoader {
             Storage16,
             'P',
             IL.Processor_Crystal_Emerald.get(1));
+        // TODO: Advanced Storage Components
 
-        shapeless(BrightPanel, array(IlluminatedPanel, make(Items.glowstone_dust, 1, 0)));
-        shapeless(DarkPanel, array(IlluminatedPanel, dust.mat(MT.OREMATS.Magnetite, 1)));
+        shapeless(BrightPanel, DEF_REM_REV, array(IlluminatedPanel, make(Items.glowstone_dust, 1, 0)));
+        shapeless(DarkPanel, DEF_REM_REV, array(IlluminatedPanel, dust.mat(MT.OREMATS.Magnetite, 1)));
         shaped(
             IlluminatedPanel,
             DEF_REM_REV,
@@ -292,9 +307,36 @@ public class ScriptAE2 implements IScriptLoader {
             'L',
             lens.mat(MT.PurpleSapphire, 1),
             'T',
-            plate.mat(MT.Ti, 1));
+            plate.mat(MT.Ti, 1),
+            'P',
+            make(Blocks.glass_pane, 1, 0));
         shapeless(IlluminatedPanel, array(BrightPanel));
         shapeless(IlluminatedPanel, array(DarkPanel));
+
+        shaped(
+            Terminal,
+            DEF_REM_REV,
+            "wUd",
+            "NCN",
+            "STS",
+            'U',
+            IL.USB_Cable_4.get(1),
+            'N',
+            plate.mat(MT.NiobiumTitanium, 1),
+            'C',
+            OD_CIRCUITS[6],
+            'S',
+            screw.mat(MT.Ti, 1),
+            'T',
+            "itemIllumitatedPanel");
+        shapeless(
+            CraftingTerminal,
+            DEF_REM_REV,
+            array(Terminal, IL.Cover_Crafting.get(1), ToolsGT.sMetaTool.make(ToolsGT.SCREWDRIVER)));
+        shapeless(
+            PatternTerminal,
+            DEF_REM_REV,
+            array(Terminal, EmptyPattern, ToolsGT.sMetaTool.make(ToolsGT.SCREWDRIVER)));
 
         shaped(
             StorageHousing,
@@ -319,6 +361,21 @@ public class ScriptAE2 implements IScriptLoader {
             plate.mat(MT.Os, 1),
             'C',
             OD_CIRCUITS[7]);
+
+        shaped(
+            EmptyPattern,
+            DEF_REM_REV,
+            "dUh",
+            "TCT",
+            " A ",
+            'U',
+            IL.USB_Stick_4.get(1),
+            'T',
+            plate.mat(MT.Ti, 1),
+            'C',
+            OD_CIRCUITS[6],
+            'A',
+            plateTiny.mat(MT.TitaniumAluminide, 1));
 
         shaped(
             FluixSmartCable,
@@ -463,16 +520,12 @@ public class ScriptAE2 implements IScriptLoader {
     public void loadMachines() {
         delate(QuartzFiber);
         RM.RollBender.addRecipe1(T, 256, 128, plateGem.mat(MT.CertusQuartz, 1), QuartzFiber);
-        OM.data(QuartzFiber, new OreDictItemData(MT.CertusQuartz, U));
         delate(FluixCable);
         RM.Injector.addRecipe2(T, 1024, 64, QuartzFiber, crystal.mat(MT.Fluix, 1), FluixCable);
-        OM.data(FluixCable, new OreDictItemData(MT.CertusQuartz, U, MT.Fluix, U));
         delate(FluixCoveredCable);
         RM.Laminator.addRecipe2(T, 256, 128, plate.mat(ANY.Rubber, 1), FluixCable, FluixCoveredCable);
-        OM.data(FluixCable, new OreDictItemData(MT.CertusQuartz, U, MT.Fluix, U, ANY.Rubber, U));
         delate(FluixDenseCoveredCable);
         RM.Compressor.addRecipe1(T, 256, 64, amount(4, FluixCoveredCable), FluixDenseCoveredCable);
-        OM.data(FluixCable, new OreDictItemData(MT.CertusQuartz, U * 4, MT.Fluix, U * 4, ANY.Rubber, U * 4));
 
         for (byte i = 0; i < 16; i++) {
             delate(make(MD.AE, "item.ItemMultiPart", 1, i));
@@ -484,7 +537,6 @@ public class ScriptAE2 implements IScriptLoader {
                 DYE_FLUIDS_CHEMICAL[15 - i],
                 NF,
                 make(MD.AE, "item.ItemMultiPart", 1, i));
-            OM.data(make(MD.AE, "item.ItemMultiPart", 1, i), new OreDictItemData());
             delate(make(MD.AE, "item.ItemMultiPart", 1, i + 20));
             RM.Bath.addRecipe1(
                 T,
@@ -522,6 +574,23 @@ public class ScriptAE2 implements IScriptLoader {
                 NF,
                 make(MD.AE, "item.ItemMultiPart", 1, i + 60));
         }
+
+        delate(StorageCell1);
+        RM.Welder.addRecipeX(T, 1024, 512, array(Storage1, StorageHousing, tag(0)), StorageCell1);
+        delate(StorageCell4);
+        RM.Welder.addRecipeX(T, 1024, 512, array(Storage4, StorageHousing, tag(1)), StorageCell4);
+        delate(StorageCell16);
+        RM.Welder.addRecipeX(T, 4096, 512, array(Storage16, StorageHousing, tag(3)), StorageCell16);
+        delate(StorageCell64);
+        RM.Welder.addRecipeX(T, 4096, 512, array(Storage64, StorageHousing, tag(3)), StorageCell64);
+        delate(StorageCell256);
+        RM.Welder.addRecipeX(T, 16384, 512, array(Storage256, AdvStorageHousing, tag(0)), StorageCell256);
+        delate(StorageCell1024);
+        RM.Welder.addRecipeX(T, 16384, 512, array(Storage1024, AdvStorageHousing, tag(1)), StorageCell1024);
+        delate(StorageCell4096);
+        RM.Welder.addRecipeX(T, 65536, 512, array(Storage4096, AdvStorageHousing, tag(2)), StorageCell4096);
+        delate(StorageCell16384);
+        RM.Welder.addRecipeX(T, 65536, 512, array(Storage16384, AdvStorageHousing, tag(3)), StorageCell16384);
     }
 
     @Override

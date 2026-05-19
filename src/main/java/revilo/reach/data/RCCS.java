@@ -33,8 +33,8 @@ public class RCCS {
 
     public static class ItemsReach {
 
-        public static MultiItemRandom TECH;
-        public static MultiItemRandom[] ALL_MULTI_ITEMS = new MultiItemRandom[] { TECH };
+        public static MultiItemRandom TECH, LOOT;
+        public static MultiItemRandom[] ALL_MULTI_ITEMS = new MultiItemRandom[] { TECH, LOOT };
     }
 
     public static class BlocksReach {

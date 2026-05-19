@@ -19,6 +19,7 @@ public class ClientProxy extends Abstract_Proxy {
             .register(new FirstLoginHandler());
     }
 
+    @Override
     public void onProxyAfterServerStarted(Abstract_Mod aMod, FMLServerStartedEvent aEvent) {
         if (!hasMessages) {
             CF.serverStartMessages();

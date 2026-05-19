@@ -2,7 +2,6 @@ package revilo.reach.mixins;
 
 import static gregapi.data.CS.*;
 import static gregapi.data.MT.*;
-import static revilo.reach.data.RCMT.*;
 
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -77,6 +76,7 @@ public class MixinMaterialTierData {
     @Inject(method = "<clinit>", at = @At("TAIL"))
     private static void reach$refactorMaterialData(CallbackInfo ci) {
         OUT.println("Reach: Refactoring GT6's Material Data");
+        // spotless:off
         WIRES_01 = new OreDictItemData[] { OP.wireGt01.dat(Pb), // ULV
             OP.wireGt01.dat(Sn), // LV
             OP.wireGt01.dat(ANY.Cu), // MV
@@ -151,15 +151,76 @@ public class MixinMaterialTierData {
             OP.circuit.dat(RCMT.QuantumT2), OP.circuit.dat(RCMT.QuantumT3), OP.circuit.dat(RCMT.QuantumT4),
             OP.circuit.dat(RCMT.QuantumT5), OP.circuit.dat(RCMT.QuantumT6), OP.circuit.dat(RCMT.QuantumT7) };
 
-        Heat_T = new OreDictMaterial[] { ANY.Stone, ANY.Steel, Invar, Ti, TungstenCarbide, ANY.W, ANY.W, ANY.W, ANY.W,
-            ANY.W, ANY.W, ANY.W, ANY.W, ANY.W, ANY.W, ANY.W };
-        Kinetic_T = new OreDictMaterial[] { ANY.Wood, Bronze, ANY.Steel, Ti, TungstenSteel, Ir, Os, Os, Os, Os, Os, Os,
-            Os, Os, Os, Os };
-        Electric_T = new OreDictMaterial[] { TinAlloy, SteelGalvanized, Al, StainlessSteel, Cr, Ti, Ir, Os, Trinitanium,
-            Trinaquadalloy, Uue, AdUue, Neutronium, Infinity, Neutronium, Neutronium };
-        Flux_T = new OreDictMaterial[] { Sn, Pb, Invar, Electrum, EnderiumBase, Enderium, TungstenCarbide,
-            TungstenCarbide, TungstenCarbide, TungstenCarbide, TungstenCarbide, TungstenCarbide, TungstenCarbide,
-            TungstenCarbide, TungstenCarbide, TungstenCarbide };
+        Heat_T = new OreDictMaterial[] { 
+        		ANY.Stone, 
+        		ANY.Steel, 
+        		Invar, 
+        		Ti, 
+        		TungstenCarbide, 
+        		ANY.W, 
+        		ANY.W, 
+        		ANY.W, 
+        		ANY.W,
+        		ANY.W, 
+        		ANY.W, 
+        		ANY.W, 
+        		ANY.W, 
+        		ANY.W, 
+        		ANY.W, 
+        		ANY.W };
+        Kinetic_T = new OreDictMaterial[] { 
+        		ANY.Wood, 
+        		Bronze, 
+        		ANY.Steel, 
+        		Ti, 
+        		TungstenSteel, 
+        		Ir, 
+        		Os, 
+        		Os, 
+        		Os, 
+        		Os, 
+        		Os, 
+        		Os,
+        		Os, 
+        		Os, 
+        		Os, 
+        		Os };
+        Electric_T = new OreDictMaterial[] { 
+        		TinAlloy, // ULV
+        		SteelGalvanized, // LV 
+        		Al, // MV
+        		StainlessSteel, //Hv
+        		Cr, // EV
+        		Ti, // IV
+        		Ir, // LuV
+        		Os, // ZPM
+        		Trinitanium, // UV
+        		Trinaquadalloy, // PUV1
+        		Neutronium, // PUV2
+        		Neutronium, // PUV3
+        		Neutronium, // PUV4
+        		Neutronium, // PUV5
+        		Infinity, // MAX
+        		Neutronium // MAX+
+        	};
+        Flux_T = new OreDictMaterial[] { 
+        		Sn, 
+        		Pb, 
+        		Invar, 
+        		Electrum, 
+        		EnderiumBase, 
+        		Enderium, 
+        		TungstenCarbide,
+        		TungstenCarbide, 
+        		TungstenCarbide,
+        		TungstenCarbide,
+        		TungstenCarbide,
+        		TungstenCarbide,
+        		TungstenCarbide,
+        		TungstenCarbide,
+        		TungstenCarbide,
+        		TungstenCarbide };
+        // spotless:on
     }
 
 }

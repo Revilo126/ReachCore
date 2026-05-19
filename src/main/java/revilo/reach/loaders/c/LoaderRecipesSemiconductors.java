@@ -40,20 +40,13 @@ public class LoaderRecipesSemiconductors implements Runnable {
     public void run() {
 
         // Wafers
-        Mixer.addRecipe1(
-            T,
-            64,
-            512,
-            plateGem.mat(MT.Si, 1),
-            MT.HF.liquid(1 * U, T),
-            NF,
-            RCIL.Crude_Silicon_Wafer.get(1));
+        Mixer.addRecipe1(T, 64, 512, plateGem.mat(MT.Si, 1), MT.HF.gas(1 * U, T), NF, RCIL.Crude_Silicon_Wafer.get(1));
         Mixer.addRecipe1(
             T,
             1024,
             1024,
             RCIL.Crude_Silicon_Wafer.get(1),
-            MT.KOH.liquid(4 * U, T),
+            MT.KOH.gas(4 * U, T),
             NF,
             RCIL.Polished_Silicon_Wafer.get(1));
 

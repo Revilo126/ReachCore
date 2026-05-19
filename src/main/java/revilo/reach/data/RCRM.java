@@ -2,7 +2,9 @@ package revilo.reach.data;
 
 import static gregapi.data.CS.*;
 
-import gregapi.data.CS;
+import java.util.ArrayList;
+import java.util.List;
+
 import gregapi.recipes.Recipe.RecipeMap;
 import revilo.multihelper.recipe.RecipeMapBuilder;
 
@@ -10,6 +12,8 @@ import revilo.multihelper.recipe.RecipeMapBuilder;
  * Reach's Recipe Maps
  */
 public class RCRM {
+
+    public static final List<RecipeMap> REACH_RECIPEMAPS = new ArrayList<>();
 
     public static final RecipeMap Polymerization = RecipeMapBuilder
         .builder("reach.recipe.polymerization", "Polymerization Tank")
@@ -29,9 +33,9 @@ public class RCRM {
         .NEISpecial("Start: ", 1, " LU")
         .build();
 
-    public static final RecipeMap InterPlanetarySyphon = RecipeMapBuilder
-        .builder("reach.recipe.planetarysyphon", "Inter-Planetary Syphon")
-        .setGuiPath(RES_PATH_GUI + "machines/PlanetarySyphon")
+    public static final RecipeMap InterPlanetarySiphon = RecipeMapBuilder
+        .builder("reach.recipe.planetarysyphon", "Inter-Planetary Siphon")
+        .setGuiPath(RCCS.RES_PATH_GUI + "machines/PlanetarySiphon")
         .itemIO(1, 6, 0)
         .fluidIO(1, 6, 0)
         .minimumInputs(1)
@@ -39,13 +43,31 @@ public class RCRM {
         .build();
 
     public static RecipeMap MultiMill = RecipeMapBuilder.builder("reach.recipe.multimill", "Multi Mill")
-        .setGuiPath(CS.RES_PATH_GUI + "machines/Wiremill")
+        .setGuiPath(RES_PATH_GUI + "machines/Wiremill")
         .itemIO(2, 1, 1)
+        .minimumInputs(1)
         .build();
 
     public static RecipeMap Lithography = RecipeMapBuilder.builder("reach.recipe.lithography", "Lithography")
-        .setGuiPath(RES_PATH_GUI + "machines/Lithography")
+        .setGuiPath(RCCS.RES_PATH_GUI + "machines/Lithography")
         .itemIO(2, 1, 1)
         .fluidIO(1, 0, 0)
+        .minimumInputs(1)
         .build();
+
+    public static RecipeMap ComponentAssembly = RecipeMapBuilder.builder("reach.recipe.component", "Component Assembly")
+        .setGuiPath(RCCS.RES_PATH_GUI + "machines/ComponentAssembly")
+        .itemIO(6, 1, 1)
+        .fluidIO(2, 0, 0)
+        .minimumInputs(1)
+        .build();
+
+    /*
+     * static {
+     * REACH_RECIPEMAPS.add(Polymerization);
+     * REACH_RECIPEMAPS.add(FusionT2);
+     * REACH_RECIPEMAPS.add(InterPlanetarySiphon);
+     * REACH_RECIPEMAPS.add(MultiMill);
+     * }
+     */
 }

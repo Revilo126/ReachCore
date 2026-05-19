@@ -48,6 +48,8 @@ public class MultiTileEntityLoader implements Runnable {
     public static int iridiumWall;
     public static int osmiumWall;
 
+    public static int welderPart;
+
     @Override
     public void run() {
         MultiTileEntityBlock aMetalWires = MultiTileEntityBlock.getOrCreate(
@@ -306,6 +308,19 @@ public class MultiTileEntityLoader implements Runnable {
                 7));
         OM.data(aRegistry.getItem(), aMat, U * 36);
         RM.Welder.addRecipe2(F, 64, 512, OP.plateDense.mat(aMat, 4), ST.tag(10), aRegistry.getItem());
+
+        welderPart = multiblockID;
+        aMat = MT.Ir;
+        aRegistry.add(
+            "Welder Part",
+            "Multiblock Machines",
+            multiblockID++,
+            10000,
+            aClass,
+            aMat.mToolQuality,
+            64,
+            aMachine,
+            UT.NBT.make(NBT_MATERIAL, aMat, NBT_HARDNESS, 12.5F, NBT_TEXTURE, "welderpart", NBT_DESIGNS, 3));
 
         aMat = MT.StainlessSteel;
         aRegistry.add(

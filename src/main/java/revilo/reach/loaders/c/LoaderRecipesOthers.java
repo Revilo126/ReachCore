@@ -1,11 +1,14 @@
 package revilo.reach.loaders.c;
 
 import static gregapi.data.CS.*;
+import static gregapi.data.OP.*;
 
 import java.util.Collection;
 
 import net.minecraft.item.ItemStack;
 
+import gregapi.data.FL;
+import gregapi.data.MT;
 import gregapi.data.RM;
 import gregapi.recipes.Recipe;
 import gregapi.util.ST;
@@ -84,6 +87,28 @@ public class LoaderRecipesOthers implements Runnable {
             RCRM.MultiMill.add(tCopy);
         }
 
-        // Modular Armour
+        // Inter-planetary Siphon
+
+        // Nova (TBD)
+
+        // Alkalai
+        RCRM.InterPlanetarySiphon.addRecipe2(
+            T,
+            65536,
+            25600,
+            ST.tag(0),
+            ST.tag(1),
+            NF,
+            FL.Argon.make(U4),
+            dust.mat(MT.Fe, 64),
+            dust.mat(MT.Cu, 64),
+            dust.mat(MT.Au, 48),
+            dust.mat(MT.W, 32),
+            dust.mat(MT.Be, 32),
+            dust.mat(MT.Mg, 32));
+
+        // Reach
+        RCRM.InterPlanetarySiphon
+            .addRecipe2(T, 65536, 2560, ST.tag(0), ST.tag(2), NF, FL.Helium.make(U), FL.Nitrogen.make(U));
     }
 }

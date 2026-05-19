@@ -49,7 +49,12 @@ public enum RCIL implements IItemContainer {
     IV_Chip,
     LuV_Chip,
 
-    Laptop_Tool;
+    Laptop_Tool,
+
+    Bag_Loot_Steam,
+    Bag_Loot_LV,
+    Bag_Loot_MV,
+    Bag_Loot_HV;
 
     private ItemStack mStack;
     private boolean mHasNotBeenSet = T;
