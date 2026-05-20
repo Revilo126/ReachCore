@@ -12,7 +12,9 @@ import static gregapi.util.ST.*;
 import java.util.Arrays;
 import java.util.List;
 
+import gregapi.code.ModData;
 import gregapi.data.CS.ModIDs;
+import gregapi.data.MD;
 
 @SuppressWarnings("unused")
 public class ScriptAvaritia implements IScriptLoader {
@@ -77,5 +79,10 @@ public class ScriptAvaritia implements IScriptLoader {
     @Override
     public List<String> getDependencies() {
         return Arrays.asList(ModIDs.AV);
+    }
+
+    @Override
+    public ModData getModData() {
+        return MD.AV;
     }
 }

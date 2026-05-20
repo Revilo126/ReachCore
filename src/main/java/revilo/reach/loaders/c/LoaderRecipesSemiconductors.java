@@ -46,7 +46,7 @@ public class LoaderRecipesSemiconductors implements Runnable {
             1024,
             1024,
             RCIL.Crude_Silicon_Wafer.get(1),
-            MT.KOH.gas(4 * U, T),
+            MT.HCl.gas(4 * U, T),
             NF,
             RCIL.Polished_Silicon_Wafer.get(1));
 

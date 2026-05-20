@@ -7,7 +7,6 @@ import static gregapi.data.OD.*;
 import static gregapi.data.OP.*;
 import static gregapi.data.RM.*;
 import static gregapi.util.CR.*;
-import static gregapi.util.ST.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,11 +16,13 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import gregapi.code.ModData;
 import gregapi.data.ANY;
 import gregapi.data.FL;
 import gregapi.data.IL;
 import gregapi.data.MD;
 import gregapi.data.MT;
+import gregapi.util.ST;
 import zmaster587.advancedRocketry.api.AdvancedRocketryAPI;
 
 @SuppressWarnings("unused")
@@ -32,32 +33,21 @@ public class ScriptAdvRocketry implements IScriptLoader {
      */
 
     // Blocks
-    private ItemStack launchpad = make(MD.GC_ADV_ROCKETRY, "launchpad", 1),
-        structureTower = make(MD.GC_ADV_ROCKETRY, "structureTower", 1),
-        genericSeat = make(MD.GC_ADV_ROCKETRY, "seat", 1), engine = make(MD.GC_ADV_ROCKETRY, "rocketmotor", 1),
-        advEngine = make(MD.GC_ADV_ROCKETRY, "tile.advRocket", 1), fuelTank = make(MD.GC_ADV_ROCKETRY, "fuelTank", 1),
-        sawBlade = make(MD.GC_ADV_ROCKETRY, "sawBlade", 1), concrete = make(MD.GC_ADV_ROCKETRY, "tile.concrete", 1),
-        platePress = make(MD.GC_ADV_ROCKETRY, "blockHandPress", 1),
-        airLock = make(MD.GC_ADV_ROCKETRY, "item.smallAirlock", 1),
-        landingPad = make(MD.GC_ADV_ROCKETRY, "dockingPad", 1),
-        atmosDetector = make(MD.GC_ADV_ROCKETRY, "tile.atmosphereDetector", 1),
-        co2Scrubber = make(MD.GC_ADV_ROCKETRY, "tile.scrubber", 1),
-        oxygenVent = make(MD.GC_ADV_ROCKETRY, "tile.oxygenVent", 1), lens = make(MD.GC_ADV_ROCKETRY, "lens", 1);
+    private ItemStack launchpad = make("launchpad", 1), structureTower = make("structureTower", 1),
+        genericSeat = make("seat", 1), engine = make("rocketmotor", 1), advEngine = make("tile.advRocket", 1),
+        fuelTank = make("fuelTank", 1), sawBlade = make("sawBlade", 1), concrete = make("tile.concrete", 1),
+        platePress = make("blockHandPress", 1), airLock = make("item.smallAirlock", 1),
+        landingPad = make("dockingPad", 1), atmosDetector = make("tile.atmosphereDetector", 1),
+        co2Scrubber = make("tile.scrubber", 1), oxygenVent = make("tile.oxygenVent", 1), lens = make("tile.lens", 1);
 
     // Items
-    private ItemStack wafer = make(MD.GC_ADV_ROCKETRY, "wafer", 1),
-        circuitPlate = make(MD.GC_ADV_ROCKETRY, "circuitplate", 1),
-        circuitIC = make(MD.GC_ADV_ROCKETRY, "circuitIC", 1), miscPart = make(MD.GC_ADV_ROCKETRY, "miscpart", 1),
-        sawBladeI = make(MD.GC_ADV_ROCKETRY, "sawBlade", 1),
-        spaceStationChip = make(MD.GC_ADV_ROCKETRY, "stationChip", 1),
-        elevatorChip = make(MD.GC_ADV_ROCKETRY, "elevatorChip", 1),
-        asteroidChip = make(MD.GC_ADV_ROCKETRY, "asteroidChip", 1),
-        stationPacked = make(MD.GC_ADV_ROCKETRY, "station", 1),
-        smallAirlock = make(MD.GC_ADV_ROCKETRY, "smallAirlock", 1),
-        carbonCartridge = make(MD.GC_ADV_ROCKETRY, "item.carbonScrubberCartridge", 1),
-        lensI = make(MD.GC_ADV_ROCKETRY, "lens", 1),
-        satellitePowerSource = make(MD.GC_ADV_ROCKETRY, "satellitePowerSource", 1),
-        satellitePrimaryFunction = make(MD.GC_ADV_ROCKETRY, "satellitePrimaryFunction", 1);
+    private ItemStack wafer = make("wafer", 1), circuitPlate = make("circuitplate", 1),
+        circuitIC = make("circuitIC", 1), miscPart = make("miscpart", 1), sawBladeI = make("sawBlade", 1),
+        spaceStationChip = make("stationChip", 1), elevatorChip = make("elevatorChip", 1),
+        asteroidChip = make("asteroidChip", 1), stationPacked = make("station", 1),
+        smallAirlock = make("smallAirlock", 1), carbonCartridge = make("item.carbonScrubberCartridge", 1),
+        lensI = make("lens", 1), satellitePowerSource = make("satellitePowerSource", 1),
+        satellitePrimaryFunction = make("satellitePrimaryFunction", 1);
 
     @Override
     public String getScriptName() {
@@ -67,6 +57,11 @@ public class ScriptAdvRocketry implements IScriptLoader {
     @Override
     public List<String> getDependencies() {
         return Arrays.asList(ModIDs.GC_ADV_ROCKETRY, ModIDs.VULPES);
+    }
+
+    @Override
+    public ModData getModData() {
+        return MD.GC_ADV_ROCKETRY;
     }
 
     @Override
@@ -87,7 +82,7 @@ public class ScriptAdvRocketry implements IScriptLoader {
         delate(oxygenVent);
         delate(lens);
 
-        shapeless(landingPad, array(make(BlocksGT.Concrete, 1, 0)));
+        shapeless(landingPad, ST.array(make(BlocksGT.Concrete, 1, 0)));
 
         shaped(
             atmosDetector,
@@ -188,20 +183,30 @@ public class ScriptAdvRocketry implements IScriptLoader {
             plate.mat(MT.StainlessSteel, 2),
             structureTower);
 
-        Loom.addRecipe2(T, 16, 16, tag(1), make(Blocks.wool, 2, 0), genericSeat);
-        Loom.addRecipe2(T, 16, 16, tag(2), make(Items.string, 8, 0), genericSeat);
+        Loom.addRecipe2(T, 16, 16, ST.tag(1), make(Blocks.wool, 2, 0), genericSeat);
+        Loom.addRecipe2(T, 16, 16, ST.tag(2), make(Items.string, 8, 0), genericSeat);
 
         Welder.addRecipeX(
             T,
             256,
             512,
-            array(tag(0), plateCurved.mat(MT.StainlessSteel, 4), pipeSmall.mat(MT.Al, 2)),
+            ST.array(ST.tag(0), plateCurved.mat(MT.StainlessSteel, 4), pipeSmall.mat(MT.Al, 2)),
             engine);
-        Welder.addRecipeX(T, 1024, 512, array(tag(0), plateCurved.mat(MT.Ti, 4), pipeMedium.mat(MT.Cr, 2)), advEngine);
+        Welder.addRecipeX(
+            T,
+            1024,
+            512,
+            ST.array(ST.tag(0), plateCurved.mat(MT.Ti, 4), pipeMedium.mat(MT.Cr, 2)),
+            advEngine);
 
         RollFormer.addRecipe1(T, 256, 128, plateCurved.mat(MT.StainlessSteel, 2), fuelTank);
 
-        Welder.addRecipe2(T, 256, 64, plateDouble.mat(MT.StainlessSteel, 2), gear.mat(MT.Cr, 4), airLock);
+        Welder.addRecipeX(
+            T,
+            256,
+            64,
+            ST.array(plateDouble.mat(MT.StainlessSteel, 2), gear.mat(MT.StainlessSteel, 4), IL.MOTORS[4].get(1)),
+            airLock);
 
     }
 

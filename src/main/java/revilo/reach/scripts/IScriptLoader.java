@@ -1,13 +1,16 @@
 package revilo.reach.scripts;
 
-import gregapi.code.ModData;
-
 import java.util.List;
 
-import cpw.mods.fml.common.Loader;
-
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+
+import cpw.mods.fml.common.Loader;
+import gregapi.code.ModData;
+import gregapi.data.MD;
+import gregapi.util.ST;
 
 /**
  * Base Interface for Recipe Scripts.
@@ -33,7 +36,9 @@ public interface IScriptLoader {
     /*
      * Get the default ModData for use in ItemStacks.
      */
-    default ModData getModData() {}
+    default ModData getModData() {
+        return MD.MC;
+    }
 
     /**
      * Method to override in order to load the recipes. Runs in Post-Init.
@@ -59,55 +64,71 @@ public interface IScriptLoader {
         return true;
     }
 
+    // Utility functions //
+
     /*
-    * Creates an itemstack with NBT.
-    */
+     * Creates an itemstack with NBT.
+     */
     default ItemStack make(ModData mModData, String aName, long aSize, long aMeta, NBTTagCompound aNBT) {
         ItemStack aStack = ST.make(mModData, aName, aSize, aMeta);
-        if (aStack != null) ItemStack aStackNBT = ST.nbt(aStack, aNBT);
-        if (aStackNBT != null) return aStackNBT;
+        ItemStack aStackNBT = null;
+        if (ST.valid(aStack)) aStackNBT = ST.nbt(aStack, aNBT);
+        if (ST.valid(aStackNBT)) return aStackNBT;
         return null;
     }
 
-     default ItemStack make(String aName, long aSize, long aMeta, NBTTagCompound aNBT) {
-         ItemStack aStack = make(getModData(), aName, aSize, aMeta, aNBT);
-        if (aStack != null) return aStack;
+    default ItemStack make(String aName, long aSize, long aMeta, NBTTagCompound aNBT) {
+        ItemStack aStack = make(getModData(), aName, aSize, aMeta, aNBT);
+        if (ST.valid(aStack)) return aStack;
         return null;
-     }
+    }
 
     default ItemStack make(String aName, long aSize, long aMeta) {
-         ItemStack aStack = make(aName, aSize, aMeta, null);
-        if (aStack != null) return aStack;
+        ItemStack aStack = ST.make(getModData(), aName, aSize, aMeta);
+        if (ST.valid(aStack)) return aStack;
         return null;
-     }
+    }
 
     default ItemStack make(String aName, long aSize) {
-         ItemStack aStack = make(aName, aSize, 0);
-        if (aStack != null) return aStack;
+        ItemStack aStack = make(aName, aSize, 0);
+        if (ST.valid(aStack)) return aStack;
         return null;
-     }
+    }
 
     default ItemStack make(String aName) {
-         ItemStack aStack = make(aName, 1);
-        if (aStack != null) return aStack;
+        ItemStack aStack = make(aName, 1);
+        if (ST.valid(aStack)) return aStack;
         return null;
-     }
+    }
 
     default ItemStack make(ModData aModData, String aName, long aSize, long aMeta) {
-         ItemStack aStack = make(aModData, aName, aSize, aMeta, null);
-        if (aStack != null) return aStack;
+        ItemStack aStack = ST.make(aModData, aName, aSize, aMeta);
+        if (ST.valid(aStack)) return aStack;
         return null;
-     }
+    }
 
     default ItemStack make(ModData aModData, String aName, long aSize) {
-         ItemStack aStack = make(aModData, aName, aSize, 0);
-        if (aStack != null) return aStack;
+        ItemStack aStack = make(aModData, aName, aSize, 0);
+        if (ST.valid(aStack)) return aStack;
         return null;
-     }
+    }
 
     default ItemStack make(ModData aModData, String aName) {
-         ItemStack aStack = make(aModData, aName, 1);
-        if (aStack != null) return aStack;
+        ItemStack aStack = make(aModData, aName, 1);
+        if (ST.valid(aStack)) return aStack;
         return null;
-     }
+    }
+
+    default ItemStack make(Item aItem, long aSize, long aMeta) {
+        ItemStack aStack = make(aItem, aSize, aMeta);
+        if (ST.valid(aStack)) return aStack;
+        return null;
+    }
+
+    default ItemStack make(Block aBlock, long aSize, long aMeta) {
+        ItemStack aStack = make(aBlock, aSize, aMeta);
+        if (ST.valid(aStack)) return aStack;
+        return null;
+    }
+
 }

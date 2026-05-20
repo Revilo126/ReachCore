@@ -53,7 +53,13 @@ public class LoaderRecipesChems implements Runnable {
         // RCRM.GasCentrifuge.addRecipe0(T, 256, 2048, MT.UF6.gas(144, F), MT.U238F6.gas(143, F), MT.U235F6.gas(1, F));
 
         RM.BurnMixer.addRecipe1(T, 16, 2048, OP.dust.mat(MT.P, 1), MT.Cl.gas(6 * U, T), NF, RCMT.PCL3.liquid(1 * U, T));
-        RM.Mixer
-            .addRecipe0(T, 16, 1024, RCMT.PCL3.liquid(2 * U, T), FL.Oxygen.make(1 * U), RCMT.POCL3.liquid(2 * U, T));
+        RM.Mixer.addRecipe1(
+            T,
+            16,
+            1024,
+            NI,
+            FL.array(RCMT.PCL3.liquid(2 * U, T), FL.Oxygen.make(1 * U)),
+            RCMT.POCL3.liquid(2 * U, T),
+            NI);
     }
 }

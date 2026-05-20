@@ -18,7 +18,8 @@ public class LoaderRecipesPlastics implements Runnable {
     public void run() {
         OUT.println("Reach: Loading Plastic Recipes.");
 
-        // PVC //
+        // PVC
+
         RCRM.Polymerization.addRecipe1(T, 16, 4096, ST.tag(0), RCMT.VCM.gas(144, F), NF, OP.dust.mat(RCMT.PVC, 1));
         RM.BurnMixer
             .addRecipe0(T, 16, 128, FL.array(FL.Ethylene.make(30), MT.Cl.gas(10, F)), RCMT.EDC.liquid(56, F), NI);
@@ -31,7 +32,7 @@ public class LoaderRecipesPlastics implements Runnable {
             FL.array(RCMT.VCM.gas(36, F), MT.HCl.gas(20, F)),
             NI);
 
-        // SBR // TODO: Make Styrene and Benzene
+        // SBR TODO: Make Styrene and Benzene
         // RM.Mixer.addRecipe0(T, 16, 128, FL.array(MT.Sty), );
     }
 

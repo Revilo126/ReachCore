@@ -14,7 +14,7 @@ import gregapi.util.ST;
 import gregapi.util.UT;
 import revilo.reach.loaders.helper.Loader;
 
-@Loader.PreInit(priority = 1)
+@Loader.Init(priority = 1)
 public class LoaderLoot implements Runnable {
 
     @Override

@@ -135,6 +135,7 @@ public class RecipeUtil implements Runnable {
 
     /*
      * To replace the need to get the registry
+     * Doesn't work using GregTech's ModData as its MTE registry is gt not gregtech
      */
     public static ItemStack getTile(ModData aModData, int aID) {
         ItemStack i = make(aModData, aModData.mID + ".multitileentity", 1, aID);
@@ -143,6 +144,18 @@ public class RecipeUtil implements Runnable {
         }
         ERR.println(
             String.format("Reach: Couldn't retrieve TileEntity from Mod: %s With the id: %d", aModData.mName, aID));
+        return NI;
+    }
+
+    /*
+     * To retrieve from GregTech
+     */
+    public static ItemStack getTile(int aID) {
+        ItemStack i = make(MD.GT, "gt.multitileentity", 1, aID);
+        if (valid(i)) {
+            return i;
+        }
+        ERR.println(String.format("Reach: Couldn't retrieve TileEntity from Mod: GregTech With the id: %d", aID));
         return NI;
     }
 

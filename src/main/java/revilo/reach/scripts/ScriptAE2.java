@@ -21,10 +21,12 @@ import gregapi.data.MD;
 import gregapi.data.MT;
 import gregapi.data.RM;
 import gregapi.util.ST;
+import revilo.reach.recipes.RecipeUtil;
 
 public class ScriptAE2 implements IScriptLoader {
 
     ItemStack Controller = make(AE, "tile.BlockController", 1, 0), Drive = make(AE, "tile.BlockDrive", 1, 0),
+        MEChest = make(AE, "tile.BlockChest", 1, 0),
 
         CraftingUnit = make(AE, "tile.BlockCraftingUnit", 1, 0),
         CraftingUnit1 = make(AE, "tile.BlockCraftingUnit", 1, 1),
@@ -128,6 +130,22 @@ public class ScriptAE2 implements IScriptLoader {
             IL.EMITTERS[6],
             'H',
             StorageHousing);
+        shaped(
+            MEChest,
+            DEF_REM_REV,
+            "wTd",
+            "NCN",
+            "SFS",
+            'T',
+            Terminal,
+            'N',
+            plate.mat(MT.NiobiumTitanium, 1),
+            'C',
+            RecipeUtil.getTile(12),
+            'S',
+            screw.mat(MT.NiobiumTitanium, 1),
+            'F',
+            FluixCable);
 
         shaped(
             CraftingUnit,
@@ -328,7 +346,7 @@ public class ScriptAE2 implements IScriptLoader {
             'S',
             screw.mat(MT.Ti, 1),
             'T',
-            "itemIllumitatedPanel");
+            "itemIlluminatedPanel");
         shapeless(
             CraftingTerminal,
             DEF_REM_REV,

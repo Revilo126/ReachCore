@@ -36,7 +36,7 @@ public class RCRM {
     public static final RecipeMap InterPlanetarySiphon = RecipeMapBuilder
         .builder("reach.recipe.planetarysyphon", "Inter-Planetary Siphon")
         .setGuiPath(RCCS.RES_PATH_GUI + "machines/PlanetarySiphon")
-        .itemIO(1, 6, 0)
+        .itemIO(2, 6, 0)
         .fluidIO(1, 6, 0)
         .minimumInputs(1)
         .useBuckets(F)
