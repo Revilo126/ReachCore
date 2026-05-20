@@ -62,50 +62,50 @@ public interface IScriptLoader {
     /*
     * Creates an itemstack with NBT.
     */
-    public static ItemStack make(ModData mModData, String aName, long aSize, long aMeta, NBTTagCompound aNBT) {
+    default ItemStack make(ModData mModData, String aName, long aSize, long aMeta, NBTTagCompound aNBT) {
         ItemStack aStack = ST.make(mModData, aName, aSize, aMeta);
         if (aStack != null) ItemStack aStackNBT = ST.nbt(aStack, aNBT);
         if (aStackNBT != null) return aStackNBT;
         return null;
     }
 
-     public static ItemStack make(String aName, long aSize, long aMeta, NBTTagCompound aNBT) {
+     default ItemStack make(String aName, long aSize, long aMeta, NBTTagCompound aNBT) {
          ItemStack aStack = make(getModData(), aName, aSize, aMeta, aNBT);
         if (aStack != null) return aStack;
         return null;
      }
 
-    public static ItemStack make(String aName, long aSize, long aMeta) {
+    default ItemStack make(String aName, long aSize, long aMeta) {
          ItemStack aStack = make(aName, aSize, aMeta, null);
         if (aStack != null) return aStack;
         return null;
      }
 
-    public static ItemStack make(String aName, long aSize) {
+    default ItemStack make(String aName, long aSize) {
          ItemStack aStack = make(aName, aSize, 0);
         if (aStack != null) return aStack;
         return null;
      }
 
-    public static ItemStack make(String aName) {
+    default ItemStack make(String aName) {
          ItemStack aStack = make(aName, 1);
         if (aStack != null) return aStack;
         return null;
      }
 
-    public static ItemStack make(ModData aModData, String aName, long aSize, long aMeta) {
+    default ItemStack make(ModData aModData, String aName, long aSize, long aMeta) {
          ItemStack aStack = make(aModData, aName, aSize, aMeta, null);
         if (aStack != null) return aStack;
         return null;
      }
 
-    public static ItemStack make(ModData aModData, String aName, long aSize) {
+    default ItemStack make(ModData aModData, String aName, long aSize) {
          ItemStack aStack = make(aModData, aName, aSize, 0);
         if (aStack != null) return aStack;
         return null;
      }
 
-    public static ItemStack make(ModData aModData, String aName) {
+    default ItemStack make(ModData aModData, String aName) {
          ItemStack aStack = make(aModData, aName, 1);
         if (aStack != null) return aStack;
         return null;
